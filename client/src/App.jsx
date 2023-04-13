@@ -11,11 +11,13 @@ function App() {
       {/* {location.pathname !== "/" && <NavBar/>} */} {/*Esto para que la navbar aparezca en todos lados menos...*/}
       
       <Routes>
-        {/* <Route path='/home' element= { <Home/> } />
-        <Route path='/create' element= { <Form/> } />
-        <Route path='/home/:id' element= { <Detail/> } /> */}
+        {/* <Route path='/noticias' element= { <Form/> } />
+        <Route path='/contribuciones' element= { <Detail/> } />
+        <Route path='/planes' element= { <Home/> } />
+        <Route path='/contacto' element= { <Form/> } />
+        <Route path='/sobrenosotros' element= { <Detail/> } /> */}
         <Route path='/' element= { <Landing/> } />
-      </Routes> {/*EJEMPLO RUTEO. REMPLAZAR*/}
+      </Routes> 
     </div>
   )
 }
