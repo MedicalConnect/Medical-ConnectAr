@@ -1,8 +1,9 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
-const AModel = require('./models/A')
+// const doctor = require('./models/Doctor')
+// const paciente = require('./models/Paciente')
 const {
-    DB_USER, DB_PASSWORD, DB_HOST,DB_NAME
+    DB_USER, DB_PASSWORD, DB_HOST, DB_NAME
   } = process.env;
 
   const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
@@ -10,26 +11,26 @@ const {
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   });
 
-// const fs = require('fs');
-// const path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-// const basename = path.basename(__filename);
+const basename = path.basename(__filename);
 
-// const modelDefiners = [];
+const modelDefiners = [];
 
-// // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
-// fs.readdirSync(path.join(__dirname, '/models'))
-//   .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
-//   .forEach((file) => {
-//     modelDefiners.push(require(path.join(__dirname, '/models', file)));
-//   });
+// // // Leemos todos los archivos de la carpeta Models, los requerimos y agregamos al arreglo modelDefiners
+fs.readdirSync(path.join(__dirname, '/models'))
+  .filter((file) => (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js'))
+  .forEach((file) => {
+    modelDefiners.push(require(path.join(__dirname, '/models', file)));
+  });
 
-// // Injectamos la conexion (sequelize) a todos los modelos
-// modelDefiners.forEach(model => model(sequelize));
-// // Capitalizamos los nombres de los modelos ie: product => Product
-// let entries = Object.entries(sequelize.models);
-// let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
-// sequelize.models = Object.fromEntries(capsEntries);
+// // // Injectamos la conexion (sequelize) a todos los modelos
+modelDefiners.forEach(model => model(sequelize));
+// // // Capitalizamos los nombres de los modelos ie: product => Product
+let entries = Object.entries(sequelize.models);
+let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
+sequelize.models = Object.fromEntries(capsEntries);
 
 // hace es leer todos los archivos de la carpeta models que tengan extensión .js y no sean el archivo actual (basename). Luego, para cada archivo que cumpla con estas condiciones, requiere el archivo y lo agrega al arreglo modelDefiners.
 // Después, para cada modelo en modelDefiners, se llama a la función del modelo, pasándole la conexión (sequelize) como argumento. Esto es para que cada modelo tenga acceso a la conexión y pueda realizar consultas a la base de datos.
@@ -38,12 +39,16 @@ const {
 
 // EJ: UserModel(sequelize); 
 // EL PRIMERO MAS ESCALABRE SI HAY MUCHOS MODELOS, EL SEGUNDO SI HAY POCOS MAS DIRECTO.
-AModel(sequelize)
+// doctor(sequelize)
+// paciente(sequelize)
 
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { A } = sequelize.models;
+const { Doctor, Paciente } = sequelize.models;
+
+Doctor.belongsToMany( Paciente, {through: "Doctor_Paciente"})
+Paciente.belongsToMany( Doctor, {through: "Doctor_Paciente"})
 
 // console.log(Object.getOwnPropertyNames(sequelize.models.Activity.prototype)) Con esto puedo ver los metodos generados por sequelize para ver por ej, addCountries()
 
