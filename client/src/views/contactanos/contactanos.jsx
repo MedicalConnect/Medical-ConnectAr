@@ -8,7 +8,7 @@ const Contactanos = () => {
       <div className={styles.nav}>
         <h1>navBar</h1>
       </div>
-      <Link to="/inicio">
+      <Link to="/">
         <img
           className={styles.imgLogo}
           src="https://media.discordapp.net/attachments/1094314281123717204/1095855765731950712/Mi_proyecto_1.png"
