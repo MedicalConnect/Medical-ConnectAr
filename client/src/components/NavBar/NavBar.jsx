@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const NavBar = () => {
@@ -17,42 +18,42 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbar-Toggler">
-          <a className="navbar-brand" href="#">
-            {/* <img
-              src="../image/logo-ico.ico"
-              width="50"
+          <Link to="/">
+            <img
+              className="navbar-brand"
+              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340966044_602214545296808_1179848363389618222_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=5pDc2-rHmcUAX-CBwGv&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfDMNP9C8djD8q7xMSz86cDq0dWJC2QDkW3e38_D3DBblQ&oe=643D0581"
               alt="logo de la página web"
-            /> */}
-          </a>
+            />
+          </Link>
           <ul className="navbar-nav d-flex justify-content-center align-items-center">
             <li className="nav-item">
-              <a
+              <Link
                 className="nav-link active"
                 aria-current="page"
-                href="#sobre-mi"
+                to="/quienessomos"
               >
                 Quienes Somos?
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#proyectos">
+              <Link className="nav-link" to="/contactanos">
                 Contactanos
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#testimonios">
+              <Link className="nav-link" to="/planes">
                 Planes
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contacto">
+              <Link className="nav-link" to="/noticias">
                 Noticias Salud
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#contacto">
+              <Link className="nav-link" to="/contribuciones">
                 Contribuciones Sociales ❤️
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -73,19 +74,19 @@ const NavBar = () => {
             </a>
             <ul className="dropdown-menu ">
               <li>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to="/ingresopaciente">
                   Ingreso Pacientes
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to="/ingresomedico">
                   Ingreso Médicos
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <Link className="dropdown-item" to="/ingresoadmin">
                   Ingreso Admin
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
