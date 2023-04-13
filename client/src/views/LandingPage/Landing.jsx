@@ -6,6 +6,7 @@ import "./Landing.css"
 function Landing() {
   return (
     <div>
+      <NavBar />
       <div className="container ">
         <div className="row topheader">
           <div className="col"></div>
@@ -23,10 +24,7 @@ function Landing() {
       </div>
 
       <div className="contenedorflex">
-        <img
-          src="https://fondosmil.com/fondo/56989.jpg"
-          alt=""
-        />
+        <img src="https://fondosmil.com/fondo/56989.jpg" alt="" />
         <button type="button" className="btn btn-lg">
           Registrate ya y accede a nuestros beneficios!
         </button>
@@ -104,90 +102,179 @@ function Landing() {
       <div className="container text-left topheader">
         <div className="row row-cols-2">
           <div className="col-4 ">
-            <h2 className='titulocomo fs-1 fw'>¿Cómo funciona el servicio de Medical Connect?</h2>
-            <p className='fw-semibold'>Recibe atención médica en tu hogar o lugar de trabajo, conectándote con nuestro servicio médico para cuidar tu salud de forma efectiva y segura.</p>
-            <h4><img className='iconobebe' src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341327392_1218583425480978_1915852341125186839_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEhgW2_Qpy0jkXf3ywqqIiWWyhYjIvHWsxbKFiMi8dazO1eXinQ2hbCMUKoyL7zyYO1_RXKkaEfaEEL843i2e53&_nc_ohc=6Cr1ajhQoBMAX803puD&_nc_ht=scontent.faep23-1.fna&oh=00_AfAjAHBo8fGzi91fx_nLjnK5Qdv7iiQ0-ee1HhMLBajjOQ&oe=643BBC57" alt="" /> Crea tu cuenta</h4> 
-            <p>Llena los datos solicitados para brindarte la mejor atención. Si lo deseas, también puedes añadir a tus cargas luego de registrarte</p> 
-            <h4><img className='iconobebe' src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341026831_524029496600576_24482399002558692_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGGr1ZF-Hu696NWm8n3AqYM2Yk9ccy3eUbZiT1xzLd5RnarE_qNeIWa-SHkrAOqaY2z-YlR17YsA2h06tiPyK-4&_nc_ohc=Md06gRQSqbIAX9WJFBk&_nc_ht=scontent.faep23-1.fna&oh=00_AfDf_biYOsoKRZwsYCOIvYztsuaVa3engUokCASpWOz4gQ&oe=643C9FE7" alt="" /> Solicita una atención</h4> 
-            <p>¡Así de sencillo! Ya puedes atenderte con nosotros y recibir atenciones médicas.</p> 
-            <h4><img className='iconobebe' src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341079499_2685572111584632_2413391326035001052_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeG-ZA7dICPD2pmUalTOoS4igr5dAzoUwY2Cvl0DOhTBjag-sKkUNYo7691l0D-UOv2y2CpXN8cLDW45HYtOtze0&_nc_ohc=oday2_XGYfUAX9wW1Kc&_nc_ht=scontent.faep23-1.fna&oh=00_AfC7ghgHzx2fvq8SA83FwU1Gu-SYmJd7-hYybKb2vIg7TQ&oe=643CE849" alt="" /> Accede a mas beneficios!</h4> 
-            <p>Para mas beneficios puedes checkear nuestros planes y acceder a ellos!</p> 
-       
+            <h2 className="titulocomo fs-1 fw">
+              ¿Cómo funciona el servicio de Medical Connect?
+            </h2>
+            <p className="fw-semibold">
+              Recibe atención médica en tu hogar o lugar de trabajo,
+              conectándote con nuestro servicio médico para cuidar tu salud de
+              forma efectiva y segura.
+            </p>
+            <h4>
+              <img
+                className="iconobebe"
+                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341327392_1218583425480978_1915852341125186839_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeEhgW2_Qpy0jkXf3ywqqIiWWyhYjIvHWsxbKFiMi8dazO1eXinQ2hbCMUKoyL7zyYO1_RXKkaEfaEEL843i2e53&_nc_ohc=6Cr1ajhQoBMAX803puD&_nc_ht=scontent.faep23-1.fna&oh=00_AfAjAHBo8fGzi91fx_nLjnK5Qdv7iiQ0-ee1HhMLBajjOQ&oe=643BBC57"
+                alt=""
+              />{" "}
+              Crea tu cuenta
+            </h4>
+            <p>
+              Llena los datos solicitados para brindarte la mejor atención. Si
+              lo deseas, también puedes añadir a tus cargas luego de registrarte
+            </p>
+            <h4>
+              <img
+                className="iconobebe"
+                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341026831_524029496600576_24482399002558692_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeGGr1ZF-Hu696NWm8n3AqYM2Yk9ccy3eUbZiT1xzLd5RnarE_qNeIWa-SHkrAOqaY2z-YlR17YsA2h06tiPyK-4&_nc_ohc=Md06gRQSqbIAX9WJFBk&_nc_ht=scontent.faep23-1.fna&oh=00_AfDf_biYOsoKRZwsYCOIvYztsuaVa3engUokCASpWOz4gQ&oe=643C9FE7"
+                alt=""
+              />{" "}
+              Solicita una atención
+            </h4>
+            <p>
+              ¡Así de sencillo! Ya puedes atenderte con nosotros y recibir
+              atenciones médicas.
+            </p>
+            <h4>
+              <img
+                className="iconobebe"
+                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341079499_2685572111584632_2413391326035001052_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeG-ZA7dICPD2pmUalTOoS4igr5dAzoUwY2Cvl0DOhTBjag-sKkUNYo7691l0D-UOv2y2CpXN8cLDW45HYtOtze0&_nc_ohc=oday2_XGYfUAX9wW1Kc&_nc_ht=scontent.faep23-1.fna&oh=00_AfC7ghgHzx2fvq8SA83FwU1Gu-SYmJd7-hYybKb2vIg7TQ&oe=643CE849"
+                alt=""
+              />{" "}
+              Accede a mas beneficios!
+            </h4>
+            <p>
+              Para mas beneficios puedes checkear nuestros planes y acceder a
+              ellos!
+            </p>
           </div>
           <div className="col">
-            <img src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg" alt="" />
+            <img
+              src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg"
+              alt=""
+            />
           </div>
         </div>
-    </div>
+      </div>
 
-      <div className='padretarjeta'>
-        <div className='hijotarjeta'>
+      <div className="padretarjeta">
+        <div className="hijotarjeta">
           <h3>Planes de suscripción</h3>
-          <p>Podrás contar con asistencia médica oportuna a un valor accesible, para ti y tu familia.</p>
+          <p>
+            Podrás contar con asistencia médica oportuna a un valor accesible,
+            para ti y tu familia.
+          </p>
           <button>Nuestros Planes!</button>
         </div>
-        </div>
+      </div>
 
-        <div className='carruseltitulo'>
-          <div className='carruselfondo'>
+      <div className="carruseltitulo">
+        <div className="carruselfondo">
           <h2>Conoce la experiencia de nuestros usuarios</h2>
-          <p>Una nueva forma de hacer salud, mas cercana, resolutiva y accesible</p>
-          <button type="button" className="btn btn-outline-light">Conoce nuestros planes!</button>
+          <p>
+            Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
+          </p>
+          <button type="button" className="btn btn-outline-light">
+            Conoce nuestros planes!
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="testimonios-carrusel"
+        className="carousel carousel-dark slide"
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <div className="container">
+              <img
+                className="testimonio-imagen rounded-circle"
+                src="https://images.pexels.com/photos/6248821/pexels-photo-6248821.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Foto de Gino"
+              />
+              <p className="testimonio-texto">
+                "Estoy muy agradecido por el servicio que recibí de Medical
+                Connect. La plataforma de videollamadas es muy fácil de usar y
+                el médico que me atendió fue muy amable y eficiente. Me
+                diagnosticó rápidamente y me dio un tratamiento que me ayudó a
+                sentirme mejor. Definitivamente recomendaría esta aplicación a
+                cualquier persona que busque atención médica conveniente y
+                confiable".
+              </p>
+              <div className="testimonio-info">
+                <p className="cliente">Gino</p>
+                <p className="cargo">Gerente de proyectos en desarrollo web</p>
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="container">
+              <img
+                className="testimonio-imagen rounded-circle"
+                src="https://images.pexels.com/photos/3846049/pexels-photo-3846049.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Foto de Leonardo"
+              />
+              <p className="testimonio-texto">
+                "Tuve una experiencia maravillosa con Medical Connect. Mi médico
+                me atendió enseguida y fue muy detallado en su explicación de mi
+                condición. La aplicación en sí es muy fácil de usar y estoy muy
+                contento con la calidad del servicio que recibí. Definitivamente
+                volveré a usarla en el futuro".
+              </p>
+              <div className="testimonio-info">
+                <p className="cliente">Nora</p>
+                <p className="cargo">Director de Aprende a Programar</p>
+              </div>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <div className="container">
+              <img
+                className="testimonio-imagen rounded-circle"
+                src="https://www.cronica.com.ar/__export/1628282194594/sites/cronica/img/2021/08/06/maxi_2_crop1628279776764.jpg_315917931.jpg"
+                alt="Foto de Nora"
+              />
+              <p className="testimonio-texto">
+                "Medical Connect me sorprendió con su eficiencia y facilidad de
+                uso. Nunca había tenido una consulta médica en línea, pero el
+                médico que me atendió fue muy amable y profesional. Me sentí muy
+                cómodo durante toda la consulta y me encantó no tener que salir
+                de mi casa. Definitivamente lo recomiendo a cualquier persona
+                que busque atención médica accesible y de calidad".
+              </p>
+              <div className="testimonio-info">
+                <p className="cliente">Leonardo</p>
+                <p className="cargo">Asador profesional</p>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div id="testimonios-carrusel" className="carousel carousel-dark slide" data-bs-ride="carousel">
-		<div className="carousel-inner">
-			<div className="carousel-item active">
-				<div className="container">
-					<img className="testimonio-imagen rounded-circle" src="https://images.pexels.com/photos/6248821/pexels-photo-6248821.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Foto de Gino"/>
-					<p className="testimonio-texto">"Estoy muy agradecido por el servicio que recibí de Medical Connect. La plataforma de videollamadas es muy fácil de usar y el médico que me atendió fue muy amable y eficiente. Me diagnosticó rápidamente y me dio un tratamiento que me ayudó a sentirme mejor. Definitivamente recomendaría esta aplicación a cualquier persona que busque atención médica conveniente y confiable".
-					</p>
-					<div className="testimonio-info">
-						<p className="cliente">Gino</p>
-						<p className="cargo">Gerente de proyectos en desarrollo web</p>
-					</div>
-				</div>
-
-			</div>
-			<div className="carousel-item">
-				<div className="container">
-					<img className="testimonio-imagen rounded-circle" src="https://images.pexels.com/photos/3846049/pexels-photo-3846049.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Foto de Leonardo"/>
-					<p className="testimonio-texto">"Tuve una experiencia maravillosa con Medical Connect. Mi médico me atendió enseguida y fue muy detallado en su explicación de mi condición. La aplicación en sí es muy fácil de usar y estoy muy contento con la calidad del servicio que recibí. Definitivamente volveré a usarla en el futuro".
-					</p>
-					<div className="testimonio-info">
-						<p className="cliente">Nora</p>
-						<p className="cargo">Director de Aprende a Programar</p>
-					</div>
-				</div>
-
-			</div>
-			<div className="carousel-item">
-				<div className="container">
-					<img className="testimonio-imagen rounded-circle" src="https://www.cronica.com.ar/__export/1628282194594/sites/cronica/img/2021/08/06/maxi_2_crop1628279776764.jpg_315917931.jpg" alt="Foto de Nora"/>
-					<p className="testimonio-texto">"Medical Connect me sorprendió con su eficiencia y facilidad de uso. Nunca había tenido una consulta médica en línea, pero el médico que me atendió fue muy amable y profesional. Me sentí muy cómodo durante toda la consulta y me encantó no tener que salir de mi casa. Definitivamente lo recomiendo a cualquier persona que busque atención médica accesible y de calidad".
-
-					</p>
-					<div className="testimonio-info">
-						<p className="cliente">Leonardo</p>
-						<p className="cargo">Asador profesional</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<button className="carousel-control-prev" type="button" data-bs-target="#testimonios-carrusel" data-bs-slide="prev">
-			<span className="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span className="visually-hidden">Anterior</span>
-		</button>
-		<button className="carousel-control-next" type="button" data-bs-target="#testimonios-carrusel" data-bs-slide="next">
-			<span className="carousel-control-next-icon" aria-hidden="true"></span>
-			<span className="visually-hidden">Siguiente</span>
-		</button>
-	</div>
-  
-     
-     
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#testimonios-carrusel"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Anterior</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#testimonios-carrusel"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+      <Footer />
     </div>
   );
 }
