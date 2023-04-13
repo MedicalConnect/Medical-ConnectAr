@@ -1,5 +1,8 @@
+
 import React from 'react'
 import "./Landing.css"
+import React from "react";
+
 
 function Landing() {
   return (
@@ -190,4 +193,4 @@ function Landing() {
   );
 }
 
-export default Landing
+export default Landing;
