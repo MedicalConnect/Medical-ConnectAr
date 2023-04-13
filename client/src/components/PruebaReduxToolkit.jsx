@@ -6,8 +6,6 @@ import styles from "./PruebaReduxToolKit.module.css"
 function PruebaReduxToolkit() {
     const dispatch = useDispatch()
     const allCharacters = useSelector(state=>state.characters.characters)
-
-    console.log(allCharacters)
    
     useEffect(()=>{
       dispatch(getCharacters())
