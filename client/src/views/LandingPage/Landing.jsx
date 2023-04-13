@@ -1,7 +1,6 @@
-
 import React from 'react'
 import "./Landing.css"
-import React from "react";
+
 
 
 function Landing() {
@@ -33,8 +32,8 @@ function Landing() {
         </button>
       </div>
 
-      <div className="container ">
-        <div className="row topheader">
+      <div className="container topheader">
+        <div className="row ">
           <div className="col"></div>
           <div className="col-9 text-center">
             <h2 className="fw-bold fs-1">Que es Medical Connect?</h2>
@@ -102,8 +101,8 @@ function Landing() {
         </div>
       </div>
 
-      <div className="container text-left">
-        <div className="row row-cols-2 topheader">
+      <div className="container text-left topheader">
+        <div className="row row-cols-2">
           <div className="col-4 ">
             <h2 className='titulocomo fs-1 fw'>¿Cómo funciona el servicio de Medical Connect?</h2>
             <p className='fw-semibold'>Recibe atención médica en tu hogar o lugar de trabajo, conectándote con nuestro servicio médico para cuidar tu salud de forma efectiva y segura.</p>
