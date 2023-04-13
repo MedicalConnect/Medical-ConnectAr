@@ -1,14 +1,14 @@
-import React from 'react'
-import PruebaReduxToolKit from "../../components/PruebaReduxToolkit"
+import React from "react";
+import QuienesSomos from "../quienesSomos/quienesSomos";
+import Contactanos from "../contactanos/contactanos";
 
 function Landing() {
   return (
     <div>
-        <h1>LANDING</h1>
-        <h2>PRUEBA REDUX TOOLKIT</h2>
-        <PruebaReduxToolKit/>
+      <QuienesSomos />
+      {/* <Contactanos /> */}
     </div>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

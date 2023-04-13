@@ -1,0 +1,56 @@
+.imgLogo {
+  width: 18%;
+  height: 86%;
+  border: transparent;
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.container {
+  margin-top: 1em;
+  margin-left: 6em;
+  margin-right: 8em;
+}
+
+.title {
+  color: rgb(174, 13, 180);
+  text-align: center;
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5em;
+}
+
+.page {
+  font-size: -0.9em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  flex-direction: column-reverse;
+  margin-top: 2em;
+  flex-wrap: nowrap;
+  width: 45em;
+  border: transparent;
+  border-radius: 3em;
+  background-color: rgba(125, 213, 213, 0.52);
+}
+
+input {
+  border-radius: 1em;
+}
+
+.footer {
+  margin-top: 20em;
+  text-align: center;
+}
