@@ -1,14 +1,15 @@
-import React from 'react'
-import PruebaReduxToolKit from "../../components/PruebaReduxToolkit"
+import React from "react";
+import PruebaReduxToolKit from "../../components/PruebaReduxToolkit";
+import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
 
 function Landing() {
   return (
     <div>
-        <h1>LANDING</h1>
-        <h2>PRUEBA REDUX TOOLKIT</h2>
-        <PruebaReduxToolKit/>
+      <NavBar />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

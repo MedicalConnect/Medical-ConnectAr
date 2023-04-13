@@ -2,6 +2,7 @@ import { Landing } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from 'react-router-dom'; //para rutear en app y trabajar directo en los componentes.
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
+
 function App() {
 
   const location = useLocation()
