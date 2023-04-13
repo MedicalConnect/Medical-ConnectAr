@@ -7,3 +7,9 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.navbar-brand {
+  width: 13%;
+  height: 84%;
+  border: transparent;
+}

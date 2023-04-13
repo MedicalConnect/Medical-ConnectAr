@@ -6,15 +6,12 @@ const QuienesSomos = () => {
   return (
     <div className={styles.container}>
       <div className="row">
-        <Link to="/inicio">
+        <Link to="/">
           <img
             className={styles.imgLogo}
             src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340966044_602214545296808_1179848363389618222_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=5pDc2-rHmcUAX-OK_c6&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfCFKdDeIx6kNQcBlFEPmxbB3UV9LktvVYFIQr6cVt7NKg&oe=643D0581"
           />
         </Link>
-        <div className={styles.nav}>
-          <h1>navBar</h1>
-        </div>
         <div className="col-md-12">
           <h1 className={styles.title}>Quienes Somos</h1>
           <p className={styles.description}>

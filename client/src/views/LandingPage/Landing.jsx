@@ -6,7 +6,6 @@ import "./Landing.css"
 function Landing() {
   return (
     <div>
-      <NavBar />
       <div className="container ">
         <div className="row topheader">
           <div className="col"></div>
@@ -274,7 +273,6 @@ function Landing() {
           <span className="visually-hidden">Siguiente</span>
         </button>
       </div>
-      <Footer />
     </div>
   );
 }
