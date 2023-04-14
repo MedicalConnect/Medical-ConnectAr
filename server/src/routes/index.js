@@ -1,11 +1,9 @@
 const { Router } = require('express');
+const { pacientsRoutes } = require('../routes/pacientsRoutes')
 // Importar todos los routers;
 
+
 const mainRouter = Router();
-
-// Configurar los routers
-
-
-
+mainRouter.use('/pacients', pacientsRoutes)
 
 module.exports = mainRouter;

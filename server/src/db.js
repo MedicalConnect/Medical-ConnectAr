@@ -49,6 +49,8 @@ const { Doctor, Paciente } = sequelize.models;
 
 Doctor.belongsToMany( Paciente, {through: "Doctor_Paciente"})
 Paciente.belongsToMany( Doctor, {through: "Doctor_Paciente"})
+//Paciente.hasOne(HistoriaClinica)
+
 
 // console.log(Object.getOwnPropertyNames(sequelize.models.Activity.prototype)) Con esto puedo ver los metodos generados por sequelize para ver por ej, addCountries()
 
