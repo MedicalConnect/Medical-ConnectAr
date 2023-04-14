@@ -45,10 +45,15 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Doctor, Paciente } = sequelize.models;
+const { Doctor, Paciente, HistoriaClinica  } = sequelize.models;
 
 Doctor.belongsToMany( Paciente, {through: "Doctor_Paciente"})
 Paciente.belongsToMany( Doctor, {through: "Doctor_Paciente"})
+HistoriaClinica.Paciente =HistoriaClinica.belongsTo(Paciente)
+// Paciente.HistoriaClinica =Paciente.belongsTo(HistoriaClinica)
+
+
+
 
 // console.log(Object.getOwnPropertyNames(sequelize.models.Activity.prototype)) Con esto puedo ver los metodos generados por sequelize para ver por ej, addCountries()
 
