@@ -10,7 +10,9 @@ import Planes from "./views/planes/Planes";
 import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
 import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
-import HistorialClinico from "./views/historialclinico/HistorialClinico";
+import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
+import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
+
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
@@ -32,6 +34,8 @@ function App() {
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
         <Route path="/ingresomedico" element={<IngresoMedicos />} />
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
+        <Route path="/perfilmedico" element={<PerfilMedico />} />
+        <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />

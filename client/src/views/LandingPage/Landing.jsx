@@ -1,5 +1,7 @@
-import React from "react";
-import "./Landing.css";
+import React from 'react'
+import "./Landing.css"
+
+
 
 function Landing() {
   return (
@@ -27,8 +29,8 @@ function Landing() {
         </button>
       </div>
 
-      <div className="container ">
-        <div className="row topheader">
+      <div className="container topheader">
+        <div className="row ">
           <div className="col"></div>
           <div className="col-9 text-center">
             <h2 className="fw-bold fs-1">Que es Medical Connect?</h2>
@@ -96,8 +98,8 @@ function Landing() {
         </div>
       </div>
 
-      <div className="container text-left">
-        <div className="row row-cols-2 topheader">
+      <div className="container text-left topheader">
+        <div className="row row-cols-2">
           <div className="col-4 ">
             <h2 className="titulocomo fs-1 fw">
               ¿Cómo funciona el servicio de Medical Connect?
@@ -146,6 +148,7 @@ function Landing() {
           </div>
           <div className="col">
             <img
+            className='padreimagen'
               src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg"
               alt=""
             />
