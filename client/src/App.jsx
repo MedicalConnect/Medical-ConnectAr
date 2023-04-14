@@ -13,6 +13,7 @@ import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
 import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
 import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
 
+
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
 function App() {
@@ -20,10 +21,11 @@ function App() {
 
   return (
     <div>
-      {/* {location.pathname !== "/" && <NavBar/>} */}{" "}
+      {location.pathname !== "/historialclinico" && <NavBar />}
       {/*Esto para que la navbar aparezca en todos lados menos...*/}
-      <NavBar />
+
       <Routes>
+        <Route path="/historialclinico" element={<HistorialClinico />} />
         <Route path="/quienessomos" element={<QuienesSomos />} />
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/planes" element={<Planes />} />
