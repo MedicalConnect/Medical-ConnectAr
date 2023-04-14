@@ -6,10 +6,10 @@ import ContribucionesSociales from "./views/contribuciones/ContribucionesSociale
 import NoticiasSalud from "./views/noticiasalud/NoticiasSalud";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import Planes from "./views/planes/planes";
-import IngresoPacientes from "./views/ingresopacientes/ingresoPacientes";
-import IngresoMedicos from "./views/ingresomedicos/ingresoMedicos";
-import IngresoAdmin from "./views/ingresoadmin/ingresoAdmin";
+import Planes from "./views/planes/Planes";
+import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
+import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
+import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
