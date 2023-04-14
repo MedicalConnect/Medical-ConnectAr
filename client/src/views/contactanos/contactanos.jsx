@@ -1,21 +1,11 @@
 import React from "react";
 import styles from "./contactanos.module.css";
-import { Link } from "react-router-dom";
 
 const Contactanos = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.nav}>
-        <h1>navBar</h1>
-      </div>
-      <Link to="/">
-        <img
-          className={styles.imgLogo}
-          src="https://media.discordapp.net/attachments/1094314281123717204/1095855765731950712/Mi_proyecto_1.png"
-        />
-      </Link>
       <h1 className={styles.title}>Quieres comunicarte con nosotros?</h1>
-      <h2>Contactanos!</h2>
+      <h2 className={styles.subtitle}>Contactanos!</h2>
       <div className={styles.page}>
         <form className={styles.form}>
           <label htmlFor="name">Name:</label>
@@ -43,8 +33,11 @@ const Contactanos = () => {
           </button>
         </form>
       </div>
-      <div className={styles.footer}>
-        <h3>footer</h3>
+      <div>
+        <img
+          src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341173446_1448950442513378_681941906338583976_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=WYozNEdUn2oAX9h0fq1&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfBTLWOvNUJpIxF0PecC3T3tCZkSGkYZtbGi4HHwpAyO2w&oe=643E515E"
+          alt="medicos"
+        />
       </div>
     </div>
   );
