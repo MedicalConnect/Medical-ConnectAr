@@ -1,0 +1,97 @@
+.bg-gradiente-white-sky-blue {
+  text-align: center;
+  color: rgb(174, 13, 180);
+  padding: 35px;
+}
+
+.h5subtitulo {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.d-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  margin: 15px;
+  border-radius: 19pt;
+  background-color: #fff;
+  border: 1px solid #e9e9e9;
+}
+
+.btn-primary {
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.enviar:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.28),
+    0 20px 55px 0 rgba(0, 0, 0, 0.22);
+}
+.btn-primary1 {
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 20px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.enviar:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.28),
+    0 20px 55px 0 rgba(0, 0, 0, 0.22);
+}
+/* padding: 24pt 48pt; */
+
+.btn2 {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid rgba(216, 57, 57, 0.801);
+  border-radius: 50%;
+  transition: all 0.2s ease-in;
+}
+
+.btn2 {
+  color: rgba(0, 89, 255, 0.774);
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+}
+
+.btn2:hover {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(61, 207, 32, 0.568);
+}
+
+.btn2:hover i {
+  color: rgb(226, 206, 29);
+}

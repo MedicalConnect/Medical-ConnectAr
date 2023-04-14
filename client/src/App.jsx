@@ -6,10 +6,11 @@ import ContribucionesSociales from "./views/contribuciones/ContribucionesSociale
 import NoticiasSalud from "./views/noticiasalud/NoticiasSalud";
 import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import Planes from "./views/planes/planes";
-import IngresoPacientes from "./views/ingresopacientes/ingresoPacientes";
-import IngresoMedicos from "./views/ingresomedicos/ingresoMedicos";
-import IngresoAdmin from "./views/ingresoadmin/ingresoAdmin";
+import Planes from "./views/planes/Planes";
+import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
+import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
+import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
+import HistorialClinico from "./views/historialclinico/HistorialClinico";
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
@@ -18,10 +19,11 @@ function App() {
 
   return (
     <div>
-      {/* {location.pathname !== "/" && <NavBar/>} */}{" "}
+      {location.pathname !== "/historialclinico" && <NavBar />}
       {/*Esto para que la navbar aparezca en todos lados menos...*/}
-      <NavBar />
+
       <Routes>
+        <Route path="/historialclinico" element={<HistorialClinico />} />
         <Route path="/quienessomos" element={<QuienesSomos />} />
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/planes" element={<Planes />} />

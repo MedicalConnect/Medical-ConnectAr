@@ -3,8 +3,9 @@ footer {
   }
   .seccion-oscura {
     color: white;
-    background-color: #1b1b32;
+    background-color:#248378;
   }
+  /* #1b1b32 */
   .footer-logo {
     height: 150px;
     width: 200px;

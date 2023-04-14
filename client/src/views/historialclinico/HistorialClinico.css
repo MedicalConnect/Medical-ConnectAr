@@ -1,0 +1,21 @@
+.h5subtitulo {
+    margin-top: 0.3em;
+      height: 150px; 
+    /* width: 200px;  */
+    margin: 50px;
+}
+.texto1 {
+    display: flex;
+    justify-content: center;
+   
+    
+}
+.row {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+
+
+}
