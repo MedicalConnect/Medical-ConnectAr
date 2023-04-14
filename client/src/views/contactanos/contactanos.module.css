@@ -20,6 +20,10 @@
   text-align: center;
 }
 
+.subtitle {
+  color: rgb(174, 13, 180);
+}
+
 .nav {
   text-align: center;
   margin-bottom: 2em;
