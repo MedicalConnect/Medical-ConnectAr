@@ -10,6 +10,8 @@ import Planes from "./views/planes/Planes";
 import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
 import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
+import Formpaciente from "./views/crearcuentamedico/FormPaciente";
+import FormMedico from "./views/crearcuentapaciente/FormMedico";
 import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
 import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
 
@@ -18,11 +20,12 @@ import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
 
 function App() {
   const location = useLocation();
+  const excludedRoutes = ["/ingresopaciente", "/ingresomedico", "/ingresoadmin","/creacionpaciente","/creacionmedico"];
 
   return (
     <div>
-      {location.pathname !== "/historialclinico" && <NavBar />}
-      {/*Esto para que la navbar aparezca en todos lados menos...*/}
+
+      {!excludedRoutes.includes(location.pathname) && <NavBar />}
 
       <Routes>
         <Route path="/historialclinico" element={<HistorialClinico />} />
@@ -34,6 +37,8 @@ function App() {
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
         <Route path="/ingresomedico" element={<IngresoMedicos />} />
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
+        <Route path="/creacionpaciente" element={<Formpaciente />} />
+        <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/" element={<Landing />} />

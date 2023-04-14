@@ -6,13 +6,13 @@ const Planes = () => {
   return (
     <>
       <div>
-        <div class="container text-center">
-          <div class="row row-cols-2">
-            <div class="col-12">
-              <h1>Nuestros Planes</h1>
+        <div className="container text-center">
+          <div className="row row-cols-2">
+            <div className="col-12">
+              <h1 className="subtitulos">Nuestros Planes</h1>
             </div>
             <div className="col-12">
-              <p class="fst-italic fw-medium">
+              <p className="fst-italic fw-medium">
                 Contamos con planes individuales y familiares diseñados para
                 entregarte una mejor experiencia de servicio,
                 <br /> a precios accesibles y convenientes.
@@ -21,9 +21,9 @@ const Planes = () => {
           </div>
         </div>
 
-        <div class="container text-center cajaplantitulo">
-          <div class="row row-cols-2">
-            <div class="col">
+        <div className="container text-center cajaplantitulo">
+          <div className="row row-cols-2">
+            <div className="col">
               <div className="padretarjetaplan">
                 <div className="hijotarjetaplan">
                   <h3 >Planes de suscripción</h3>
@@ -35,7 +35,7 @@ const Planes = () => {
                 </div>
               </div>
             </div>
-            <div class="col">
+            <div className="col">
               <div className="padretarjetaplan">
                 <div className="hijotarjetaplan">
                   <h3 >Planes de suscripción</h3>

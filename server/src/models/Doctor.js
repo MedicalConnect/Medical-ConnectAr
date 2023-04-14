@@ -38,15 +38,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         ciudad: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         partido: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         localidad: {
+         barrio: {
             type: DataTypes.STRING,
             allowNull: false
          },
@@ -54,7 +46,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         institucion_de_titulacions: {
+         institucion_de_titulacion: {
             type: DataTypes.STRING,
             allowNull: false
          },
