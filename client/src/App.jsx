@@ -12,6 +12,9 @@ import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
 import Formpaciente from "./views/crearcuentamedico/FormPaciente";
 import FormMedico from "./views/crearcuentapaciente/FormMedico";
+import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
+import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
+
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
@@ -21,8 +24,11 @@ function App() {
 
   return (
     <div>
+
       {!excludedRoutes.includes(location.pathname) && <NavBar />}
+
       <Routes>
+        <Route path="/historialclinico" element={<HistorialClinico />} />
         <Route path="/quienessomos" element={<QuienesSomos />} />
         <Route path="/contactanos" element={<Contactanos />} />
         <Route path="/planes" element={<Planes />} />
@@ -33,6 +39,8 @@ function App() {
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
         <Route path="/creacionpaciente" element={<Formpaciente />} />
         <Route path="/creacionmedico" element={<FormMedico />} />
+        <Route path="/perfilmedico" element={<PerfilMedico />} />
+        <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />

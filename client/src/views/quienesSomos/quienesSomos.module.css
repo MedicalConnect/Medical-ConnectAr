@@ -9,12 +9,6 @@
   margin-bottom: 2em;
 }
 
-.imgLogo {
-  width: 13%;
-  height: 84%;
-  border: transparent;
-}
-
 .textImgContainer {
   height: 40em;
   opacity: 0.9;
@@ -164,11 +158,6 @@ svg {
 span {
   float: left;
   vertical-align: middle;
-}
-
-.footer {
-  margin-top: 20em;
-  text-align: center;
 }
 
 .padre {
