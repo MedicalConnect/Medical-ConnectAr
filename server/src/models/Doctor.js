@@ -17,6 +17,14 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
+         tipo_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         numero_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
          fecha_de_nacimiento: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,23 +34,23 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         tipo_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         numero_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
          pais_de_origen: {
             type: DataTypes.STRING,
             allowNull: false
          },
-         barrio: {
+         ciudad: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         nacionalidad: {
             type: DataTypes.STRING,
             allowNull: false
          },
          domicilio: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         titulo: {
             type: DataTypes.STRING,
             allowNull: false
          },
@@ -61,11 +69,13 @@ module.exports = (sequelize) => {
          },
          numero_de_matricula: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            isNumeric: true
          },
          telefono: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            isNumeric: true
          },
          email: {
             type: DataTypes.STRING,

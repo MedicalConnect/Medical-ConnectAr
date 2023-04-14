@@ -17,6 +17,14 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
+         tipo_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         numero_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
          fecha_de_nacimiento: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,19 +34,19 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         tipo_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         numero_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
          pais_de_origen: {
             type: DataTypes.STRING,
             allowNull: false
          },
-         barrio: {
+         provincia: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         ciudad: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         nacionalidad: {
             type: DataTypes.STRING,
             allowNull: false
          },
@@ -56,7 +64,7 @@ module.exports = (sequelize) => {
             isEmail: true,
          },
          contraseña: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(8),
             allowNull: false
          }
         })}
