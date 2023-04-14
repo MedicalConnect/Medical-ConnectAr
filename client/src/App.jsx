@@ -10,17 +10,18 @@ import Planes from "./views/planes/Planes";
 import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
 import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
+import Formpaciente from "./views/crearcuentamedico/FormPaciente";
+import FormMedico from "./views/crearcuentapaciente/FormMedico";
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
 function App() {
   const location = useLocation();
+  const excludedRoutes = ["/ingresopaciente", "/ingresomedico", "/ingresoadmin","/creacionpaciente","/creacionmedico"];
 
   return (
     <div>
-      {/* {location.pathname !== "/" && <NavBar/>} */}{" "}
-      {/*Esto para que la navbar aparezca en todos lados menos...*/}
-      <NavBar />
+      {!excludedRoutes.includes(location.pathname) && <NavBar />}
       <Routes>
         <Route path="/quienessomos" element={<QuienesSomos />} />
         <Route path="/contactanos" element={<Contactanos />} />
@@ -30,6 +31,8 @@ function App() {
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
         <Route path="/ingresomedico" element={<IngresoMedicos />} />
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
+        <Route path="/creacionpaciente" element={<Formpaciente />} />
+        <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
