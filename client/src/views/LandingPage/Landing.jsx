@@ -148,6 +148,7 @@ function Landing() {
           </div>
           <div className="col">
             <img
+            className='padreimagen'
               src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg"
               alt=""
             />

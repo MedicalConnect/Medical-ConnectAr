@@ -3,14 +3,25 @@ h1{
 }
 
 .topheader{
-    margin-top:110px;
+    margin-top:100px;
 }
 
 .contenedorflex button{
    
-    background-color: lightblue;
-    color: black;
-    font-weight: bold;
+  background-color: #b61d69; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     position: absolute;
     top: 106%;
     left: 17%;
@@ -52,11 +63,16 @@ h1{
 }
 
 .iconobebe{
-    height: 40px;
+    height: 50px;
+    width: 50px;
+}
+.padreimagen{
+  width: 800px;
+  margin-left: 120px;
 }
 
 .hijotarjeta{
-    margin-top: -60px;
+    margin-top: -20px;
     display: flex;
    flex-direction: column;
    align-items: center;
@@ -64,7 +80,7 @@ h1{
    width: 20em;
    height: 18em;
    padding: 50px 40px 50px -10em;
-   background-image: linear-gradient(140deg, #5d7faf 0%, #bfcad8 60%);
+   background-image: linear-gradient(140deg, #ef3939 0%, #e6c7b7 60%);
    border-radius: 24px;
    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
    text-align: center;
