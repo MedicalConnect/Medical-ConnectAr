@@ -47,8 +47,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Doctor, Paciente } = sequelize.models;
 
-Doctor.belongsToMany( Paciente, {through: "Doctor_Paciente"})
-Paciente.belongsToMany( Doctor, {through: "Doctor_Paciente"})
+Doctor.belongsToMany( Paciente, {through: "Atenciones"})
+Paciente.belongsToMany( Doctor, {through: "Atenciones"})
 //Paciente.hasOne(HistoriaClinica)
 
 
