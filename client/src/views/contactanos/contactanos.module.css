@@ -4,11 +4,6 @@
   border: transparent;
 }
 
-.nav {
-  text-align: center;
-  margin-bottom: 2em;
-}
-
 .container {
   margin-top: 1em;
   margin-left: 6em;
@@ -20,37 +15,63 @@
   text-align: center;
 }
 
-.nav {
+.subtitle {
+  color: rgb(0, 0, 0);
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+}
+
+.subtitle1 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 1em;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding: 5em;
+  font-size: -0.9em;
+  justify-content: center;
+  align-items: stretch;
+  margin-top: 6em;
+  flex-wrap: nowrap;
+  width: 45em;
+  height: 46em;
+  border-radius: 3em;
+  background-color: rgba(125, 213, 213, 0.52);
+}
+
+.enviar {
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.enviar:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .page {
-  font-size: -0.9em;
   display: flex;
-  justify-content: flex-end;
-  align-items: stretch;
-  flex-direction: column-reverse;
-  margin-top: 2em;
-  flex-wrap: nowrap;
-  width: 45em;
-  border: transparent;
-  border-radius: 3em;
-  background-color: rgba(125, 213, 213, 0.52);
+  flex-direction: row;
 }
 
 input {
   border-radius: 1em;
 }
 
-.footer {
-  margin-top: 20em;
-  text-align: center;
+.imagen {
+  width: 86em;
 }

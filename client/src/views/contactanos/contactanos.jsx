@@ -1,23 +1,19 @@
 import React from "react";
 import styles from "./contactanos.module.css";
-import { Link } from "react-router-dom";
 
 const Contactanos = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.nav}>
-        <h1>navBar</h1>
+      <div>
+        <h1 className={styles.title}>Quieres comunicarte con nosotros?</h1>
+        <h2 className={styles.subtitle1}>
+          ¡Solicita información y entrégale a tus colaboradores una salud más
+          conectada!
+        </h2>
       </div>
-      <Link to="/">
-        <img
-          className={styles.imgLogo}
-          src="https://media.discordapp.net/attachments/1094314281123717204/1095855765731950712/Mi_proyecto_1.png"
-        />
-      </Link>
-      <h1 className={styles.title}>Quieres comunicarte con nosotros?</h1>
-      <h2>Contactanos!</h2>
       <div className={styles.page}>
         <form className={styles.form}>
+          <h2 className={styles.subtitle}>Contactanos!</h2>
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" />
           <label htmlFor="email">E-mail:</label>
@@ -42,9 +38,44 @@ const Contactanos = () => {
             Enviar
           </button>
         </form>
+
+        <div>
+          <div>
+            <img
+              className={styles.imagen}
+              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341173446_1448950442513378_681941906338583976_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=WYozNEdUn2oAX9h0fq1&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfBTLWOvNUJpIxF0PecC3T3tCZkSGkYZtbGi4HHwpAyO2w&oe=643E515E"
+              alt="medicos"
+            />
+          </div>
+        </div>
       </div>
-      <div className={styles.footer}>
-        <h3>footer</h3>
+      <div class="container text-center">
+        <div class="row row-cols-2">
+          <div class="col">
+            <div className="padretarjetaplan">
+              <div className="hijotarjetaplan">
+                <h3>Atención al cliente</h3>
+                <p>
+                  Estamos aquí para ayudarte en lo que necesites. Contactame si
+                  tenes alguna pregunta o inquietud.
+                </p>
+                <button>Contactar</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div className="padretarjetaplan">
+              <div className="hijotarjetaplan">
+                <h3>Soporte técnico</h3>
+                <p>
+                  Detectaste algun error en la pagina? no te preocupes! mandanos
+                  un mail y lo resolvemos a la brevedad.
+                </p>
+                <button>Contactar</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
