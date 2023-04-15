@@ -54,6 +54,25 @@ const getDoctor = async(id) => {
 
 }
 
+const updateDoctor = async(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
+    ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+    numero_de_matricula, telefono, email, contraseña) => {
+
+        await Doctor.update({fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
+            ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+            numero_de_matricula, telefono, contraseña}, 
+            {
+                where: {nombre: nombre,
+                    apellido: apellido,
+                    email: email,
+
+            }
+        })
+
+        return 'Datos actualizados con exito'
+
+}
+
 const addPacienteToDoctor = async(idDoctor, idPaciente) =>{
     const doctor= await Doctor.findOne({
         where: {id: idDoctor}
@@ -69,6 +88,7 @@ module.exports = {
     createDoctor,
     getDoctors,
     getDoctor,
+    updateDoctor,
     
 
 
