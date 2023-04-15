@@ -26,24 +26,24 @@ const Planes = () => {
             <div className="col">
               <div className="padretarjetaplan">
                 <div className="hijotarjetaplan">
-                  <h3 >Planes de suscripción</h3>
+                  <h3 >Plan Simple!</h3>
                   <p>
                     Podrás contar con asistencia médica oportuna a un valor
-                    accesible, para ti y tu familia.
+                    accesible para ti 
                   </p>
-                  <button>Nuestros Planes!</button>
+                  <button>Plan para vos solo!</button>
                 </div>
               </div>
             </div>
             <div className="col">
               <div className="padretarjetaplan">
                 <div className="hijotarjetaplan">
-                  <h3 >Planes de suscripción</h3>
+                  <h3 >Plan Familiar!</h3>
                   <p>
                     Podrás contar con asistencia médica oportuna a un valor
                     accesible, para ti y tu familia.
                   </p>
-                  <button>Nuestros Planes!</button>
+                  <button>Plan para tu familia</button>
                 </div>
               </div>
             </div>
