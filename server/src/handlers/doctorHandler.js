@@ -28,11 +28,11 @@ const getDoctorsHandler = async(req, res) => {
 }
 
 const createDoctorHandler = async(req, res) => {
-    const {nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,
+    const {nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen, provincia,
          ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
          numero_de_matricula, telefono, email, contraseña} = req.body
     try {
-        const response = await createDoctor(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,
+        const response = await createDoctor(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen, provincia,
             ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
             numero_de_matricula, telefono, email, contraseña)
 
