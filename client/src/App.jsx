@@ -14,6 +14,7 @@ import Formpaciente from "./views/crearcuentamedico/FormPaciente";
 import FormMedico from "./views/crearcuentapaciente/FormMedico";
 import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
 import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
+import HistorialClinico from "./views/historialclinico/HistorialClinico"
 
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
