@@ -1,7 +1,13 @@
 import React from "react";
+import {Link} from "react-router-dom"
+import "./ingresoAdmin.css"
 
 const IngresoAdmin = () => {
-  return <div>ingresoAdmin</div>;
+  return (
+    <div>
+    REALIZAR
+    </div>
+  );
 };
 
 export default IngresoAdmin;

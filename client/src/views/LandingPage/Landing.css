@@ -3,12 +3,15 @@ h1{
 }
 
 .topheader{
-    margin-top:100px;
+    margin-top: 50px;
 }
 
-.contenedorflex button{
-   
-  background-color: #b61d69; /* Green */
+.subtitulo1{
+  margin-top: 20px;
+}
+
+.divaviso{
+  background-color: #73c2a230; /* Green */
   border: none;
   color: white;
   padding: 0px 32px;
@@ -26,6 +29,52 @@ h1{
     top: 106%;
     left: 17%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.divaviso p{
+  color: rgb(1, 1, 1);
+  background-color: #ffffff50;
+  border-radius: 40px;
+  padding: 4px;
+}
+
+.contenedorflex .boton1{
+   
+  background-color: #b61d69; /* Green */
+  width:200px;
+  border: none;
+  color: white;
+  padding: 0px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+
+}
+
+.contenedorflex .boton2{
+  background-color: #b61d69; /* Green */
+  width:220px;
+  border: none;
+  color: white;
+  padding: 0px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+
 }
 
 .contenedorflex button:hover{
@@ -46,8 +95,13 @@ h1{
     justify-content: center;
 }
 
-.headerque{
-    margin-bottom: 400px;
+.titulolanding2{
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.subtitulolanding2{
+  margin-bottom: 70px;
 }
 
 .card{
@@ -56,6 +110,10 @@ h1{
 
 .carta{
     height: 262px;
+}
+
+.divcomo{
+  margin-top: 50px;
 }
 
 .titulocomo{
@@ -111,6 +169,7 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 60px;
 }
 
 .carruseltitulo{
@@ -118,19 +177,20 @@ h1{
   flex-direction: column;
   justify-content: center;
   align-items:center;
-  margin-top: 100px;
   text-align: left;
-  background-image: url("https://images-ext-1.discordapp.net/external/IvZCIOfd_5N1TJuiiOWE4CZ0nnpp8GDZAOmatZ3xu_4/https/images.pexels.com/photos/7195113/pexels-photo-7195113.jpeg?width=1014&height=676");
+  background-image: url("https://fondosmil.com/fondo/69573.jpg");
+  background-size: cover;
   height: 500px;
   font-weight: bold;
   opacity: 0.8;
 }
 .carruselfondo{
-    background-color: #1BB9E0;
+    background-color: #000000d3;
     padding: 15px;
     text-align: center;
     border-radius: 15px;
-    margin-top: 250px;
+    margin-top: 200px;
+    color: white;
 }
 
 .testimonios {
