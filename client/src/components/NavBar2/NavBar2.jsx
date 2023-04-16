@@ -1,8 +1,10 @@
 import React from "react";
-import {Link} from "react-router-dom"
-import "./ingresoAdmin.css"
+import { Link } from "react-router-dom";
+import "./NavBar2.css";
 
-const IngresoAdmin = () => {
+import React from "react";
+
+const NavBar2 = () => {
   return (
     <div>
       <nav class="navbar  navbar-expand-lg navbar-light">
@@ -19,4 +21,4 @@ const IngresoAdmin = () => {
   );
 };
 
-export default IngresoAdmin;
+export default NavBar2;

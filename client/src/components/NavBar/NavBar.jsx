@@ -21,7 +21,7 @@ const NavBar = () => {
           <Link to="/">
             <img
               className="navbar-brand"
-              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340966044_602214545296808_1179848363389618222_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=5pDc2-rHmcUAX-CBwGv&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfDMNP9C8djD8q7xMSz86cDq0dWJC2QDkW3e38_D3DBblQ&oe=643D0581"
+              src="../image/logo-ico.ico"
               alt="logo de la página web"
             />
           </Link>
