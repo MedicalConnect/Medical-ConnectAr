@@ -17,7 +17,7 @@ import {
   FormMedico,
   ActualizarPaciente,
   ActualizarMedico,
-  SalaDeEspera
+  SalaDeEspera,
 } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
@@ -25,11 +25,19 @@ import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en 
 
 function App() {
   const location = useLocation();
-  const excludedRoutes = ["/ingresopaciente", "/ingresomedico", "/ingresoadmin","/creacionpaciente","/creacionmedico","/actualizarpaciente","/actualizarmedico","/saladeespera"];
+  const excludedRoutes = [
+    "/ingresopaciente",
+    "/ingresomedico",
+    "/ingresoadmin",
+    "/creacionpaciente",
+    "/creacionmedico",
+    "/actualizarpaciente",
+    "/actualizarmedico",
+    "/saladeespera",
+  ];
 
   return (
     <div>
-
       {!excludedRoutes.includes(location.pathname) && <NavBar />}
 
       <Routes>
