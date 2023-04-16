@@ -1,10 +1,10 @@
-import { GET_ALL_PACIENTS, GET_ALL_DOCTORS, GET_CLINICAL_HISTORY, GET_ALL_ATENTIONS, ADD_PACIENT, ADD_DOCTOR } from "./actions/actions-types";
+import { GET_ALL_PACIENTS, GET_ALL_DOCTORS, GET_CLINICAL_HISTORY, GET_ALL_ATENTIONS, ADD_PACIENT, ADD_DOCTOR, ADD_CLINICAL_HISTORY, ADD_ATENTIONS } from "./actions/actions-types";
 
 const initialState = {
     allPacients: [],
     allDoctors:[],
     allHistoryClinical:[],
-    allAtenciones:[],
+    allAtentions:[],
 } 
 
 const reducer = (state = initialState, action) => {
@@ -49,6 +49,22 @@ const reducer = (state = initialState, action) => {
                 allDoctors: newDoctor
             }
 
+        case ADD_CLINICAL_HISTORY:
+            const newClinicalHistory = state.allHistoryClinical.slice();
+            newClinicalHistory.push(action.payload);
+            return{
+                ...state,
+                allHistoryClinical: newClinicalHistory
+                }
+
+        case ADD_ATENTIONS:
+            const newAtention = state.allAtentions.slice();
+            newAtention.push(action.payload);
+            return{
+                ...state,
+                allAtentions: newAtention
+            }
+            
         default:
             return { 
                 ...state 
