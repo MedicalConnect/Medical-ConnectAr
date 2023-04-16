@@ -11,7 +11,7 @@
 
 .textImgContainer {
   height: 40em;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .imgFlia {
@@ -27,10 +27,10 @@
   border: transparent;
   background-color: rgb(125, 213, 213);
   padding: 10px;
-  border-radius: 3em;
-  margin-top: 15em;
+  border-radius: 10em;
+  margin-top: 1em;
   font-size: large;
-  position: absolute;
+  position: relative;
   top: 72%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -43,12 +43,22 @@
   text-align: center;
 }
 
-.titleDescription {
+.textContainer {
   color: rgb(174, 13, 180);
+  margin-bottom: 1em;
+  height: 8em;
+  margin-top: 0em;
+}
+
+.titleDescription {
+  margin-bottom: -3em;
 }
 
 .description {
   text-align: center;
+  margin-top: 3em;
+  line-height: 3em;
+  font-size: 1.2em;
 }
 
 .boxContainer {
@@ -66,7 +76,7 @@
 }
 
 .htitle {
-  margin-top: 6em;
+  margin-top: 14em;
   color: rgb(174, 13, 180);
 }
 
@@ -165,7 +175,10 @@ span {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-top: 4em;
   margin-left: 2em;
+  margin-bottom: 8em;
 }
 
 .corazon {
