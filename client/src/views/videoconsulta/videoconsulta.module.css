@@ -1,0 +1,39 @@
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.title {
+  margin-bottom: 1em;
+}
+
+.formulario {
+  display: flex;
+  width: 46%;
+  flex-direction: column;
+  border-radius: 3em;
+  background-color: rgba(125, 213, 213, 0.52);
+  padding: 3em;
+  margin-left: 6em;
+  text-align: center;
+}
+
+.line {
+  color: rgb(174, 13, 180);
+}
+
+.boton {
+  margin-left: 16.5em;
+}
+
+.cajapaciente {
+  border: solid;
+  width: 50em;
+  height: 40em;
+  margin-left: 5em;
+  background-color: blanchedalmond;
+  position: sticky;
+  top: 12em;
+  bottom: 50px; /* Establece la distancia deseada desde el borde inferior de la ventana del navegador */
+}

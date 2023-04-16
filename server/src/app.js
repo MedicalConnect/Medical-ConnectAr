@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mainRouter = require ('./routes/index');
+const cors = require('cors')
 
 require('./db');
 
@@ -11,14 +12,15 @@ server.name = '';
 //NOS ENCARGAMOS QUE UN MIDDLEWARE DE EXPRESS, PASE TODA LA INFORMACION QUE LLEGA A MODO DE JSON, A OBJETO JAVASCRIPT
 server.use(express.json());
 server.use(morgan('dev'));
+server.use(cors());
 
-// server.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from
-//     res.header('Access-Control-Allow-Credentials', 'true');
-//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-//     next();
-//   });
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173'); // update to match the domain you will make the request from
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+  });
 // con la configuración adecuada de CORS puedes definir qué dominios externos tienen permitido acceder a los recursos de tu servidor y qué tipo de solicitudes se les permite realizar. Por ejemplo, puedes permitir que un dominio específico realice solicitudes GET a ciertos recursos de tu servidor, mientras que bloqueas todas las demás solicitudes.
 // De esta forma, puedes controlar quién tiene acceso a tus recursos del servidor y protegerlos de posibles ataques o intentos de acceso no autorizados.
 

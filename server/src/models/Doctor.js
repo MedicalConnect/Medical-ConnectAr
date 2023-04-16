@@ -38,6 +38,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: true
          },
+         provincia: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
          ciudad: {
             type: DataTypes.STRING,
             allowNull: true
