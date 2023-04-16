@@ -19,7 +19,8 @@ import ActualizarPaciente from "./actualizardatospacientes/ActualizarPaciente";
 import ActualizarMedico from "./actualizardatosmedico/ActualizarMedico";
 import SalaDeEspera from "./salaespera/SalaDeEspera";
 import Videoconsulta from "./videoconsulta/Videoconsulta";
-import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada"
+import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
+import NavBar2 from "../components/NavBar2/NavBar2";
 export {
   Landing,
   QuienesSomos,
@@ -41,5 +42,6 @@ export {
   ActualizarMedico,
   SalaDeEspera,
   Videoconsulta,
-  AtencionFinalizada
+  AtencionFinalizada,
+  NavBar2
 };
