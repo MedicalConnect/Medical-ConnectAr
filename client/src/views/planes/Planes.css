@@ -1,0 +1,60 @@
+
+.padretarjetaplan{
+    margin-top: 65px;
+    display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 300px;
+   width: 300px;
+   margin-left: 150px;
+   background-image: linear-gradient(140deg, #ef3939 0%, #e6c7b7 60%);
+   border-radius: 24px;
+   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+   text-align: center;
+}
+
+.hijotarjetaplan button{
+    background-color: #b61d69; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.hijotarjetaplan button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .cajaimgtxt{
+    margin-top: 70px;
+  }
+
+.cuadrotexto{
+   background-color: rgb(155, 229, 220);
+   height: 300px;
+   -webkit-border-radius: 20px;
+border-radius: 20px;
+  margin-left: -50px;
+  padding-top: 30px;
+  margin-top:90px ;
+  border: solid;
+}
+.imagencuadro{
+    height: 500px;
+    width: 800px;
+    margin-left: -190px;
+    
+}
+
+.subtitulos{
+    color: rgb(174, 13, 180);
+}
