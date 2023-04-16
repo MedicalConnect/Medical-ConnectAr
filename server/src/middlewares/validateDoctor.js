@@ -1,6 +1,6 @@
 const validateDoctor = (req, res, next) => {
     const {nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-        ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+        ciudad, nacionalidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
         numero_de_matricula, telefono, email, contraseña} = req.body
         
         const regExpEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -15,8 +15,7 @@ const validateDoctor = (req, res, next) => {
         if(!pais_de_origen) return res.status(400).send('Especifique su pais de origen')
         if(!provincia) return res.status(400).send('Especifique su provincia')
         if(!ciudad) return res.status(400).send('Especifique su ciudad de residencia')
-        if(!partido) return res.status(400).send('Especifique su partido')
-        if(!localidad) return res.status(400).send('Especifique su localidad')
+        if(!nacionalidad) return res.status(400).send('Especifique su nacionalidad')
         if(!domicilio) return res.status(400).send('Se necesita una direccion de residencia')
         if(!institucion_de_titulacions) return res.status(400).send('Especifique su institucion de titulacion')
         if(!fecha_de_titulacion) return res.status(400).send('Especifique su institucion de titulacion')
