@@ -14,18 +14,24 @@ import Formpaciente from "./views/crearcuentamedico/FormPaciente";
 import FormMedico from "./views/crearcuentapaciente/FormMedico";
 import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
 import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
-import HistorialClinico from "./views/historialclinico/HistorialClinico"
-
+import HistorialClinico from "./views/historialclinico/HistorialClinico";
+import AtencionFinalizada from "./views/atencionFinalizada/AtencionFilanizada";
+import Videoconsulta from "./views/videoconsulta/Videoconsulta";
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
 function App() {
   const location = useLocation();
-  const excludedRoutes = ["/ingresopaciente", "/ingresomedico", "/ingresoadmin","/creacionpaciente","/creacionmedico"];
+  const excludedRoutes = [
+    "/ingresopaciente",
+    "/ingresomedico",
+    "/ingresoadmin",
+    "/creacionpaciente",
+    "/creacionmedico",
+  ];
 
   return (
     <div>
-
       {!excludedRoutes.includes(location.pathname) && <NavBar />}
 
       <Routes>
@@ -42,6 +48,8 @@ function App() {
         <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+        <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
+        <Route path="/videoconsulta" element={<Videoconsulta />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
