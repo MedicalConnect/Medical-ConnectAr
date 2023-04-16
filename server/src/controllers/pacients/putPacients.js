@@ -6,8 +6,6 @@ const putPacients = async (nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_
             nombre: nombre
         }
     })
-    
-
     if(result.length) {
         result.nombre = nombre;
         result.apellido = apellido;

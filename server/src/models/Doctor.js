@@ -11,40 +11,40 @@ module.exports = (sequelize) => {
         },
          nombre: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          apellido: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          tipo_de_documento: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          numero_de_documento: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          fecha_de_nacimiento: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isDate: true,
          },
          sexo: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          pais_de_origen: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          ciudad: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          nacionalidad: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          domicilio: {
             type: DataTypes.STRING,
@@ -52,29 +52,29 @@ module.exports = (sequelize) => {
          },
          titulo: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          institucion_de_titulacion: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          fecha_de_titulacion: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isDate: true,
          },
          especilidad: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
          },
          numero_de_matricula: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isNumeric: true
          },
          telefono: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             isNumeric: true
          },
          email: {
@@ -84,7 +84,7 @@ module.exports = (sequelize) => {
          },
          contraseña: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
 
          }
         })}
