@@ -29,11 +29,11 @@ const getDoctorsHandler = async(req, res) => {
 
 const createDoctorHandler = async(req, res) => {
     const {nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-        ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+        ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
         numero_de_matricula, telefono, email, contraseña} = req.body
     try {
         const response = await createDoctor(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-            ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+            ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
             numero_de_matricula, telefono, email, contraseña)
 
             res.status(200).json(response)
@@ -47,11 +47,11 @@ const createDoctorHandler = async(req, res) => {
 
 const updateDoctorHandler = async(req,res) => {
     const {nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-        ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+        ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
         numero_de_matricula, telefono, email, contraseña} = req.body
         try {
             const response = await updateDoctor(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-                ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+                ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
                 numero_de_matricula, telefono, email, contraseña)
 
                 res.status(200),json(response)
