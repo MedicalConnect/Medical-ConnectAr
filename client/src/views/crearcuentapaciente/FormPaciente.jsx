@@ -52,8 +52,8 @@ const Formpaciente = () => {
                   name="tipo_de_documento"
                 >
                   <option selected>---</option>
-                  <option value="DNI">DNI</option>
-                  <option value="CUIL">CUIL</option>
+                  <option value="dni">DNI</option>
+                  <option value="cuil">CUIL</option>
                 </select>
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>
@@ -195,9 +195,9 @@ const Formpaciente = () => {
                   className="form-control select1"
                   id="floatingPassword"
                   placeholder="Password"
-                  name="contrasena"
+                  name="contraseña"
                 />
-                <label htmlFor="floatingPassword">Contraseña</label>
+                <label htmlFor="floatingPassword">Contraseña (Mas de 8 digitos y con al menos una Mayuscula y un numero)</label>
               </div>
               <div className="form-floating ">
                 <input

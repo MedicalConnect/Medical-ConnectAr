@@ -18,6 +18,8 @@ import FormMedico from "./crearcuentamedico/FormMedico";
 import ActualizarPaciente from "./actualizardatospacientes/ActualizarPaciente";
 import ActualizarMedico from "./actualizardatosmedico/ActualizarMedico";
 import SalaDeEspera from "./salaespera/SalaDeEspera";
+import Videoconsulta from "./videoconsulta/Videoconsulta";
+import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada"
 export {
   Landing,
   QuienesSomos,
@@ -37,5 +39,7 @@ export {
   FormMedico,
   ActualizarPaciente,
   ActualizarMedico,
-  SalaDeEspera
+  SalaDeEspera,
+  Videoconsulta,
+  AtencionFinalizada
 };

@@ -51,8 +51,8 @@ const FormMedico = () => {
                   name="tipo_de_documento"
                 >
                   <option selected>---</option>
-                  <option value="DNI">DNI</option>
-                  <option value="CUIL">CUIL</option>
+                  <option value="dni">DNI</option>
+                  <option value="cuil">CUIL</option> 
                 </select>
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>

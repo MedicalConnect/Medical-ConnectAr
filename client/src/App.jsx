@@ -18,6 +18,8 @@ import {
   ActualizarPaciente,
   ActualizarMedico,
   SalaDeEspera,
+  Videoconsulta,
+  AtencionFinalizada
 } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
@@ -57,6 +59,8 @@ function App() {
         <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
         <Route path="/actualizarmedico" element={<ActualizarMedico />} />
         <Route path="/saladeespera" element={<SalaDeEspera />} />
+        <Route path="/videoconsulta" element={<Videoconsulta />} />
+        <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
