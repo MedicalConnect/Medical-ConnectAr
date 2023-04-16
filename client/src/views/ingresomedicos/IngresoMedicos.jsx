@@ -57,7 +57,7 @@ const IngresoMedicos = () => {
 
       <section>
         <div className="d-grid gap-2 col-6 mx-auto">
-          <Link>
+          <Link to={"/creacionmedico"}>
             <button className=" btn-primary" type="button">
               CREAR CUENTA
             </button>

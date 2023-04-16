@@ -1,0 +1,63 @@
+.contenedor {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  text-align: center;
+  margin-left: 10em;
+}
+
+.subtitle {
+  text-align: center;
+  margin-left: 17em;
+}
+
+.boton {
+  margin-top: 0em;
+}
+
+.desordenada {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 80em;
+  list-style: none;
+  margin-bottom: 20px;
+  line-height: 8em;
+  font-size: 1em;
+  text-align: center;
+}
+
+.lista {
+  margin-bottom: 10px;
+}
+
+.contenedorTarjeta {
+  width: 45em;
+  height: 35em;
+  margin-top: 14em;
+  margin-right: 2em;
+  border: solid;
+}
+
+.imagenLogo {
+  width: 30em;
+  margin-left: 2.5em;
+}
+
+.textoTarjeta {
+  text-align: center;
+  line-height: 2em;
+  margin-top: 2em;
+}
+
+.texto2 {
+  margin-top: 3em;
+}
+
+input[type="radio"] {
+  display: none;
+  margin-top: 2em;
+}

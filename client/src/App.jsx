@@ -1,28 +1,46 @@
-import { Landing } from "./views/index"; //views de index
+import {
+  Landing,
+  QuienesSomos,
+  Contactanos,
+  ContribucionesSociales,
+  NoticiasSalud,
+  NavBar,
+  Footer,
+  Planes,
+  IngresoPacientes,
+  IngresoMedicos,
+  IngresoAdmin,
+  PerfilMedico,
+  PerfilPaciente,
+  HistorialClinico,
+  Formpaciente,
+  FormMedico,
+  ActualizarPaciente,
+  ActualizarMedico,
+  SalaDeEspera,
+  Videoconsulta,
+  AtencionFinalizada
+} from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
-import QuienesSomos from "./views/quienesSomos/QuienesSomos";
-import Contactanos from "./views/contactanos/Contactanos";
-import ContribucionesSociales from "./views/contribuciones/ContribucionesSociales";
-import NoticiasSalud from "./views/noticiasalud/NoticiasSalud";
-import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
-import Planes from "./views/planes/Planes";
-import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
-import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
-import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
-import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
-import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
-
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
 function App() {
   const location = useLocation();
+  const excludedRoutes = [
+    "/ingresopaciente",
+    "/ingresomedico",
+    "/ingresoadmin",
+    "/creacionpaciente",
+    "/creacionmedico",
+    "/actualizarpaciente",
+    "/actualizarmedico",
+    "/saladeespera",
+  ];
 
   return (
     <div>
-      {location.pathname !== "/historialclinico" && <NavBar />}
-      {/*Esto para que la navbar aparezca en todos lados menos...*/}
+      {!excludedRoutes.includes(location.pathname) && <NavBar />}
 
       <Routes>
         <Route path="/historialclinico" element={<HistorialClinico />} />
@@ -34,8 +52,15 @@ function App() {
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
         <Route path="/ingresomedico" element={<IngresoMedicos />} />
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
+        <Route path="/creacionpaciente" element={<Formpaciente />} />
+        <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
+        <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
+        <Route path="/actualizarmedico" element={<ActualizarMedico />} />
+        <Route path="/saladeespera" element={<SalaDeEspera />} />
+        <Route path="/videoconsulta" element={<Videoconsulta />} />
+        <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
