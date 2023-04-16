@@ -5,29 +5,7 @@ import "./IngresoMedicos.css";
 const IngresoMedicos = () => {
   return (
     <div>
-      <nav class="navbar  navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="" alt="logo medical connect" width="30" height="24" />
-          </a>
-          <button type="button" className="btn btn-info">
-            cerrar sesion
-          </button>
-        </div>
-      </nav>
-
-      <section className="pl-5 bg-gradiente-white-sky-blue">
-        <h2>Ingreso de Médicos</h2>
-      </section>
-
-      <div className="h5subtitulo">
-        <h5>
-          Presta servicio a tus pacientes de forma remota utilizando Medical
-          Connect, una plataforma de telemedicina de alta calidad utilizada por
-          médicos y pacientes de todo el mundo.
-        </h5>
-      </div>
-
+  
       <section>
         <div className="d-grid gap-2 col-6 mx-auto">
           <Link to={"/creacionmedico"}>

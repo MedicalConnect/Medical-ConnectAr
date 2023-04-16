@@ -28,19 +28,22 @@ import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en 
 function App() {
   const location = useLocation();
   const excludedRoutes = [
-    "/ingresopaciente",
-    "/ingresomedico",
-    "/ingresoadmin",
     "/creacionpaciente",
     "/creacionmedico",
     "/actualizarpaciente",
     "/actualizarmedico",
     "/saladeespera",
   ];
+  const includeRoutes= [ "/creacionpaciente",
+  "/creacionmedico",
+  "/actualizarpaciente",
+  "/actualizarmedico",
+  "/saladeespera",]
 
   return (
     <div>
       {!excludedRoutes.includes(location.pathname) && <NavBar />}
+      {includeRoutes.includes(location.pathname) && <NavBar2 />}
 
       <Routes>
         <Route path="/historialclinico" element={<HistorialClinico />} />
