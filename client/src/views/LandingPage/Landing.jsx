@@ -186,9 +186,11 @@ function Landing() {
           <p>
             Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
           </p>
+          <Link to={"/contribuciones"} target="_blank">
           <button type="button" className="btn btn-outline-light">
             Conocenos mas !
           </button>
+           </Link>
         </div>
       </div>
 
