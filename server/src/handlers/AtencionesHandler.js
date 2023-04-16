@@ -1,27 +1,29 @@
 const {
-  putAtencionMedica,
+  createAtencionMedica,
   getAtencionMedica,
 } = require("../controllers/atencionesController");
 
-const putAtencionMedicaHandler = async (req, res) => {
+const createAtencionMedicaHandler = async (req, res) => {
   const {
+    anamnesis,
     examen_fisico,
     diagnostico,
     indicaciones_domiciliarias,
     medicamentos,
     examenes,
     certificados,
-    numero_de_documento,
+    rating,
   } = req.body;
   try {
-    const response = await putAtencionMedica(
+    const response = await createAtencionMedica(
+      anamnesis,
       examen_fisico,
       diagnostico,
       indicaciones_domiciliarias,
       medicamentos,
       examenes,
       certificados,
-      numero_de_documento
+      rating
     );
     res.status(200).json(response);
   } catch (error) {
@@ -40,6 +42,6 @@ const getAtencionMedicaHandler = async (req, res) => {
 };
 
 module.exports = {
-  putAtencionMedicaHandler,
+  createAtencionMedicaHandler,
   getAtencionMedicaHandler,
 };

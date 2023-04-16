@@ -1,11 +1,11 @@
 const { Router } = require("express");
 const atencionesRouter = Router();
 const {
-  putAtencionMedicaHandler,
+  createAtencionMedicaHandler,
   getAtencionMedicaHandler,
 } = require("../handlers/AtencionesHandler");
 
-atencionesRouter.get("/", getAtencionMedicaHandler);
-atencionesRouter.put("/", putAtencionMedicaHandler);
+atencionesRouter.get("/:PacienteId", getAtencionMedicaHandler);
+atencionesRouter.post("/", createAtencionMedicaHandler);
 
 module.exports = atencionesRouter;
