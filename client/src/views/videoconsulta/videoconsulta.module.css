@@ -17,6 +17,7 @@
   padding: 3em;
   margin-left: 6em;
   text-align: center;
+  margin-bottom: 2em;
 }
 
 .line {
@@ -35,5 +36,17 @@
   background-color: blanchedalmond;
   position: sticky;
   top: 12em;
-  bottom: 50px; /* Establece la distancia deseada desde el borde inferior de la ventana del navegador */
+  bottom: 60px;
+}
+
+.medicamento {
+  border-radius: 3em;
+  width: 36em;
+  margin-left: 2em;
+}
+
+.diagnostico {
+  border-radius: 3em;
+  width: 36em;
+  margin-left: 2em;
 }
