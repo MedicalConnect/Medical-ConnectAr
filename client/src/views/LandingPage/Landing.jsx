@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Landing.css"
+import {Link} from "react-router-dom"
 
 
 
@@ -10,13 +11,13 @@ function Landing() {
         <div className="row topheader">
           <div className="col"></div>
           <div className="col-9 text-center">
-            <h1 className="fw-bold ">Medical Connect te da la Bienvenida!</h1>
-            <p className="fw-semibold ">
+            <h1 className="fw-bold ">Medical Connect te da la Bienvenida!</h1><br />
+            <p className="fw-semibold subtitulo1">
               {" "}
               Te invitamos a formar parte de este servicio en el cual podras
               recibi las mejores atenciones desde cualquier parte de capital
               federal que te encuentres!
-            </p>
+            </p><br /><br />
           </div>
           <div className="col"></div>
         </div>
@@ -24,17 +25,27 @@ function Landing() {
 
       <div className="contenedorflex">
         <img src="https://fondosmil.com/fondo/56989.jpg" alt="" />
-        <button type="button" className="btn btn-lg">
-          Registrate ya y accede a nuestros beneficios!
+        <div className='divaviso fw-semibold'>
+          <p>Registrate y accede a diferentes funciones!</p>
+        <Link to="/creacionpaciente" target="_blank">
+        <button type="button" className="btn btn-lg boton1">
+          Registrarse como paciente
         </button>
+        </Link>
+        <Link to="/creacionmedico" target="_blank">
+        <button type="button" className="btn btn-lg boton2">
+          Registrarse como Profesional de salud
+        </button>
+        </Link>
+        </div>
       </div>
 
       <div className="container topheader">
         <div className="row ">
           <div className="col"></div>
           <div className="col-9 text-center">
-            <h2 className="fw-bold fs-1">Que es Medical Connect?</h2>
-            <p className="fst-italic fw-medium">
+            <h2 className="fw-bold fs-1 titulolanding2">Que es Medical Connect?</h2>
+            <p className="fst-italic fw-medium subtitulolanding2">
               {" "}
               Somos una red de servicios que integra lo mejor de la medicina
               domiciliaria y telemedicina, creando un nuevo concepto en salud,
@@ -98,7 +109,7 @@ function Landing() {
         </div>
       </div>
 
-      <div className="container text-left topheader">
+      <div className="container text-left divcomo">
         <div className="row row-cols-2">
           <div className="col-4 ">
             <h2 className="titulocomo fs-1 fw">
@@ -146,7 +157,7 @@ function Landing() {
               ellos!
             </p>
           </div>
-          <div className="col">
+          <div className="col-8">
             <img
             className='padreimagen'
               src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg"
@@ -163,7 +174,9 @@ function Landing() {
             Podrás contar con asistencia médica oportuna a un valor accesible,
             para ti y tu familia.
           </p>
+          <Link to={"/planes"} target="_blank">
           <button>Nuestros Planes!</button>
+          </Link>
         </div>
       </div>
 
@@ -174,7 +187,7 @@ function Landing() {
             Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
           </p>
           <button type="button" className="btn btn-outline-light">
-            Conoce nuestros planes!
+            Conocenos mas !
           </button>
         </div>
       </div>

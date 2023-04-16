@@ -6,6 +6,18 @@ const IngresoMedicos = () => {
   return (
     <div>
   
+      <section className="pl-5 bg-gradiente-white-sky-blue">
+        <h2>Ingreso de Médicos</h2>
+      </section>
+
+      <div className="h5subtitulo">
+        <h5>
+          Presta servicio a tus pacientes de forma remota utilizando Medical
+          Connect, una plataforma de telemedicina de alta calidad utilizada por
+          médicos y pacientes de todo el mundo.
+        </h5>
+      </div>
+
       <section>
         <div className="d-grid gap-2 col-6 mx-auto">
           <Link to={"/creacionmedico"}>

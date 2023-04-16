@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 const IngresoPacientes = () => {
   return (
     <div>
+
+      <section className="pl-5 bg-gradiente-white-sky-blue">
+        <h2>Ingreso de Pacientes</h2>
+      </section>
+
       <div className="h5subtitulo">
         <h5>
           ¿No tienes cuenta? ¡Crea tu cuenta fácil y rápido y comienza a recibir
