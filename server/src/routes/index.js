@@ -2,6 +2,7 @@ const { Router } = require('express');
 const { pacientsRoutes } = require('../routes/pacientsRoutes')
 const doctorRouter = require('./doctorRoute');
 const historiaClinicaRouter = require('./HistoriaClinicaRoute');
+const atencionesRouter = require('./atencionesRoutes');
 
 // Importar todos los routers;
 
@@ -13,6 +14,7 @@ const mainRouter = Router();
 mainRouter.use('/pacients', pacientsRoutes)
 mainRouter.use('/doctor', doctorRouter)
 mainRouter.use('/historiaClinica', historiaClinicaRouter)
+mainRouter.use("/atenciones", atencionesRouter);
 
 
 
