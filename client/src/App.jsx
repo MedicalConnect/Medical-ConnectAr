@@ -1,22 +1,25 @@
-import { Landing } from "./views/index"; //views de index
+import {
+  Landing,
+  QuienesSomos,
+  Contactanos,
+  ContribucionesSociales,
+  NoticiasSalud,
+  NavBar,
+  Footer,
+  Planes,
+  IngresoPacientes,
+  IngresoMedicos,
+  IngresoAdmin,
+  PerfilMedico,
+  PerfilPaciente,
+  HistorialClinico,
+  Formpaciente,
+  FormMedico,
+  ActualizarPaciente,
+  ActualizarMedico,
+  SalaDeEspera,
+} from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
-import QuienesSomos from "./views/quienesSomos/QuienesSomos";
-import Contactanos from "./views/contactanos/Contactanos";
-import ContribucionesSociales from "./views/contribuciones/ContribucionesSociales";
-import NoticiasSalud from "./views/noticiasalud/NoticiasSalud";
-import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
-import Planes from "./views/planes/Planes";
-import IngresoPacientes from "./views/ingresopacientes/IngresoPacientes";
-import IngresoMedicos from "./views/ingresomedicos/IngresoMedicos";
-import IngresoAdmin from "./views/ingresoadmin/IngresoAdmin";
-import Formpaciente from "./views/crearcuentamedico/FormPaciente";
-import FormMedico from "./views/crearcuentapaciente/FormMedico";
-import PerfilMedico from "./views/PerfilMedico/PerfilMedico";
-import PerfilPaciente from "./views/PerfilPaciente/PerfilPaciente";
-import HistorialClinico from "./views/historialclinico/HistorialClinico";
-import AtencionFinalizada from "./views/atencionFinalizada/AtencionFilanizada";
-import Videoconsulta from "./views/videoconsulta/Videoconsulta";
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
@@ -28,6 +31,9 @@ function App() {
     "/ingresoadmin",
     "/creacionpaciente",
     "/creacionmedico",
+    "/actualizarpaciente",
+    "/actualizarmedico",
+    "/saladeespera",
   ];
 
   return (
@@ -48,8 +54,9 @@ function App() {
         <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
-        <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
-        <Route path="/videoconsulta" element={<Videoconsulta />} />
+        <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
+        <Route path="/actualizarmedico" element={<ActualizarMedico />} />
+        <Route path="/saladeespera" element={<SalaDeEspera />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
