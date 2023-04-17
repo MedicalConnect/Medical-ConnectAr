@@ -7,7 +7,10 @@ const FormMedico = () => {
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
   const { register, handleSubmit, formState:{ errors }, reset, setValue } = useForm({});
   const submit = (data) => {
-    console.log(data)
+    
+
+
+    
   }
 
   
@@ -276,6 +279,18 @@ const FormMedico = () => {
                   id="floatingPassword"
                   placeholder="Password"
                   name="contrasena"
+                  {...register(
+                    'contraseña', {
+                      required: 'Ingrese una contraseña', minLength: {value: 8, message: 'Contraseña muy corta'},
+                      maxLength: {value: 15, message: 'Contraseña muy larga'},
+                      validate: (value) =>{
+                         
+                          return /^(?=.[a-z])(?=.[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/.test(value) || 'Error'
+                      }
+
+                      
+                    }
+                  )}
                 />
                 <label htmlFor="floatingPassword">Contraseña</label>
                 {/* {errors.contraseña && <span>{errors.contraseña}</span>} */}
