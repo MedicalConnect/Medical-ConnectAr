@@ -22,17 +22,11 @@ module.exports = (sequelize) => {
       diagnostico: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       diagnostico_clinico: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       indicaciones_domiciliarias: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -52,38 +46,23 @@ module.exports = (sequelize) => {
       medicamento: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       dosis: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       via: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       frecuencia: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       duracion: {
         type: DataTypes.TEXT,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       examen_medico: {
         type: DataTypes.TEXT,
         allowNull: false,
@@ -91,37 +70,27 @@ module.exports = (sequelize) => {
       tipo_certificado: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       tipo_indicacion_certificado: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          not: /^[a-z]+$/i,
         },
-      },
       certificado_fecha_inicio: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          not: /^[a-z]+$/i,
+          not: "^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$"
         },
+      
         certificado_duracion: {
           type: DataTypes.STRING,
           allowNull: false,
-          validate: {
-            not: /^[a-z]+$/i,
-          },
+          
         },
         certificado_lugar: {
           type: DataTypes.STRING,
           allowNull: false,
-          validate: {
-            not: /^[a-z]+$/i,
           },
-        },
       },
       rating: {
         type: DataTypes.ENUM("1", "2", "3", "4", "5"),
