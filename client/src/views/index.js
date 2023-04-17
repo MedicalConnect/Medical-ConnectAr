@@ -21,6 +21,7 @@ import SalaDeEspera from "./salaespera/SalaDeEspera";
 import Videoconsulta from "./videoconsulta/Videoconsulta";
 import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
 import NavBar2 from "../components/NavBar2/NavBar2";
+
 export {
   Landing,
   QuienesSomos,
