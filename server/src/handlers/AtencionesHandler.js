@@ -4,27 +4,8 @@ const {
 } = require("../controllers/atencionesController");
 
 const createAtencionMedicaHandler = async (req, res) => {
-  const {
-    anamnesis,
-    examen_fisico,
-    diagnostico,
-    indicaciones_domiciliarias,
-    medicamentos,
-    examenes,
-    certificados,
-    rating,
-  } = req.body;
   try {
-    const response = await createAtencionMedica(
-      anamnesis,
-      examen_fisico,
-      diagnostico,
-      indicaciones_domiciliarias,
-      medicamentos,
-      examenes,
-      certificados,
-      rating
-    );
+    const response = await createAtencionMedica(req.body);
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });

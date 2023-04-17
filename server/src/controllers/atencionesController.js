@@ -1,24 +1,47 @@
-const {Paciente, Atenciones} = require("../db");
+const { Paciente, Atenciones } = require("../db");
 
-const createAtencionMedica = async (
-  anamnesis,
-  examen_fisico,
-  diagnostico,
-  indicaciones_domiciliarias,
-  medicamentos,
-  examenes,
-  certificados,
-  rating
-) => {
-  const AtencionMedica = await AtencionMedica.create({anamnesis,
-  examen_fisico,
-  diagnostico,
-  indicaciones_domiciliarias,
-  medicamentos,
-  examenes,
-  certificados,
-  rating
-    });
+const createAtencionMedica = async (param) => {
+  const {
+    anamnesis,
+    examen_fisico,
+    diagnostico,
+    diagnostico_clinico,
+    indicaciones_domiciliarias,
+    indicaciones_domiciliarias_tipo,
+    indicaciones_domiciliarias_detalle,
+    indicaciones_domiciliarias_comentarios,
+    medicamento,
+    dosis,
+    via,
+    frecuencia,
+    duracion,
+    examen_medico,
+    tipo_certificado,
+    tipo_indicacion_certificado,
+    certificado_fecha_inicio,
+    rating,
+  } = param;
+  console.log([param]);
+  const AtencionMedica = await Atenciones.create({
+    anamnesis,
+    examen_fisico,
+    diagnostico,
+    diagnostico_clinico,
+    indicaciones_domiciliarias,
+    indicaciones_domiciliarias_tipo,
+    indicaciones_domiciliarias_detalle,
+    indicaciones_domiciliarias_comentarios,
+    medicamento,
+    dosis,
+    via,
+    frecuencia,
+    duracion,
+    examen_medico,
+    tipo_certificado,
+    tipo_indicacion_certificado,
+    certificado_fecha_inicio,
+    rating,
+  });
   return `Datos modificados correctamente `;
 };
 
@@ -34,4 +57,4 @@ const getAtencionMedica = async (PacienteId) => {
 module.exports = {
   createAtencionMedica,
   getAtencionMedica,
-}
+};
