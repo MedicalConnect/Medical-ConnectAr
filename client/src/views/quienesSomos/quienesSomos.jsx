@@ -8,20 +8,24 @@ const QuienesSomos = () => {
         <div className="col-md-12">
           <h1 className={styles.title}>Quienes Somos</h1>
           <p className={styles.description}>
-            Hace unos años, un grupo de expertos en tecnología y medicina se
-            reunieron con un propósito en mente: utilizar la tecnología para
-            revolucionar la forma en que las personas acceden a la atención
-            médica. Sabían que había una necesidad creciente de servicios de
-            atención médica en todo el mundo, pero que muchos pacientes se
-            encontraban con barreras que dificultaban el acceso a la atención
-            médica. Y así, nació nuestra aplicación de telecomunicación de
-            medicina. Desde entonces, nos hemos dedicado a desarrollar una
-            plataforma innovadora que permita a los pacientes acceder a atención
-            médica de calidad en cualquier momento y lugar. Nos hemos asociado
-            con médicos y otros profesionales de la salud para asegurarnos de
-            que nuestros usuarios reciban atención de calidad, incluso a
-            distancia.
+            <strong>
+              {" "}
+              Hace unos años, un grupo de expertos en tecnología y medicina se
+              reunieron con un propósito en mente: utilizar la tecnología para
+              revolucionar la forma en que las personas acceden a la atención
+              médica. Sabían que había una necesidad creciente de servicios de
+              atención médica en todo el mundo, pero que muchos pacientes se
+              encontraban con barreras que dificultaban el acceso a la atención
+              médica. Y así, nació nuestra aplicación de telecomunicación de
+              medicina. Desde entonces, nos hemos dedicado a desarrollar una
+              plataforma innovadora que permita a los pacientes acceder a
+              atención médica de calidad en cualquier momento y lugar. Nos hemos
+              asociado con médicos y otros profesionales de la salud para
+              asegurarnos de que nuestros usuarios reciban atención de calidad,
+              incluso a distancia.
+            </strong>
           </p>
+          <hr className="hr1" />
           <div className={styles.textImgContainer}>
             <div className={styles.textContainer}>
               <p className={styles.text}>
@@ -40,7 +44,7 @@ const QuienesSomos = () => {
           </div>
         </div>
       </div>
-      <h3 className={styles.htitle}>Lo que nos mueve:</h3>
+      {/* <h3 className={styles.htitle}>Lo que nos mueve:</h3> */}
       <div className={styles.padre}>
         <div>
           {" "}
@@ -54,9 +58,12 @@ const QuienesSomos = () => {
               </div>
               <div className={styles.text1}>
                 <span>
-                  Estar siempre cuando nos necesiten, ofreciendo alivio
-                  inmediato, tecnología para un diagnóstico certero y
-                  orientación hacia un bienestar integral.
+                  <strong>
+                    {" "}
+                    Estar siempre cuando nos necesiten, ofreciendo alivio
+                    inmediato, tecnología para un diagnóstico certero y
+                    orientación hacia un bienestar integral.
+                  </strong>
                 </span>
               </div>
             </div>
@@ -69,7 +76,10 @@ const QuienesSomos = () => {
               </div>
               <div className={styles.text2}>
                 <span>
-                  Entregar soluciones reales a las necesidades de las personas.
+                  <strong>
+                    Entregar soluciones reales a las necesidades de las
+                    personas.
+                  </strong>
                 </span>
               </div>
             </div>
@@ -82,22 +92,32 @@ const QuienesSomos = () => {
               </div>
               <div className={styles.text3}>
                 <span>
-                  Brindar medicina de calidad accesible y presente, centrada en
-                  la innovación al servicio del paciente.
+                  <strong>
+                    Brindar medicina de calidad accesible y presente, centrada
+                    en la innovación al servicio del paciente.
+                  </strong>
                 </span>
               </div>
             </div>
             <div className={styles.item4}>
-              <div>
+              <div className="imagenvaron2">
                 <img
+                  className="imagevaron"
                   src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341048735_540366998121194_8415954990648169293_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=7WaaT4IMNpgAX-106oZ&_nc_oc=AQmKlY_UfJ9Ez6MPIlg0ZUIlm5aWIe47Z_v_pWv0ymyD7rz6-D9a9k0gDNu8GI5ov-sdfLZ5E0aQrhr8hagR6Fuj&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfAgdNITdPI8ThwSBtVvPCun28G2AKkrTe0VgOZ57EurCg&oe=643B451F"
                   alt="logo salud"
                 />
               </div>
               <div className={styles.text4}>
                 <span>
-                  Asistir con calidez, respeto y empatía a los pacientes y su
-                  familia en todo momento.
+                  <div className="loquenosmuevediv">
+                    <h3 className="loquenosmueve"> Lo Que Nos Mueve </h3>
+                    <br></br>
+                  </div>
+
+                  <strong>
+                    Asistir con calidez, respeto y empatía a los pacientes y su
+                    familia en todo momento.
+                  </strong>
                 </span>
               </div>
             </div>
@@ -107,8 +127,9 @@ const QuienesSomos = () => {
           <div>
             <img
               className={styles.corazon}
-              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341078188_898577814768058_7111636574380161546_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=X67YmxusinoAX_9WrB7&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfD3h8EXDUqp435AxSu_u5KbgsrmFI9Y0M4ay5pqMgIVTA&oe=643BB57E"
+              src="https://cdn.discordapp.com/attachments/1094314281123717204/1097434176573161532/quienes-somos-image.jpg"
               alt="corazon"
+              // https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341078188_898577814768058_7111636574380161546_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=X67YmxusinoAX_9WrB7&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfD3h8EXDUqp435AxSu_u5KbgsrmFI9Y0M4ay5pqMgIVTA&oe=643BB57E
             />
           </div>
         </div>
