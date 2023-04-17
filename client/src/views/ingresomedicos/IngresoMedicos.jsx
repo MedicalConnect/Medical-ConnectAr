@@ -5,17 +5,7 @@ import "./IngresoMedicos.css";
 const IngresoMedicos = () => {
   return (
     <div>
-      <nav class="navbar  navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="" alt="logo medical connect" width="30" height="24" />
-          </a>
-          <button type="button" className="btn btn-info">
-            cerrar sesion
-          </button>
-        </div>
-      </nav>
-
+  
       <section className="pl-5 bg-gradiente-white-sky-blue">
         <h2>Ingreso de Médicos</h2>
       </section>

@@ -3,7 +3,7 @@ const { Op } = require("sequelize")
 
 
 const createDoctor = async(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-    ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+    ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
     numero_de_matricula, telefono, email, contraseña) => {
 
         const existingDoc = await Doctor.findOne({
@@ -16,7 +16,7 @@ const createDoctor = async(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_
 
         if(existingDoc) throw Error('El doctor ya existe')
         const doctor = await Doctor.create({nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-            ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+            ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
             numero_de_matricula, telefono, email, contraseña})
 
         return doctor    
@@ -55,12 +55,12 @@ const getDoctor = async(id) => {
 }
 
 const updateDoctor = async(nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-    ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
+    ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
     numero_de_matricula, telefono, email, contraseña) => {
 
-        await Doctor.update({fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
-            ciudad, partido, localidad, domicilio, institucion_de_titulacions, fecha_de_titulacion, especilidad,
-            numero_de_matricula, telefono, contraseña}, 
+        await Doctor.update({nombre, apellido, fecha_de_nacimiento, sexo, tipo_de_documento, numero_de_documento,pais_de_origen,provincia,
+            ciudad, nacionalidad, domicilio, titulo, institucion_de_titulacion, fecha_de_titulacion, especilidad,
+            numero_de_matricula, telefono, email, contraseña}, 
             {
                 where: {nombre: nombre,
                     apellido: apellido,

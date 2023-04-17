@@ -5,16 +5,6 @@ import { Link } from "react-router-dom";
 const IngresoPacientes = () => {
   return (
     <div>
-      <nav class="navbar  navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="" alt="logo medicalconnect" width="30" height="24" />
-          </a>
-          <button type="button" className="btn btn-info">
-            cerrar sesion
-          </button>
-        </div>
-      </nav>
 
       <section className="pl-5 bg-gradiente-white-sky-blue">
         <h2>Ingreso de Pacientes</h2>

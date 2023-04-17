@@ -1,7 +1,7 @@
 //Se importan todos los componentes de views y se manda direct a app.jsx
 import Landing from "./LandingPage/Landing";
 import QuienesSomos from "./quienesSomos/quienesSomos";
-import Contactanos from "./contactanos/Contactanos";
+import Contactanos from "./contactanos/contactanos";
 import ContribucionesSociales from "./contribuciones/ContribucionesSociales";
 import NoticiasSalud from "./noticiasalud/NoticiasSalud";
 import NavBar from "../components/NavBar/NavBar";
@@ -19,7 +19,9 @@ import ActualizarPaciente from "./actualizardatospacientes/ActualizarPaciente";
 import ActualizarMedico from "./actualizardatosmedico/ActualizarMedico";
 import SalaDeEspera from "./salaespera/SalaDeEspera";
 import Videoconsulta from "./videoconsulta/Videoconsulta";
-import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada"
+import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
+import NavBar2 from "../components/NavBar2/NavBar2";
+
 export {
   Landing,
   QuienesSomos,
@@ -41,5 +43,6 @@ export {
   ActualizarMedico,
   SalaDeEspera,
   Videoconsulta,
-  AtencionFinalizada
+  AtencionFinalizada,
+  NavBar2
 };

@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
             isDate: true,
          },
          sexo: {
-            type: DataTypes.STRING,
+            type: DataTypes.ENUM('masculino', 'femenino', 'otro'),
             allowNull: false
          },
          pais_de_origen: {

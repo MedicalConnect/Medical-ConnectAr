@@ -1,4 +1,4 @@
-import { GET_ALL_PACIENTS, GET_ALL_DOCTORS, GET_CLINICAL_HISTORY, GET_ALL_ATENTIONS, ADD_PACIENT, ADD_DOCTOR } from "./actions-types";
+import { GET_ALL_PACIENTS, GET_ALL_DOCTORS, GET_CLINICAL_HISTORY, GET_ALL_ATENTIONS, ADD_PACIENT, ADD_DOCTOR, ADD_CLINICAL_HISTORY, ADD_ATENTIONS } from "./actions-types";
 import axios from "axios";
 
 export const getAllPacients = () => {
@@ -27,7 +27,7 @@ export const getAllDoctors = () => {
 
 export const getClinicalHistory = (PacienteId) => {
     return async (dispatch) => {
-        const response = await axios.get(`http://localhost:3001/pacients/${PacienteId}`)
+        const response = await axios.get(`http://localhost:3001/historiaClinica/${PacienteId}`)
         const data = response.data
 
         return dispatch({
@@ -39,7 +39,7 @@ export const getClinicalHistory = (PacienteId) => {
 
 export const getAllAtentions = () => {
     return async (dispatch) => {
-        const response = await axios.get(`http://localhost:3001/atentions`)
+        const response = await axios.get(`http://localhost:3001/atenciones`)
         const data = response.data
 
         return dispatch({
@@ -74,6 +74,34 @@ export const addDoctor = (payload) => {
     });
   };
 };
+
+export const addClinicalHistory = (payload) => {
+    return  async (dispatch) => {
+    const response =  axios.post('http://localhost:3001/historiaClinica', payload);
+    const data = response.data
+    
+    
+    return await dispatch({
+      type: ADD_CLINICAL_HISTORY,
+      payload:data
+    });
+  };
+};
+
+export const addAtentions = (payload) => {
+    return  async (dispatch) => {
+    const response =  axios.post('http://localhost:3001/atenciones', payload);
+    const data = response.data
+    
+    
+    return await dispatch({
+      type: ADD_ATENTIONS,
+      payload:data
+    });
+  };
+};
+
+
 
 
 
