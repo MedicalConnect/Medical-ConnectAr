@@ -1,6 +1,6 @@
 /*NavBar*/
 .navbar {
-  padding: 2rem;
+
   background: #f5f6f7;
   margin-bottom: 60px;
 }
@@ -10,7 +10,21 @@
 }
 
 .navbar-brand {
-  width: 13%;
-  height: 84%;
+  width: 30%;
+  height: 20%;
   border: transparent;
+}
+
+.navbar-nav {
+  text-align: center;
+}
+
+.botton-ingreseaqui {
+width: 122px;
+}
+
+@media screen and (max-width: 767) {
+  .navbar-brand {
+    display: none;
+  }
 }
