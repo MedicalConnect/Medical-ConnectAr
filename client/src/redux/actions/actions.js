@@ -50,28 +50,26 @@ export const getAllAtentions = () => {
 }
 
 export const addPacient = (payload) => {
-    return  async (dispatch) => {
-    const response =  axios.post('http://localhost:3001/pacient', payload);
-    const data = response.data
-    
-    
-    return await dispatch({
-      type: ADD_PACIENT,
-      payload:data
-    });
-  };
+  return async function (dispatch){
+    // try{
+      const response = await axios.post("http://localhost:3001/pacients",payload)
+      dispatch({type: ADD_PACIENT})
+      return response
+    // } catch(error){
+    //   alert(`Ha ocurrido un error al crear el paciente: ${error.message}`)
+    // }
+  }
 };
 
 export const addDoctor = (payload) => {
-    return  async (dispatch) => {
-    const response =  axios.post('http://localhost:3001/doctor', payload);
-    const data = response.data
-    
-    
-    return await dispatch({
-      type: ADD_DOCTOR,
-      payload:data
-    });
+  return async (dispatch) => {
+    try{
+    const response = axios.post("http://localhost:3001/doctor", payload);
+    dispatch({ type: ADD_DOCTOR });
+    return response
+    } catch(error){
+      alert(`Ha ocurrido un error al crear el doctor: ${error.message}`)
+    }
   };
 };
 
