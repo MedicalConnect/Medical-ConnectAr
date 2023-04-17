@@ -92,8 +92,7 @@ h1 {
   justify-content: center;
 }
 
-.headerque {
-  margin-bottom: 400px;
+
 .titulolanding2{
   margin-top: 40px;
   margin-bottom: 50px;
@@ -168,11 +167,7 @@ h1 {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.padretarjeta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
 .padretarjeta{
     display: flex;
     flex-direction: column;
@@ -195,12 +190,7 @@ h1 {
   font-weight: bold;
   opacity: 0.8;
 }
-.carruselfondo {
-  background-color: #1bb9e0;
-  padding: 15px;
-  text-align: center;
-  border-radius: 15px;
-  margin-top: 250px;
+
 .carruselfondo{
     background-color: #000000d3;
     padding: 15px;
