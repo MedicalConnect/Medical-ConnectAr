@@ -48,6 +48,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      status: {
+        type: DataTypes.ENUM("encurso", "finalizada", "cancelada"),
+        defaultValue: "encurso",
+      },
     },
     { timestamps: true }
   );

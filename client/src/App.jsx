@@ -20,7 +20,7 @@ import {
   SalaDeEspera,
   Videoconsulta,
   AtencionFinalizada,
-  NavBar2
+  IniciarSesion,
 } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
@@ -28,21 +28,22 @@ import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en 
 
 function App() {
   const location = useLocation();
-  const excludedRoutes = [
-    "/actualizarpaciente",
-    "/actualizarmedico",
-    "/saladeespera",
-  ];
-  const includeRoutes= [ 
-  "/actualizarpaciente",
-  "/actualizarmedico",
-  "/saladeespera",]
+  // const excludedRoutes = [
+  //   "/actualizarpaciente",
+  //   "/actualizarmedico",
+  //   "/saladeespera",
+  // ];
+  // const includeRoutes = [
+  //   "/actualizarpaciente",
+  //   "/actualizarmedico",
+  //   "/saladeespera",
+  // ];
 
   return (
     <div>
-      {!excludedRoutes.includes(location.pathname) && <NavBar />}
-      {includeRoutes.includes(location.pathname) && <NavBar2 />}
-
+      {/* {!excludedRoutes.includes(location.pathname) && <NavBar />}
+      {includeRoutes.includes(location.pathname) && <NavBar2 />} */}
+      <NavBar />
       <Routes>
         <Route path="/historialclinico" element={<HistorialClinico />} />
         <Route path="/quienessomos" element={<QuienesSomos />} />
@@ -62,6 +63,7 @@ function App() {
         <Route path="/saladeespera" element={<SalaDeEspera />} />
         <Route path="/videoconsulta" element={<Videoconsulta />} />
         <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
+        <Route path="/iniciarsesion" element={<IniciarSesion />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
