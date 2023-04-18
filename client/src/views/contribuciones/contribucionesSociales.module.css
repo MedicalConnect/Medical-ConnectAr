@@ -20,7 +20,7 @@
 }
 
 .titleSubtitle {
-  margin-top: 3.5em;
+  margin-top: 1.5em;
   margin-right: 60em;
   width: 40em;
   height: 20em;
@@ -30,13 +30,13 @@
   text-align: center;
   color: rgb(174, 13, 180);
   font-size: 1.7rem;
-  margin-top: 4em;
+  margin-top: 1em;
 }
 
 .subtitle2 {
   text-align: center;
   font-size: 1.2em;
-  margin-top: 0.5em;
+  padding: 10px;
 }
 
 .imgDoctor {
@@ -45,7 +45,7 @@
   border-radius: 3em;
   margin-left: 55em;
   border: transparent;
-  margin-top: -12em;
+  margin-top: -17em;
 }
 
 .imgContainer {
@@ -54,16 +54,26 @@
   display: flex;
 }
 
-/* .text2Container {
+ /* .text2Container {
   margin-right: 31em;
-}
-
+} */
+/* 
 .textContainer {
   margin-right: 33em;
-} */
+}  */
 
 .text1y2Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   margin-right: 38em;
+  background-color: rgb(158, 238, 227);
+height: 350px;
+border-radius: 20px;
+padding: 40px 20px 10px 20px;
+border: solid;
+margin-bottom: 2em;
 }
 
 .linear {
@@ -95,6 +105,8 @@
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
+  margin-top: 2em;
+  margin-bottom: 4em;
 }
 
 .enviar {
