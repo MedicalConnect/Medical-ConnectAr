@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./IngresoPacientes.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const IngresoPacientes = () => {
+  const navigate = useNavigate();
+  const userlogin = useSelector((state) => state.userLogin);
+
+  useEffect(() => {
+    if (userlogin?.rol) {
+      navigate(
+        userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
+      );
+    }
+  }, [userlogin]);
+
   return (
     <div>
-
       <section className="pl-5 bg-gradiente-white-sky-blue">
         <h2>Ingreso de Pacientes</h2>
       </section>
@@ -25,7 +36,7 @@ const IngresoPacientes = () => {
               CREAR CUENTA
             </button>
           </Link>
-          <Link>
+          <Link to={"/iniciarsesion"}>
             <button className=" btn-primary1" type="button">
               INGRESAR
             </button>

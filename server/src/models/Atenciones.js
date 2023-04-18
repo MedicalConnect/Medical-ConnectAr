@@ -13,88 +13,44 @@ module.exports = (sequelize) => {
       },
       anamnesis: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       examen_fisico: {
         type: DataTypes.STRING,
-        allowNull: false,
       },
       diagnostico: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      diagnostico_clinico: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
+        type: DataTypes.JSONB,
+        defaultValue: [], // [{CIE-10, diagnostico, diagnostico clinico}]
+      },
       indicaciones_domiciliarias: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+        type: DataTypes.JSONB,
+        defaultValue: [], // [{tipo, detalle, comentario}]
       },
-      indicaciones_domiciliarias_tipo: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+      medicamentos: {
+        type: DataTypes.JSONB,
+        defaultValue: [], // [{medicamento, dosis, via, frecuencia, duracion, indicacionAdicional}]
       },
-      indicaciones_domiciliarias_detalle: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+      solicitud_examenes: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        defaultValue: [],
       },
-      indicaciones_domiciliarias_comentarios: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      medicamento: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        },
-      dosis: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        },
-      via: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        },
-      frecuencia: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        },
-      duracion: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        },
-      examen_medico: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      tipo_certificado: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      tipo_indicacion_certificado: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        },
-      certificado_fecha_inicio: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          not: "^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$"
-        },
-      
-        certificado_duracion: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          
-        },
-        certificado_lugar: {
-          type: DataTypes.STRING,
-          allowNull: false,
-          },
+      certificados: {
+        type: DataTypes.JSONB,
+        defaultValue: [], // [{tipo_certificado, tipo_indicacion, fecha_inicio, duracion, lugar_presentacion}]
       },
       rating: {
-        type: DataTypes.ENUM("1", "2", "3", "4", "5"),
-        allowNull: false,
+        type: DataTypes.ENUM("0", "1", "2", "3", "4", "5"),
+        defaultValue: "0",
+      },
+      videocall_url: {
+        type: DataTypes.STRING,
+      },
+      videocall_is_active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      status: {
+        type: DataTypes.ENUM("encurso", "finalizada", "cancelada"),
+        defaultValue: "encurso",
       },
     },
     { timestamps: true }
