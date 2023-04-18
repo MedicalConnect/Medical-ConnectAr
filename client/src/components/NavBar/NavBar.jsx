@@ -34,24 +34,24 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="navbar  navbar-expand-lg navbar-light">
+    <nav className="navbar  navbar-expand-md navbar-light">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarToggler"
+          data-bs-target="navbar-toggler"
           aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbar-Toggler">
+        <div className="collapse navbar-collapse" id="navbar-toggler">
           <Link to="/">
             <img
               className="navbar-brand"
-              src="../image/logo-ico.ico"
+              src="https://cdn.discordapp.com/attachments/1094314281123717204/1097344521290911865/medical-connect.PNG.png"
               alt="logo de la página web"
             />
           </Link>
@@ -98,9 +98,9 @@ const NavBar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <button type="button" className="btn btn-info">
+              <button type="button" className="btn btn-outline-info botton-ingreseaqui">
                 Ingrese Aquí
-              </button>
+                </button>
             </a>
             <ul className="dropdown-menu ">
               <li>

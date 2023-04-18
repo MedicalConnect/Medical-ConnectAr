@@ -68,7 +68,7 @@ export const getAllAtentions = () => {
 
 export const addPacient = (payload) => {
   return async (dispatch) => {
-    const response = axios.post("http://localhost:3001/pacient", payload);
+    const response = axios.post("http://localhost:3001/pacientes", payload);
     const data = response.data;
 
     return await dispatch({
