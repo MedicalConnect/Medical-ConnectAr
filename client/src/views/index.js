@@ -12,7 +12,7 @@ import IngresoMedicos from "./ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./ingresoadmin/IngresoAdmin";
 import PerfilMedico from "./PerfilMedico/PerfilMedico";
 import PerfilPaciente from "./PerfilPaciente/PerfilPaciente";
-import HistorialClinico from "./historialclinico/HistorialClinico"
+import HistorialClinico from "./historialclinico/HistorialClinico";
 import Formpaciente from "./crearcuentapaciente/FormPaciente";
 import FormMedico from "./crearcuentamedico/FormMedico";
 import ActualizarPaciente from "./actualizardatospacientes/ActualizarPaciente";
@@ -21,7 +21,7 @@ import SalaDeEspera from "./salaespera/SalaDeEspera";
 import Videoconsulta from "./videoconsulta/Videoconsulta";
 import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
 import NavBar2 from "../components/NavBar2/NavBar2";
-
+import IniciarSesion from "./iniciarsesion";
 export {
   Landing,
   QuienesSomos,
@@ -44,5 +44,6 @@ export {
   SalaDeEspera,
   Videoconsulta,
   AtencionFinalizada,
-  NavBar2
+  NavBar2,
+  IniciarSesion,
 };

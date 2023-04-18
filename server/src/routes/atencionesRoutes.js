@@ -1,11 +1,17 @@
 const { Router } = require("express");
 const atencionesRouter = Router();
 const {
-  createAtencionMedicaHandler,
+  createAttentionHandler,
   getAtencionMedicaHandler,
-} = require("../handlers/AtencionesHandler");
+  createVideocallHandler,
+  updateOneFieldAttentionHandler,
+  getAttentionHandler,
+} = require("../handlers/atenciones");
 
 atencionesRouter.get("/:PacienteId", getAtencionMedicaHandler);
-atencionesRouter.post("/", createAtencionMedicaHandler);
+atencionesRouter.post("/", createAttentionHandler);
+atencionesRouter.post("/videocall/:atencionId", createVideocallHandler);
+atencionesRouter.put("/", updateOneFieldAttentionHandler);
+atencionesRouter.get("/encurso/:pacienteId", getAttentionHandler);
 
 module.exports = atencionesRouter;

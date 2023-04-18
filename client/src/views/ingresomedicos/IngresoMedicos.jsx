@@ -5,7 +5,6 @@ import "./IngresoMedicos.css";
 const IngresoMedicos = () => {
   return (
     <div>
-  
       <section className="pl-5 bg-gradiente-white-sky-blue">
         <h2>Ingreso de Médicos</h2>
       </section>
@@ -25,7 +24,7 @@ const IngresoMedicos = () => {
               CREAR CUENTA
             </button>
           </Link>
-          <Link>
+          <Link to={"/iniciarsesion"}>
             <button className=" btn-primary1" type="button">
               INGRESAR
             </button>
