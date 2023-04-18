@@ -7,10 +7,11 @@ import { addDoctor } from '../../redux/actions/actions'
 const FormMedico = () => {
   const paises=["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
-  const { register, handleSubmit, formState:{ errors }, reset, setValue } = useForm({});
+  const { register, handleSubmit, formState:{ errors }, reset, setValue } = useForm();
 
   const dispatch = useDispatch()
   const submit = (data) => {
+    console.log(data)
     dispatch(addDoctor(data))
   }
 
@@ -66,7 +67,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Apellido</label>
-                {errors.apellido && <span>{errors.apellido}</span>}
+                {errors.apellido && <span>{errors.apellido.message}</span>}
               </div>
               <div className="form-floating select1">
                 <select
@@ -87,7 +88,7 @@ const FormMedico = () => {
                   <option value="cuil">CUIL</option> 
                 </select>
                 <label htmlFor="floatingSelect">Tipo de documento</label>
-                {errors.tipo_de_documento && <span>{errors.tipo_de_documento}</span>}
+                {errors.tipo_de_documento && <span>{errors.tipo_de_documento.message}</span>}
               </div>
 
               <div className="form-floating mb-3">
@@ -105,7 +106,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Numero de documento</label>
-                {errors.numero_de_documento && <span>{errors.numero_de_documento}</span>}
+                {errors.numero_de_documento && <span>{errors.numero_de_documento.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -124,7 +125,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Fecha de nacimiento</label>
-                {errors.fecha_de_nacimiento && <span>{errors.fecha_de_nacimiento}</span>}
+                {errors.fecha_de_nacimiento && <span>{errors.fecha_de_nacimiento.message}</span>}
               </div>
               <div className="form-floating select1">
                 <select
@@ -152,7 +153,7 @@ const FormMedico = () => {
                   </option>
                 </select>
                 <label htmlFor="floatingSelect">Sexo</label>
-                {errors.sexo && <span>{errors.sexo}</span>}
+                {errors.sexo && <span>{errors.sexo.message}</span>}
               </div>
               <div className="form-floating select1">
                 <select
@@ -176,7 +177,7 @@ const FormMedico = () => {
                   ))}
                 </select>
                 <label htmlFor="floatingSelect">Pais de origen</label>
-                {errors.pais_de_origen && <span>{errors.pais_de_origen}</span>}
+                {errors.pais_de_origen && <span>{errors.pais_de_origen.message}</span>}
               </div>
               <div className="form-floating select1">
                 <select
@@ -197,7 +198,7 @@ const FormMedico = () => {
                 
                 </select>
                 <label htmlFor="floatingSelect">Provincia</label>
-                {errors.provincia && <span>{errors.provincia}</span>}
+                {errors.provincia && <span>{errors.provincia.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -214,7 +215,7 @@ const FormMedico = () => {
                   
                 />
                 <label htmlFor="floatingInput">Ciudad</label>
-                {errors.ciudad && <span>{errors.ciudad}</span>}
+                {errors.ciudad && <span>{errors.ciudad.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -231,7 +232,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Nacionalidad</label>
-                {errors.nacionalidad && <span>{errors.nacionalidad}</span>}
+                {errors.nacionalidad && <span>{errors.nacionalidad.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -250,7 +251,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Domicilio</label>
-                {errors.domicilio && <span>{errors.domicilio}</span>}
+                {errors.domicilio && <span>{errors.domicilio.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -261,7 +262,7 @@ const FormMedico = () => {
                   name="titulo"
                 />
                 <label htmlFor="floatingInput">Titulo</label>
-                {errors.titulo && <span>{errors.titulo}</span>}
+                {errors.titulo && <span>{errors.titulo.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -278,7 +279,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Institucion de Titulacion</label>
-                {errors.institucion_de_titulacion && <span>{errors.institucion_de_titulacion}</span>}
+                {errors.institucion_de_titulacion && <span>{errors.institucion_de_titulacion.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -297,7 +298,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Fecha de titulacion</label>
-                {errors.fecha_de_titulacion && <span>{errors.fecha_de_titulacion}</span>}
+                {errors.fecha_de_titulacion && <span>{errors.fecha_de_titulacion.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -313,7 +314,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Especialidad.</label>
-                {errors.especilidad && <span>{errors.especilidad}</span>}
+                {errors.especilidad && <span>{errors.especilidad.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -329,7 +330,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Numero de matricula.</label>
-                {errors.numero_de_matricula && <span>{errors.numero_de_matricula}</span>}
+                {errors.numero_de_matricula && <span>{errors.numero_de_matricula.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -337,7 +338,7 @@ const FormMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="Ingresa tu número de teléfono"
-                  pattern="/^(11|15)\d{8}$/"
+                  //pattern="/^(11|15)\d{8}$/"
                   name="telefono"
                   autoComplete="on"
                   {...register(
@@ -353,7 +354,7 @@ const FormMedico = () => {
                 <label htmlFor="floatingInput">
                   Telefono (numeros empezados en 15 o 11 ARG)
                 </label>
-                {errors.telefono && <span>{errors.telefono}</span>}
+                {errors.telefono && <span>{errors.telefono.message}</span>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -373,7 +374,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingInput">Email</label>
-                {errors.email && <span>{errors.email}</span>}
+                {errors.email && <span>{errors.email.message}</span>}
               </div>
               <div className="form-floating">
                 <input
@@ -394,7 +395,7 @@ const FormMedico = () => {
                   )}
                 />
                 <label htmlFor="floatingPassword">Contraseña</label>
-                {errors.contraseña && <span>{errors.contraseña}</span>}
+                {errors.contraseña && <span>{errors.contraseña.message}</span>}
               </div>
               <div className="form-floating ">
                 <input
@@ -406,7 +407,7 @@ const FormMedico = () => {
                   
                 />
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
-                {errors.contraseñacheck && <span>{errors.contraseñacheck}</span>}
+                {errors.contraseñacheck && <span>{errors.contraseñacheck.message}</span>}
               </div>
               <br />
               <br />
