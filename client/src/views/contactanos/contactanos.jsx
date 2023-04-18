@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./contactanos.module.css";
 import emailjs from "@emailjs/browser"
 import {Link} from "react-router-dom"
+import "./contactanos.css"
 
 const Contactanos = () => {
   const USER_ID= 'G4I9JfqnlE5RMAZOT', 
@@ -94,9 +95,9 @@ const Contactanos = () => {
           </div>
         </div>
       </div>
-      <div class="container text-center">
-        <div class="row row-cols-2">
-          <div class="col">
+      <div className="container text-center">
+        <div className="row row-cols-2 cajaplanes">
+          <div className="col">
             <div className="padretarjetaplan">
               <div className="hijotarjetaplan">
                 <h3>Atención al cliente</h3>
@@ -110,7 +111,7 @@ const Contactanos = () => {
               </div>
             </div>
           </div>
-          <div class="col">
+          <div className="col">
             <div className="padretarjetaplan">
               <div className="hijotarjetaplan">
                 <h3>Soporte técnico</h3>
