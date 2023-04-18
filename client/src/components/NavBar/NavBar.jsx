@@ -1,8 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
+import NavBar2 from "../NavBar2/NavBar2";
+import { useSelector } from "react-redux";
+
+const privateRouter = [
+  "/perfilpaciente",
+  "/perfilmedico",
+  "/historialclinico",
+  "/actualizarpaciente",
+  "/actualizarmedico",
+  "/saladeespera",
+  "/videoconsulta",
+  "/atencionfinalizada",
+];
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const userlogin = useSelector((state) => state.userLogin);
+
+  useEffect(() => {
+    if (!userlogin) {
+      if (privateRouter.includes(location.pathname)) {
+        navigate("/");
+      }
+    }
+  }, [userlogin]);
+
+  if (userlogin) {
+    return <NavBar2 />;
+  }
+
   return (
     <nav className="navbar  navbar-expand-md navbar-light">
       <div className="container-fluid">
