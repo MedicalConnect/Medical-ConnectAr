@@ -1,25 +1,46 @@
-import React from 'react'
+import {React,useEffect} from 'react'
+import { useSelector } from 'react-redux'
 import style from "./FormMedico.module.css";
 import {useForm} from "react-hook-form"
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { addDoctor } from '../../redux/actions/actions'
+import { addDoctor,totalUsers } from '../../redux/actions/actions'
 
 const FormMedico = () => {
+  const InfoUser= useSelector(state=>state.userLogin)
+  const totalUser= useSelector(state=>state.totalUsers)
   const paises=["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
   const arrProvincias = ["Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
   
-  const { register, formState: {errors} , handleSubmit, } = useForm();
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+  
+  const { register, watch,formState: {errors} , handleSubmit, } = useForm();
 
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(totalUsers())
+  }, [])
+
   const submit = (data) => {
-    console.log(data)
     dispatch(addDoctor(data))
     alert("El medico a sido creado")
     navigate("/ingresomedico")
   }
+
+  const validarEmail = (value) => {
+    if (totalUser.some((item) => item.email === value)) {
+      return "El email ya esta en uso . Por favor, introduzca otro email";
+    }
+    return true;
+  };
+
+  const validarDocumento = (value) => {
+    if (totalUser.some((item) => item.numero_de_documento === value)) {
+      return "El número de documento ya esta en uso. Por favor, introduzca otro número de documento";
+    }
+    return true;
+  };
 
   return (
     <div>
@@ -94,11 +115,18 @@ const FormMedico = () => {
                   placeholder="name@example.com"
                   {...register("numero_de_documento",{
                     required:true,
-                    maxLength:11
+                    maxLength:11,
+                    validate: {
+                      validarDocumento,
+                      CUIL: value => watch("tipo_de_documento") === "CUIL" ? value.length === 11 : true,
+                      DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true,} 
                   })}
                 />
                  {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
                 {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
+                {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
+                {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
+                {errors.numero_de_documento && <p>{errors.numero_de_documento.message}</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
               </div>
               <div className="form-floating mb-3">
@@ -308,11 +336,13 @@ const FormMedico = () => {
                   placeholder="Ingresa tu email"
                   {...register("email",{
                     required:true,
-                    pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+                    pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    validate:validarEmail
                   })}
                 />
                  {errors.email?.type === "required" && <p>El campo email es requerido</p>}
                  {errors.email?.type === "pattern" && <p>El formato del email es incorrecto</p>}
+                 {errors.email && <p>{errors.email.message}</p>}
                 <label htmlFor="floatingInput">Email</label>
               </div>
               <div className="form-floating">
@@ -327,7 +357,7 @@ const FormMedico = () => {
                   })}
                 />
                  {errors.contraseña?.type === "required" && <p>El campo contraseña es requerido</p>}
-                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto</p>}
+                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="form-floating ">
@@ -336,14 +366,20 @@ const FormMedico = () => {
                   className="form-control "
                   id="floatingPassword"
                   placeholder="Password"
-                  name="contrasenacheck"
+                  {...register("contrasenacheck", {
+                    required: true,
+                    validate: value => value === watch("contraseña","") ? true : "Las contraseñas no coinciden"},
+                    { shouldUnregister: true }
+                  )}
                 />
+                 {errors.contrasenacheck?.type === "required" && <p>El campo confirmar contraseña es requerido</p>}
+                 {errors.contrasenacheck?.message && <p>{errors.contrasenacheck.message}</p>}
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
               </div>
               <br />
               <br />
               <button className="btnsubmit btn-lg" type="submit">
-                Actualizar tu perfil!
+                Crear tu perfil!
               </button>
             </form>
           </div>

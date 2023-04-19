@@ -7,7 +7,7 @@ const pacientsRoutes = Router()
 
 pacientsRoutes.get('/', handlerAllPacients);
 pacientsRoutes.post('/',validatePaciente, handlerCreatePacients)
-pacientsRoutes.put('/', validatePaciente, handlerPutPacients)
+pacientsRoutes.put('/', handlerPutPacients)
 
 module.exports = {
     pacientsRoutes

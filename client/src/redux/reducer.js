@@ -14,6 +14,7 @@ import {
   PUT_PACIENT,
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
+  GET_TOTAL_USERS
 } from "./actions/actions-types";
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   userLogin: null,
   availableDoctors: [],
   atencionEnCurso: null,
+  totalUsers:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -118,6 +120,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         atencionEnCurso: action.payload,
+      };
+      case GET_TOTAL_USERS:
+      return {
+        ...state,
+        totalUsers: action.payload,
       };
 
     default:

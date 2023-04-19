@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./perfilPaciente.module.css";
 import { useSelector } from "react-redux";
 import ModalMedicos from "./modalMedicos";
-import { Link } from 'react-router-dom'
+import {Link} from "react-router-dom"
 
 const PerfilPaciente = () => {
   const userlogin = useSelector((state) => state.userLogin);
@@ -40,7 +40,9 @@ const PerfilPaciente = () => {
               class="accordion-collapse collapse show"
             >
               <div class="accordion-body">
-                <button className={styles.boton1}>Ir a actualizar</button>
+              <Link to={"/actualizarpaciente"}>
+              <button className={styles.boton1}>Ir a actualizar</button>
+                </Link> 
               </div>
             </div>
           </div>
