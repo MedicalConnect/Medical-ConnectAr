@@ -1,38 +1,38 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define('HistoriaClinica', {
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-            allowNull: false,
-            
-        },
-        medicalHistory: {
-            type: DataTypes.STRING,
-            allowNull: false
+  sequelize.define("HistoriaClinica", {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+      allowNull: false,
+    },
+    antecedentes_medicos: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "no tengo antecedentes medicos",
+    },
+    antecedentes_quirurgicos: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "no tengo antecedentes quirurgicos",
+    },
+    alergias: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "no tengo alergias",
+    },
 
-        },
-        allergies: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
+    medicamentos: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "no estoy tomando medicamentos",
+    },
 
-        medicines: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-
-        habits: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-
-        description: {
-        type: DataTypes.STRING,
-        allowNull: false
-     },
-     
-
-    })}
+    habitos: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  });
+};

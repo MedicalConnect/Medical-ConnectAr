@@ -1,9 +1,23 @@
 const {createHistoriaClinica, getAllHistoriaClinica, getHistoriaClinica, putHistoriaClinica} = require('../controllers/historiaClinicaController')
 
 const createHistoriaClinicaHandler = async(req, res) => {
-    const { medicalHistory, allergies, medicines, habits, description, PacienteId} = req.body
+    const {
+      antecedentes_medicos,
+      alergias,
+      antecedentes_quirurgicos,
+      medicamentos,
+      habitos,
+      PacienteId,
+    } = req.body;
     try {
-        const response = await createHistoriaClinica(medicalHistory, allergies, medicines, habits, description, PacienteId)
+        const response = await createHistoriaClinica(
+          antecedentes_medicos,
+          alergias,
+          antecedentes_quirurgicos,
+          medicamentos,
+          habitos,
+          PacienteId
+        );
         res.status(200).json(response)
     } catch (error) {
         console.log(error)

@@ -96,9 +96,7 @@ export const addDoctor = (payload) => {
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
     const response = axios.post(
-      "http://localhost:3001/historiaClinica",
-      payload
-    );
+      "http://localhost:3001/historiaClinica",payload);
     const data = response.data;
 
     return await dispatch({
@@ -141,7 +139,7 @@ export const loginLogOut = () => {
 export const getAvailableDoctors = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      "http://localhost:3001/doctor/status/disponible"
+      "http://localhost:3001/doctor/status/nodisponible"
     );
     const data = response.data;
     return dispatch({
