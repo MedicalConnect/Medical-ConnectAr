@@ -33,12 +33,30 @@ const ActualizarMedico = () => {
     return true;
   };
 
-  const validarDocumento = (value) => {
-    if (totalUser.some((item) => item.numero_de_documento === value)) {
-      return "El número de documento ya esta en uso. Por favor, introduzca otro número de documento";
-    }
-    return true;
-  };
+ const validarUserDataEmail= (value) =>{
+  if (InfoUser.email === value ){
+     return true
+  }
+  if (InfoUser.email !== value){
+    return validarEmail(value)
+  }
+ }
+
+ const validarDocumento = (value) => {
+  if (totalUser.some((item) => item.numero_de_documento === value)) {
+    return "El número de documento ya esta en uso. Por favor, introduzca otro número de documento";
+  }
+  return true;
+};
+
+ const validarUserDataDocument= (value) =>{
+  if (InfoUser.numero_de_documento === value ){
+     return true
+  }
+  if (InfoUser.numero_de_documento !== value){
+    return validarDocumento(value)
+  }
+ }
   
   return (
     <div>
@@ -123,7 +141,7 @@ const ActualizarMedico = () => {
                     maxLength:11,
          
                     validate: {
-                      validarDocumento,
+                      validarUserDataDocument,
                       CUIL: value => watch("tipo_de_documento") === "CUIL" ? value.length === 11 : true,
                       DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true, 
                     } 
@@ -359,7 +377,7 @@ const ActualizarMedico = () => {
                   {...register("email",{
                     required:true,
                     pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    validate:validarEmail
+                    validate:validarUserDataEmail
                   })}
                 />
                  {errors.email?.type === "required" && <p>El campo email es requerido</p>}
