@@ -1,8 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./HistorialClinico.css";
+import { useForm } from "react-hook-form";
+import { addClinicalHistory } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const HistorialClinico = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const submit1=(data)=>{
+    dispatch(addClinicalHistory(data));
+    alert("Historia Clinica creada");
+    //navigate("/perfilpaciente");
+  }
   return (
     <div>
       <div>
@@ -24,7 +40,7 @@ const HistorialClinico = () => {
             align-items-center"
           />
         </div>
-        <form className="formulario ">
+        <form className="formulario " onSubmit={handleSubmit(submit1)}>
           <div class="row mb-3">
             <h4 className="h4">Historia Clinica</h4>
             <label for="colFormLabel" class="col-sm-3 col-form-label">
@@ -36,20 +52,36 @@ const HistorialClinico = () => {
                 class="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes medicos"
+                {...register("antecedentes_medicos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.antecedentes_quirurgicos && (
+                <p>{errors.antecedentes_quirurgicos.message}</p>
+              )}
             </div>
           </div>
           <div class="row mb-3">
             <label for="colFormLabel" class="col-sm-3 col-form-label">
-              Antecedentes Quirurjicos:{" "}
+              Antecedentes Quirurgicos:{" "}
             </label>
             <div class="col-sm-9">
               <input
                 type="text"
                 class="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="antecedentes quirurgicos..."
+                {...register("antecedentes_quirurgicos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.antecedentes_quirurgicos && (
+                <p>{errors.antecedentes_quirurgicos.message}</p>
+              )}
             </div>
           </div>
           <div class="row mb-3">
@@ -61,8 +93,14 @@ const HistorialClinico = () => {
                 type="text"
                 class="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="alergias..."
+                {...register("alergias", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.alergias && <p>{errors.alergias.message}</p>}
             </div>
           </div>
           <div className="row mb-3">
@@ -74,8 +112,14 @@ const HistorialClinico = () => {
                 type="text"
                 class="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="medicamentos..."
+                {...register("medicamentos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.medicamentos && <p>{errors.medicamentos.message}</p>}
             </div>
           </div>
           <div className="row mb-3">
@@ -87,8 +131,14 @@ const HistorialClinico = () => {
                 type="text"
                 class="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="habitos..."
+                {...register("habitos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.habitos && <p>{errors.habitos.message}</p>}
             </div>
           </div>
           <button className="boton" type="submit">
