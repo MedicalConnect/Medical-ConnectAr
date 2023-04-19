@@ -15,12 +15,12 @@ module.exports = (sequelize) => {
 
         },
         allergies: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.STRING,
             allowNull: false,
         },
 
         medicines: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
+            type: DataTypes.STRING,
             allowNull: false
         },
 
