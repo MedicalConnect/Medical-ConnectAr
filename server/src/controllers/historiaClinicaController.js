@@ -1,21 +1,21 @@
 const { Paciente, HistoriaClinica } = require("../db");
 
 const createHistoriaClinica = async (
-  medicalHistory,
-  allergies,
-  medicines,
-  habits,
-  description,
+  antecedentes_medicos,
+  alergias,
+  antecedentes_quirurgicos,
+  medicamentos,
+  habitos,
   PacienteId
 ) => {
   // console.log(PacientId)
 
   const historiaClinica = await HistoriaClinica.create({
-    medicalHistory,
-    allergies,
-    medicines,
-    habits,
-    description,
+    antecedentes_medicos,
+    alergias,
+    antecedentes_quirurgicos,
+    medicamentos,
+    habitos,
     PacienteId,
   });
   // const paciente = await Paciente.findOne({where: {id: PacientId}})
