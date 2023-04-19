@@ -13,7 +13,7 @@ const Formpaciente = () => {
   
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { register, formState: {errors} , handleSubmit, } = useForm();
+  const { register, watch, formState: {errors} , handleSubmit, } = useForm();
 
   const submit1 = (data) =>{
    dispatch(addPacient(data))
@@ -95,11 +95,16 @@ const Formpaciente = () => {
                   placeholder="name@example.com"
                   {...register("numero_de_documento",{
                     required:true,
-                    maxLength:11
+                    maxLength:11,
+                    validate: {
+                      CUIL: value => watch("tipo_de_documento") === "CUIL" ? value.length === 11 : true,
+                      DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true,} 
                   })}
                 />
                  {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
                 {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
+                {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
+                {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
               </div>
               <div className="form-floating mb-3">
@@ -272,8 +277,14 @@ const Formpaciente = () => {
                   className="form-control "
                   id="floatingPassword"
                   placeholder="Password"
-                  name="contrasenacheck"
+                  {...register("contrasenacheck", {
+                    required: true,
+                    validate: value => value === watch("contraseña","") ? true : "Las contraseñas no coinciden"},
+                    { shouldUnregister: true }
+                  )}
                 />
+                 {errors.contrasenacheck?.type === "required" && <p>El campo confirmar contraseña es requerido</p>}
+                 {errors.contrasenacheck?.message && <p>{errors.contrasenacheck.message}</p>}
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
               </div>
               <br />

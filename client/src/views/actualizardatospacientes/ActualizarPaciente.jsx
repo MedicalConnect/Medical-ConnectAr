@@ -7,12 +7,14 @@ import {useNavigate} from "react-router-dom"
 const ActualizarPaciente = () => {
       const paises=["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
+  const arrProvincias = ["Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
   const navigate = useNavigate()
-  const { register, formState: {errors} , handleSubmit, } = useForm();
+  const { register, watch ,formState: {errors} , handleSubmit, reset } = useForm();
 
   const submit1 = (data) =>{
     alert("tus datos han sido actualizados")
-    navigate("perfil paciente")
+    reset()
+    //navigate("/perfilpaciente")
   }
 
   
@@ -49,10 +51,10 @@ const ActualizarPaciente = () => {
                   placeholder="name@example.com"
                   {...register("nombre",{
                     required:true,
-                    maxLength:20
+                    maxLength:25
                   })}
                 /> {errors.nombre?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.nombre?.type === "maxLength" && <p>El campo nombre debe tener maximo 20 caracteres</p>}
+                {errors.nombre?.type === "maxLength" && <p>El campo nombre debe tener maximo 25 caracteres</p>}
                 <label htmlFor="floatingInput">Nombre</label>
               </div>
               <div className="form-floating mb-3">
@@ -63,11 +65,11 @@ const ActualizarPaciente = () => {
                   placeholder="name@example.com"
                   {...register("apellido",{
                     required:true,
-                    maxLength:20
+                    maxLength:25
                   })}
                 />
-                {errors.apellido?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.apellido?.type === "maxLength" && <p>El campo nombre debe tener maximo 20 caracteres</p>}
+                {errors.apellido?.type === "required" && <p>El campo apellido es requerido</p>}
+                {errors.apellido?.type === "maxLength" && <p>El campo apellido debe tener maximo 25 caracteres</p>}
                 <label htmlFor="floatingInput">Apellido</label>
               </div>
               <div className="form-floating select1">
@@ -79,10 +81,11 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 >
-                  <option selected>---</option>
+                  <option  value="" defaultValue>---</option>
                   <option value="DNI">DNI</option>
                   <option value="CUIL">CUIL</option>
-                </select>{errors.tipo_de_documento?.type === "required" && <p>El campo nombre es requerido</p>}
+                </select>
+                {errors.tipo_de_documento?.type === "required" && <p>El campo Tipo de Documento es requerido</p>}
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>
 
@@ -94,11 +97,16 @@ const ActualizarPaciente = () => {
                   placeholder="name@example.com"
                   {...register("numero_de_documento",{
                     required:true,
-                    maxLength:11
+                    maxLength:11,
+                    validate: {
+                      CUIL: value => watch("tipo_de_documento") === "CUIL" ? value.length === 11 : true,
+                      DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true,} 
                   })}
                 />
-                 {errors.numero_de_documento?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.numero_de_documento?.type === "maxLength" && <p>El campo nombre debe tener maximo 20 caracteres</p>}
+                 {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
+                {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
+                {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
+                {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
               </div>
               <div className="form-floating mb-3">
@@ -111,8 +119,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.fecha_de_nacimiento?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.fecha_de_nacimiento?.type === "maxLength" && <p>El campo nombre debe tener maximo 20 caracteres</p>}
+                {errors.fecha_de_nacimiento?.type === "required" && <p>El campo fecha de nacimiento es requerido</p>}
                 <label htmlFor="floatingInput">Fecha de nacimiento</label>
               </div>
               <div className="form-floating select1">
@@ -127,17 +134,17 @@ const ActualizarPaciente = () => {
                   <option value="" defaultValue>
                     ---
                   </option>
-                  <option value="masculino" defaultValue>
+                  <option value="masculino" >
                     Masculino
                   </option>
-                  <option value="femenino" defaultValue>
+                  <option value="femenino" >
                     Femenino
                   </option>
-                  <option value="otro" defaultValue>
+                  <option value="otro" >
                     Otro
                   </option>
                 </select>
-                {errors.sexo?.type === "required" && <p>El campo nombre es requerido</p>}
+                {errors.sexo?.type === "required" && <p>El campo sexo es requerido</p>}
                 <label htmlFor="floatingSelect">Sexo</label>
               </div>
               <div className="form-floating select1">
@@ -158,7 +165,7 @@ const ActualizarPaciente = () => {
                     </option>
                   ))}
                 </select>
-                {errors.pais_de_origen?.type === "required" && <p>El campo nombre es requerido</p>}
+                {errors.pais_de_origen?.type === "required" && <p>El campo pais de origen es requerido</p>}
                 <label htmlFor="floatingSelect">Pais de origen</label>
               </div>
               
@@ -174,10 +181,12 @@ const ActualizarPaciente = () => {
                   <option value="" defaultValue>
                     ---
                   </option>
-                  <option>bs.as</option>
+                  {arrProvincias.map((prov,index)=>{
+                    return <option key={index} value={prov}>{prov}</option>
+                  })}
                 
                 </select>
-                {errors.provincia?.type === "required" && <p>El campo nombre es requerido</p>}
+                {errors.provincia?.type === "required" && <p>El campo provincia es requerido</p>}
                 <label htmlFor="floatingSelect">Provincia</label>
               </div>
               <div className="form-floating mb-3">
@@ -190,7 +199,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.ciudad?.type === "required" && <p>El campo nombre es requerido</p>}
+                {errors.ciudad?.type === "required" && <p>El campo ciudad es requerido</p>}
                 <label htmlFor="floatingInput">Ciudad</label>
               </div>
               <div className="form-floating mb-3">
@@ -203,7 +212,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                 {errors.nacionalidad?.type === "required" && <p>El campo nombre es requerido</p>}
+                 {errors.nacionalidad?.type === "required" && <p>El campo nacionalidad es requerido</p>}
                 <label htmlFor="floatingInput">Nacionalidad</label>
               </div>
               <div className="form-floating mb-3">
@@ -216,7 +225,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.domicilio?.type === "required" && <p>El campo nombre es requerido</p>}
+                {errors.domicilio?.type === "required" && <p>El campo domicilio es requerido</p>}
                 <label htmlFor="floatingInput">Domicilio</label>
               </div>
               <div className="form-floating mb-3">
@@ -229,7 +238,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                  {errors.telefono?.type === "required" && <p>El campo nombre es requerido</p>}
+                  {errors.telefono?.type === "required" && <p>El campo telefono es requerido</p>}
                 <label htmlFor="floatingInput">
                   Telefono
                 </label>
@@ -245,7 +254,7 @@ const ActualizarPaciente = () => {
                     pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
                   })}
                 />
-                 {errors.email?.type === "required" && <p>El campo nombre es requerido</p>}
+                 {errors.email?.type === "required" && <p>El campo email es requerido</p>}
                  {errors.email?.type === "pattern" && <p>El formato del email es incorrecto</p>}
                 <label htmlFor="floatingInput">Email</label>
               </div>
@@ -260,8 +269,8 @@ const ActualizarPaciente = () => {
                     pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
                   })}
                 />
-                 {errors.contrasena?.type === "required" && <p>El campo nombre es requerido</p>}
-                 {errors.contraseña?.type === "pattern" && <p>El formato del email es incorrecto</p>}
+                 {errors.contraseña?.type === "required" && <p>El campo contraseña es requerido</p>}
+                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto</p>}
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="form-floating ">
@@ -270,8 +279,14 @@ const ActualizarPaciente = () => {
                   className="form-control "
                   id="floatingPassword"
                   placeholder="Password"
-                  name="contrasenacheck"
+                  {...register("contrasenacheck", {
+                    required: true,
+                    validate: value => value === watch("contraseña","") ? true : "Las contraseñas no coinciden"},
+                    { shouldUnregister: true }
+                  )}
                 />
+                 {errors.contrasenacheck?.type === "required" && <p>El campo confirmar contraseña es requerido</p>}
+                 {errors.contrasenacheck?.message && <p>{errors.contrasenacheck.message}</p>}
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
               </div>
               <br />

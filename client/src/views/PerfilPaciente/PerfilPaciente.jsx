@@ -40,7 +40,9 @@ const PerfilPaciente = () => {
               class="accordion-collapse collapse show"
             >
               <div class="accordion-body">
-                <button className={styles.boton1}>Ir a actualizar</button>
+              <Link to={"/actualizarpaciente"}>
+              <button className={styles.boton1}>Ir a actualizar</button>
+                </Link> 
               </div>
             </div>
           </div>
