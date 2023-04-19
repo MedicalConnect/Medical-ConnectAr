@@ -2,8 +2,8 @@ const { Paciente, HistoriaClinica } = require("../db");
 
 const createHistoriaClinica = async (
   antecedentes_medicos,
-  alergias,
   antecedentes_quirurgicos,
+  alergias,
   medicamentos,
   habitos,
   PacienteId
@@ -11,8 +11,8 @@ const createHistoriaClinica = async (
 
   const historiaClinica = await HistoriaClinica.create({
     antecedentes_medicos,
-    alergias,
     antecedentes_quirurgicos,
+    alergias,
     medicamentos,
     habitos,
     PacienteId,
@@ -45,13 +45,13 @@ const getHistoriaClinica = async (PacienteId) => {
   return historiaClinica;
 };
 
-const putHistoriaClinica = async (id, medicalHistory, allergies, medicines, habits, description) => {
+const putHistoriaClinica = async (id, antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos) => {
   await HistoriaClinica.update({
-      medicalHistory: medicalHistory,
-      allergies: allergies,
-      medicines: medicines,
-      habits: habits,
-      description: description,
+    antecedentes_medicos: antecedentes_medicos,
+    antecedentes_quirurgicos: antecedentes_quirurgicos,
+    alergias: alergias,
+    medicamentos,
+    habitos: habitos,
   }, {
       where: {
           id : id
