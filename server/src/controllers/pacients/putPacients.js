@@ -1,6 +1,24 @@
 const { Paciente } = require('../../db.js')
 
 const putPacients = async (nombre, apellido, tipo_de_documento, numero_de_documento, fecha_de_nacimiento, sexo,  pais_de_origen, provincia, ciudad, nacionalidad, domicilio, telefono, email, contraseña) => {
+    if(
+        !nombre ||
+        !apellido ||
+        !tipo_de_documento ||
+        !numero_de_documento ||
+        !fecha_de_nacimiento ||
+        !sexo ||
+        !pais_de_origen ||
+        !provincia ||
+        !ciudad ||
+        !nacionalidad ||
+        !domicilio ||
+        !telefono ||
+        !email ||
+        !contraseña
+      )
+        throw new Error("Falta informacion requerida");
+
     await Paciente.update({
         nombre : nombre,
         apellido : apellido,
