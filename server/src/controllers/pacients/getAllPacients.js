@@ -1,7 +1,7 @@
 const { Paciente } = require('../../db.js')
 
 const getAllPacients = async () => {
-    const res = Paciente.findAll({})
+    const res = await Paciente.findAll({})
     return res
 }
 
