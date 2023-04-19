@@ -111,7 +111,6 @@ const updateDoctor = async (
       fecha_de_nacimiento,
       sexo,
       tipo_de_documento,
-      numero_de_documento,
       pais_de_origen,
       provincia,
       ciudad,
@@ -127,7 +126,9 @@ const updateDoctor = async (
       contraseña,
     },
     {
-      where: { nombre: nombre, apellido: apellido, email: email },
+      where: { 
+        numero_de_documento: numero_de_documento
+      },
     }
   );
 

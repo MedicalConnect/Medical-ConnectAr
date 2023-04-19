@@ -5,7 +5,6 @@ const putPacients = async (nombre, apellido, tipo_de_documento, numero_de_docume
         nombre : nombre,
         apellido : apellido,
         tipo_de_documento : tipo_de_documento,
-        numero_de_documento : numero_de_documento,
         fecha_de_nacimiento : fecha_de_nacimiento,
         sexo : sexo,
         pais_de_origen : pais_de_origen,
@@ -18,10 +17,10 @@ const putPacients = async (nombre, apellido, tipo_de_documento, numero_de_docume
         contraseña : contraseña,
     }, {
         where: {
-            nombre: nombre
+            numero_de_documento : numero_de_documento
         }
     });
- return ('Datos modificados correctamente')
+ return ('Datos actualizados con exito')
 }
 
 module.exports = {

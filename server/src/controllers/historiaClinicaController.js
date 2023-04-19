@@ -8,7 +8,6 @@ const createHistoriaClinica = async (
   habitos,
   PacienteId
 ) => {
-  // console.log(PacientId)
 
   const historiaClinica = await HistoriaClinica.create({
     antecedentes_medicos,
@@ -18,12 +17,24 @@ const createHistoriaClinica = async (
     habitos,
     PacienteId,
   });
-  // const paciente = await Paciente.findOne({where: {id: PacientId}})
-  // console.log(paciente)
+  // const paciente = await Paciente.findOne({
+  //   where: {
+  //     id: PacienteId
+  //   }
+  // })
+  //historiaClinica.addPaciente(paciente)
 
-  // await historiaClinica.addPaciente(paciente)
   return "Historia clinica creada";
 };
+
+const getAllHistoriaClinica = async () => {
+  const historiaClinica = await HistoriaClinica.findAll({
+    include: [Paciente],
+  });
+  if (historiaClinica.length === 0) throw Error("No hay historias clinicas");
+  return historiaClinica;
+};
+
 
 const getHistoriaClinica = async (PacienteId) => {
   const historiaClinica = await HistoriaClinica.findOne({
@@ -34,7 +45,25 @@ const getHistoriaClinica = async (PacienteId) => {
   return historiaClinica;
 };
 
+const putHistoriaClinica = async (id, medicalHistory, allergies, medicines, habits, description) => {
+  await HistoriaClinica.update({
+      medicalHistory: medicalHistory,
+      allergies: allergies,
+      medicines: medicines,
+      habits: habits,
+      description: description,
+  }, {
+      where: {
+          id : id
+      }
+  });
+return ('Datos actualizados con exito')
+}
+
+
 module.exports = {
   createHistoriaClinica,
+  getAllHistoriaClinica,
   getHistoriaClinica,
+  putHistoriaClinica
 };
