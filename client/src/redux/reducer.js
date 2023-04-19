@@ -11,6 +11,9 @@ import {
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
   GET_ENCURSO_ATTENTION,
+  PUT_PACIENT,
+  PUT_DOCTOR,
+  PUT_CLINICAL_HISTORY,
 } from "./actions/actions-types";
 
 const initialState = {
@@ -80,6 +83,21 @@ const reducer = (state = initialState, action) => {
         ...state,
         allAtentions: newAtention,
       };
+    case PUT_PACIENT:
+      return {
+        ...state,
+        allPacients: action.payload
+      }
+      case PUT_DOCTOR:
+        return {
+        ...state,
+        allDoctors: action.payload
+      }
+    case PUT_CLINICAL_HISTORY:
+      return {
+        ...state,
+        allHistoryClinical: action.payload
+      }
 
     case USER_LOGIN:
       return {

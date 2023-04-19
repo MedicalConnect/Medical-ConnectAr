@@ -12,13 +12,16 @@ import {
   GET_AVAILABLE_DOCTOR,
   CREATE_ATTENTION,
   GET_ENCURSO_ATTENTION,
+  PUT_PACIENT,
+  PUT_DOCTOR,
+  PUT_CLINICAL_HISTORY
 } from "./actions-types";
 
 import axios from "axios";
 
 export const getAllPacients = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/pacients");
+    const response = await axios.get("http://localhost:3001/pacientes");
     const data = response.data;
 
     return dispatch({
@@ -93,9 +96,7 @@ export const addDoctor = (payload) => {
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
     const response = axios.post(
-      "http://localhost:3001/historiaClinica",
-      payload
-    );
+      "http://localhost:3001/historiaClinica",payload);
     const data = response.data;
 
     return await dispatch({
@@ -138,7 +139,7 @@ export const loginLogOut = () => {
 export const getAvailableDoctors = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      "http://localhost:3001/doctor/status/disponible"
+      "http://localhost:3001/doctor/status/nodisponible"
     );
     const data = response.data;
     return dispatch({
@@ -170,6 +171,45 @@ export const getEncursoAttention = (payload) => {
     const data = response.data;
     return dispatch({
       type: GET_ENCURSO_ATTENTION,
+      payload: data,
+    });
+  };
+};
+
+export const putPacients = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      'http://localhost:3001/pacientes', payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_PACIENT,
+      payload: data,
+    });
+  };
+};
+
+export const putDoctor = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      'http://localhost:3001/doctor', payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_DOCTOR,
+      payload: data,
+    });
+  };
+};
+
+export const putClinicalHistory = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      "http://localhost:3001/historiaClinica", payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_CLINICAL_HISTORY,
       payload: data,
     });
   };

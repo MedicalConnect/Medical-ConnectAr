@@ -15,6 +15,7 @@ const FormMedico = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const submit = (data) => {
+    console.log(data)
     dispatch(addDoctor(data))
     alert("El medico a sido creado")
     navigate("/ingresomedico")
