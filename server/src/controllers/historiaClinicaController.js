@@ -8,6 +8,16 @@ const createHistoriaClinica = async (
   habitos,
   PacienteId
 ) => {
+  if(
+  !antecedentes_medicos ||
+  !antecedentes_quirurgicos ||
+  !alergias ||
+  !medicamentos ||
+  !habitos
+  )
+    throw new Error("Falta informacion requerida");
+
+
 
   const historiaClinica = await HistoriaClinica.create({
     antecedentes_medicos,
@@ -46,6 +56,9 @@ const getHistoriaClinica = async (PacienteId) => {
 };
 
 const putHistoriaClinica = async (id, antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos) => {
+  if(!antecedentes_medicos || !antecedentes_quirurgicos || !alergias || !medicamentos || !habitos)
+      throw new Error("Falta informacion requerida");
+
   await HistoriaClinica.update({
     antecedentes_medicos: antecedentes_medicos,
     antecedentes_quirurgicos: antecedentes_quirurgicos,
