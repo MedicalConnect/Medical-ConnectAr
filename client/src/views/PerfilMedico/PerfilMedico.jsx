@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./perfilMedico.module.css";
+import {Link} from "react-router-dom"
 
 const perfilMedico = () => {
   let nombre = "doctor";
@@ -59,7 +60,9 @@ const perfilMedico = () => {
               className="accordion-collapse collapse show"
             >
               <div className="accordion-body">
+                <Link to={"/actualizarmedico"}>
                 <button className={styles.boton1}>Ir a actualizar</button>
+                </Link>
               </div>
             </div>
           </div>

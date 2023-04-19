@@ -14,7 +14,8 @@ import {
   GET_ENCURSO_ATTENTION,
   PUT_PACIENT,
   PUT_DOCTOR,
-  PUT_CLINICAL_HISTORY
+  PUT_CLINICAL_HISTORY,
+  GET_TOTAL_USERS
 } from "./actions-types";
 
 import axios from "axios";
@@ -211,6 +212,29 @@ export const putClinicalHistory = (payload) => {
     return dispatch({
       type: PUT_CLINICAL_HISTORY,
       payload: data,
+    });
+  };
+};
+
+
+export const totalUsers = () => {
+  return async (dispatch) => {
+    const responseDoctor = await axios.get("http://localhost:3001/doctor");
+    const dataDoctor = responseDoctor.data;
+    const responsePacient = await axios.get("http://localhost:3001/pacientes");
+    const dataPacient = responsePacient.data;
+
+    const arr1 = dataDoctor.concat(dataPacient).flat()
+    const totalUsers= arr1.map(user=>{
+      return {
+        numero_de_documento:user.numero_de_documento,
+        email:user.email
+      }
+    })
+
+    return dispatch({
+      type: GET_TOTAL_USERS,
+      payload: totalUsers,
     });
   };
 };

@@ -1,9 +1,45 @@
-import React from 'react'
+import {React,useEffect} from 'react'
 import "./ActualizarMedico.css"
+import {useForm} from "react-hook-form"
+import { useSelector } from 'react-redux'
+import {putDoctor,totalUsers} from "../../redux/actions/actions"
+import {useNavigate} from "react-router-dom"
+import { useDispatch } from 'react-redux'
 
 const ActualizarMedico = () => {
+  const InfoUser= useSelector(state=>state.userLogin)
+  const totalUser= useSelector(state=>state.totalUsers)
   const paises=["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
+  const arrProvincias = ["Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { register, watch ,formState: {errors} , handleSubmit } = useForm();
+
+  useEffect(() => {
+    dispatch(totalUsers())
+  }, [])
+
+  const submit1 = (data) =>{
+    dispatch(putDoctor(data))
+    alert("tus datos han sido actualizados")
+    navigate("/perfilmedico")
+  }
+  
+  const validarEmail = (value) => {
+    if (totalUser.some((item) => item.email === value)) {
+      return "El email ya esta en uso . Por favor, introduzca otro email";
+    }
+    return true;
+  };
+
+  const validarDocumento = (value) => {
+    if (totalUser.some((item) => item.numero_de_documento === value)) {
+      return "El número de documento ya esta en uso. Por favor, introduzca otro número de documento";
+    }
+    return true;
+  };
+  
   return (
     <div>
       <div className="container text-center">
@@ -23,13 +59,14 @@ const ActualizarMedico = () => {
             <br />
             <br />
             <br />
-            <form className="forma" onSubmit={handleSubmit(submit)}>
+            <form className="forma" onSubmit={handleSubmit(submit1)}>
               <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.nombre}
                   {...register("nombre",{
                     required:true,
                     maxLength:25
@@ -44,6 +81,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.apellido}
                   {...register("apellido",{
                     required:true,
                     maxLength:25
@@ -58,6 +96,8 @@ const ActualizarMedico = () => {
                   className="form-select"
                   id="floatingSelect"
                   aria-label="Floating label select example"
+                  readOnly
+                  value={InfoUser.tipo_de_documento}
                   {...register("tipo_de_documento",{
                     required:true,
                   })}
@@ -65,7 +105,8 @@ const ActualizarMedico = () => {
                   <option  value="" defaultValue>---</option>
                   <option value="DNI">DNI</option>
                   <option value="CUIL">CUIL</option>
-                </select>{errors.tipo_de_documento?.type === "required" && <p>El campo Tipo de documento es requerido</p>}
+                </select>
+                {errors.tipo_de_documento?.type === "required" && <p>El campo Tipo de Documento es requerido</p>}
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>
 
@@ -75,19 +116,26 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  value={InfoUser.numero_de_documento}
+                  readOnly
                   {...register("numero_de_documento",{
                     required:true,
                     maxLength:11,
+         
                     validate: {
+                      validarDocumento,
                       CUIL: value => watch("tipo_de_documento") === "CUIL" ? value.length === 11 : true,
-                      DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true,} 
+                      DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true, 
+                    } 
                   })}
                 />
                  {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
                 {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
                 {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
                 {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
+                {errors.numero_de_documento && <p>{errors.numero_de_documento.message}</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
+                <p>Si quiere actualizar su tipo o numero de documento, Porfavor comuniquese con atencion al cliente!</p>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -95,6 +143,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.fecha_de_nacimiento}
                   {...register("fecha_de_nacimiento",{
                     required:true,
                   })}
@@ -107,6 +156,7 @@ const ActualizarMedico = () => {
                   className="form-select"
                   id="floatingSelect"
                   aria-label="Floating label select example"
+                  defaultValue={InfoUser.sexo}
                   {...register("sexo",{
                     required:true,
                   })}
@@ -114,13 +164,13 @@ const ActualizarMedico = () => {
                   <option value="" defaultValue>
                     ---
                   </option>
-                  <option value="masculino" defaultValue>
+                  <option value="masculino" >
                     Masculino
                   </option>
-                  <option value="femenino" defaultValue>
+                  <option value="femenino" >
                     Femenino
                   </option>
-                  <option value="otro" defaultValue>
+                  <option value="otro" >
                     Otro
                   </option>
                 </select>
@@ -132,6 +182,7 @@ const ActualizarMedico = () => {
                   className="form-select"
                   id="floatingSelect"
                   aria-label="Floating label select example"
+                  defaultValue={InfoUser.pais_de_origen}
                   {...register("pais_de_origen",{
                     required:true,
                   })}
@@ -154,6 +205,7 @@ const ActualizarMedico = () => {
                   className="form-select"
                   id="floatingSelect"
                   aria-label="Floating label select example"
+                  defaultValue={InfoUser.provincia}
                   {...register("provincia",{
                     required:true,
                   })}
@@ -175,6 +227,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.ciudad}
                   {...register("ciudad",{
                     required:true,
                   })}
@@ -188,6 +241,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.nacionalidad}
                   {...register("nacionalidad",{
                     required:true,
                   })}
@@ -201,6 +255,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.domicilio}
                   {...register("domicilio",{
                     required:true,
                   })}
@@ -214,6 +269,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.titulo}
                   {...register("titulo",{
                     required:true,
                   })}
@@ -227,6 +283,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.institucion_de_titulacion}
                   {...register("institucion_de_titulacion",{
                     required:true,
                   })}
@@ -240,6 +297,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.fecha_de_titulacion}
                   {...register("fecha_de_titulacion",{
                     required:true,
                   })}
@@ -253,6 +311,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.especilidad}
                   {...register("especilidad",{
                     required:true,
                   })}
@@ -266,6 +325,7 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={InfoUser.numero_de_matricula}
                   {...register("numero_de_matricula",{
                     required:true,
                   })}
@@ -273,12 +333,13 @@ const ActualizarMedico = () => {
                 <label htmlFor="floatingInput">Numero de matricula.</label>
                 {errors.numero_de_matricula?.type === "required" && <p>El campo Numero De Matricula es requerido</p>}
               </div>
-             <div className="form-floating mb-3">
+              <div className="form-floating mb-3">
                 <input
                   type="text"
                   className="form-control"
                   id="floatingInput"
                   placeholder="Ingresa tu número de teléfono"
+                  defaultValue={InfoUser.telefono}
                   {...register("telefono",{
                     required:true,
                   })}
@@ -294,13 +355,16 @@ const ActualizarMedico = () => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="Ingresa tu email"
+                  defaultValue={InfoUser.email}
                   {...register("email",{
                     required:true,
-                    pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+                    pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    validate:validarEmail
                   })}
                 />
                  {errors.email?.type === "required" && <p>El campo email es requerido</p>}
                  {errors.email?.type === "pattern" && <p>El formato del email es incorrecto</p>}
+                 {errors.email && <p>{errors.email.message}</p>}
                 <label htmlFor="floatingInput">Email</label>
               </div>
               <div className="form-floating">
@@ -309,13 +373,14 @@ const ActualizarMedico = () => {
                   className="form-control select1"
                   id="floatingPassword"
                   placeholder="Password"
+                  defaultValue={InfoUser.contraseña}
                   {...register("contraseña",{
                     required:true,
                     pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
                   })}
                 />
                  {errors.contraseña?.type === "required" && <p>El campo contraseña es requerido</p>}
-                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto</p>}
+                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="form-floating ">
