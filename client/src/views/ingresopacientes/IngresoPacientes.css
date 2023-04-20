@@ -135,7 +135,7 @@
   }
 }
 /*card */
-.card {
+.carta2 {
   position: relative;
   margin-top: 40px;
   width: 360px;
@@ -150,8 +150,8 @@
   cursor: pointer;
 }
 
-.card::before,
-.card::after {
+.carta2::before,
+.carta2::after {
   position: absolute;
   content: "";
   width: 20%;
@@ -166,33 +166,33 @@
   opacity: 0.2;
 }
 
-.card::before {
+.carta2::before {
   top: 0;
   right: 0;
   border-radius: 0 15px 0 100%;
 }
 
-.card::after {
+.carta2::after {
   bottom: 0;
   left: 0;
   border-radius: 0 100% 0 15px;
 }
 
-.card:hover::before,
-.card:hover:after {
+.carta2:hover::before,
+.carta2:hover:after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
   transition: all 0.5s;
 }
 
-.card:hover:after {
+.carta2:hover:after {
   content: "";
 }
 
 /*card1*/
 
-.card1 {
+.carta1 {
   position: relative;
   width: 360px;
   height: 150px;
@@ -206,8 +206,8 @@
   cursor: pointer;
 }
 
-.card1::before,
-.card1::after {
+.carta1::before,
+.carta1::after {
   position: absolute;
   content: "";
   width: 20%;
@@ -222,27 +222,27 @@
   opacity: 0.2;
 }
 
-.card1::before {
+.carta1::before {
   top: 0;
   right: 0;
   border-radius: 0 15px 0 100%;
 }
 
-.card1::after {
+.carta1::after {
   bottom: 0;
   left: 0;
   border-radius: 0 100% 0 15px;
 }
 
-.card1:hover::before,
-.card1:hover:after {
+.carta1:hover::before,
+.carta1:hover:after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
   transition: all 0.5s;
 }
 
-.card1:hover:after {
+.carta1:hover:after {
   content: "";
 }
 

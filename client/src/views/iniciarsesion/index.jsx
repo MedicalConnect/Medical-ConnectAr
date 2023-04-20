@@ -58,7 +58,7 @@ const IniciarSesion = () => {
                   })}
                 />
                 <label className="mx-2" htmlFor="floatingInput">
-                  Usuario
+                  Numero de documento o Email
                 </label>
                 {errors.usuario && (
                   <span className="text-danger mx-3">

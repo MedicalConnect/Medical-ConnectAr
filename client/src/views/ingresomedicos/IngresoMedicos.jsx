@@ -69,21 +69,21 @@ const IngresoMedicos = () => {
       <div>
         <section className="row">
           <div className="d-grid gap-5 col-6 col-md-4 mx-auto">
-            <div class="cardMM">
               <Link to={"/creacionpaciente"}>
+            <div class="cardMM">
                 <button className=" btn-primary" type="button">
                   CREAR CUENTA
                 </button>
-              </Link>
             </div>
+              </Link>
 
-            <div className="cardM">
               <Link to={"/iniciarsesion"}>
+            <div className="cardM">
                 <button className=" btn-primary1" type="button">
                   INGRESAR
                 </button>
-              </Link>
             </div>
+              </Link>
 
             <div class="loading text-center">
               <svg width="64px" height="48px">
