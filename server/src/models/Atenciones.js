@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       },
       diagnostico: {
         type: DataTypes.JSONB,
-        defaultValue: [], // [{CIE-10, diagnostico, diagnostico clinico}]
+        defaultValue: [], // [{CIE10, diagnostico}]
       },
       indicaciones_domiciliarias: {
         type: DataTypes.JSONB,

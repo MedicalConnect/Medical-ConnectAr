@@ -1,6 +1,12 @@
+.centro{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .form {
   margin-bottom: 100px;
-  margin-left: 50pc;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -32,18 +38,6 @@
 
 .sub a {
   color: rgba(23, 111, 211, 0.144);
-}
-
-.avatar {
-  /*     
-    height: 50px;
-    width: 50px;
-    background-color: rgba(23, 111, 211, 0.418);
-    border-radius: 50%;
-    align-self: center;
-    padding: 6px;
-    cursor: pointer;
-    box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),100px 100px 80px rgba(0, 0, 0, 0.03); */
 }
 
 .logoMC {

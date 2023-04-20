@@ -102,6 +102,9 @@ const reducer = (state = initialState, action) => {
       }
 
     case USER_LOGIN:
+      const {numero_de_documento,contraseña} = action.payload
+      const user1={usuario:numero_de_documento,contraseña}
+      localStorage.setItem("userInfo", JSON.stringify(user1));
       return {
         ...state,
         userLogin: action.payload,

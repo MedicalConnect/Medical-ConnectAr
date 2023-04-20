@@ -4,8 +4,13 @@ import styles from "./contactanos.module.css";
 import emailjs from "@emailjs/browser"
 import {Link} from "react-router-dom"
 import "./contactanos.css"
+import { useLocalStorage } from "../../useLocaleStorage";
 
 const Contactanos = () => {
+
+  const [textArea, setTextArea] = useLocalStorage("texto","");
+  const [nombre, setNombre] = useLocalStorage("nombre","");
+
   const USER_ID= 'G4I9JfqnlE5RMAZOT', 
   TEMPLATE_ID= 'template_qiagrdj',
   SERVICE_ID= 'service_1yi776n'
@@ -13,7 +18,6 @@ const Contactanos = () => {
     const sendEmail = (event) => {
       event.preventDefault();
    
-      event.preventDefault();
       const form = event.target;
       const email = form.elements["user_email"].value;
       const name = form.elements["user_name"].value;
@@ -32,11 +36,17 @@ const Contactanos = () => {
       }
   
       emailjs.sendForm(SERVICE_ID,TEMPLATE_ID,form,USER_ID)
-      .then(alert("Mensaje Enviado"))
-      .then(response => console.log(response.text))
-      .then(form.reset)
+      .then(response => {
+        alert("Mensaje Enviado");
+        console.log(response.text);
+        form.reset();
+        setNombre("");
+        setTextArea("");
+      })
       .catch(error => console.log(error.text))
   
+
+
     }
   
 
@@ -55,7 +65,8 @@ const Contactanos = () => {
         <form className={styles.form} onSubmit={sendEmail}>
           <h2 className={styles.subtitle}>Contactanos!</h2>
           <label htmlFor="name">Nombre:</label>
-          <input type="text" id="name" name="user_name"  />
+          <input type="text" id="name" name="user_name"    value={nombre}
+            onChange={e=> setNombre(e.target.value)} />
 
           <label htmlFor="email">E-mail:</label>
           <input type="text" id="email" name="user_email" />
@@ -74,6 +85,8 @@ const Contactanos = () => {
             rows="10"
             cols="30"
             name="user_message"
+            value={textArea}
+            onChange={e=> setTextArea(e.target.value)}
           
           ></textarea>
           <button
