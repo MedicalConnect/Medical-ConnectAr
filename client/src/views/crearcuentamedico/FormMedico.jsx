@@ -16,7 +16,7 @@ const FormMedico = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
   
-  const { register, watch,formState: {errors} , handleSubmit, } = useForm();
+  const { register, watch, formState: {errors} , handleSubmit, } = useForm();
 
   useEffect(() => {
     dispatch(totalUsers())
@@ -69,11 +69,11 @@ const FormMedico = () => {
                   id="floatingInput"
                   placeholder="name@example.com"
                   {...register("nombre",{
-                    required:true,
-                    maxLength:25
+                    required:"El campo nombre es requerido",
+                    maxLength:{value:25,message:"El campo nombre debe tener maximo 25 caracteres"}
                   })}
-                /> {errors.nombre?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.nombre?.type === "maxLength" && <p>El campo nombre debe tener maximo 25 caracteres</p>}
+                /> 
+                {errors.nombre && <p>{errors.nombre.message}</p>}
                 <label htmlFor="floatingInput">Nombre</label>
               </div>
               <div className="form-floating mb-3">

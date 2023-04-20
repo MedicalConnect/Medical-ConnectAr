@@ -121,18 +121,23 @@ export const addAtentions = (payload) => {
 
 export const setUserLogin = (payload) => {
   return async (dispatch) => {
-    const response = await axios.post("http://localhost:3001/login", payload);
-    const data = response.data;
-
-    return dispatch({
-      type: USER_LOGIN,
-      payload: data,
-    });
+    try {
+      const response = await axios.post("http://localhost:3001/login", payload);
+      const data = response.data;
+      
+      return dispatch({
+        type: USER_LOGIN,
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
 export const loginLogOut = () => {
   return function (dispatch) {
+    localStorage.removeItem("userInfo")
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };

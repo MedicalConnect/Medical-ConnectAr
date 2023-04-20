@@ -5,6 +5,7 @@ const {
   updateOneFieldAttentionHandler,
 } = require("./updateOneFieldAttentionHandler");
 const { getAttentionHandler } = require("./getAttentionHandler");
+const {getAttentionByIdHandler} = require("./getAttentionByIdHandler")
 
 module.exports = {
   createAttentionHandler,
@@ -12,4 +13,5 @@ module.exports = {
   createVideocallHandler,
   updateOneFieldAttentionHandler,
   getAttentionHandler,
+  getAttentionByIdHandler
 };
