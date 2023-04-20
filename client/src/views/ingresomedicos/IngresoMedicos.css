@@ -1,14 +1,9 @@
-.bg-gradiente-white-sky-blue {
+/* .bg-gradiente-white-sky-blue {
   text-align: center;
   color: rgb(174, 13, 180);
   padding: 35px;
 }
 
-.h5subtitulo {
-  text-align: center;
-  padding: 10px;
-  margin: 15px;
-}
 
 .nav-item {
   list-style: none;
@@ -66,7 +61,7 @@
   box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.28),
     0 20px 55px 0 rgba(0, 0, 0, 0.22);
 }
-/* padding: 24pt 48pt; */
+
 
 .btn2 {
   width: 50px;
@@ -94,4 +89,349 @@
 
 .btn2:hover i {
   color: rgb(226, 206, 29);
+} */
+
+/*ingreso paciente estilos*/
+
+/* .bg-gradiente-white-sky-blue {
+  text-align: center;
+  color: rgb(174, 13, 180);
+  padding: 35px;
+} */
+
+/* .h5subtitulo {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+} */
+
+/* .nav-item {
+  list-style: none;
+} */
+
+/* .d-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  margin: 15px;
+  border-radius: 19pt;
+  background-color: #fff;
+  border: 1px solid #e9e9e9;
+} */
+/* 
+.btn-primary {
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+/* .enviar:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.28),
+    0 20px 55px 0 rgba(0, 0, 0, 0.22);
+} */
+/* .btn-primary1 {
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 20px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+/* .enviar:hover {
+  box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.28),
+    0 20px 55px 0 rgba(0, 0, 0, 0.22);
 }
+  */
+
+/* .btn2 {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  margin: 10px;
+  border: 2px solid rgba(216, 57, 57, 0.801);
+  border-radius: 50%;
+  transition: all 0.2s ease-in; 
+} */
+
+/* .btn2 {
+  color: rgba(0, 89, 255, 0.774);
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in;
+} */
+
+/* .btn2:hover {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgba(61, 207, 32, 0.568);
+} */
+
+/* .btn2:hover i {
+  color: rgb(226, 206, 29);
+}   */
+
+/* prueba codigo*/
+
+.h4subtituloM {
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 1px solid #e9e9e9;
+}
+
+.h1titulo {
+  padding-bottom: 40px;
+}
+
+.loading svg polyline {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.loading svg polyline#back {
+  fill: none;
+  stroke: #ff4d5033;
+}
+
+.loading svg polyline#front {
+  fill: none;
+  stroke: #ff4d4f;
+  stroke-dasharray: 48, 144;
+  stroke-dashoffset: 192;
+  animation: dash_682 1.4s linear infinite;
+}
+
+@keyframes dash_682 {
+  72.5% {
+    opacity: 0;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/*card */
+.cardMM {
+  position: relative;
+  width: 360px;
+  height: 150px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.cardMM::before,
+.cardMM::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: initial;
+  background-color: lightblue;
+  transition: all 0.5s;
+  opacity: 0.2;
+}
+
+.cardMM::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.cardMM::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.cardMM:hover::before,
+.cardMM:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.cardMM:hover:after {
+  content: "";
+}
+
+/*card1*/
+
+.cardM {
+  position: relative;
+  width: 360px;
+  height: 150px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.cardM::before,
+.cardM::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: lighter;
+  background-color: lightblue;
+  transition: all 0.5s;
+  opacity: 0.2;
+}
+
+.cardM::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.cardM::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.cardM:hover::before,
+.cardM:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+
+.cardM:hover:after {
+  content: "";
+}
+
+/*boton google*/
+.buttonGM {
+  max-width: 320px;
+  display: flex;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  gap: 0.75rem;
+  color: rgb(65, 63, 63);
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
+.buttonG svg {
+  height: 40px;
+  margin-left: 2px;
+}
+
+.svgGM {
+  margin: 0px 28px 0px 20px;
+  width: 3.3em;
+}
+
+.buttonG:hover {
+  transform: scale(1.02);
+}
+
+.img-div-redondoM {
+  height: 200px;
+}
+
+.img-fondo-redondoM {
+  height: 200%;
+  width: 500px;
+  margin-top: 60px;
+}
+
+.def-fondo-imgM {
+  /* height: %; */
+  width: 20%;
+  margin-bottom: 100px;
+}
+
+.d-grid1M {
+  margin-left: 428px;
+  border: 1px solid #e9e9e9;
+  border-radius: 19pt;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.imagenfondo-bordes {
+  display: flex;
+
+  flex-direction: column;
+}
+.gap-5 {
+  padding-top: 50px;
+}
+.gap-2 {
+  margin-top: 40px;
+}
+/*estilos lapicito*/
+
+/* button{
+  width: 16vw;
+  height: 6vh ;
+  background-color: #b61d69;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center ;
+  text-decoration: none ;
+  display: inline-block;
+  font-size: 16px;
+  margin: 6px 5px;
+  cursor: pointer ;
+  -webkit-transition-duration: 0.4s ;
+  transition-duration: 0.4s ;
+  border-radius: 10px ;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
