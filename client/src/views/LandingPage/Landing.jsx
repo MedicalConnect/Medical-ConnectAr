@@ -62,7 +62,7 @@ function Landing() {
             <div className="card">
               <img
                 src="https://img.freepik.com/vector-premium/linda-tierra-feliz-gran-corazon-rojo-planeta-dibujos-animados-sonriendo-vector-ilustracion-aislada_502651-144.jpg?w=2000"
-                className="card-img-top"
+                className="card-img-top carta"
                 alt=""
               />
               <div className="card-body">
@@ -186,7 +186,7 @@ function Landing() {
           <p>
             Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
           </p>
-          <Link to={"/contribuciones"} target="_blank">
+          <Link to={"/quienessomos"} target="_blank">
           <button type="button" className="btn btn-outline-light">
             Conocenos mas !
           </button>

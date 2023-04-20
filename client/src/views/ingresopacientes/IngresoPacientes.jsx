@@ -38,21 +38,21 @@ const IngresoPacientes = () => {
       <div>
         <section className="row">
           <div className="d-grid gap-5 col-6 col-md-4 mx-auto">
-            <div class="card">
               <Link to={"/creacionpaciente"}>
+            <div class="carta2">
                 <button className=" btn-primary" type="button">
                   CREAR CUENTA
                 </button>
-              </Link>
             </div>
+              </Link>
 
-            <div className="card1">
               <Link to={"/iniciarsesion"}>
+            <div className="carta1">
                 <button className=" btn-primary1" type="button">
                   INGRESAR
                 </button>
-              </Link>
             </div>
+              </Link>
 
             <div className="loading text-center">
               <svg width="64px" height="48px">
