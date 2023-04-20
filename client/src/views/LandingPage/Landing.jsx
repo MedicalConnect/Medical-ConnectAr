@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect } from "react";
 import "./Landing.css"
 import {Link} from "react-router-dom"
-
+import { setUserLogin } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 function Landing() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userlogin = useSelector((state) => state.userLogin);
+  
+  useEffect(() => {
+  const userLogin1 = localStorage.getItem('userInfo');
+  if (userLogin1) {
+    dispatch(setUserLogin(JSON.parse(userLogin1)));
+  }
+console.log(userLogin1);
+if (userlogin?.rol) {
+  navigate(
+    userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
+  );
+}
+}, [userlogin]);
+
   return (
     <div>
       <div className="container ">

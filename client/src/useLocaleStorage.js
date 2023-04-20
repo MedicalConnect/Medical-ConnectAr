@@ -18,4 +18,5 @@ export function useLocalStorage (key , initialValue) {
             console.error(error);
         }
     }
+    return [storedValue,setValue]
 }
