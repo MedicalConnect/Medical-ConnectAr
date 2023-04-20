@@ -4,19 +4,18 @@ import "./ingresoAdmin.css";
 
 const IngresoAdmin = () => {
   return (
-    <div>
+    <div className="centro">
       <form className="form">
         <span className="title">Medical Connect</span>
 
-        <span className="sub mb">registro admin</span>
+        <span className="sub mb">Ingreso admin</span>
 
         <input id="file" type="file" />
 
-        <input type="text" className="input" placeholder="username" />
-        <input type="email" className="input" placeholder="email" />
+        <input type="email" className="input" placeholder="email-document" />
         <input type="password" className="input" placeholder="password" />
 
-        <button className="button-register">Register</button>
+        <button className="button-register">ingresar</button>
       </form>
     </div>
   );

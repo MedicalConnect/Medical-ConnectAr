@@ -7,8 +7,8 @@ import { useLocalStorage } from "../../useLocaleStorage";
 
 const ContribucionesSociales = () => {
 
-  const [textArea, setTextArea] = useLocalStorage("texto","");
-  const [nombre, setNombre] = useLocalStorage("nombre","");
+  const [textArea, setTextArea] = useLocalStorage("textoContribuciones","");
+  const [nombre, setNombre] = useLocalStorage("nombreContribuciones","");
 
   const USER_ID= 'G4I9JfqnlE5RMAZOT', 
   TEMPLATE_ID= 'template_44ts0cv',
