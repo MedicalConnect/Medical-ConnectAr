@@ -16,7 +16,7 @@ const FormMedico = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
   
-  const { register, watch,formState: {errors} , handleSubmit, } = useForm();
+  const { register, watch, formState: {errors} , handleSubmit, } = useForm();
 
   useEffect(() => {
     dispatch(totalUsers())
