@@ -39,7 +39,7 @@ const IngresoPacientes = () => {
         <section className="row">
           <div className="d-grid gap-5 col-6 col-md-4 mx-auto">
               <Link to={"/creacionpaciente"}>
-            <div class="carta2">
+            <div className="carta2">
                 <button className=" btn-primary" type="button">
                   CREAR CUENTA
                 </button>

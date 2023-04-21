@@ -10,10 +10,10 @@ const PerfilPaciente = () => {
   return (
     <>
       <div className={styles.contenedor}>
-        <h1 classNameName={styles.titulo}>
+        <h1 className={styles.titulo}>
           Bienvenido/a {`${userlogin?.nombre}`}
         </h1>
-        <h2 classNameName={styles.subtitle1}>
+        <h2 className={styles.subtitle1}>
           Si es la primera vez que ingresas, no olvides llenar tu historia
           clinica antes de solicitar una videoconsulta, gracias por utilizar
           Medical Connect!!
@@ -21,11 +21,11 @@ const PerfilPaciente = () => {
         <ModalMedicos />
       </div>
       <div className={styles.acordeon}>
-        <div class="accordion" id="accordionPanelsStayOpenExample">
-          <div class="accordion-item">
-            <h2 class="accordion-header">
+        <div className="accordion" id="accordionPanelsStayOpenExample">
+          <div className="accordion-item">
+            <h2 className="accordion-header">
               <button
-                class="accordion-button bg-light-subtle"
+                className="accordion-button bg-light-subtle"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseOne"
@@ -37,19 +37,19 @@ const PerfilPaciente = () => {
             </h2>
             <div
               id="panelsStayOpen-collapseOne"
-              class="accordion-collapse collapse show"
+              className="accordion-collapse collapse show"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
               <Link to={"/actualizarpaciente"}>
               <button className={styles.boton1}>Ir a actualizar</button>
                 </Link> 
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
+          <div className="accordion-item">
+            <h2 className="accordion-header">
               <button
-                class="accordion-button collapsed bg-light-subtle"
+                className="accordion-button collapsed bg-light-subtle"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseTwo"
@@ -61,9 +61,9 @@ const PerfilPaciente = () => {
             </h2>
             <div
               id="panelsStayOpen-collapseTwo"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
                 <Link to="/historialclinico">
                   <button className={styles.boton2}>
                     Ir a historia clínica
@@ -72,10 +72,10 @@ const PerfilPaciente = () => {
               </div>
             </div>
           </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header">
+          <div className="accordion-item">
+            <h2 className="accordion-header">
               <button
-                class="accordion-button collapsed bg-light-subtle"
+                className="accordion-button collapsed bg-light-subtle"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#panelsStayOpen-collapseThree"
@@ -87,9 +87,9 @@ const PerfilPaciente = () => {
             </h2>
             <div
               id="panelsStayOpen-collapseThree"
-              class="accordion-collapse collapse"
+              className="accordion-collapse collapse"
             >
-              <div class="accordion-body">
+              <div className="accordion-body">
                 <ul className={styles.listaDesordenada}>
                   <li>atencion 1</li>
                   <li>atencion 2</li>

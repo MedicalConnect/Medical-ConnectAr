@@ -431,72 +431,35 @@ const ActualizarMedico = () => {
             <br />
 
             <div class="container1">
-    <div class="bubble1">
+    <div className="bubble1">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble1">
+    <div className="bubble1">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble1">
+    <div className="bubble1">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble1">
+    <div className="bubble1">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble1">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
- </div>
- <div class="container2">
-    <div class="bubble2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble2">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div class="bubble2">
+    <div className="bubble1">
         <span></span>
         <span></span>
         <span></span>
@@ -504,36 +467,73 @@ const ActualizarMedico = () => {
         <span></span>
     </div>
  </div>
- <div class="container3">
-    <div class="bubble3">
+ <div className="container2">
+    <div className="bubble2">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble3">
+    <div className="bubble2">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble3">
+    <div className="bubble2">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble3">
+    <div className="bubble2">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
-    <div class="bubble3">
+    <div className="bubble2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+ </div>
+ <div className="container3">
+    <div className="bubble3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div className="bubble3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div className="bubble3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div className="bubble3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div className="bubble3">
         <span></span>
         <span></span>
         <span></span>
