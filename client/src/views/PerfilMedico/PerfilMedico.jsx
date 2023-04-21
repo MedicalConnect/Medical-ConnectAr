@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./perfilMedico.module.css";
+import {Link} from "react-router-dom"
 
 const perfilMedico = () => {
   let nombre = "doctor";
@@ -59,7 +60,9 @@ const perfilMedico = () => {
               className="accordion-collapse collapse show"
             >
               <div className="accordion-body">
+                <Link to={"/actualizarmedico"}>
                 <button className={styles.boton1}>Ir a actualizar</button>
+                </Link>
               </div>
             </div>
           </div>
@@ -83,7 +86,9 @@ const perfilMedico = () => {
               <div className="accordion-body">
                 <ul className={styles.listaDesordenada}>
                   <li>Paciente 1</li>
+                  <Link to={"/videoconsulta"}>
                   <button>Comenzar videoconsulta</button>
+                  </Link>
                   <li>Paciente 2</li>
                   <button>Comenzar videoconsulta</button>
                   <li>Paciente 3</li>

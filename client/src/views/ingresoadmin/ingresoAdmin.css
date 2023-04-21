@@ -1,0 +1,95 @@
+.centro{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 500px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  padding: 40px 40px;
+  box-shadow: 100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.title {
+  color: rgba(184, 33, 184, 0.836);
+  font-weight: bold;
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 6px;
+}
+
+.sub {
+  text-align: center;
+  color: black;
+  font-size: 18px;
+  width: 100%;
+}
+
+.sub.mb {
+  margin-bottom: 1px;
+}
+
+.sub a {
+  color: rgba(23, 111, 211, 0.144);
+}
+
+.logoMC {
+  height: 70px;
+  width: 170px;
+  display: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+  flex-direction: column;
+  /* height: 110px;
+    width: 110px;
+   background-color: #fff;
+  
+    align-self: center;
+    display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.form button {
+  align-self: flex-end;
+}
+
+.input,
+button {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 16px 10px;
+  background-color: rgb(247, 243, 243);
+  border-radius: 10px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.015),
+    100px 100px 80px rgba(0, 0, 0, 0.03);
+}
+
+.button-register {
+  margin-top: 12px;
+  background-color: rgba(20, 138, 173, 0.733);
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.input:focus {
+  border: 1px solid rgb(22, 117, 226);
+}
+
+#file {
+  display: none;
+}

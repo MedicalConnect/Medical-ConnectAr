@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./perfilPaciente.module.css";
+import { useSelector } from "react-redux";
+import ModalMedicos from "./modalMedicos";
+import {Link} from "react-router-dom"
 
 const PerfilPaciente = () => {
-  let nombre = "paciente";
+  const userlogin = useSelector((state) => state.userLogin);
 
   return (
     <>
       <div className={styles.contenedor}>
-        <h1 classNameName={styles.titulo}>Bienvenido/a {`${nombre}`}</h1>
+        <h1 classNameName={styles.titulo}>
+          Bienvenido/a {`${userlogin?.nombre}`}
+        </h1>
         <h2 classNameName={styles.subtitle1}>
           Si es la primera vez que ingresas, no olvides llenar tu historia
           clinica antes de solicitar una videoconsulta, gracias por utilizar
           Medical Connect!!
         </h2>
-        <button type="button" class="btn btn-success">
-          Solicita una videoconsulta
-        </button>
+        <ModalMedicos />
       </div>
       <div className={styles.acordeon}>
         <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -37,7 +40,9 @@ const PerfilPaciente = () => {
               class="accordion-collapse collapse show"
             >
               <div class="accordion-body">
-                <button className={styles.boton1}>Ir a actualizar</button>
+              <Link to={"/actualizarpaciente"}>
+              <button className={styles.boton1}>Ir a actualizar</button>
+                </Link> 
               </div>
             </div>
           </div>
@@ -59,7 +64,11 @@ const PerfilPaciente = () => {
               class="accordion-collapse collapse"
             >
               <div class="accordion-body">
-                <button className={styles.boton2}>Ir a historia clínica</button>
+                <Link to="/historialclinico">
+                  <button className={styles.boton2}>
+                    Ir a historia clínica
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

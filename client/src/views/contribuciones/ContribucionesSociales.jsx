@@ -1,8 +1,53 @@
 import React from "react";
+import { useState } from "react";
 import styles from "./contribucionesSociales.module.css";
+import emailjs from "@emailjs/browser"
 import { Link } from "react-router-dom";
+import { useLocalStorage } from "../../useLocaleStorage";
 
 const ContribucionesSociales = () => {
+
+  const [textArea, setTextArea] = useLocalStorage("textoContribuciones","");
+  const [nombre, setNombre] = useLocalStorage("nombreContribuciones","");
+
+  const USER_ID= 'G4I9JfqnlE5RMAZOT', 
+  TEMPLATE_ID= 'template_44ts0cv',
+  SERVICE_ID= 'service_1yi776n'
+
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+ 
+    event.preventDefault();
+    const form = event.target;
+    const email = form.elements["user_email"].value;
+    const name = form.elements["user_name"].value;
+    const phone = form.elements["user_phone"].value;
+    const address = form.elements["user_address"].value;
+    const message = form.elements["user_message"].value;
+  
+    if (!name || !email || !message || !phone || !address) {
+      alert("Por favor complete los campos requeridos.");
+      return;
+    }
+  
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      alert("Por favor ingrese un correo electrónico válido.");
+      return;
+    }
+
+    emailjs.sendForm(SERVICE_ID,TEMPLATE_ID,form,USER_ID)
+    .then(response => {
+      alert("Mensaje Enviado");
+      console.log(response.text);
+      form.reset();
+      setNombre("");
+      setTextArea("");
+    })
+    .catch(error => console.log(error.text))
+  }
+  
+
   return (
     <>
       <div className={styles.container}>
@@ -60,15 +105,16 @@ const ContribucionesSociales = () => {
           </p>
         </div>
         <div className={styles.formimg2}>
-          <form className={styles.form}>
+          <form className={styles.form}  onSubmit={sendEmail}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" name="user_name" value={nombre}
+            onChange={e=> setNombre(e.target.value)}/>
             <label htmlFor="email">E-mail:</label>
-            <input type="text" id="email" />
+            <input type="text" id="email" name="user_email" />
             <label htmlFor="telefono">Teléfono:</label>
-            <input type="text" id="telefono" />
+            <input type="text" id="telefono" name="user_phone" />
             <label htmlFor="domicilio">Domicilio: </label>
-            <input type="text" id="domicilio" />
+            <input type="text" id="domicilio" name="user_address"  />
             <label htmlFor="descripcion">Escribinos:</label>
             <textarea
               className={styles.textDescription}
@@ -76,6 +122,9 @@ const ContribucionesSociales = () => {
               placeholder="En que te podemos ayudar?..."
               rows="10"
               cols="30"
+              name="user_message"
+              value={textArea}
+              onChange={e=> setTextArea(e.target.value)}
             ></textarea>
             <button
               className={styles.enviar}

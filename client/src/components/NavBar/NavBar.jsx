@@ -1,27 +1,57 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
+import NavBar2 from "../NavBar2/NavBar2";
+import { useSelector } from "react-redux";
+
+const privateRouter = [
+  "/perfilpaciente",
+  "/perfilmedico",
+  "/historialclinico",
+  "/actualizarpaciente",
+  "/actualizarmedico",
+  "/saladeespera",
+  "/videoconsulta",
+  "/atencionfinalizada",
+];
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const userlogin = useSelector((state) => state.userLogin);
+
+  useEffect(() => {
+    if (!userlogin) {
+      if (privateRouter.includes(location.pathname)) {
+        navigate("/");
+      }
+    }
+  }, [userlogin]);
+
+  if (userlogin) {
+    return <NavBar2 />;
+  }
+
   return (
-    <nav className="navbar  navbar-expand-lg navbar-light">
+    <nav className="navbar  navbar-expand-md navbar-light">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarToggler"
+          data-bs-target="navbar-toggler"
           aria-controls="navbarTogglerDemo01"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbar-Toggler">
+        <div className="collapse navbar-collapse" id="navbar-toggler">
           <Link to="/">
             <img
               className="navbar-brand"
-              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340966044_602214545296808_1179848363389618222_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=5pDc2-rHmcUAX-CBwGv&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfDMNP9C8djD8q7xMSz86cDq0dWJC2QDkW3e38_D3DBblQ&oe=643D0581"
+              src="https://cdn.discordapp.com/attachments/1094314281123717204/1097344521290911865/medical-connect.PNG.png"
               alt="logo de la página web"
             />
           </Link>
@@ -68,9 +98,9 @@ const NavBar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <button type="button" className="btn btn-info">
+              <button type="button" className="btn btn-outline-info botton-ingreseaqui">
                 Ingrese Aquí
-              </button>
+                </button>
             </a>
             <ul className="dropdown-menu ">
               <li>

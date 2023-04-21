@@ -17,6 +17,14 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
+         tipo_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         numero_de_documento: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
          fecha_de_nacimiento: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -26,15 +34,11 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         tipo_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         numero_de_documento: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
          pais_de_origen: {
+            type: DataTypes.STRING,
+            allowNull: false
+         },
+         provincia: {
             type: DataTypes.STRING,
             allowNull: false
          },
@@ -42,11 +46,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
          },
-         partido: {
-            type: DataTypes.STRING,
-            allowNull: false
-         },
-         localidad: {
+         nacionalidad: {
             type: DataTypes.STRING,
             allowNull: false
          },
@@ -63,8 +63,8 @@ module.exports = (sequelize) => {
             allowNull: false,
             isEmail: true,
          },
-         contrasena: {
-            type: DataTypes.STRING,
+         contraseña: {
+            type: DataTypes.STRING(),
             allowNull: false
          }
         })}

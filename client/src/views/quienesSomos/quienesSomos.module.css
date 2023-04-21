@@ -1,7 +1,7 @@
 .container {
-  margin-top: 1em;
+  /* margin-top: 1em;
   margin-left: 6em;
-  margin-right: 8em;
+  margin-right: 8em; */
 }
 
 .nav {
@@ -11,63 +11,91 @@
 
 .textImgContainer {
   height: 40em;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .imgFlia {
-  margin-left: 0em;
-  margin-right: 4em;
+  /* margin-left: 1em; */
+  /* margin-right: 1em; */
   width: 100%;
-  border-radius: 3em;
+  /* border-radius: 3em; */
+  margin-bottom: 10px;
 }
 
 .text {
-  opacity: 0.8;
-  height: 20%;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 0.8; */
+  height: 59%;
   border: transparent;
-  background-color: rgb(125, 213, 213);
-  padding: 2em;
-  border-radius: 3em;
-  margin-top: 15em;
+  background-color: rgba(27, 173, 173, 0.212);
+  /* padding: px;  */
+  border-radius: 10em;
+  margin-top: 1em;
   font-size: large;
-  position: absolute;
-  top: 72%;
+  position: relative;
+  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 18px;
+  font-size: 25px;
   text-align: center;
 }
 
 .title {
   color: rgb(174, 13, 180);
   text-align: center;
+  margin: 40px;
+}
+
+.textContainer {
+  color: rgb(222, 43, 228);
+  margin-bottom: 1em;
+  height: 8em;
+  margin-top: 1em;
 }
 
 .titleDescription {
-  color: rgb(174, 13, 180);
+  margin-bottom: -4em;
 }
 
 .description {
   text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-top: 1em;
+  line-height: 2em;
+  font-size: 1.2em;
+}
+
+.hr1 {
+  color: rgb(13, 110, 253);
 }
 
 .boxContainer {
-  font-size: -0.9em;
+  font-size: 1em;
   display: flex;
   justify-content: flex-end;
   align-items: stretch;
   flex-direction: column-reverse;
-  margin-top: 2em;
-  flex-wrap: nowrap;
+  margin-top: 12em;
+  /* flex-wrap: nowrap; */
   width: 45em;
   border: transparent;
-  border-radius: 3em;
-  background-color: rgba(125, 213, 213, 0.52);
+  /* border-radius: 3em; */
+  background-color: rgba(125, 213, 213, 0.123);
 }
 
-.htitle {
-  margin-top: 6em;
+.loquenosmueve {
+  color: rgb(152, 32, 156);
+}
+
+.loquenosmuevediv {
   color: rgb(174, 13, 180);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.imagevaron {
 }
 
 .boxTitle {
@@ -104,9 +132,10 @@
 img,
 svg {
   width: -webkit-fill-available;
-  margin-left: 0em;
-  width: 4em;
-  margin-right: 1em;
+  margin-left: 1em;
+  width: 6em;
+  margin-right: 0em;
+  margin-left: 16px;
   border: transparent;
 }
 
@@ -118,37 +147,49 @@ svg {
 .item1 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item2 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item3 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item4 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .text1 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text2 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text3 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text4 {
   margin-left: 1em;
+  margin-bottom: 1px;
+  margin-top: 10px;
+}
+.imagenvaron2 {
+  display: flex;
 }
 
 .img {
@@ -165,14 +206,18 @@ span {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  margin-top: 290px;
+
   margin-left: 2em;
+  margin-bottom: 15px;
 }
 
 .corazon {
-  margin-top: 2em;
-  width: 45em;
-  height: 32em;
-  border-radius: 3em;
-  margin-left: 6em;
+  margin-top: 9em;
+  width: 55em;
+  height: 56em;
+  /* border-radius: 3em; */
+  margin-left: 9em;
   border: transparent;
 }
