@@ -10,7 +10,7 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
-  GET_ENCURSO_ATTENTION,
+  GET_ENESPERA_ATTENTION,
 } from "./actions/actions-types";
 
 const initialState = {
@@ -20,7 +20,7 @@ const initialState = {
   allAtentions: [],
   userLogin: null,
   availableDoctors: [],
-  atencionEnCurso: null,
+  atencionEnEspera: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -46,7 +46,7 @@ const reducer = (state = initialState, action) => {
     case GET_ALL_ATENTIONS:
       return {
         ...state,
-        allAtenciones: action.payload,
+        allAtentions: action.payload,
       };
 
     case ADD_PACIENT:
@@ -96,12 +96,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         availableDoctors: action.payload,
       };
-    case GET_ENCURSO_ATTENTION:
+    case GET_ENESPERA_ATTENTION:
       return {
         ...state,
-        atencionEnCurso: action.payload,
+        atencionEnEspera: action.payload,
       };
-
     default:
       return {
         ...state,

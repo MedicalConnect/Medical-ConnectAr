@@ -11,7 +11,7 @@ import {
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
   CREATE_ATTENTION,
-  GET_ENCURSO_ATTENTION,
+  GET_ENESPERA_ATTENTION,
 } from "./actions-types";
 
 import axios from "axios";
@@ -162,14 +162,14 @@ export const createAttention = (payload) => {
   };
 };
 
-export const getEncursoAttention = (payload) => {
+export const getEsperaAttention = (payload) => {
   return async (dispatch) => {
     const response = await axios.get(
-      `http://localhost:3001/atenciones/encurso/${payload}`
+      `http://localhost:3001/atenciones/enespera/${payload}`
     );
     const data = response.data;
     return dispatch({
-      type: GET_ENCURSO_ATTENTION,
+      type: GET_ENESPERA_ATTENTION,
       payload: data,
     });
   };

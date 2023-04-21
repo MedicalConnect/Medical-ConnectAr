@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./perfilPaciente.module.css";
 import { useSelector } from "react-redux";
 import ModalMedicos from "./modalMedicos";

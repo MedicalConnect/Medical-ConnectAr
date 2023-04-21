@@ -1,8 +1,8 @@
-const { Paciente } = require('../../db.js')
+const { Paciente } = require("../../db.js");
 
 const getAllPacients = async () => {
-    const res = Paciente.findAll({})
-    return res
-}
+  const res = Paciente.findAll({});
+  return res;
+};
 
-module.exports = { getAllPacients }
+module.exports = { getAllPacients };

@@ -1,33 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./SalaDeEspera.css";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getEncursoAttention } from "../../redux/actions/actions";
-import axios from "axios";
 
 const SalaDeEspera = () => {
-  const dispatch = useDispatch();
-  const atencionEnCurso = useSelector((state) => state.atencionEnCurso);
-  const userlogin = useSelector((state) => state.userLogin);
-
-  useEffect(() => {
-    setInterval(function () {
-      // Esta función se ejecutará cada 30 segundos
-      dispatch(getEncursoAttention(userlogin?.id));
-    }, 30000);
-  }, []);
-
-  useEffect(() => {
-    console.log(atencionEnCurso);
-  }, [atencionEnCurso]);
-
-  const iniciarVideollamada = async () => {
-    const response = await axios.post(
-      `http://localhost:3001/atenciones/videocall/${atencionEnCurso.id}`
-    );
-    console.log({ response });
-    window.open(response.data, "_blank", "width=600,height=400");
-  };
 
   return (
     <div>
@@ -40,12 +15,6 @@ const SalaDeEspera = () => {
               nuestros profesionales
             </h2>
           </div>
-          <button
-            className="btn btn-primary"
-            onClick={() => iniciarVideollamada()}
-          >
-            Iniciar videoconsulta
-          </button>
           <div className="col-12">
             {" "}
             <p>

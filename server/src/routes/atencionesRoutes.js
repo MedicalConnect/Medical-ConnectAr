@@ -12,6 +12,6 @@ atencionesRouter.get("/:PacienteId", getAtencionMedicaHandler);
 atencionesRouter.post("/", createAttentionHandler);
 atencionesRouter.post("/videocall/:atencionId", createVideocallHandler);
 atencionesRouter.put("/", updateOneFieldAttentionHandler);
-atencionesRouter.get("/encurso/:pacienteId", getAttentionHandler);
+atencionesRouter.get("/enespera/:pacienteId", getAttentionHandler);
 
 module.exports = atencionesRouter;

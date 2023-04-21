@@ -3,7 +3,7 @@ const { Atenciones } = require("../../db");
 const getAttentionController = async ({ pacienteId }) => {
   try {
     const atencion = await Atenciones.findOne({
-      where: { PacienteId: pacienteId, status: "encurso" },
+      where: { PacienteId: pacienteId, status: "enespera" },
       order: [["createdAt", "DESC"]],
     });
     if (!atencion) {

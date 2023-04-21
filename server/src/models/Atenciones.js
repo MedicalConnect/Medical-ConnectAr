@@ -49,8 +49,8 @@ module.exports = (sequelize) => {
         defaultValue: false,
       },
       status: {
-        type: DataTypes.ENUM("encurso", "finalizada", "cancelada"),
-        defaultValue: "encurso",
+        type: DataTypes.ENUM("enespera", "encurso", "finalizada", "cancelada"),
+        defaultValue: "enespera",
       },
     },
     { timestamps: true }
