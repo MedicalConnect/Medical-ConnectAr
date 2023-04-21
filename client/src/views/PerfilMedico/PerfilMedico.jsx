@@ -86,7 +86,7 @@ const perfilMedico = () => {
               <div className="accordion-body">
                 <ul className={styles.listaDesordenada}>
                   <li>Paciente 1</li>
-                  <Link to={"/videoconsulta"}>
+                  <Link to={"/videoconsulta/1"}>
                   <button>Comenzar videoconsulta</button>
                   </Link>
                   <li>Paciente 2</li>

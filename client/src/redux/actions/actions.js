@@ -145,7 +145,7 @@ export const loginLogOut = () => {
 export const getAvailableDoctors = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      "http://localhost:3001/doctor/status/nodisponible"
+      "http://localhost:3001/doctor/status/disponible"
     );
     const data = response.data;
     return dispatch({
