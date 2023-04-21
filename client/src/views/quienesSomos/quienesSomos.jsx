@@ -28,11 +28,11 @@ const QuienesSomos = () => {
           <hr className="hr1" />
           <div className={styles.textImgContainer}>
             <div className={styles.textContainer}>
-              <p className={styles.text}>
+              <div className={styles.text}>
                 <h2 className={styles.titleDescription}></h2>
                 “Nuestro proposito es acompañar a las personas en todo momento,
                 con una salud de calidad, más resolutiva y de verdad, cercana.”
-              </p>
+              </div>
             </div>
             <div className={styles.imageContainer}>
               <img

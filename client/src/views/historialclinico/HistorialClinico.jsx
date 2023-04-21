@@ -17,7 +17,7 @@ const HistorialClinico = () => {
   const submit1=(data)=>{
     dispatch(addClinicalHistory(data));
     alert("Historia Clinica creada");
-    //navigate("/perfilpaciente");
+    navigate("/perfilpaciente");
   }
   return (
     <div>
@@ -41,15 +41,15 @@ const HistorialClinico = () => {
           />
         </div>
         <form className="formulario " onSubmit={handleSubmit(submit1)}>
-          <div class="row mb-3">
+          <div className="row mb-3">
             <h4 className="h4">Historia Clinica</h4>
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Antecedentes Medicos:{" "}
             </label>
-            <div class="col-sm-9">
+            <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes medicos"
                 {...register("antecedentes_medicos", {
@@ -63,14 +63,14 @@ const HistorialClinico = () => {
               )}
             </div>
           </div>
-          <div class="row mb-3">
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
+          <div className="row mb-3">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Antecedentes Quirurgicos:{" "}
             </label>
-            <div class="col-sm-9">
+            <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes quirurgicos..."
                 {...register("antecedentes_quirurgicos", {
@@ -84,14 +84,14 @@ const HistorialClinico = () => {
               )}
             </div>
           </div>
-          <div class="row mb-3">
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
+          <div className="row mb-3">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Alergias:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="alergias..."
                 {...register("alergias", {
@@ -104,13 +104,13 @@ const HistorialClinico = () => {
             </div>
           </div>
           <div className="row mb-3">
-            <label for="colFormLabel" className="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Medicamentos:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="medicamentos..."
                 {...register("medicamentos", {
@@ -123,13 +123,13 @@ const HistorialClinico = () => {
             </div>
           </div>
           <div className="row mb-3">
-            <label for="colFormLabel" className="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Hábitos:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="habitos..."
                 {...register("habitos", {
