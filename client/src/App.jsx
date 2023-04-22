@@ -1,3 +1,4 @@
+import SubiendoImagenes from "./views/SubiendoImagenes";
 import {
   Landing,
   QuienesSomos,
@@ -21,7 +22,8 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
-} from "./views/index"; //views de index
+  SubiendoImagenes
+  } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
@@ -67,6 +69,7 @@ function App() {
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
+      <SubiendoImagenes />
     </div>
   );
 }

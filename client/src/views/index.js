@@ -46,4 +46,4 @@ export {
   AtencionFinalizada,
   NavBar2,
   IniciarSesion,
-};
+  };
