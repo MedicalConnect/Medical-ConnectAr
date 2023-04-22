@@ -1,10 +1,24 @@
 import React from "react";
 import "./SalaDeEspera.css";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getEncursoAttention } from "../../redux/actions/actions";
+import axios from "axios";
+import {useNavigate} from "react-router-dom"
+
+const SalaDeEspera = () => {
+  const dispatch = useDispatch();
+  const atencionEnCurso = useSelector((state) => state.atencionEnCurso);
+  const userlogin = useSelector((state) => state.userLogin);
+  const navigate = useNavigate()
 
 
 
 const SalaDeEspera = () => {
+
+  const atencionFinalizada = () => {
+    navigate("/atencionfinalizada")
+  }
 
   return (
     <div>
@@ -171,6 +185,7 @@ const SalaDeEspera = () => {
           </div>
         </div>
       </div>
+      <button type="button" onClick={atencionFinalizada}>Finalizar la Atencion</button>
     </div>
   );
 };

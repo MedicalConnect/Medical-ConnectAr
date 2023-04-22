@@ -22,6 +22,30 @@ const createDoctor = async (
   email,
   contraseña
 ) => {
+  if (
+    !nombre ||
+    !apellido ||
+    !fecha_de_nacimiento ||
+    !sexo ||
+    !tipo_de_documento ||
+    !numero_de_documento ||
+    !pais_de_origen ||
+    !provincia ||
+    !ciudad ||
+    !nacionalidad ||
+    !domicilio ||
+    !titulo ||
+    !institucion_de_titulacion ||
+    !fecha_de_titulacion ||
+    !especilidad ||
+    !numero_de_matricula ||
+    !telefono ||
+    !email ||
+    !contraseña 
+  ) 
+    throw new Error("Falta informacion requerida");
+
+
   const existingDoc = await Doctor.findOne({
     where: {
       numero_de_documento,
@@ -104,6 +128,28 @@ const updateDoctor = async (
   email,
   contraseña
 ) => {
+  if (
+    !nombre ||
+    !apellido ||
+    !fecha_de_nacimiento ||
+    !sexo ||
+    !tipo_de_documento ||
+    !numero_de_documento ||
+    !pais_de_origen ||
+    !provincia ||
+    !ciudad ||
+    !nacionalidad ||
+    !domicilio ||
+    !titulo ||
+    !institucion_de_titulacion ||
+    !fecha_de_titulacion ||
+    !especilidad ||
+    !numero_de_matricula ||
+    !telefono ||
+    !email ||
+    !contraseña 
+  ) 
+    throw new Error("Falta informacion requerida");
   await Doctor.update(
     {
       nombre,
@@ -111,7 +157,6 @@ const updateDoctor = async (
       fecha_de_nacimiento,
       sexo,
       tipo_de_documento,
-      numero_de_documento,
       pais_de_origen,
       provincia,
       ciudad,
@@ -127,7 +172,9 @@ const updateDoctor = async (
       contraseña,
     },
     {
-      where: { nombre: nombre, apellido: apellido, email: email },
+      where: { 
+        numero_de_documento: numero_de_documento
+      },
     }
   );
 

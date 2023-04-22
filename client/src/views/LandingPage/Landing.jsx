@@ -1,8 +1,29 @@
-import React from "react";
-import "./Landing.css";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import "./Landing.css"
+import {Link} from "react-router-dom"
+import { setUserLogin } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 function Landing() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userlogin = useSelector((state) => state.userLogin);
+  
+  useEffect(() => {
+  const userLogin1 = localStorage.getItem('userInfo');
+  if (userLogin1) {
+    dispatch(setUserLogin(JSON.parse(userLogin1)));
+  }
+console.log(userLogin1);
+if (userlogin?.rol) {
+  navigate(
+    userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
+  );
+}
+}, [userlogin]);
+
   return (
     <div>
       <div className="container ">
@@ -65,7 +86,7 @@ function Landing() {
             <div className="card1">
               <img
                 src="https://img.freepik.com/vector-premium/linda-tierra-feliz-gran-corazon-rojo-planeta-dibujos-animados-sonriendo-vector-ilustracion-aislada_502651-144.jpg?w=2000"
-                className="card-img-top"
+                className="card-img-top carta"
                 alt=""
               />
               <div className="card-body">
@@ -189,11 +210,11 @@ function Landing() {
           <p>
             Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
           </p>
-          <Link to={"/contribuciones"} target="_blank">
-            <button type="button" className="btn btn-outline-light">
-              Conocenos mas !
-            </button>
-          </Link>
+     <Link to={"/quienessomos"} target="_blank">
+          <button type="button" className="btn btn-outline-light">
+            Conocenos mas !
+          </button>
+           </Link>
         </div>
       </div>
 

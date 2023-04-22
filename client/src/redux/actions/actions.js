@@ -12,13 +12,17 @@ import {
   GET_AVAILABLE_DOCTOR,
   CREATE_ATTENTION,
   GET_ATTENTION,
+  PUT_PACIENT,
+  PUT_DOCTOR,
+  PUT_CLINICAL_HISTORY,
+  GET_TOTAL_USERS
 } from "./actions-types";
 
 import axios from "axios";
 
 export const getAllPacients = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/pacients");
+    const response = await axios.get("http://localhost:3001/pacientes");
     const data = response.data;
 
     return dispatch({
@@ -93,9 +97,7 @@ export const addDoctor = (payload) => {
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
     const response = axios.post(
-      "http://localhost:3001/historiaClinica",
-      payload
-    );
+      "http://localhost:3001/historiaClinica",payload);
     const data = response.data;
 
     return await dispatch({
@@ -119,18 +121,23 @@ export const addAtentions = (payload) => {
 
 export const setUserLogin = (payload) => {
   return async (dispatch) => {
-    const response = await axios.post("http://localhost:3001/login", payload);
-    const data = response.data;
-
-    return dispatch({
-      type: USER_LOGIN,
-      payload: data,
-    });
+    try {
+      const response = await axios.post("http://localhost:3001/login", payload);
+      const data = response.data;
+      
+      return dispatch({
+        type: USER_LOGIN,
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
 export const loginLogOut = () => {
   return function (dispatch) {
+    localStorage.removeItem("userInfo")
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };
@@ -171,6 +178,68 @@ export const getAttention = (payload) => {
     return dispatch({
       type: GET_ATTENTION,
       payload: data,
+    });
+  };
+};
+
+export const putPacients = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      'http://localhost:3001/pacientes', payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_PACIENT,
+      payload: data,
+    });
+  };
+};
+
+export const putDoctor = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      'http://localhost:3001/doctor', payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_DOCTOR,
+      payload: data,
+    });
+  };
+};
+
+export const putClinicalHistory = (payload) => {
+  return async (dispatch) => {
+    const response = await axios.put(
+      "http://localhost:3001/historiaClinica", payload);
+    const data = response.data;
+
+    return dispatch({
+      type: PUT_CLINICAL_HISTORY,
+      payload: data,
+    });
+  };
+};
+
+
+export const totalUsers = () => {
+  return async (dispatch) => {
+    const responseDoctor = await axios.get("http://localhost:3001/doctor");
+    const dataDoctor = responseDoctor.data;
+    const responsePacient = await axios.get("http://localhost:3001/pacientes");
+    const dataPacient = responsePacient.data;
+
+    const arr1 = dataDoctor.concat(dataPacient).flat()
+    const totalUsers= arr1.map(user=>{
+      return {
+        numero_de_documento:user.numero_de_documento,
+        email:user.email
+      }
+    })
+
+    return dispatch({
+      type: GET_TOTAL_USERS,
+      payload: totalUsers,
     });
   };
 };

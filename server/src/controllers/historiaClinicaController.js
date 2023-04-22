@@ -1,29 +1,50 @@
 const { Paciente, HistoriaClinica } = require("../db");
 
 const createHistoriaClinica = async (
-  medicalHistory,
-  allergies,
-  medicines,
-  habits,
-  description,
+  antecedentes_medicos,
+  antecedentes_quirurgicos,
+  alergias,
+  medicamentos,
+  habitos,
   PacienteId
 ) => {
-  // console.log(PacientId)
+  if(
+  !antecedentes_medicos ||
+  !antecedentes_quirurgicos ||
+  !alergias ||
+  !medicamentos ||
+  !habitos
+  )
+    throw new Error("Falta informacion requerida");
+
+
 
   const historiaClinica = await HistoriaClinica.create({
-    medicalHistory,
-    allergies,
-    medicines,
-    habits,
-    description,
+    antecedentes_medicos,
+    antecedentes_quirurgicos,
+    alergias,
+    medicamentos,
+    habitos,
     PacienteId,
   });
-  // const paciente = await Paciente.findOne({where: {id: PacientId}})
-  // console.log(paciente)
+  // const paciente = await Paciente.findOne({
+  //   where: {
+  //     id: PacienteId
+  //   }
+  // })
+  //historiaClinica.addPaciente(paciente)
 
-  // await historiaClinica.addPaciente(paciente)
   return "Historia clinica creada";
 };
+
+const getAllHistoriaClinica = async () => {
+  const historiaClinica = await HistoriaClinica.findAll({
+    include: [Paciente],
+  });
+  if (historiaClinica.length === 0) throw Error("No hay historias clinicas");
+  return historiaClinica;
+};
+
 
 const getHistoriaClinica = async (PacienteId) => {
   const historiaClinica = await HistoriaClinica.findOne({
@@ -34,7 +55,28 @@ const getHistoriaClinica = async (PacienteId) => {
   return historiaClinica;
 };
 
+const putHistoriaClinica = async (id, antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos) => {
+  if(!antecedentes_medicos || !antecedentes_quirurgicos || !alergias || !medicamentos || !habitos)
+      throw new Error("Falta informacion requerida");
+
+  await HistoriaClinica.update({
+    antecedentes_medicos: antecedentes_medicos,
+    antecedentes_quirurgicos: antecedentes_quirurgicos,
+    alergias: alergias,
+    medicamentos,
+    habitos: habitos,
+  }, {
+      where: {
+          id : id
+      }
+  });
+return ('Datos actualizados con exito')
+}
+
+
 module.exports = {
   createHistoriaClinica,
+  getAllHistoriaClinica,
   getHistoriaClinica,
+  putHistoriaClinica
 };

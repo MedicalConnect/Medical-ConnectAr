@@ -20,6 +20,12 @@ const IniciarSesion = () => {
   };
 
   useEffect(() => {
+    const userLogin1 = localStorage.getItem('userInfo');
+    
+    if (userLogin1) {
+      dispatch(setUserLogin(JSON.parse(userLogin1)));
+    }
+  console.log(userLogin1);
     if (userlogin?.rol) {
       navigate(
         userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
@@ -58,7 +64,7 @@ const IniciarSesion = () => {
                   })}
                 />
                 <label className="mx-2" htmlFor="floatingInput">
-                  Usuario
+                  Numero de documento o Email
                 </label>
                 {errors.usuario && (
                   <span className="text-danger mx-3">

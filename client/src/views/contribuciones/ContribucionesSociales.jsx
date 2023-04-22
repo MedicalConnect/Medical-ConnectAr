@@ -3,8 +3,13 @@ import { useState } from "react";
 import styles from "./contribucionesSociales.module.css";
 import emailjs from "@emailjs/browser"
 import { Link } from "react-router-dom";
+import { useLocalStorage } from "../../useLocaleStorage";
 
 const ContribucionesSociales = () => {
+
+  const [textArea, setTextArea] = useLocalStorage("textoContribuciones","");
+  const [nombre, setNombre] = useLocalStorage("nombreContribuciones","");
+
   const USER_ID= 'G4I9JfqnlE5RMAZOT', 
   TEMPLATE_ID= 'template_44ts0cv',
   SERVICE_ID= 'service_1yi776n'
@@ -32,11 +37,14 @@ const ContribucionesSociales = () => {
     }
 
     emailjs.sendForm(SERVICE_ID,TEMPLATE_ID,form,USER_ID)
-    .then(alert("Mensaje Enviado"))
-    .then(response => console.log(response.text))
-    .then(form.reset)
+    .then(response => {
+      alert("Mensaje Enviado");
+      console.log(response.text);
+      form.reset();
+      setNombre("");
+      setTextArea("");
+    })
     .catch(error => console.log(error.text))
-
   }
   
 
@@ -99,7 +107,8 @@ const ContribucionesSociales = () => {
         <div className={styles.formimg2}>
           <form className={styles.form}  onSubmit={sendEmail}>
             <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="user_name"/>
+            <input type="text" id="name" name="user_name" value={nombre}
+            onChange={e=> setNombre(e.target.value)}/>
             <label htmlFor="email">E-mail:</label>
             <input type="text" id="email" name="user_email" />
             <label htmlFor="telefono">Teléfono:</label>
@@ -114,7 +123,8 @@ const ContribucionesSociales = () => {
               rows="10"
               cols="30"
               name="user_message"
-          
+              value={textArea}
+              onChange={e=> setTextArea(e.target.value)}
             ></textarea>
             <button
               className={styles.enviar}

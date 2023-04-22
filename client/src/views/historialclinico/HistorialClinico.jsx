@@ -1,8 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./HistorialClinico.css";
+import { useForm } from "react-hook-form";
+import { addClinicalHistory } from "../../redux/actions/actions";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const HistorialClinico = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const submit1=(data)=>{
+    dispatch(addClinicalHistory(data));
+    alert("Historia Clinica creada");
+    navigate("/perfilpaciente");
+  }
   return (
     <div>
       <div>
@@ -24,71 +40,105 @@ const HistorialClinico = () => {
             align-items-center"
           />
         </div>
-        <form className="formulario ">
-          <div class="row mb-3">
+        <form className="formulario " onSubmit={handleSubmit(submit1)}>
+          <div className="row mb-3">
             <h4 className="h4">Historia Clinica</h4>
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Antecedentes Medicos:{" "}
             </label>
-            <div class="col-sm-9">
+            <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes medicos"
+                {...register("antecedentes_medicos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.antecedentes_quirurgicos && (
+                <p>{errors.antecedentes_quirurgicos.message}</p>
+              )}
             </div>
           </div>
-          <div class="row mb-3">
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
-              Antecedentes Quirurjicos:{" "}
+          <div className="row mb-3">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
+              Antecedentes Quirurgicos:{" "}
             </label>
-            <div class="col-sm-9">
+            <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="antecedentes quirurgicos..."
+                {...register("antecedentes_quirurgicos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.antecedentes_quirurgicos && (
+                <p>{errors.antecedentes_quirurgicos.message}</p>
+              )}
             </div>
           </div>
-          <div class="row mb-3">
-            <label for="colFormLabel" class="col-sm-3 col-form-label">
+          <div className="row mb-3">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Alergias:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="alergias..."
+                {...register("alergias", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.alergias && <p>{errors.alergias.message}</p>}
             </div>
           </div>
           <div className="row mb-3">
-            <label for="colFormLabel" className="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Medicamentos:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="medicamentos..."
+                {...register("medicamentos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.medicamentos && <p>{errors.medicamentos.message}</p>}
             </div>
           </div>
           <div className="row mb-3">
-            <label for="colFormLabel" className="col-sm-3 col-form-label">
+            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
               Hábitos:{" "}
             </label>
             <div className="col-sm-9">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="colFormLabel"
-                placeholder="resumen..."
+                placeholder="habitos..."
+                {...register("habitos", {
+                  required: true,
+                  minLength: { value: 5, message: "no puede estar vacio" },
+                  maxLength: { value: 250, message: "maximo 450 caracteres" },
+                })}
               />
+              {errors.habitos && <p>{errors.habitos.message}</p>}
             </div>
           </div>
           <button className="boton" type="submit">

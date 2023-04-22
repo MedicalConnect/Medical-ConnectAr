@@ -10,7 +10,11 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
-  GET_ATTENTION,
+GET_ATTENTION,
+ PUT_PACIENT,
+  PUT_DOCTOR,
+  PUT_CLINICAL_HISTORY,
+  GET_TOTAL_USERS
 } from "./actions/actions-types";
 
 const initialState = {
@@ -20,6 +24,8 @@ const initialState = {
   allAtentions: [],
   userLogin: null,
   availableDoctors: [],
+ atencionEnCurso: null,
+  totalUsers:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -79,8 +85,26 @@ const reducer = (state = initialState, action) => {
         ...state,
         allAtentions: newAtention,
       };
+    case PUT_PACIENT:
+      return {
+        ...state,
+        allPacients: action.payload
+      }
+      case PUT_DOCTOR:
+        return {
+        ...state,
+        allDoctors: action.payload
+      }
+    case PUT_CLINICAL_HISTORY:
+      return {
+        ...state,
+        allHistoryClinical: action.payload
+      }
 
     case USER_LOGIN:
+      const {numero_de_documento,contraseña} = action.payload
+      const user1={usuario:numero_de_documento,contraseña}
+      localStorage.setItem("userInfo", JSON.stringify(user1));
       return {
         ...state,
         userLogin: action.payload,
@@ -99,6 +123,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         allAtentions: action.payload,
+      };
+    case GET_TOTAL_USERS:
+      return {
+        ...state,
+        totalUsers: action.payload,
       };
     default:
       return {

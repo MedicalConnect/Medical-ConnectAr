@@ -176,9 +176,15 @@ section {
 .imagen-gato {
   width: 20px;
   height: 20px;
+  margin-right: 10px;
 }
 
 .imagen-linkedin {
   width: 20px;
   height: 20px;
+  margin-right: 10px;
+}
+
+.text-white{
+  margin-right: 1em;
 }

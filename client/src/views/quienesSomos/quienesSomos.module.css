@@ -77,9 +77,9 @@
   justify-content: flex-end;
   align-items: stretch;
   flex-direction: column-reverse;
-  /* margin-top: 1em; */
+  margin-top: 12em;
   /* flex-wrap: nowrap; */
-  width: 40em;
+  width: 45em;
   border: transparent;
   /* border-radius: 3em; */
   background-color: rgba(125, 213, 213, 0.123);
@@ -147,38 +147,46 @@ svg {
 .item1 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item2 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item3 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .item4 {
   display: flex;
   padding: 2em;
+  margin-top: 10px;
 }
 
 .text1 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text2 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text3 {
   margin-left: 1em;
+  margin-top: 10px;
 }
 
 .text4 {
   margin-left: 1em;
   margin-bottom: 1px;
+  margin-top: 10px;
 }
 .imagenvaron2 {
   display: flex;
@@ -206,8 +214,8 @@ span {
 }
 
 .corazon {
-  margin-top: 2em;
-  width: 56em;
+  margin-top: 9em;
+  width: 55em;
   height: 56em;
   /* border-radius: 3em; */
   margin-left: 9em;

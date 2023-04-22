@@ -17,6 +17,11 @@ pacientsRoutes.post("/", validatePaciente, handlerCreatePacients);
 pacientsRoutes.put("/", validatePaciente, handlerPutPacients);
 
 
+pacientsRoutes.get('/', handlerAllPacients);
+pacientsRoutes.post('/',validatePaciente, handlerCreatePacients)
+pacientsRoutes.put('/', handlerPutPacients)
+
+
 module.exports = {
   pacientsRoutes,
 };
