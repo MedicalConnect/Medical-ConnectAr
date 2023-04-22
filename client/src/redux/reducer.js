@@ -10,8 +10,8 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
-  GET_ENCURSO_ATTENTION,
-  PUT_PACIENT,
+GET_ATTENTION,
+ PUT_PACIENT,
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS
@@ -24,7 +24,7 @@ const initialState = {
   allAtentions: [],
   userLogin: null,
   availableDoctors: [],
-  atencionEnCurso: null,
+ atencionEnCurso: null,
   totalUsers:[]
 };
 
@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
     case GET_ALL_ATENTIONS:
       return {
         ...state,
-        allAtenciones: action.payload,
+        allAtentions: action.payload,
       };
 
     case ADD_PACIENT:
@@ -119,17 +119,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         availableDoctors: action.payload,
       };
-    case GET_ENCURSO_ATTENTION:
+    case GET_ATTENTION:
       return {
         ...state,
-        atencionEnCurso: action.payload,
+        allAtentions: action.payload,
       };
-      case GET_TOTAL_USERS:
+    case GET_TOTAL_USERS:
       return {
         ...state,
         totalUsers: action.payload,
       };
-
     default:
       return {
         ...state,

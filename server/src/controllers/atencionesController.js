@@ -46,11 +46,11 @@ const createAtencionMedica = async (param) => {
 };
 
 const getAtencionMedica = async (PacienteId) => {
-  const getAtencionMedica = await getAtencionMedica.findOne({
+  const AtencionMedica = await Atenciones.findOne({
     where: { PacienteId: PacienteId },
     include: [Paciente],
   });
-  if (!AtencionMedica) throw Error("Este paciente no tiene historia clinica");
+  if (!AtencionMedica) throw Error("Este paciente no tiene historia clínica");
   return AtencionMedica;
 };
 

@@ -34,6 +34,7 @@ const getHistoriaClinicaHandler = async(req, res) => {
 }
 
 
+
 const putHistoriaClinicaHandler = async(req, res) => {
     const { antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos } = req.body
     const { id } = req.params
@@ -52,3 +53,4 @@ module.exports = {
     getHistoriaClinicaHandler,
     putHistoriaClinicaHandler
 }
+

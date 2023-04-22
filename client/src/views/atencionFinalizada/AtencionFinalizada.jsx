@@ -1,13 +1,14 @@
 import { React, useState } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 import styles from "./atencionFinalizada.module.css";
 
 const AtencionFinalizada = () => {
+  const userlogin = useSelector((state) => state.userLogin);
   const [numEstrellas, setNumEstrellas] = useState(0);
   const [voted, setVoted] = useState(false);
-  const doctor = "nombre";
 
   const seleccionarEstrella = (numeroEstrella) => {
     setNumEstrellas(numeroEstrella);
@@ -49,7 +50,7 @@ const AtencionFinalizada = () => {
           alt="logo"
         />
         <div className={styles.textoTarjeta}>
-          <h3>Fuiste atendido por el doctor {doctor}</h3>
+          <h3>Fuiste atendido por el doctor {`${userlogin?.nombre}`}</h3>
           <p className={styles.texto2}>
             Estas conforme con la atencion recibida? si es asi, valora
             positivamente al profesional que te atendio, esto le sirve mucho

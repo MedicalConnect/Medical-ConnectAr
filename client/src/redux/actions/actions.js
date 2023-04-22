@@ -11,7 +11,7 @@ import {
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
   CREATE_ATTENTION,
-  GET_ENCURSO_ATTENTION,
+  GET_ATTENTION,
   PUT_PACIENT,
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
@@ -169,14 +169,14 @@ export const createAttention = (payload) => {
   };
 };
 
-export const getEncursoAttention = (payload) => {
+export const getAttention = (payload) => {
   return async (dispatch) => {
-    const response = await axios.get(
-      `http://localhost:3001/atenciones/encurso/${payload}`
-    );
+    const response = await axios.get(`http://localhost:3001/atenciones`, {
+      payload,
+    });
     const data = response.data;
     return dispatch({
-      type: GET_ENCURSO_ATTENTION,
+      type: GET_ATTENTION,
       payload: data,
     });
   };

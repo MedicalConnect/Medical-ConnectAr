@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import styles from "./videoconsulta.module.css";
+import { Link } from "react-router-dom";
 import arrMedicamentos from "../../helpers/medicamentos.js";
 import arrDiagnosticos from "../../helpers/diagnosticos.js";
 import { Await, useParams } from "react-router-dom";
@@ -339,9 +340,11 @@ function Videoconsulta() {
               ______________________________________________________________________
             </p>
           </div>
-          <button className={styles.boton} type="submit">
-            Finalizar consulta
-          </button>
+          <Link to="/atencionfinalizada">
+            <button className={styles.boton} type="submit">
+              Finalizar consulta
+            </button>
+          </Link>
         </form>
       </div>
     </div>
