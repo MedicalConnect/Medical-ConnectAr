@@ -17,39 +17,10 @@ const Footer = () => {
 
         <section className="desarrolladores asd seccion-clara hero align-items-stretch">
           <div className="container ase text-center ">
-            <div className="row">
+            <div className="colorfondo row ">
+              
+              
               {/*user1*/}
-              <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
-                <img
-                  className="hero-imagen-desarrollador rounded-circle"
-                  src="https://pbs.twimg.com/profile_images/720388514/CALAMARDO_GUAPO_400x400.jpg"
-                  alt="foto"
-                />
-                <p className="perfil-titulo fw-medium">Jorge Jimenez</p>
-                <div className="badges-contenedor">
-                  <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
-                      <img
-                        className="imagen-linkedin"
-                        src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
-                        alt=""
-                      />
-                      LinkedIn
-                    </a>
-                  </span>
-                  <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
-                      <img
-                        className="imagen-gato"
-                        src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
-                        alt="github"
-                      />
-                      Github
-                    </a>
-                  </span>
-                </div>
-              </div>
-              {/*user2*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
                   className="hero-imagen-desarrollador rounded-circle"
@@ -80,7 +51,7 @@ const Footer = () => {
                   </span>
                 </div>
               </div>
-              {/*user3*/}
+              {/*user2*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
                   className="hero-imagen-desarrollador rounded-circle"
@@ -111,11 +82,11 @@ const Footer = () => {
                   </span>
                 </div>
               </div>
-              {/*user4*/}
+              {/*user3*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
                   className="hero-imagen-desarrollador rounded-circle"
-                  src="https://i.pinimg.com/736x/e8/70/8c/e8708c7e95c0529a6b35cda285af2459--muscle-man-spongebob-squarepants.jpg"
+                  src="https://cdn.discordapp.com/attachments/1094314281123717204/1099409199676522587/11.png"
                   alt="foto"
                 />
                 <p className="perfil-titulo fw-medium">Alan Abel Pereyra</p>
@@ -142,7 +113,7 @@ const Footer = () => {
                   </span>
                 </div>
               </div>
-              {/*user5*/}
+              {/*user4*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
                   className="hero-imagen-desarrollador rounded-circle"
@@ -173,7 +144,7 @@ const Footer = () => {
                   </span>
                 </div>
               </div>
-              {/*user6*/}
+              {/*user5*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
                   className="hero-imagen-desarrollador rounded-circle"
@@ -225,7 +196,9 @@ const Footer = () => {
           <div className="derechos-de-autor">Medical Connect (2023) &#169;</div>
         </div>
       </div>
+      
     </footer>
+    
   );
 };
 
