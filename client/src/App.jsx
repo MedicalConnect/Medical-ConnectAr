@@ -22,7 +22,6 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
-  SubiendoImagenes
   } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
