@@ -21,6 +21,7 @@ import Videoconsulta from "./videoconsulta/Videoconsulta";
 import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
 import NavBar2 from "../components/NavBar2/NavBar2";
 import IniciarSesion from "./iniciarsesion";
+import Planes from "./planes/Planes";
 export {
   Landing,
   QuienesSomos,
@@ -44,4 +45,5 @@ export {
   AtencionFinalizada,
   NavBar2,
   IniciarSesion,
-  };
+  Planes
+};
