@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import styles from "./perfilMedico.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getEsperaAttention } from "../../redux/actions/actions";
+import { getAttention } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
-  const atencionEnEspera = useSelector((state) => state.atencionEnEspera);
+  const atencionEnEspera = useSelector((state) => state.allAtentions);
   const dispatch = useDispatch();
   const navigation = useNavigate();
 
   useEffect(() => {
     if (userLogin) {
-      dispatch(getEsperaAttention(userLogin?.id));
+      dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
     }
   }, [userLogin]);
 
@@ -114,6 +115,11 @@ const PerfilMedico = () => {
                                 : "Continuar con la atencion"}
                             </button>
                           </div>
+                          <div className="card-footer">
+                            {moment(atencion.createdAt).format(
+                              "DD/MM/YYYY hh:mm a"
+                            )}
+                          </div>
                         </div>
                       );
                     })}
@@ -182,6 +188,11 @@ const PerfilMedico = () => {
                               >
                                 ver informe
                               </button>
+                            )}
+                          </div>
+                          <div className="card-footer">
+                            {moment(atencion.createdAt).format(
+                              "DD/MM/YYYY hh:mm a"
                             )}
                           </div>
                         </div>

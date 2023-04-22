@@ -8,10 +8,10 @@ const {
   getAttentionHandler,
 } = require("../handlers/atenciones");
 
-atencionesRouter.get("/:PacienteId", getAtencionMedicaHandler);
+// atencionesRouter.get("/:PacienteId", getAtencionMedicaHandler);
 atencionesRouter.post("/", createAttentionHandler);
 atencionesRouter.post("/videocall/:atencionId", createVideocallHandler);
 atencionesRouter.put("/", updateOneFieldAttentionHandler);
-atencionesRouter.get("/enespera/:doctorId", getAttentionHandler);
+atencionesRouter.get("/", getAttentionHandler);
 
 module.exports = atencionesRouter;
