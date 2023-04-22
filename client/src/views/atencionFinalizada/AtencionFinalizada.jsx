@@ -1,13 +1,14 @@
 import { React, useState } from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
 import { faStar as faStarRegular } from "@fortawesome/free-regular-svg-icons";
 import styles from "./atencionFinalizada.module.css";
 
 const AtencionFinalizada = () => {
+  const userlogin = useSelector((state) => state.userLogin);
   const [numEstrellas, setNumEstrellas] = useState(0);
   const [voted, setVoted] = useState(false);
-  const doctor = "nombre";
 
   const seleccionarEstrella = (numeroEstrella) => {
     setNumEstrellas(numeroEstrella);
@@ -49,7 +50,7 @@ const AtencionFinalizada = () => {
           alt="logo"
         />
         <div className={styles.textoTarjeta}>
-          <h3>Fuiste atendido por el doctor {doctor}</h3>
+          <h3>Fuiste atendido por el doctor {`${userlogin?.nombre}`}</h3>
           <p className={styles.texto2}>
             Estas conforme con la atencion recibida? si es asi, valora
             positivamente al profesional que te atendio, esto le sirve mucho
@@ -62,7 +63,7 @@ const AtencionFinalizada = () => {
                   type="radio"
                   name="estrellas"
                   onClick={() => seleccionarEstrella(1)}
-                  checked={numEstrellas >= 1}
+                  defaultChecked={numEstrellas >= 1}
                 />
                 <FontAwesomeIcon
                   icon={numEstrellas >= 1 ? faStarSolid : faStarRegular}
@@ -73,7 +74,7 @@ const AtencionFinalizada = () => {
                   type="radio"
                   name="estrellas"
                   onClick={() => seleccionarEstrella(2)}
-                  checked={numEstrellas >= 2}
+                  defaultChecked={numEstrellas >= 2}
                 />
                 <FontAwesomeIcon
                   icon={numEstrellas >= 2 ? faStarSolid : faStarRegular}
@@ -84,7 +85,7 @@ const AtencionFinalizada = () => {
                   type="radio"
                   name="estrellas"
                   onClick={() => seleccionarEstrella(3)}
-                  checked={numEstrellas >= 3}
+                  defaultChecked={numEstrellas >= 3}
                 />
                 <FontAwesomeIcon
                   icon={numEstrellas >= 3 ? faStarSolid : faStarRegular}
@@ -95,7 +96,7 @@ const AtencionFinalizada = () => {
                   type="radio"
                   name="estrellas"
                   onClick={() => seleccionarEstrella(4)}
-                  checked={numEstrellas >= 4}
+                  defaultChecked={numEstrellas >= 4}
                 />
                 <FontAwesomeIcon
                   icon={numEstrellas >= 4 ? faStarSolid : faStarRegular}
@@ -106,7 +107,7 @@ const AtencionFinalizada = () => {
                   type="radio"
                   name="estrellas"
                   onClick={() => seleccionarEstrella(5)}
-                  checked={numEstrellas >= 5}
+                  defaultChecked={numEstrellas >= 5}
                 />
                 <FontAwesomeIcon
                   icon={numEstrellas >= 5 ? faStarSolid : faStarRegular}

@@ -6,7 +6,6 @@ import ContribucionesSociales from "./contribuciones/ContribucionesSociales";
 import NoticiasSalud from "./noticiasalud/NoticiasSalud";
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
-import Planes from "./planes/Planes";
 import IngresoPacientes from "./ingresopacientes/IngresoPacientes";
 import IngresoMedicos from "./ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./ingresoadmin/IngresoAdmin";
@@ -30,7 +29,6 @@ export {
   NoticiasSalud,
   NavBar,
   Footer,
-  Planes,
   IngresoPacientes,
   IngresoMedicos,
   IngresoAdmin,

@@ -1,4 +1,4 @@
-const { Paciente } = require('../../db.js')
+const { Paciente } = require("../../db.js");
 
 const putPacients = async (nombre, apellido, tipo_de_documento, numero_de_documento, fecha_de_nacimiento, sexo,  pais_de_origen, provincia, ciudad, nacionalidad, domicilio, telefono, email, contraseña) => {
     if(
@@ -41,6 +41,7 @@ const putPacients = async (nombre, apellido, tipo_de_documento, numero_de_docume
  return ('Datos actualizados con exito')
 }
 
+
 module.exports = {
-    putPacients
-}
+  putPacients,
+};

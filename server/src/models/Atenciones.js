@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
       },
       diagnostico: {
         type: DataTypes.JSONB,
-        defaultValue: [], // [{CIE-10, diagnostico, diagnostico clinico}]
+        defaultValue: [], // [{CIE10, diagnostico}]
       },
       indicaciones_domiciliarias: {
         type: DataTypes.JSONB,
@@ -49,8 +49,8 @@ module.exports = (sequelize) => {
         defaultValue: false,
       },
       status: {
-        type: DataTypes.ENUM("encurso", "finalizada", "cancelada"),
-        defaultValue: "encurso",
+        type: DataTypes.ENUM("enespera", "encurso", "finalizada", "cancelada"),
+        defaultValue: "enespera",
       },
     },
     { timestamps: true }

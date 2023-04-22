@@ -41,7 +41,7 @@ const ModalMedicos = () => {
         id="staticBackdrop"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
@@ -60,9 +60,9 @@ const ModalMedicos = () => {
               ></button>
             </div>
             <div className="modal-body">
-              {availableDoctors?.map((doctor) => {
+              {availableDoctors?.map((doctor,index) => {
                 return (
-                  <div
+                  <div key={index}
                     className={`card ${
                       doctorId === doctor.id && "border border-primary border-4"
                     }`}
