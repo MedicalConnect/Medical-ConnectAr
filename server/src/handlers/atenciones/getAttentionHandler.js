@@ -1,9 +1,9 @@
 const { getAttentionController } = require("../../controllers/atenciones");
 
 const getAttentionHandler = async (req, res) => {
-  const { pacienteId } = req.params;
+  const { doctorId } = req.params;
   try {
-    const response = await getAttentionController({ pacienteId });
+    const response = await getAttentionController({ doctorId });
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });

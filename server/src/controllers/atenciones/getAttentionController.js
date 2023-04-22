@@ -1,9 +1,13 @@
-const { Atenciones } = require("../../db");
+const { Atenciones, Paciente } = require("../../db");
+const { Op } = require("sequelize");
 
-const getAttentionController = async ({ pacienteId }) => {
+const getAttentionController = async ({ doctorId }) => {
   try {
-    const atencion = await Atenciones.findOne({
-      where: { PacienteId: pacienteId, status: "enespera" },
+    const atencion = await Atenciones.findAll({
+      where: {
+        DoctorId: doctorId,
+      },
+      include: [Paciente],
       order: [["createdAt", "DESC"]],
     });
     if (!atencion) {
