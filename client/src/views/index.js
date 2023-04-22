@@ -6,7 +6,6 @@ import ContribucionesSociales from "./contribuciones/ContribucionesSociales";
 import NoticiasSalud from "./noticiasalud/NoticiasSalud";
 import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
-import Planes from "./planes/Planes";
 import IngresoPacientes from "./ingresopacientes/IngresoPacientes";
 import IngresoMedicos from "./ingresomedicos/IngresoMedicos";
 import IngresoAdmin from "./ingresoadmin/IngresoAdmin";
@@ -22,6 +21,7 @@ import Videoconsulta from "./videoconsulta/Videoconsulta";
 import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
 import NavBar2 from "../components/NavBar2/NavBar2";
 import IniciarSesion from "./iniciarsesion";
+import Planes from './planes/Planes'
 export {
   Landing,
   QuienesSomos,
@@ -30,7 +30,6 @@ export {
   NoticiasSalud,
   NavBar,
   Footer,
-  Planes,
   IngresoPacientes,
   IngresoMedicos,
   IngresoAdmin,
@@ -46,4 +45,5 @@ export {
   AtencionFinalizada,
   NavBar2,
   IniciarSesion,
+  Planes
 };

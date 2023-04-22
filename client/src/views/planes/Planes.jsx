@@ -1,8 +1,24 @@
 import React from "react";
 import "./Planes.css"
+import axios from "axios";
+import PlanesDisplayer from "./PlanesDisplayer";
 
 
 const Planes = () => {
+  const servicios = [
+    {
+      nombre:'Pago Invididual',
+      detalle: "Acceso para 10 consultas por mes",
+      imagen: "https://tuplandesaludpr.com/wp-content/uploads/2020/11/Untitled-design-15-1024x569.png",
+      precio: 1000
+    },
+    {
+      nombre:'Pago Familiar',
+      detalle: 'Acceso para 30 consultas por mes',
+      imagen: 'https://www.superquoter.com/wp-content/uploads/2016/09/41135920_xxl.jpg',
+      precio: 5000
+    }
+  ]
   return (
     <>
       <div>
@@ -13,19 +29,27 @@ const Planes = () => {
             </div>
             <div className="col-12">
               <p className="fst-italic fw-medium">
-                Contamos con planes individuales y familiares diseñados para
-                entregarte una mejor experiencia de servicio,
+                Contamos con planes individuales y familiares diseñados para entregarte una mejor experiencia de servicio
+                 Atención Médica General por videollamada durante las 24hs con nuestros médicos, para obtener un diagnóstico certero e informacion sobre tu tratamiento. 
+                 Envío de recetas, órdenes médicas y licencias médicas en formato digital
                 <br /> a precios accesibles y convenientes.
               </p>
             </div>
           </div>
         </div>
+        <div>
+    {servicios.map((serv) => <PlanesDisplayer serv={serv} key={serv.nombre}/> )}
+     </div>
 
-        <div className="container text-center cajaplantitulo">
+
+        {/* <div className="container text-center cajaplantitulo">
           <div className="row row-cols-2">
             <div className="col">
               <div className="padretarjetaplan">
                 <div className="hijotarjetaplan">
+
+
+                  
                   <h3 >Plan Simple!</h3>
                   <p>
                     Podrás contar con asistencia médica oportuna a un valor
@@ -48,7 +72,11 @@ const Planes = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+
+
+
+
 
         <div className="container text-left cajaimgtxt">
         <div className="row row-cols-2">
