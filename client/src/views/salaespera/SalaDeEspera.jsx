@@ -189,9 +189,5 @@ const SalaDeEspera = () => {
     );
   };
 };
-<<<<<<< HEAD
-}
 
-=======
->>>>>>> 74924c3a90f2425f327464b5435e646b2c25c013
 export default SalaDeEspera;
