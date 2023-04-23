@@ -4,12 +4,10 @@ import "./Planes.css"
 
 const PlanesDisplayer = ({serv}) => {
   return (
-      <div className="container text-center cajaplantitulo">
-          <div className="row row-cols-2">
-            <div className="col">
+    <div className="col">
                
-              <div className="padretarjetaplan">
-                <div className="hijotarjetaplan">
+    <div className="padretarjetaplan1">
+      <div className="hijotarjetaplan1">
                   <h3 className="nombre">{serv.nombre}</h3>
                   <img className="imagen" src={serv.imagen}></img>
                   <p className="detalle">{serv.detalle}</p>
@@ -20,13 +18,10 @@ const PlanesDisplayer = ({serv}) => {
                   }}> 
                   Contratar
                   </button>
-
-                </div>
-                
-              </div>
-            </div>
+                  </div>
+          </div> 
           </div>
-        </div> 
+                  
   )
 }
 

@@ -50,10 +50,15 @@ const Planes = () => {
             </div>
           </div>
         </div>
-        <div>
-        {servicios.map((serv) => <PlanesDisplayer serv={serv} key={serv.nombre}/> )}
-        </div>
 
+        <div className="container text-center cajaplantitulo">
+          <div className="row row-cols-2">
+     
+        {servicios.map((serv) => <PlanesDisplayer serv={serv} key={serv.nombre}/> )}
+       
+            </div>
+          </div> 
+           
 
         {/* <div className="container text-center cajaplantitulo">
           <div className="row row-cols-2">

@@ -1,7 +1,7 @@
 .padretarjetaplan{
   margin-top: 65px;
   display: flex;
- flex-direction: column;
+ flex-direction: row;
  align-items: center;
  justify-content: center;
  height: 300px;
@@ -130,4 +130,49 @@ border: solid;
   font-weight: bold;
   width: 850px;
   font-size: large;
+}
+
+
+.padretarjetaplan1{
+  
+  margin-top: 14em;
+  display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ height: 30em;
+ width: 25em;
+ margin-left: 8em;
+ background-image: linear-gradient(140deg, #ef3939 0%, #e6c7b7 60%);
+ border-radius: 24px;
+ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+ text-align: center;
+}
+
+.hijotarjetaplan1 button{
+  background-color: #cf3a84; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 200px;
+}
+.hijotarjetaplan1 button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.row1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
