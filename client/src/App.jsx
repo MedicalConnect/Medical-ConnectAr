@@ -1,3 +1,4 @@
+import SubiendoImagenes from "./views/SubiendoImagenes";
 import {
   Landing,
   QuienesSomos,
@@ -69,6 +70,7 @@ function App() {
         <Route path="/planes" element={<Planes />} />
       </Routes>
       <Footer />
+      <SubiendoImagenes />
     </div>
   );
 }

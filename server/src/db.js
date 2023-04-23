@@ -12,7 +12,6 @@ const sequelize = new Sequelize(DB_URL, {
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
 
-
 const fs = require("fs");
 const path = require("path");
 
