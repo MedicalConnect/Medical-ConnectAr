@@ -5,6 +5,7 @@ import { addClinicalHistory } from "../../redux/actions/actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+
 const HistorialClinico = () => {
   const {
     register,

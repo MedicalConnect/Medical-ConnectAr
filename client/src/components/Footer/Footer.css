@@ -188,3 +188,20 @@ section {
 .text-white{
   margin-right: 1em;
 }
+
+.colorfondo {
+  background-color: #248378;
+}
+
+.btnNscrolltop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background-color: red;
+  color: white;
+  border: 1px solid white;
+  border-radius: 100px;
+  cursor: pointer
+
+}
