@@ -106,7 +106,7 @@ const ContribucionesSociales = () => {
         </div>
         <div className={styles.formimg2}>
           <form className={styles.form}  onSubmit={sendEmail}>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Nombre:</label>
             <input type="text" id="name" name="user_name" value={nombre}
             onChange={e=> setNombre(e.target.value)}/>
             <label htmlFor="email">E-mail:</label>
