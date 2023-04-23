@@ -2,7 +2,6 @@ import React from "react";
 import "./SalaDeEspera.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getEncursoAttention } from "../../redux/actions/actions";
 import axios from "axios";
 import {useNavigate} from "react-router-dom"
 
@@ -189,5 +188,6 @@ const SalaDeEspera = () => {
     </div>
   );
 };
+}
 
 export default SalaDeEspera;

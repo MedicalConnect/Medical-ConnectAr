@@ -30,8 +30,8 @@ module.exports = (sequelize) => {
         defaultValue: [], // [{medicamento, dosis, via, frecuencia, duracion, indicacionAdicional}]
       },
       solicitud_examenes: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        defaultValue: [],
+        type:DataTypes.STRING,
+        allowNull:false
       },
       certificados: {
         type: DataTypes.JSONB,
