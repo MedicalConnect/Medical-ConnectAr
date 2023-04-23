@@ -10,13 +10,13 @@ const Planes = () => {
       nombre:'Plan Invididual',
       detalle: "Acceso a 10 consultas por mes",
       imagen: "https://tuplandesaludpr.com/wp-content/uploads/2020/11/Untitled-design-15-1024x569.png",
-      precio: 1000
+      precio: 1
     },
     {
       nombre:'Plan Familiar',
       detalle: 'Acceso a 30 consultas por mes',
       imagen: 'https://www.superquoter.com/wp-content/uploads/2016/09/41135920_xxl.jpg',
-      precio: 5000
+      precio: 3
     }
   ]
 
@@ -122,7 +122,7 @@ const Planes = () => {
 
       </div>
     </>
-  );
-};
+  )
+}
 
 export default Planes;
