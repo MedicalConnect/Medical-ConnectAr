@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAvailableDoctors,
-  createAttention,
-} from "../../redux/actions/actions";
+import { getAvailableDoctors } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const ModalMedicos = () => {
   const dispatch = useDispatch();
@@ -19,9 +17,16 @@ const ModalMedicos = () => {
     }
   }, [availableDoctors]);
 
-  const createAttentionHandler = () => {
-    dispatch(createAttention({ doctorId, pacienteId: userlogin.id }));
-    navigate("/saladeespera");
+  const createAttentionHandler = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/atenciones", {
+        doctorId,
+        pacienteId: userlogin.id,
+      });
+      navigate(`/saladeespera/${response?.data?.id}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -60,9 +65,10 @@ const ModalMedicos = () => {
               ></button>
             </div>
             <div className="modal-body">
-              {availableDoctors?.map((doctor,index) => {
+              {availableDoctors?.map((doctor, index) => {
                 return (
-                  <div key={index}
+                  <div
+                    key={index}
                     className={`card ${
                       doctorId === doctor.id && "border border-primary border-4"
                     }`}
