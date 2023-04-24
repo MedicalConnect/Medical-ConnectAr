@@ -5,7 +5,6 @@ import { getAttention } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 
-
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const atencionEnEspera = useSelector((state) => state.allAtentions);
@@ -203,7 +202,6 @@ const PerfilMedico = () => {
               ) : (
                 <p>No se realizaron atenciones aún.</p>
               )}
-
             </div>
           </div>
         </div>
