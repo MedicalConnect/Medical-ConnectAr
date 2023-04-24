@@ -30,7 +30,7 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Jon Nahuel Pereyra</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://www.linkedin.com/in/jon-nahuel-pereyra-832191257/" target="_blank">
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -40,7 +40,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://github.com/jon0010" target="_blank">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -61,7 +61,7 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Gabriel Romero</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://www.linkedin.com/in/gabriel-francisco-romero-rocha/" target="_blank">
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -71,7 +71,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://github.com/GabRom98" target="_blank">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -92,7 +92,7 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Alan Abel Pereyra</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://www.linkedin.com/in/alan-abel-pereyra-0a8324257/" target="_blank">
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -102,7 +102,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://github.com/ALANABEL322" target="_blank">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -123,7 +123,7 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Edinson Cespedes</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="#" target="_blank">
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -133,7 +133,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="#" target="_blank">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -154,7 +154,7 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Julieta Perez Apiwan</p>
                 <div className="badges-contenedor etiqueta-badge">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://www.linkedin.com/in/julietaperezapiwan/" target="_blank">
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -164,7 +164,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="">
+                    <a className="text-white" href="https://github.com/JuliPerezApiwan" target="_blank">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -182,13 +182,13 @@ const Footer = () => {
         <div className="divpadre2">
           <div>
             <div className="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#"  rel="noopener noreferrer">
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#" rel="noopener noreferrer">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#" rel="noopener noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
             </div>
