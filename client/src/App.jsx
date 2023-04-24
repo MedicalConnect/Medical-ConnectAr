@@ -69,7 +69,7 @@ function App() {
         <Route path="/planes" element={<Planes />} />
       </Routes>
       <Footer />
-      <SubiendoImagenes />
+    
     </div>
   );
 }
