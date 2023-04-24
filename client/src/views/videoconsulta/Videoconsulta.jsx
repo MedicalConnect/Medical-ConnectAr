@@ -22,7 +22,6 @@ function Videoconsulta() {
     setValue,
     getValues,
     resetField,
-    handleSubmit,
   } = useForm();
 
   useEffect(() => {
@@ -30,6 +29,12 @@ function Videoconsulta() {
       getVideoconsulta();
     }
   }, [refresh, atencionId]);
+
+  useEffect(() => {
+    if (atencionId) {
+      updateVideoConsulta({ field: "status", value: "encurso" });
+    }
+  }, [atencionId]);
 
   const updateVideoConsulta = async ({ value, field }) => {
     try {
@@ -50,8 +55,6 @@ function Videoconsulta() {
         `${apiUrl}/atenciones/videoconsulta/${atencionId}`
       );
       const data = response.data;
-      console.log(data);
-      // Object.entries(data)?.forEach((key,value)=>setValue(key,value))
       setValue("anamnesis", data.anamnesis);
       setValue("examen_fisico", data.examen_fisico);
       setAtencion(data);
@@ -262,6 +265,9 @@ function Videoconsulta() {
     Swal.fire({
       title: "Finalizando atencion!",
       timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
     });
     const { anamnesis, examen_fisico } = atencion;
     if (!anamnesis || !examen_fisico) {
@@ -282,6 +288,36 @@ function Videoconsulta() {
       timer: 1500,
     }).then((result) => {
       navigate("/perfilmedico");
+    });
+  };
+
+  const CancelarAtencion = async () => {
+    Swal.fire({
+      icon: "info",
+      title: "Cancelar consulta?",
+      text: "Esta accion es irreversible",
+      showCancelButton: true,
+      confirmButtonText: "Si, cancelar",
+      denyButtonText: `Atras`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Finalizando atencion!",
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+        await updateVideoConsulta({ field: "status", value: "cancelada" });
+        Swal.fire({
+          icon: "success",
+          title: "Atención cancelada",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then((res) => {
+          navigate("/perfilmedico");
+        });
+      }
     });
   };
 
@@ -847,6 +883,13 @@ Presentacion: ${certificado.lugar_presentacion}
           >
             Finalizar consulta
           </button>
+          <p
+            className="btn btn-link text-danger text-center mt-3"
+            type="button"
+            onClick={() => CancelarAtencion()}
+          >
+            Cancelar consulta
+          </p>
         </form>
       </div>
     </div>

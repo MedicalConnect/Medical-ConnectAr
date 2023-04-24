@@ -21,10 +21,9 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
- Planes
+  Planes,
 } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
-
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
@@ -62,7 +61,7 @@ function App() {
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
         <Route path="/actualizarmedico" element={<ActualizarMedico />} />
-        <Route path="/saladeespera" element={<SalaDeEspera/>} />
+        <Route path="/saladeespera/:atencionId" element={<SalaDeEspera />} />
         <Route path="/videoconsulta/:atencionId" element={<Videoconsulta />} />
         <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
         <Route path="/iniciarsesion" element={<IniciarSesion />} />

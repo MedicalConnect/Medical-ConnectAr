@@ -1,8 +1,9 @@
-const { TYPE_DEPLOY } = process.env;
+// const { TYPE_DEPLOY } = process.env;
 
-const apiUrl =
-  TYPE_DEPLOY === "development"
-    ? "https://medicalconnectapi.onrender.com"
-    : "http://localhost:3001";
+const apiUrl = "https://medicalconnectapi.onrender.com";
+//   TYPE_DEPLOY === "development"
+// ?
+// : "http://localhost:3001";
+
 
 export default apiUrl;

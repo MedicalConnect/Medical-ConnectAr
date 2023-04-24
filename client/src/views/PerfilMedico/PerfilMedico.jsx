@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./perfilMedico.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAttention } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import FiltrosComponent from "../../components/filtros";
+
 
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const atencionEnEspera = useSelector((state) => state.allAtentions);
   const dispatch = useDispatch();
   const navigation = useNavigate();
+  const [date, setDate] = useState(null);
+  const [statusAttention, setStatusAttention] = useState(null);
 
   useEffect(() => {
     if (userLogin) {
@@ -87,43 +91,45 @@ const PerfilMedico = () => {
                     )
                     ?.map((atencion) => {
                       return (
-                        <div className="card col-4">
-                          <div className="card-header text-start">
-                            <p>
-                              <span
-                                className={`text-${
-                                  atencion.status === "enespera"
-                                    ? "danger"
-                                    : "success"
-                                }`}
+                        <div className="col-4 p-1">
+                          <div className="card">
+                            <div className="card-header text-start">
+                              <p>
+                                <span
+                                  className={`text-${
+                                    atencion.status === "enespera"
+                                      ? "danger"
+                                      : "success"
+                                  }`}
+                                >
+                                  {atencion.status}
+                                </span>
+                              </p>
+                            </div>
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
+                              </h5>
+                              <p className="card-text">
+                                {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
+                              </p>
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={() =>
+                                  navigation(`/videoconsulta/${atencion.id}`)
+                                }
                               >
-                                {atencion.status}
-                              </span>
-                            </p>
-                          </div>
-                          <div className="card-body">
-                            <h5 className="card-title">
-                              {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
-                            </h5>
-                            <p className="card-text">
-                              {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
-                            </p>
-                            <button
-                              type="button"
-                              className="btn btn-primary"
-                              onClick={() =>
-                                navigation(`/videoconsulta/${atencion.id}`)
-                              }
-                            >
-                              {atencion.status === "enespera"
-                                ? "Iniciar atencion"
-                                : "Continuar con la atencion"}
-                            </button>
-                          </div>
-                          <div className="card-footer">
-                            {moment(atencion.createdAt).format(
-                              "DD/MM/YYYY hh:mm a"
-                            )}
+                                {atencion.status === "enespera"
+                                  ? "Iniciar atencion"
+                                  : "Continuar con la atencion"}
+                              </button>
+                            </div>
+                            <div className="card-footer">
+                              {moment(atencion.createdAt).format(
+                                "DD/MM/YYYY hh:mm a"
+                              )}
+                            </div>
                           </div>
                         </div>
                       );
@@ -154,55 +160,71 @@ const PerfilMedico = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              {atencionEnEspera?.filter(
-                (atencion) =>
-                  atencion.status === "finalizada" ||
-                  atencion.status === "cancelada"
+              <FiltrosComponent
+                date={date}
+                setDate={setDate}
+                statusAttention={statusAttention}
+                setStatusAttention={setStatusAttention}
+              />
+              {atencionEnEspera?.filter((atencion) =>
+                statusAttention ? atencion.status === statusAttention : true
               )?.length ? (
                 <div className="row justify-content-start">
                   {atencionEnEspera
-                    .filter(
-                      (atencion) =>
-                        atencion.status === "finalizada" ||
-                        atencion.status === "cancelada"
+                    .filter((atencion) =>
+                      statusAttention
+                        ? atencion.status === statusAttention
+                        : true
+                    )
+                    ?.filter((atencion) =>
+                      date
+                        ? moment(
+                            moment(
+                              atencion.createdAt,
+                              "YYYY-MM-DD hh:mm:ss"
+                            ).startOf("day")
+                          ).isSame(date)
+                        : true
                     )
                     ?.map((atencion) => {
                       return (
-                        <div className="card col-4">
-                          <div className="card-header text-start">
-                            <p>
-                              <span
-                                className={`text-${
-                                  atencion.status === "cancelada"
-                                    ? "danger"
-                                    : "info"
-                                }`}
-                              >
-                                {atencion.status}
-                              </span>
-                            </p>
-                          </div>
-                          <div className="card-body">
-                            <h5 className="card-title">
-                              {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
-                            </h5>
-                            <p className="card-text">
-                              {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
-                            </p>
-                            {atencion.status === "finalizada" && (
-                              <button
-                                type="button"
-                                className="btn btn-primary"
-                                onClick={() => navigation(`/`)}
-                              >
-                                ver informe
-                              </button>
-                            )}
-                          </div>
-                          <div className="card-footer">
-                            {moment(atencion.createdAt).format(
-                              "DD/MM/YYYY hh:mm a"
-                            )}
+                        <div className="col-4 p-1">
+                          <div className="card">
+                            <div className="card-header text-start">
+                              <p>
+                                <span
+                                  className={`text-${
+                                    atencion.status === "cancelada"
+                                      ? "danger"
+                                      : "info"
+                                  }`}
+                                >
+                                  {atencion.status}
+                                </span>
+                              </p>
+                            </div>
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
+                              </h5>
+                              <p className="card-text">
+                                {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
+                              </p>
+                              {atencion.status === "finalizada" && (
+                                <button
+                                  type="button"
+                                  className="btn btn-primary"
+                                  onClick={() => navigation(`/`)}
+                                >
+                                  ver informe
+                                </button>
+                              )}
+                            </div>
+                            <div className="card-footer">
+                              {moment(atencion.createdAt).format(
+                                "DD/MM/YYYY hh:mm a"
+                              )}
+                            </div>
                           </div>
                         </div>
                       );
