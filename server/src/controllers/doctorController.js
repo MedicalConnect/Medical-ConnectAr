@@ -1,5 +1,6 @@
 const { Doctor, Paciente } = require("../db");
 const { Op } = require("sequelize");
+const { hash } = require('./hashContraseñas')
 
 const createDoctor = async (
   nombre,
@@ -73,7 +74,7 @@ const createDoctor = async (
     numero_de_matricula,
     telefono,
     email,
-    contraseña,
+    contraseña: hash(contraseña)
   });
 
   return doctor;
@@ -169,7 +170,7 @@ const updateDoctor = async (
       numero_de_matricula,
       telefono,
       email,
-      contraseña,
+      contraseña: hash(contraseña),
     },
     {
       where: { 

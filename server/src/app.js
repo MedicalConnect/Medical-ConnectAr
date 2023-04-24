@@ -2,6 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const mainRouter = require("./routes/index");
 const cors = require("cors");
+const mercadopago = require('mercadopago');
+require("dotenv").config();
+const { MERCADOPAGO_KEY} = process.env;
 
 require("./db");
 

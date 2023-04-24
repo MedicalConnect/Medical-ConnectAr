@@ -24,7 +24,7 @@ const IngresoMedicos = () => {
           alt="foto fondo"
         />
       </div>
-      <div>
+      <div className="padrino">
         <section className="row">
           <div className="d-grid gap-5 col-6 col-md-4 mx-auto">
               <Link to={"/creacionmedico"}>
@@ -59,7 +59,7 @@ const IngresoMedicos = () => {
         </section>
       </div>
 
-      <div className="row">
+      {/* <div className="row">
         <section className="d-grid1M gap-2 col-12 col-md-4 ">
           <button className="buttonGM">
             <svg className="svgGM"
@@ -93,7 +93,7 @@ const IngresoMedicos = () => {
           src="https://cdn.discordapp.com/attachments/1094314281123717203/1098150863744290866/Diseno_sin_titulo_1.png"
           alt="imagen fondo"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

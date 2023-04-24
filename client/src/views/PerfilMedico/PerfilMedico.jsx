@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./perfilMedico.module.css";
-import {Link} from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux";
+import { getAttention } from "../../redux/actions/actions";
+import { useNavigate } from "react-router-dom";
+import moment from "moment";
+import { Link } from "react-router-dom";
+import FiltrosComponent from "../../components/filtros";
 
-const perfilMedico = () => {
-  let nombre = "doctor";
+
+const PerfilMedico = () => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const atencionEnEspera = useSelector((state) => state.allAtentions);
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
+  const [date, setDate] = useState(null);
+  const [statusAttention, setStatusAttention] = useState(null);
+
+  useEffect(() => {
+    if (userLogin) {
+      dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
+    }
+  }, []);
 
   return (
     <>
       <div className={styles.contenedor}>
-        <h1 className={styles.titulo}>Bienvenido/a {`${nombre}`}</h1>
+        <h1 className={styles.titulo}>Bienvenido/a {`${userLogin?.nombre}`}</h1>
         <h2 className={styles.subtitle1}>
           Accede a la historia clinica de los pacientes de la sala de espera
         </h2>
@@ -24,12 +41,12 @@ const perfilMedico = () => {
           <ul className="dropdown-menu">
             <li>
               <a className="dropdown-item" href="#">
-                Conectado
+                Disponible
               </a>
             </li>
             <li>
               <a className="dropdown-item" href="#">
-                En consulta
+                Ocupado
               </a>
             </li>
             <li>
@@ -40,90 +57,207 @@ const perfilMedico = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.acordeon}>
-        <div className="accordion" id="accordionPanelsStayOpenExample">
-          <div className="accordion-item">
-            <h2 className="accordion-header">
-              <button
-                className="accordion-button bg-light-subtle"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseOne"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseOne"
-              >
-                Actualizar mis datos
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseOne"
-              className="accordion-collapse collapse show"
+      <div className="accordion accordion-flush" id="accordionFlushExample">
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne"
+              aria-expanded="false"
+              aria-controls="flush-collapseOne"
             >
-              <div className="accordion-body">
-                <Link to={"/actualizarmedico"}>
+              Sala de espera
+            </button>
+          </h2>
+          <div
+            id="flush-collapseOne"
+            className="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div className="accordion-body">
+              {atencionEnEspera?.filter(
+                (atencion) =>
+                  atencion.status === "enespera" ||
+                  atencion.status === "encurso"
+              )?.length ? (
+                <div className="row justify-content-start">
+                  {atencionEnEspera
+                    .filter(
+                      (atencion) =>
+                        atencion.status === "enespera" ||
+                        atencion.status === "encurso"
+                    )
+                    ?.map((atencion) => {
+                      return (
+                        <div className="col-4 p-1">
+                          <div className="card">
+                            <div className="card-header text-start">
+                              <p>
+                                <span
+                                  className={`text-${
+                                    atencion.status === "enespera"
+                                      ? "danger"
+                                      : "success"
+                                  }`}
+                                >
+                                  {atencion.status}
+                                </span>
+                              </p>
+                            </div>
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
+                              </h5>
+                              <p className="card-text">
+                                {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
+                              </p>
+                              <button
+                                type="button"
+                                className="btn btn-primary"
+                                onClick={() =>
+                                  navigation(`/videoconsulta/${atencion.id}`)
+                                }
+                              >
+                                {atencion.status === "enespera"
+                                  ? "Iniciar atencion"
+                                  : "Continuar con la atencion"}
+                              </button>
+                            </div>
+                            <div className="card-footer">
+                              {moment(atencion.createdAt).format(
+                                "DD/MM/YYYY hh:mm a"
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              ) : (
+                <p>No hay pacientes en la sala de espera.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseTwo"
+              aria-expanded="false"
+              aria-controls="flush-collapseTwo"
+            >
+              Historial de atenciones
+            </button>
+          </h2>
+          <div
+            id="flush-collapseTwo"
+            className="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div className="accordion-body">
+              <FiltrosComponent
+                date={date}
+                setDate={setDate}
+                statusAttention={statusAttention}
+                setStatusAttention={setStatusAttention}
+              />
+              {atencionEnEspera?.filter((atencion) =>
+                statusAttention ? atencion.status === statusAttention : true
+              )?.length ? (
+                <div className="row justify-content-start">
+                  {atencionEnEspera
+                    .filter((atencion) =>
+                      statusAttention
+                        ? atencion.status === statusAttention
+                        : true
+                    )
+                    ?.filter((atencion) =>
+                      date
+                        ? moment(
+                            moment(
+                              atencion.createdAt,
+                              "YYYY-MM-DD hh:mm:ss"
+                            ).startOf("day")
+                          ).isSame(date)
+                        : true
+                    )
+                    ?.map((atencion) => {
+                      return (
+                        <div className="col-4 p-1">
+                          <div className="card">
+                            <div className="card-header text-start">
+                              <p>
+                                <span
+                                  className={`text-${
+                                    atencion.status === "cancelada"
+                                      ? "danger"
+                                      : "info"
+                                  }`}
+                                >
+                                  {atencion.status}
+                                </span>
+                              </p>
+                            </div>
+                            <div className="card-body">
+                              <h5 className="card-title">
+                                {`${atencion?.Paciente?.nombre} ${atencion?.Paciente?.apellido}`}
+                              </h5>
+                              <p className="card-text">
+                                {`${atencion?.Paciente?.tipo_de_documento}: ${atencion?.Paciente?.numero_de_documento}`}
+                              </p>
+                              {atencion.status === "finalizada" && (
+                                <button
+                                  type="button"
+                                  className="btn btn-primary"
+                                  onClick={() => navigation(`/`)}
+                                >
+                                  ver informe
+                                </button>
+                              )}
+                            </div>
+                            <div className="card-footer">
+                              {moment(atencion.createdAt).format(
+                                "DD/MM/YYYY hh:mm a"
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              ) : (
+                <p>No se realizaron atenciones aún.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseThree"
+              aria-expanded="false"
+              aria-controls="flush-collapseThree"
+            >
+              Actualizar mis datos
+            </button>
+          </h2>
+          <div
+            id="flush-collapseThree"
+            className="accordion-collapse collapse"
+            data-bs-parent="#accordionFlushExample"
+          >
+            <div className="accordion-body">
+              <Link to={"/actualizarmedico"}>
                 <button className={styles.boton1}>Ir a actualizar</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="accordion-item">
-            <h2 className="accordion-header">
-              <button
-                className="accordion-button collapsed bg-light-subtle"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseTwo"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseTwo"
-              >
-                Lista de pacientes en espera
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseTwo"
-              className="accordion-collapse collapse"
-            >
-              <div className="accordion-body">
-                <ul className={styles.listaDesordenada}>
-                  <li>Paciente 1</li>
-                  <Link to={"/videoconsulta/1"}>
-                  <button>Comenzar videoconsulta</button>
-                  </Link>
-                  <li>Paciente 2</li>
-                  <button>Comenzar videoconsulta</button>
-                  <li>Paciente 3</li>
-                  <button>Comenzar videoconsulta</button>
-                  <li>Paciente 4</li>
-                  <button>Comenzar videoconsulta</button>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="accordion-item">
-            <h2 className="accordion-header">
-              <button
-                className="accordion-button collapsed bg-light-subtle"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#panelsStayOpen-collapseThree"
-                aria-expanded="true"
-                aria-controls="panelsStayOpen-collapseThree"
-              >
-                Mis atenciones medicas
-              </button>
-            </h2>
-            <div
-              id="panelsStayOpen-collapseThree"
-              className="accordion-collapse collapse"
-            >
-              <div className="accordion-body">
-                <ul className={styles.listaDesordenada}>
-                  <li>atencion 1</li>
-                  <li>atencion 2</li>
-                  <li>atencion 3</li>
-                  <li>atencion 4</li>
-                </ul>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -132,4 +266,4 @@ const perfilMedico = () => {
   );
 };
 
-export default perfilMedico;
+export default PerfilMedico;

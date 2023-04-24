@@ -10,11 +10,11 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   GET_AVAILABLE_DOCTOR,
-  GET_ENCURSO_ATTENTION,
+  GET_ATTENTION,
   PUT_PACIENT,
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
-  GET_TOTAL_USERS
+  GET_TOTAL_USERS,
 } from "./actions/actions-types";
 
 const initialState = {
@@ -25,7 +25,7 @@ const initialState = {
   userLogin: null,
   availableDoctors: [],
   atencionEnCurso: null,
-  totalUsers:[]
+  totalUsers: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -51,7 +51,7 @@ const reducer = (state = initialState, action) => {
     case GET_ALL_ATENTIONS:
       return {
         ...state,
-        allAtenciones: action.payload,
+        allAtentions: action.payload,
       };
 
     case ADD_PACIENT:
@@ -88,22 +88,22 @@ const reducer = (state = initialState, action) => {
     case PUT_PACIENT:
       return {
         ...state,
-        allPacients: action.payload
-      }
-      case PUT_DOCTOR:
-        return {
+        allPacients: action.payload,
+      };
+    case PUT_DOCTOR:
+      return {
         ...state,
-        allDoctors: action.payload
-      }
+        allDoctors: action.payload,
+      };
     case PUT_CLINICAL_HISTORY:
       return {
         ...state,
-        allHistoryClinical: action.payload
-      }
+        allHistoryClinical: action.payload,
+      };
 
     case USER_LOGIN:
-      const {numero_de_documento,contraseña} = action.payload
-      const user1={usuario:numero_de_documento,contraseña}
+      const { numero_de_documento, contraseña } = action.payload;
+      const user1 = { usuario: numero_de_documento, contraseña };
       localStorage.setItem("userInfo", JSON.stringify(user1));
       return {
         ...state,
@@ -119,17 +119,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         availableDoctors: action.payload,
       };
-    case GET_ENCURSO_ATTENTION:
+    case GET_ATTENTION:
       return {
         ...state,
-        atencionEnCurso: action.payload,
+        allAtentions: action.payload,
       };
-      case GET_TOTAL_USERS:
+    case GET_TOTAL_USERS:
       return {
         ...state,
         totalUsers: action.payload,
       };
-
     default:
       return {
         ...state,

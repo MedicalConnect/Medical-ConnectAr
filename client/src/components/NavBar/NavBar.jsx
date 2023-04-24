@@ -75,11 +75,11 @@ const NavBar = () => {
                 Planes
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" to="/noticias">
                 Noticias Salud
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link" to="/contribuciones">
                 Contribuciones Sociales ❤️

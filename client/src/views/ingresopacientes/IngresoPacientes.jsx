@@ -2,18 +2,34 @@ import React, { useEffect } from "react";
 import "./IngresoPacientes.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import GoogleLogin from "react-google-login"
 
 const IngresoPacientes = () => {
+  const clientID = "691357648320-rvrumr8g8c70jn8v7om0esi5htelacc6.apps.googleusercontent.com"
+
   const navigate = useNavigate();
   const userlogin = useSelector((state) => state.userLogin);
 
   useEffect(() => {
+    const start = () => {
+      gapi.auth2.init({
+        clientId:clientID
+      })
+      gapi.load("client:auth2",start)
+    }
     if (userlogin?.rol) {
       navigate(
         userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
       );
     }
   }, [userlogin]);
+
+  const onSuccess= (response)=>{
+    console.log(response);
+  }
+  const onFailure= (response)=>{
+    console.log("Algo malo sucedio");
+  }
 
   return (
     <div>
@@ -39,7 +55,7 @@ const IngresoPacientes = () => {
         <section className="row">
           <div className="d-grid gap-5 col-6 col-md-4 mx-auto">
               <Link to={"/creacionpaciente"}>
-            <div className="carta2">
+            <div class="carta2">
                 <button className=" btn-primary" type="button">
                   CREAR CUENTA
                 </button>
@@ -69,8 +85,10 @@ const IngresoPacientes = () => {
           </div>
         </section>
       </div>
-
-      <div className="row">
+        <div className="googlebot">
+          <GoogleLogin clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={"none"}/>
+        </div>
+      {/* <div className="row">
         <section className="d-grid1 gap-2 col-12 col-md-4 ">
           <button className="buttonG">
             <svg
@@ -105,7 +123,8 @@ const IngresoPacientes = () => {
           src="https://cdn.discordapp.com/attachments/1094314281123717203/1098150863744290866/Diseno_sin_titulo_1.png"
           alt="imagen fondo"
         />
-      </div>
+      </div> */}
+
     </div>
   );
 };

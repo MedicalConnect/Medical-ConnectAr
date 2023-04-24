@@ -5,7 +5,6 @@ import emailjs from "@emailjs/browser"
 import {Link} from "react-router-dom"
 import "./contactanos.css"
 import { useLocalStorage } from "../../useLocaleStorage";
-
 const Contactanos = () => {
 
   const [textArea, setTextArea] = useLocalStorage("texto","");
@@ -102,8 +101,8 @@ const Contactanos = () => {
           <div>
             <img
               className={styles.imagen}
-              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341173446_1448950442513378_681941906338583976_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=WYozNEdUn2oAX9h0fq1&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfBTLWOvNUJpIxF0PecC3T3tCZkSGkYZtbGi4HHwpAyO2w&oe=643E515E"
-              alt="medicos"
+              src="https://media.discordapp.net/attachments/1094314281123717203/1099542226670997565/3568984.jpg?width=1078&height=718"
+alt="medicos"
             />
           </div>
         </div>

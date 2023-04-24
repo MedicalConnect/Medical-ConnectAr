@@ -1,3 +1,4 @@
+import SubiendoImagenes from "./views/SubiendoImagenes";
 import {
   Landing,
   QuienesSomos,
@@ -6,7 +7,6 @@ import {
   NoticiasSalud,
   NavBar,
   Footer,
-  Planes,
   IngresoPacientes,
   IngresoMedicos,
   IngresoAdmin,
@@ -21,6 +21,7 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
+  Planes,
 } from "./views/index"; //views de index
 import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
@@ -60,13 +61,15 @@ function App() {
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
         <Route path="/actualizarmedico" element={<ActualizarMedico />} />
-        <Route path="/saladeespera" element={<SalaDeEspera />} />
+        <Route path="/saladeespera/:atencionId" element={<SalaDeEspera />} />
         <Route path="/videoconsulta/:atencionId" element={<Videoconsulta />} />
         <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
         <Route path="/iniciarsesion" element={<IniciarSesion />} />
         <Route path="/" element={<Landing />} />
+        <Route path="/planes" element={<Planes />} />
       </Routes>
       <Footer />
+    
     </div>
   );
 }
