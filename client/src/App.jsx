@@ -62,7 +62,7 @@ function App() {
         <Route path="/perfilpaciente" element={<PerfilPaciente />} />
         <Route path="/actualizarpaciente" element={<ActualizarPaciente />} />
         <Route path="/actualizarmedico" element={<ActualizarMedico />} />
-        <Route path="/saladeespera" element={<SalaDeEspera />} />
+        <Route path="/saladeespera" element={<SalaDeEspera/>} />
         <Route path="/videoconsulta/:atencionId" element={<Videoconsulta />} />
         <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
         <Route path="/iniciarsesion" element={<IniciarSesion />} />

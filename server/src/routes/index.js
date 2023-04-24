@@ -1,8 +1,8 @@
 const { Router } = require("express");
 const { pacientsRoutes } = require("../routes/pacientsRoutes");
-const { pagosRouter } = require('./pagosRoutes')
+const { pagosRouter } = require("./pagosRoutes");
 const doctorRouter = require("./doctorRoute");
-const historiaClinicaRouter = require("./HistoriaClinicaRoute");
+const historiaClinicaRouter = require("./historiaClinicaRoute");
 const atencionesRouter = require("./atencionesRoutes");
 const loginRouter = require("./loginRoutes");
 

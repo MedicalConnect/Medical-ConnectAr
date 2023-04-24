@@ -45,5 +45,5 @@ export {
   AtencionFinalizada,
   NavBar2,
   IniciarSesion,
-  Planes
+  Planes,
 };

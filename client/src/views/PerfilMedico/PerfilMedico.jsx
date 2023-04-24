@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAttention } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -15,7 +16,7 @@ const PerfilMedico = () => {
     if (userLogin) {
       dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
     }
-  }, [userLogin]);
+  }, []);
 
   return (
     <>
@@ -72,7 +73,11 @@ const PerfilMedico = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              {atencionEnEspera?.length ? (
+              {atencionEnEspera?.filter(
+                (atencion) =>
+                  atencion.status === "enespera" ||
+                  atencion.status === "encurso"
+              )?.length ? (
                 <div className="row justify-content-start">
                   {atencionEnEspera
                     .filter(
@@ -149,7 +154,11 @@ const PerfilMedico = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              {atencionEnEspera?.length ? (
+              {atencionEnEspera?.filter(
+                (atencion) =>
+                  atencion.status === "finalizada" ||
+                  atencion.status === "cancelada"
+              )?.length ? (
                 <div className="row justify-content-start">
                   {atencionEnEspera
                     .filter(
@@ -224,7 +233,9 @@ const PerfilMedico = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              <button className={styles.boton1}>Ir a actualizar</button>
+              <Link to={"/actualizarmedico"}>
+                <button className={styles.boton1}>Ir a actualizar</button>
+              </Link>
             </div>
           </div>
         </div>
