@@ -325,7 +325,6 @@ const ActualizarPaciente = () => {
                   className="form-control select1"
                   id="floatingPassword"
                   placeholder="Password"
-                  defaultValue={InfoUser.contraseña}
                   {...register("contraseña",{
                     required:true,
                     pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
