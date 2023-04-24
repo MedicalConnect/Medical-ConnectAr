@@ -69,9 +69,7 @@ const ContribucionesSociales = () => {
             <div className={styles.imgContainer}>
               <img
                 className={styles.imgDoctor}
-
                 src="https://media.discordapp.net/attachments/1094314281123717200/1099992938861310043/doctor-linea-nina-enferma-padre-enfermera-enlace-video_53562-12567_1.jpg?width=1004&height=792"
-
                 alt="medicoimg"
               />
             </div>
@@ -140,9 +138,7 @@ const ContribucionesSociales = () => {
           <div>
             <img
               className={styles.img2}
-
               src="https://media.discordapp.net/attachments/1094314281123717200/1099993329971777576/341165222_580347680534785_8975575067449690674_n.jpg?width=1188&height=792"
-
             />
           </div>
         </div>
