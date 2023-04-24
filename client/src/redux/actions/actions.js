@@ -15,14 +15,15 @@ import {
   PUT_PACIENT,
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
-  GET_TOTAL_USERS
+  GET_TOTAL_USERS,
 } from "./actions-types";
 
+import apiUrl from "../../helpers/apiUrl";
 import axios from "axios";
 
 export const getAllPacients = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/pacientes");
+    const response = await axios.get(`${apiUrl}/pacientes`);
     const data = response.data;
 
     return dispatch({
@@ -34,7 +35,7 @@ export const getAllPacients = () => {
 
 export const getAllDoctors = () => {
   return async (dispatch) => {
-    const response = await axios.get("http://localhost:3001/doctor");
+    const response = await axios.get(`${apiUrl}doctor`);
     const data = response.data;
 
     return dispatch({
@@ -46,9 +47,7 @@ export const getAllDoctors = () => {
 
 export const getClinicalHistory = (PacienteId) => {
   return async (dispatch) => {
-    const response = await axios.get(
-      `http://localhost:3001/historiaClinica/${PacienteId}`
-    );
+    const response = await axios.get(`${apiUrl}/historiaClinica/${PacienteId}`);
     const data = response.data;
 
     return dispatch({
@@ -60,7 +59,7 @@ export const getClinicalHistory = (PacienteId) => {
 
 export const getAllAtentions = () => {
   return async (dispatch) => {
-    const response = await axios.get(`http://localhost:3001/atenciones`);
+    const response = await axios.get(`${apiUrl}/atenciones`);
     const data = response.data;
 
     return dispatch({
@@ -72,7 +71,7 @@ export const getAllAtentions = () => {
 
 export const addPacient = (payload) => {
   return async (dispatch) => {
-    const response = axios.post("http://localhost:3001/pacientes", payload);
+    const response = axios.post(`${apiUrl}/pacientes`, payload);
     const data = response.data;
 
     return await dispatch({
@@ -84,7 +83,7 @@ export const addPacient = (payload) => {
 
 export const addDoctor = (payload) => {
   return async (dispatch) => {
-    const response = axios.post("http://localhost:3001/doctor", payload);
+    const response = axios.post(`${apiUrl}/doctor`, payload);
     const data = response.data;
 
     return await dispatch({
@@ -96,8 +95,7 @@ export const addDoctor = (payload) => {
 
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
-    const response = axios.post(
-      "http://localhost:3001/historiaClinica",payload);
+    const response = axios.post(`${apiUrl}/historiaClinica`, payload);
     const data = response.data;
 
     return await dispatch({
@@ -109,7 +107,7 @@ export const addClinicalHistory = (payload) => {
 
 export const addAtentions = (payload) => {
   return async (dispatch) => {
-    const response = axios.post("http://localhost:3001/atenciones", payload);
+    const response = axios.post(`${apiUrl}/atenciones`, payload);
     const data = response.data;
 
     return await dispatch({
@@ -122,9 +120,9 @@ export const addAtentions = (payload) => {
 export const setUserLogin = (payload) => {
   return async (dispatch) => {
     try {
-      const response = await axios.post("http://localhost:3001/login", payload);
+      const response = await axios.post(`${apiUrl}/login`, payload);
       const data = response.data;
-      
+
       return dispatch({
         type: USER_LOGIN,
         payload: data,
@@ -137,16 +135,14 @@ export const setUserLogin = (payload) => {
 
 export const loginLogOut = () => {
   return function (dispatch) {
-    localStorage.removeItem("userInfo")
+    localStorage.removeItem("userInfo");
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };
 
 export const getAvailableDoctors = () => {
   return async (dispatch) => {
-    const response = await axios.get(
-      "http://localhost:3001/doctor/status/disponible"
-    );
+    const response = await axios.get(`${apiUrl}/doctor/status/disponible`);
     const data = response.data;
     return dispatch({
       type: GET_AVAILABLE_DOCTOR,
@@ -157,10 +153,7 @@ export const getAvailableDoctors = () => {
 
 export const createAttention = (payload) => {
   return async (dispatch) => {
-    const response = await axios.post(
-      "http://localhost:3001/atenciones",
-      payload
-    );
+    const response = await axios.post(`${apiUrl}/atenciones`, payload);
     const data = response.data;
     return dispatch({
       type: CREATE_ATTENTION,
@@ -171,7 +164,7 @@ export const createAttention = (payload) => {
 
 export const getAttention = (payload) => {
   return async (dispatch) => {
-    const response = await axios.get(`http://localhost:3001/atenciones`, {
+    const response = await axios.get(`${apiUrl}/atenciones`, {
       payload,
     });
     const data = response.data;
@@ -184,8 +177,7 @@ export const getAttention = (payload) => {
 
 export const putPacients = (payload) => {
   return async (dispatch) => {
-    const response = await axios.put(
-      'http://localhost:3001/pacientes', payload);
+    const response = await axios.put(`${apiUrl}/pacientes`, payload);
     const data = response.data;
 
     return dispatch({
@@ -197,8 +189,7 @@ export const putPacients = (payload) => {
 
 export const putDoctor = (payload) => {
   return async (dispatch) => {
-    const response = await axios.put(
-      'http://localhost:3001/doctor', payload);
+    const response = await axios.put(`${apiUrl}/doctor`, payload);
     const data = response.data;
 
     return dispatch({
@@ -210,8 +201,7 @@ export const putDoctor = (payload) => {
 
 export const putClinicalHistory = (payload) => {
   return async (dispatch) => {
-    const response = await axios.put(
-      "http://localhost:3001/historiaClinica", payload);
+    const response = await axios.put(`${apiUrl}/historiaClinica`, payload);
     const data = response.data;
 
     return dispatch({
@@ -221,21 +211,20 @@ export const putClinicalHistory = (payload) => {
   };
 };
 
-
 export const totalUsers = () => {
   return async (dispatch) => {
-    const responseDoctor = await axios.get("http://localhost:3001/doctor");
+    const responseDoctor = await axios.get(`${apiUrl}/doctor`);
     const dataDoctor = responseDoctor.data;
-    const responsePacient = await axios.get("http://localhost:3001/pacientes");
+    const responsePacient = await axios.get(`${apiUrl}/pacientes`);
     const dataPacient = responsePacient.data;
 
-    const arr1 = dataDoctor.concat(dataPacient).flat()
-    const totalUsers= arr1.map(user=>{
+    const arr1 = dataDoctor.concat(dataPacient).flat();
+    const totalUsers = arr1.map((user) => {
       return {
-        numero_de_documento:user.numero_de_documento,
-        email:user.email
-      }
-    })
+        numero_de_documento: user.numero_de_documento,
+        email: user.email,
+      };
+    });
 
     return dispatch({
       type: GET_TOTAL_USERS,
