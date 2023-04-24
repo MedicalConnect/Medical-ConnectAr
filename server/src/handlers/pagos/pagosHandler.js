@@ -19,7 +19,7 @@ const pagosHandler = async (req, res) => {
 
       }],
       back_urls: {
-        success:'http://localhost:3000',
+        success:'https://medicalconnectapi.onrender.com/',
         failure: '',
         pending:'',
       },
