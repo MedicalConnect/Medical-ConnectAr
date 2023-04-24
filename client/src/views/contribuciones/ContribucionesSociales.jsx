@@ -69,7 +69,7 @@ const ContribucionesSociales = () => {
             <div className={styles.imgContainer}>
               <img
                 className={styles.imgDoctor}
-                src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340928847_1495327034328694_3067556501508100744_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=B29i8m121SUAX_WSM35&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfAVeywqm_ZdklQ7kDSjcyyFk3i4kFITyTcQQuftfVlV0g&oe=643D8E73"
+                src="https://media.discordapp.net/attachments/1094314281123717200/1099992938861310043/doctor-linea-nina-enferma-padre-enfermera-enlace-video_53562-12567_1.jpg"
                 alt="medicoimg"
               />
             </div>
@@ -138,7 +138,7 @@ const ContribucionesSociales = () => {
           <div>
             <img
               className={styles.img2}
-              src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341165222_580347680534785_8975575067449690674_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=jJUZx9VJD_sAX9neXwE&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfA5mBvAgtp9L8RkTiB2jcJNtS7yG1AwnWEbSVhyMvjDnQ&oe=643DD0B4"
+              src="https://media.discordapp.net/attachments/1094314281123717200/1099993329971777576/341165222_580347680534785_8975575067449690674_n.jpg?width=1014&height=676"
             />
           </div>
         </div>
