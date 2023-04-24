@@ -182,13 +182,13 @@ const Footer = () => {
         <div className="divpadre2">
           <div>
             <div className="iconos-redes-sociales d-flex flex-wrap align-items-center justify-content-center">
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#"  rel="noopener noreferrer">
                 <i className="bi bi-linkedin"></i>
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#" rel="noopener noreferrer">
                 <i className="bi bi-instagram"></i>
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a href="#" rel="noopener noreferrer">
                 <i className="bi bi-facebook"></i>
               </a>
             </div>
