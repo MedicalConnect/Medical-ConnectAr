@@ -1,5 +1,7 @@
 const { Paciente } = require("../../db.js");
 const { getAllPacients } = require("./getAllPacients");
+const { hash } = require('../hashContraseñas.js')
+
 
 const createPacients = async (
   nombre,
@@ -54,7 +56,7 @@ const createPacients = async (
       domicilio: domicilio,
       telefono: telefono,
       email: email,
-      contraseña: contraseña,
+      contraseña: hash(contraseña),
     });
 
     return "Paciente creado correctamente";
