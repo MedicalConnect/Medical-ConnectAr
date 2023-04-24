@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAttention } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
 const PerfilMedico = () => {
@@ -17,7 +17,7 @@ const PerfilMedico = () => {
     if (userLogin) {
       dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
     }
-  }, [userLogin]);
+  }, []);
 
   return (
     <>
@@ -68,14 +68,17 @@ const PerfilMedico = () => {
               Sala de espera
             </button>
           </h2>
-          <Link to={"/videoconsulta/62423b3f-b1bf-4e81-b5ea-446bd7904c85"}>a</Link>
           <div
             id="flush-collapseOne"
             className="accordion-collapse collapse"
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              {atencionEnEspera?.length ? (
+              {atencionEnEspera?.filter(
+                (atencion) =>
+                  atencion.status === "enespera" ||
+                  atencion.status === "encurso"
+              )?.length ? (
                 <div className="row justify-content-start">
                   {atencionEnEspera
                     .filter(
@@ -152,7 +155,11 @@ const PerfilMedico = () => {
             data-bs-parent="#accordionFlushExample"
           >
             <div className="accordion-body">
-              {atencionEnEspera?.length ? (
+              {atencionEnEspera?.filter(
+                (atencion) =>
+                  atencion.status === "finalizada" ||
+                  atencion.status === "cancelada"
+              )?.length ? (
                 <div className="row justify-content-start">
                   {atencionEnEspera
                     .filter(
@@ -205,7 +212,6 @@ const PerfilMedico = () => {
               ) : (
                 <p>No se realizaron atenciones aún.</p>
               )}
-
             </div>
           </div>
         </div>
@@ -229,7 +235,7 @@ const PerfilMedico = () => {
           >
             <div className="accordion-body">
               <Link to={"/actualizarmedico"}>
-              <button className={styles.boton1}>Ir a actualizar</button>
+                <button className={styles.boton1}>Ir a actualizar</button>
               </Link>
             </div>
           </div>

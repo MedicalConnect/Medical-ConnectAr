@@ -16,7 +16,7 @@ import Formpaciente from "./crearcuentapaciente/FormPaciente";
 import FormMedico from "./crearcuentamedico/FormMedico";
 import ActualizarPaciente from "./actualizardatospacientes/ActualizarPaciente";
 import ActualizarMedico from "./actualizardatosmedico/ActualizarMedico";
-import SalaDeEspera from "./salaespera/SalaDeEspera"
+import SalaDeEspera from "./salaespera/SalaDeEspera";
 import Videoconsulta from "./videoconsulta/Videoconsulta";
 import AtencionFinalizada from "./atencionFinalizada/AtencionFinalizada";
 import NavBar2 from "../components/NavBar2/NavBar2";
@@ -45,5 +45,5 @@ export {
   AtencionFinalizada,
   NavBar2,
   IniciarSesion,
-  Planes
+  Planes,
 };
