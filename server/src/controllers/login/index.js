@@ -1,11 +1,15 @@
 const { Paciente, Doctor } = require("../../db");
 const { Op } = require("sequelize");
+const { hash } = require('../hashContraseñas')
 // codeValidUntil: {
 //     [Op.or]: [{[Op.gte]: new Date()}, {[Op.is]: null}],
 //   },
+
 const loginController = async ({ usuario, contraseña }) => {
   let user = null;
   let rol = "paciente";
+  contraseña = hash(contraseña)
+  console.log(contraseña)
   user = await Paciente.findOne({
     where: {
       contraseña,
@@ -13,6 +17,7 @@ const loginController = async ({ usuario, contraseña }) => {
     },
   });
   if (!user) {
+    // contraseña = hash(contraseña)
     user = await Doctor.findOne({
       where: {
         contraseña,

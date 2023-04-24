@@ -6,6 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import apiUrl from "../../helpers/apiUrl";
 
 function Videoconsulta() {
   const { atencionId } = useParams();
@@ -37,7 +38,7 @@ function Videoconsulta() {
 
   const updateVideoConsulta = async ({ value, field }) => {
     try {
-      const response = await axios.put(`http://localhost:3001/atenciones`, {
+      const response = await axios.put(`${apiUrl}/atenciones`, {
         field,
         data: value,
         atencionId,
@@ -51,7 +52,7 @@ function Videoconsulta() {
   const getVideoconsulta = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3001/atenciones/videoconsulta/${atencionId}`
+        `${apiUrl}/atenciones/videoconsulta/${atencionId}`
       );
       const data = response.data;
       setValue("anamnesis", data.anamnesis);
