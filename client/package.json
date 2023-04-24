@@ -28,7 +28,8 @@
     "react-router-dom": "^6.10.0",
     "react-scripts": "^5.0.1",
     "reactstrap": "^9.1.9",
-    "redux": "^4.2.1"
+    "redux": "^4.2.1",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
