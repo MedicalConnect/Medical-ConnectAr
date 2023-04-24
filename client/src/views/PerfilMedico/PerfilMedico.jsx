@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { Link } from "react-router-dom";
 
-
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const atencionEnEspera = useSelector((state) => state.allAtentions);

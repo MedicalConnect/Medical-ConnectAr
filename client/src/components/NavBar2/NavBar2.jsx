@@ -18,14 +18,16 @@ const NavBar2 = () => {
       <nav class="navbar  navbar-expand-lg navbar-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="" alt="logo medical connect" width="30" height="24" />
+            <img
+              className="logonav2"
+              src="https://cdn.discordapp.com/attachments/1094314281123717203/1099525596247232512/medical-connect.PNG.png"
+              alt="logo medical connect"
+              width="30"
+              height="24"
+            />
           </a>
-          <button
-            onClick={() => logOut()}
-            type="button"
-            className="btn btn-info"
-          >
-            cerrar sesion
+          <button onClick={() => logOut()} type="button" className="bottoncs">
+            Cerrar Sesion
           </button>
         </div>
       </nav>
