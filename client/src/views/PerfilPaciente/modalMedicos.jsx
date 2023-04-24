@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAvailableDoctors } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import apiUrl from "../../helpers/apiUrl";
 
 const ModalMedicos = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const ModalMedicos = () => {
 
   const createAttentionHandler = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/atenciones", {
+      const response = await axios.post(`${apiUrl}/atenciones`, {
         doctorId,
         pacienteId: userlogin.id,
       });
