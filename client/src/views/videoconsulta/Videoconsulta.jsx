@@ -7,6 +7,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import apiUrl from "../../helpers/apiUrl";
+import SubiendoImagenes from "../SubiendoImagenes";
 
 function Videoconsulta() {
   const { atencionId } = useParams();
@@ -892,6 +893,7 @@ Presentacion: ${certificado.lugar_presentacion}
           </p>
         </form>
       </div>
+      {/* <SubiendoImagenes /> */}
     </div>
   );
 }
