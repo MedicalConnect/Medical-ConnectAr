@@ -19,6 +19,7 @@ const PlanesDisplayer = ({serv}) => {
                   Contratar
                   </button>
                   </div>
+                <strong><p className="aclaracion">* Una vez que hayas gentionado el pago, envíanos tu comprobante a <br/>medicalconnectar@gmail.com o +54 11 2325-5776 <br/> con TU numero de documento.</p></strong>
           </div> 
           </div>
                   

@@ -9,17 +9,16 @@ const Planes = () => {
     {
       nombre:'Plan Invididual',
       detalle: "Acceso a 10 consultas por mes",
-      imagen: "https://tuplandesaludpr.com/wp-content/uploads/2020/11/Untitled-design-15-1024x569.png",
+      imagen: "https://media.discordapp.net/attachments/1094314281123717203/1099844324830748764/Untitled-design-15-1024x569.png?width=1292&height=718",
       precio: 1
     },
     {
       nombre:'Plan Familiar',
       detalle: 'Acceso a 30 consultas por mes',
-      imagen: 'https://www.superquoter.com/wp-content/uploads/2016/09/41135920_xxl.jpg',
+      imagen: 'https://media.discordapp.net/attachments/1094314281123717203/1099844819867680768/41135920_xxl.jpeg?width=1674&height=718',
       precio: 3
     }
   ]
-
 
   return (
     <>
@@ -30,13 +29,13 @@ const Planes = () => {
               <h1 className="subtitulos">Nuestros Planes</h1>
             </div>
             <div className="col-12">
-              <p className="fst-italic fw-medium">
+              <p className="fst-italic fw-medium fs-5">
                 Contamos con planes diseñados para entregarte una mejor experiencia de servicio
                 <br /> a precios accesibles y convenientes.
               </p>
               <div className="warning">
-                <img src="https://media.discordapp.net/attachments/1094314281123717203/1099507306024140890/alerta.png?width=792&height=792" />Para gestionar correctamente el pago es necesario que tenga habilitado en su navegador la posibilidad de abrir pestañas emergentes,
-                antes de tocar el boton <strong>Contratar</strong>
+                <img src="https://media.discordapp.net/attachments/1094314281123717203/1099843982449709236/alerta.png?width=718&height=718" /><p className="fs-5">Para gestionar correctamente el pago es necesario que tenga habilitado en su navegador la posibilidad de abrir pestañas emergentes,
+                antes de tocar el boton <strong>Contratar</strong></p>
                 
               </div>
              <div className="planes">
@@ -116,7 +115,7 @@ const Planes = () => {
           <div className="col-4">
             <img
             className='imagencuadro rounded-start-pill'
-              src="https://img.freepik.com/vector-gratis/dibujado-mano-ilustracion-medicos-enfermeras_23-2148903885.jpg?size=626&ext=jpg"
+              src="https://media.discordapp.net/attachments/1094314281123717203/1099845435067203624/dibujado-mano-ilustracion-medicos-enfermeras_23-2148903885.jpg?width=718&height=718"
               alt=""
             />
           </div>

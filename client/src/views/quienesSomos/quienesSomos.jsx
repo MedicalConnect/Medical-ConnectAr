@@ -36,7 +36,7 @@ const QuienesSomos = () => {
             </div>
             <div className={styles.imageContainer}>
               <img
-                src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340601773_213422334642604_6145701791926083459_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=KlAemv_SfCQAX-uFDX_&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfCM2v7Cs1dTRt7GehF-VNR3zllohueO_4J5Kfq0K7HBvQ&oe=643B3C26"
+                src="https://media.discordapp.net/attachments/1094314281123717200/1099543980783444069/familia2.jpg?width=1748&height=792"
                 className={styles.imgFlia}
                 alt="familia"
               />
@@ -52,7 +52,7 @@ const QuienesSomos = () => {
             <div className={styles.item1}>
               <div className={styles.card1}>
                 <img
-                  src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/340924019_758804562436885_1667013018083390068_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=uJkE_i5y5j4AX9HuV2n&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfBApYJdSSlE6hUwuPVXsYLh62D1bNkZl_OMCJpVNlxeiQ&oe=643BB301"
+                  src="https://media.discordapp.net/attachments/1094314281123717200/1099543980259151963/informe-medico.png?width=792&height=792"
                   alt="logo salud"
                 />
               </div>
@@ -70,7 +70,7 @@ const QuienesSomos = () => {
             <div className={styles.item2}>
               <div>
                 <img
-                  src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341060366_212589614742834_1437391456322414845_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=MODwwGzHIEwAX-3lkvI&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfDlPus1aTJcEABydy6j93qSRUTTssDn9wV6nS7Vp7pjLw&oe=643C7B56"
+                  src="https://media.discordapp.net/attachments/1094314281123717200/1099543979902648330/salud.png?width=792&height=792"
                   alt="logo salud"
                 />
               </div>
@@ -86,7 +86,7 @@ const QuienesSomos = () => {
             <div className={styles.item3}>
               <div>
                 <img
-                  src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341030583_1842456606135130_3569734844842488516_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=olPcDSPnWJ0AX-fAWvZ&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfCnkDYb9e2eidtTuMJ2RHJVxwcE40ArG02sYu32UFUvNw&oe=643B8276"
+                  src="https://media.discordapp.net/attachments/1094314281123717200/1099543979437068298/chequeo-de-salud.png?width=792&height=792"
                   alt="logo salud"
                 />
               </div>
@@ -103,7 +103,7 @@ const QuienesSomos = () => {
               <div className="imagenvaron2">
                 <img
                   className="imagevaron"
-                  src="https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341048735_540366998121194_8415954990648169293_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=7WaaT4IMNpgAX-106oZ&_nc_oc=AQmKlY_UfJ9Ez6MPIlg0ZUIlm5aWIe47Z_v_pWv0ymyD7rz6-D9a9k0gDNu8GI5ov-sdfLZ5E0aQrhr8hagR6Fuj&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfAgdNITdPI8ThwSBtVvPCun28G2AKkrTe0VgOZ57EurCg&oe=643B451F"
+                  src="https://media.discordapp.net/attachments/1094314281123717200/1099543980481462272/terapia.png?width=792&height=792"
                   alt="logo salud"
                 />
               </div>
@@ -127,7 +127,7 @@ const QuienesSomos = () => {
           <div>
             <img
               className={styles.corazon}
-              src="https://cdn.discordapp.com/attachments/1094314281123717204/1097434176573161532/quienes-somos-image.jpg"
+              src="https://media.discordapp.net/attachments/1094314281123717203/1099843328616431738/quienes-somos-image.jpeg?width=1034&height=718"
               alt="corazon"
               // https://scontent.ffdo1-1.fna.fbcdn.net/v/t39.30808-6/341078188_898577814768058_7111636574380161546_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=dbeb18&_nc_ohc=X67YmxusinoAX_9WrB7&_nc_ht=scontent.ffdo1-1.fna&oh=00_AfD3h8EXDUqp435AxSu_u5KbgsrmFI9Y0M4ay5pqMgIVTA&oe=643BB57E
             />
