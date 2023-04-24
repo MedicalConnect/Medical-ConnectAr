@@ -32,7 +32,7 @@ if (userlogin?.rol) {
           <div className="col-9 text-center">
             <h1 className="fw-bold ">Medical Connect te da la Bienvenida!</h1>
             <br />
-            <p className="fw-semibold subtitulo1">
+            <p className="fw-semibold subtitulo1 fs-5">
               {" "}
               Te invitamos a formar parte de este servicio en el cual podras
               recibi las mejores atenciones desde cualquier parte de capital
