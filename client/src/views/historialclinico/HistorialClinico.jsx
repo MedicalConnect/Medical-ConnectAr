@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import "./HistorialClinico.css";
 import { useForm } from "react-hook-form";
-import { addClinicalHistory } from "../../redux/actions/actions";
-import { useDispatch } from "react-redux";
+import { addClinicalHistory, getAllClinicalHistory, putClinicalHistory, getClinicalHistory} from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 
 const HistorialClinico = () => {
+  const userlogin = useSelector((state) => state.userLogin);
+  const historyClinical = useSelector((state) => state.allHistoryClinical);
+  
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
+
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const submit1=(data)=>{
-    dispatch(addClinicalHistory(data));
+    dispatch(addClinicalHistory(data))
     alert("Historia Clinica creada");
     navigate("/perfilpaciente");
   }
+
+  useEffect(() => {  
+  dispatch(getAllClinicalHistory())
+  }, []);
+
   return (
     <div>
       <div>
@@ -53,7 +64,9 @@ const HistorialClinico = () => {
                 className="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes medicos"
-                {...register("antecedentes_medicos", {
+                // defaultValue={res.length > 0 ? res[0].antecedentes_medicos : ""}
+               
+                 {...register("antecedentes_medicos", {
                   required: true,
                   minLength: { value: 5, message: "no puede estar vacio" },
                   maxLength: { value: 250, message: "maximo 450 caracteres" },
@@ -74,6 +87,7 @@ const HistorialClinico = () => {
                 className="form-control"
                 id="colFormLabel"
                 placeholder="antecedentes quirurgicos..."
+                // defaultValue={res.antecedentes_quirurgicos  ? res.antecedentes_quirurgicos : "antecedentes quirurgicos"}
                 {...register("antecedentes_quirurgicos", {
                   required: true,
                   minLength: { value: 5, message: "no puede estar vacio" },
@@ -95,6 +109,7 @@ const HistorialClinico = () => {
                 className="form-control"
                 id="colFormLabel"
                 placeholder="alergias..."
+                // defaultValue={res.alergias  ? res.alergias : "antecedentes alergias"}
                 {...register("alergias", {
                   required: true,
                   minLength: { value: 5, message: "no puede estar vacio" },
@@ -114,6 +129,7 @@ const HistorialClinico = () => {
                 className="form-control"
                 id="colFormLabel"
                 placeholder="medicamentos..."
+                // defaultValue={res.medicamentos ? res.medicamentos : "medicamentos"}
                 {...register("medicamentos", {
                   required: true,
                   minLength: { value: 5, message: "no puede estar vacio" },
@@ -133,6 +149,7 @@ const HistorialClinico = () => {
                 className="form-control"
                 id="colFormLabel"
                 placeholder="habitos..."
+                // defaultValue={res.habitos ? res.habitos : "habitos"}
                 {...register("habitos", {
                   required: true,
                   minLength: { value: 5, message: "no puede estar vacio" },
@@ -145,6 +162,7 @@ const HistorialClinico = () => {
           <button className="boton" type="submit">
             Enviar
           </button>
+          <input type="hidden" {...register("PacienteId")} value={userlogin.id} />
         </form>
       </div>
     </div>

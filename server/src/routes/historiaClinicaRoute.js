@@ -9,8 +9,8 @@ const {
 const historiaClinicaRouter = Router();
 
 historiaClinicaRouter.get("/", getAllHistoriaClinicaHandler);
-historiaClinicaRouter.get("/:PacienteId", getHistoriaClinicaHandler);
+historiaClinicaRouter.get("/", getHistoriaClinicaHandler);
 historiaClinicaRouter.post("/", createHistoriaClinicaHandler);
-historiaClinicaRouter.put("/:id", putHistoriaClinicaHandler);
+historiaClinicaRouter.put("/", putHistoriaClinicaHandler);
 
 module.exports = historiaClinicaRouter;

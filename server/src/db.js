@@ -4,13 +4,18 @@ const { Sequelize } = require("sequelize");
 // const paciente = require('./models/Paciente')
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_URL } = process.env;
 
-const sequelize = new Sequelize(DB_URL, {
-  dialectOptions: {
-    ssl: { rejectUnauthorized: false },
-  },
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
+
+// const sequelize = new Sequelize(DB_URL, {
+//   dialectOptions: {
+//     ssl: { rejectUnauthorized: false },
+//   },
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
 
 const fs = require("fs");
 const path = require("path");

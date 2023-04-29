@@ -2,6 +2,7 @@ import {
   GET_ALL_PACIENTS,
   GET_ALL_DOCTORS,
   GET_CLINICAL_HISTORY,
+  GET_ALL_CLINICAL_HISTORY,
   GET_ALL_ATENTIONS,
   ADD_PACIENT,
   ADD_DOCTOR,
@@ -40,6 +41,18 @@ export const getAllDoctors = () => {
 
     return dispatch({
       type: GET_ALL_DOCTORS,
+      payload: data,
+    });
+  };
+};
+
+export const getAllClinicalHistory = () => {
+  return async (dispatch) => {
+    const response = await axios.get(`${apiUrl}/historiaClinica/`);
+    const data = response.data;
+
+    return dispatch({
+      type: GET_ALL_CLINICAL_HISTORY,
       payload: data,
     });
   };
@@ -95,7 +108,7 @@ export const addDoctor = (payload) => {
 
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
-    const response = axios.post(`${apiUrl}/historiaClinica`, payload);
+    const response = axios.post(`${apiUrl}/historiaClinica/`, payload);
     const data = response.data;
 
     return await dispatch({

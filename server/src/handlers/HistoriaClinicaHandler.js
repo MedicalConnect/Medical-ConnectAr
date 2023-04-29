@@ -23,7 +23,7 @@ try {
 
 
 const getHistoriaClinicaHandler = async(req, res) => {
-    const {PacienteId} = req.params
+    const { PacienteId } = req.body
     try {
         const response = await getHistoriaClinica(PacienteId)
         res.status(200).json(response)
@@ -36,8 +36,7 @@ const getHistoriaClinicaHandler = async(req, res) => {
 
 
 const putHistoriaClinicaHandler = async(req, res) => {
-    const { antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos } = req.body
-    const { id } = req.params
+    const { id, antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos } = req.body
     try {
         const response = await putHistoriaClinica(id, antecedentes_medicos, antecedentes_quirurgicos, alergias, medicamentos, habitos)
         res.status(200).json(response)

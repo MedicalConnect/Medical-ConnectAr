@@ -15,6 +15,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  GET_ALL_CLINICAL_HISTORY,
 } from "./actions/actions-types";
 
 const initialState = {
@@ -54,6 +55,11 @@ const reducer = (state = initialState, action) => {
         allAtentions: action.payload,
       };
 
+    case GET_ALL_CLINICAL_HISTORY:
+      return {
+          ...state,
+          allHistoryClinical: action.payload,
+        };
     case ADD_PACIENT:
       const newPacient = state.allPacients.slice();
       newPacient.push(action.payload);
@@ -71,11 +77,11 @@ const reducer = (state = initialState, action) => {
       };
 
     case ADD_CLINICAL_HISTORY:
-      const newClinicalHistory = state.allHistoryClinical.slice();
-      newClinicalHistory.push(action.payload);
+      // const newClinicalHistory = state.allHistoryClinical.slice();
+      // newClinicalHistory.push(action.payload);
       return {
         ...state,
-        allHistoryClinical: newClinicalHistory,
+        // allHistoryClinical: newClinicalHistory,
       };
 
     case ADD_ATENTIONS:
