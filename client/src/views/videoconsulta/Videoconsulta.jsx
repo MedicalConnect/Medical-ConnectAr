@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import apiUrl from "../../helpers/apiUrl";
 import SubiendoImagenes from "../SubiendoImagenes";
+import { Videocall } from "../salaespera/videocall";
 
 function Videoconsulta() {
   const { atencionId } = useParams();
@@ -322,12 +323,56 @@ function Videoconsulta() {
     });
   };
 
+  const changeVideoCall = async () => {
+    try {
+      if (atencion?.videocall_is_active) {
+        await updateVideoConsulta({
+          field: "videocall_is_active",
+          value: false,
+        });
+        location.reload();
+        return;
+      }
+      if (!atencion?.videocall_is_active && atencion?.videocall_url) {
+        await updateVideoConsulta({
+          field: "videocall_is_active",
+          value: true,
+        });
+        location.reload();
+        return;
+      }
+      const response = await axios.post(
+        `${apiUrl}/atenciones/videocall/${atencionId}`
+      );
+      setRefresh(!refresh);
+    } catch (error) {
+      console.log({ error });
+    }
+  };
+
   return (
     <div>
       <h1 className={styles.title}>Atención Medica en curso</h1>
       <br />
+
+      <button
+        type="button"
+        onClick={() => changeVideoCall()}
+        className={styles.botonVideocall}
+      >
+        {atencion?.videocall_is_active ? "Finalizar Video" : "Iniciar Video"}
+      </button>
+
       <div className={styles.contenedor}>
-        <div className={styles.cajapaciente}></div>
+        <div className={styles.cajapaciente}>
+          {atencion?.videocall_is_active && (
+            <Videocall
+              style={{ height: "100%" }}
+              isCallActive={atencion.videocall_is_active}
+              roomUrl={atencion.videocall_url}
+            />
+          )}
+        </div>
         <form className={styles.formulario}>
           <div className="row mb-3">
             <label htmlFor="colFormLabel" className="col-sm-2 col-form-label">

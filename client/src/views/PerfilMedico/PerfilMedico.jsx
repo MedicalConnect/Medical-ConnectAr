@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import FiltrosComponent from "../../components/filtros";
-
+import apiUrl from "../../helpers/apiUrl";
 
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -15,11 +15,31 @@ const PerfilMedico = () => {
   const navigation = useNavigate();
   const [date, setDate] = useState(null);
   const [statusAttention, setStatusAttention] = useState(null);
+  const [refreshAttentions, setRefreshAttentions] = useState(false);
 
   useEffect(() => {
     if (userLogin) {
       dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
     }
+  }, [refreshAttentions]);
+
+  useEffect(() => {
+    const eventSource = new EventSource(`${apiUrl}/atenciones/tracker`);
+    eventSource.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (
+        data &&
+        userLogin &&
+        data.doctorId === userLogin.id &&
+        data.action === "CREATE_ATTENTION"
+      ) {
+        setRefreshAttentions(!refreshAttentions);
+      }
+    };
+
+    return () => {
+      eventSource.close();
+    };
   }, []);
 
   return (
