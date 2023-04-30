@@ -135,7 +135,6 @@ export const setUserLogin = (payload) => {
 
 export const loginLogOut = () => {
   return function (dispatch) {
-    localStorage.removeItem("userInfo");
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };

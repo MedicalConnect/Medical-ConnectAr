@@ -9,6 +9,7 @@ const NavBar2 = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
+    localStorage.removeItem("reduce-state");
     dispatch(loginLogOut());
     navigate("/");
   };
