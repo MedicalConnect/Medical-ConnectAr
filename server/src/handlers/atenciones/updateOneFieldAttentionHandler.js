@@ -1,6 +1,7 @@
 const {
   updateOneFieldAttentionController,
 } = require("../../controllers/atenciones");
+const { sse } = require("../../routes/SSE");
 
 const updateOneFieldAttentionHandler = async (req, res) => {
   const { atencionId, data, field } = req.body;
@@ -10,6 +11,16 @@ const updateOneFieldAttentionHandler = async (req, res) => {
       data,
       field,
     });
+
+    if (field === "videocall_is_active") {
+      sse.send({
+        pacienteId: null,
+        doctorId: null,
+        atencionId: atencionId,
+        action: "UPDATE_VIDEOCALL",
+      });
+    }
+
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
