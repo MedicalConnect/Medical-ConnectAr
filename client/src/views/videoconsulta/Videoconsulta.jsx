@@ -131,6 +131,11 @@ function Videoconsulta() {
     });
   };
 
+  const deleteField = async ({ field, data }) => {
+    const value = atencion[field]?.filter((element) => element !== data);
+    await updateVideoConsulta({ field, value });
+  };
+
   const addMedicamentos = async () => {
     const medicamento = getValues("medicamento");
     const dosis = getValues("dosis");
@@ -434,6 +439,17 @@ function Videoconsulta() {
                   key={index}
                   className="border border-primary rounded pe-4 mb-1"
                 >
+                  <div className="text-danger row justify-content-end">
+                    <span
+                      onClick={() =>
+                        deleteField({ field: "diagnostico", data: diagnostico })
+                      }
+                      style={{ cursor: "pointer" }}
+                      className="col-auto"
+                    >
+                      x
+                    </span>
+                  </div>
                   <div className="mb-3">
                     <input
                       type="text"
@@ -509,6 +525,20 @@ function Videoconsulta() {
                   key={index}
                   className="border border-primary rounded pe-4 mb-1"
                 >
+                  <div className="text-danger row justify-content-end">
+                    <span
+                      onClick={() =>
+                        deleteField({
+                          field: "indicaciones_domiciliarias",
+                          data: indicacion,
+                        })
+                      }
+                      style={{ cursor: "pointer" }}
+                      className="col-auto"
+                    >
+                      x
+                    </span>
+                  </div>
                   <div className="mb-3">
                     <textarea
                       className="form-control"
@@ -592,6 +622,20 @@ Comentarios: ${indicacion.comentarios}
                   key={index}
                   className="border border-primary rounded pe-4 mb-1"
                 >
+                  <div className="text-danger row justify-content-end">
+                    <span
+                      onClick={() =>
+                        deleteField({
+                          field: "medicamentos",
+                          data: medicamento,
+                        })
+                      }
+                      style={{ cursor: "pointer" }}
+                      className="col-auto"
+                    >
+                      x
+                    </span>
+                  </div>
                   <div className="mb-3">
                     <input
                       type="text"
@@ -740,6 +784,20 @@ Indicaciones: ${medicamento.indicacionAdicional}
                   key={index}
                   className="border border-primary rounded pe-4 mb-1"
                 >
+                   <div className="text-danger row justify-content-end">
+                    <span
+                      onClick={() =>
+                        deleteField({
+                          field: "solicitud_examenes",
+                          data: examen,
+                        })
+                      }
+                      style={{ cursor: "pointer" }}
+                      className="col-auto"
+                    >
+                      x
+                    </span>
+                  </div>
                   <div className="mb-3">
                     <input
                       type="text"
@@ -799,6 +857,20 @@ Indicaciones: ${medicamento.indicacionAdicional}
                   className="border border-primary rounded pe-4 mb-1"
                 >
                   <div className="mb-3">
+                    <div className="text-danger row justify-content-end">
+                      <span
+                        onClick={() =>
+                          deleteField({
+                            field: "certificados",
+                            data: certificado,
+                          })
+                        }
+                        style={{ cursor: "pointer" }}
+                        className="col-auto"
+                      >
+                        x
+                      </span>
+                    </div>
                     <input
                       type="text"
                       className="form-control"
