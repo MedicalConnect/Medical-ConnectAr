@@ -1,4 +1,3 @@
-import SubiendoImagenes from "./views/SubiendoImagenes";
 import {
   Landing,
   QuienesSomos,
@@ -21,15 +20,17 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
+  PerfilAdmin,
   PagoPublico,
   Planes
 } from "./views/index"; //views de index
-import { Route, Routes, useLocation } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
+import { Route, Routes } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
+
 
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
   // const excludedRoutes = [
   //   "/actualizarpaciente",
   //   "/actualizarmedico",
@@ -54,7 +55,6 @@ function App() {
         <Route path="/noticias" element={<NoticiasSalud />} />
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
         <Route path="/ingresomedico" element={<IngresoMedicos />} />
-        <Route path="/ingresoadmin" element={<IngresoAdmin />} />
         <Route path="/creacionpaciente" element={<Formpaciente />} />
         <Route path="/creacionmedico" element={<FormMedico />} />
         <Route path="/perfilmedico" element={<PerfilMedico />} />
@@ -64,7 +64,10 @@ function App() {
         <Route path="/saladeespera/:atencionId" element={<SalaDeEspera />} />
         <Route path="/videoconsulta/:atencionId" element={<Videoconsulta />} />
         <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
+        <Route path="/planes" element={<Planes />} />
         <Route path="/iniciarsesion" element={<IniciarSesion />} />
+        <Route path="/ingresoadmin" element={<IngresoAdmin />} />
+        <Route path="/perfiladmin" element={<PerfilAdmin />} />
         <Route path="/" element={<Landing />} />
         <Route path="/planes" element={<PagoPublico />} />
         <Route path="/pago" element={<Planes />} />

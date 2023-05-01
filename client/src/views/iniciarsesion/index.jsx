@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2"
 
 const IniciarSesion = () => {
   const navigate = useNavigate();
@@ -20,17 +21,21 @@ const IniciarSesion = () => {
   };
 
   useEffect(() => {
-    const userLogin1 = localStorage.getItem('userInfo');
-    
-    if (userLogin1) {
-      dispatch(setUserLogin(JSON.parse(userLogin1)));
+    if (userlogin?.status_cuenta === "desactivada"){
+      Swal.fire({
+        icon: 'error',
+        title: 'Tu cuenta ha sido desactivada!',
+        text: 'esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente',
+        footer: `<a href="http://127.0.0.1:5173/contactanos">Atencion al cliente</a>`
+      })
+      return
     }
-  console.log(userLogin1);
+
     if (userlogin?.rol) {
       navigate(
         userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
       );
-    }
+   }
   }, [userlogin]);
 
   return (

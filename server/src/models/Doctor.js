@@ -94,5 +94,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM("disponible", "ocupado", "desconectado"),
       defaultValue: "desconectado",
     },
+    status_cuenta: {
+      type: DataTypes.ENUM( "activa", "desactivada" ),
+      defaultValue: "activa",
+    },
   });
 };

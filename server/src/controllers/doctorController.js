@@ -192,9 +192,16 @@ const addPacienteToDoctor = async (idDoctor, idPaciente) => {
   return "Paciente agregado con exito";
 };
 
+const getDoctorByNDocumento = async (numero_de_documento) =>{
+    const userDoctor= await Doctor.findOne( { where : { numero_de_documento: {[Op.iLike]: `%${numero_de_documento}%`},},});
+    return userDoctor
+ }
+
+
 module.exports = {
   createDoctor,
   getDoctors,
   getDoctor,
   updateDoctor,
+  getDoctorByNDocumento
 };

@@ -15,6 +15,10 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADMIN_LOGIN,
+  ADMIN_LOGOUT,
+  PACIENT_ACTIVATE_DESACTIVATE,
+  DOCTOR_ACTIVATE_DESACTIVATE,
   GET_ALL_PAGOS
 } from "./actions/actions-types";
 
@@ -24,9 +28,11 @@ const initialState = {
   allHistoryClinical: [],
   allAtentions: [],
   userLogin: null,
+  adminLogin: null,
   availableDoctors: [],
   atencionEnCurso: null,
   totalUsers: [],
+  statusUpdate: false,
   totalPagos:[],
 };
 
@@ -121,6 +127,18 @@ const reducer = (state = initialState, action) => {
         ...state,
         userLogin: null,
       };
+
+      case ADMIN_LOGIN:
+        return {
+          ...state,
+          adminLogin: action.payload,
+        };
+      case ADMIN_LOGOUT:
+        return {
+          ...state,
+          adminLogin: null,
+        };
+
     case GET_AVAILABLE_DOCTOR:
       return {
         ...state,
@@ -136,6 +154,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         totalUsers: action.payload,
       };
+  case PACIENT_ACTIVATE_DESACTIVATE:
+    return {
+      ...state,
+    };
+    case DOCTOR_ACTIVATE_DESACTIVATE:
+      return {
+        ...state,
+      };
+      case "SET_STATUS_UPDATE":
+        return {
+          ...state,
+          statusUpdate: action.payload,
+        };
     default:
       return {
         ...state,
