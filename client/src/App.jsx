@@ -20,8 +20,9 @@ import {
   Videoconsulta,
   AtencionFinalizada,
   IniciarSesion,
-  Planes,
-  PerfilAdmin
+  PerfilAdmin,
+  PagoPublico,
+  Planes
 } from "./views/index"; //views de index
 import { Route, Routes } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 
@@ -50,7 +51,6 @@ function App() {
         <Route path="/historialclinico" element={<HistorialClinico />} />
         <Route path="/quienessomos" element={<QuienesSomos />} />
         <Route path="/contactanos" element={<Contactanos />} />
-        <Route path="/planes" element={<Planes />} />
         <Route path="/contribuciones" element={<ContribucionesSociales />} />
         <Route path="/noticias" element={<NoticiasSalud />} />
         <Route path="/ingresopaciente" element={<IngresoPacientes />} />
@@ -69,6 +69,8 @@ function App() {
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
         <Route path="/perfiladmin" element={<PerfilAdmin />} />
         <Route path="/" element={<Landing />} />
+        <Route path="/planes" element={<PagoPublico />} />
+        <Route path="/pago" element={<Planes />} />
       </Routes>
       <Footer />
     

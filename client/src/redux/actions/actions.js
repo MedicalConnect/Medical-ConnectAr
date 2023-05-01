@@ -20,6 +20,7 @@ import {
   ADMIN_LOGOUT,
   PACIENT_ACTIVATE_DESACTIVATE,
   DOCTOR_ACTIVATE_DESACTIVATE,
+  GET_ALL_PAGOS
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -245,11 +246,6 @@ export const totalUsers = () => {
   };
 };
 
-
-
-
-
-
 export const setAdminLogin = (payload) => {
   return async (dispatch) => {
     try {
@@ -304,3 +300,16 @@ export const putStateDoctor = (payload) => {
     }
   };
 };
+
+export const getAllPagos = () => {
+  return async (dispatch) => {
+    const response = await axios.get(`${apiUrl}/pagos`);
+    const data = response.data;
+
+    return dispatch({
+      type: GET_ALL_PAGOS,
+      payload: data,
+    });
+  };
+};
+

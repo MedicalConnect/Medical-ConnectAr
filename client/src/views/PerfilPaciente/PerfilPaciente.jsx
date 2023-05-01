@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./perfilPaciente.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getAttention } from "../../redux/actions/actions";
+import { getAttention, getAllPagos } from "../../redux/actions/actions";
 import ModalMedicos from "./modalMedicos";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import FiltrosComponent from "../../components/filtros";
+import swal from 'sweetalert2';
+
 
 const PerfilPaciente = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -13,6 +15,16 @@ const PerfilPaciente = () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(null);
   const [statusAttention, setStatusAttention] = useState(null);
+  const pagos = useSelector((state) => state.totalPagos);
+  console.log(pagos)
+
+  const btn_atender = () => {
+    new swal('Debes contratar nuestro servicio para poder atenderte con los medicos disponibles')
+  }
+
+  useEffect(() => {
+   dispatch(getAllPagos())
+  }, [])
 
   useEffect(() => {
     if (userLogin) {
@@ -28,8 +40,13 @@ const PerfilPaciente = () => {
           Si es la primera vez que ingresas, no olvides llenar tu historia
           clinica antes de solicitar una videoconsulta, gracias por utilizar
           Medical Connect!!
-        </h2>
-        <ModalMedicos />
+        </h2> 
+        {
+          pagos.find((e) => e.dni_paciente === userLogin.numero_de_documento && e.status === 'aprobado') 
+          ? <ModalMedicos />
+          : <button onClick={btn_atender}> Atenderme </button>
+        }
+       <Link to={"/pago"}><button>Pagar</button></Link>
       </div>
       <div className={styles.acordeon}>
         <div className="accordion" id="accordionPanelsStayOpenExample">

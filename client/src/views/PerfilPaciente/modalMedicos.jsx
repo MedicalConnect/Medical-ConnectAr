@@ -11,6 +11,8 @@ const ModalMedicos = () => {
   const availableDoctors = useSelector((state) => state.availableDoctors);
   const userlogin = useSelector((state) => state.userLogin);
   const [doctorId, setDoctorId] = useState(null);
+ 
+  
 
   useEffect(() => {
     if (!availableDoctors) {
@@ -31,7 +33,7 @@ const ModalMedicos = () => {
   };
 
   return (
-    <>
+    <>  
       <button
         onClick={() => dispatch(getAvailableDoctors())}
         type="button"
@@ -41,6 +43,8 @@ const ModalMedicos = () => {
       >
         Atenderme
       </button>
+    
+     
 
       <div
         className="modal fade"

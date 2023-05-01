@@ -18,7 +18,8 @@ import {
   ADMIN_LOGIN,
   ADMIN_LOGOUT,
   PACIENT_ACTIVATE_DESACTIVATE,
-  DOCTOR_ACTIVATE_DESACTIVATE
+  DOCTOR_ACTIVATE_DESACTIVATE,
+  GET_ALL_PAGOS
 } from "./actions/actions-types";
 
 const initialState = {
@@ -32,6 +33,7 @@ const initialState = {
   atencionEnCurso: null,
   totalUsers: [],
   statusUpdate: false,
+  totalPagos:[],
 };
 
 const reducer = (state = initialState, action) => {
@@ -59,6 +61,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         allAtentions: action.payload,
       };
+      case GET_ALL_PAGOS:
+        return {
+          ...state,
+          totalPagos: action.payload,
+        };
 
     case ADD_PACIENT:
       const newPacient = state.allPacients.slice();
