@@ -1,16 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
-import { useDispatch } from "react-redux";
-import { loginLogOut } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { loginLogOut,setLogOutAdmin } from "../../redux/actions/actions";
+
 
 const NavBar2 = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userlogin = useSelector((state) => state.userLogin);
+  const userAdmin = useSelector((state) => state.adminLogin);
+  
 
   const logOut = () => {
-    dispatch(loginLogOut());
-    navigate("/");
+    if(userlogin){
+      dispatch(loginLogOut());
+      navigate("/");
+    } else{
+      dispatch(setLogOutAdmin());
+      navigate("/");
+    }
+
   };
 
   return (

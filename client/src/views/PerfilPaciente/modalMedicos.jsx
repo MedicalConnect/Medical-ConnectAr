@@ -13,7 +13,7 @@ const ModalMedicos = () => {
   const [doctorId, setDoctorId] = useState(null);
 
   useEffect(() => {
-    if (!availableDoctors.length) {
+    if (!availableDoctors) {
       dispatch(getAvailableDoctors());
     }
   }, [availableDoctors]);
