@@ -1,18 +1,32 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginLogOut } from "../../redux/actions/actions";
 
 const NavBar2 = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const allAttentions = useSelector((state) => state.allAtentions);
+  const userLogin = useSelector((state) => state.userLogin);
 
   const logOut = () => {
     localStorage.removeItem("reduce-state");
     dispatch(loginLogOut());
     navigate("/");
   };
+
+  useEffect(() => {
+    if (userLogin.rol === "paciente") {
+      const atencionEnCurso = allAttentions?.find(
+        (atencion) =>
+          atencion.status !== "finalizada" && atencion.status !== "cancelada"
+      );
+      if (atencionEnCurso) {
+        navigate(`/saladeespera/${atencionEnCurso.id}`);
+      }
+    }
+  }, [allAttentions, userLogin]);
 
   return (
     <div>
