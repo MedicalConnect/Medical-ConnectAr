@@ -16,6 +16,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  GET_ALL_PAGOS
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -229,6 +230,18 @@ export const totalUsers = () => {
     return dispatch({
       type: GET_TOTAL_USERS,
       payload: totalUsers,
+    });
+  };
+};
+
+export const getAllPagos = () => {
+  return async (dispatch) => {
+    const response = await axios.get(`${apiUrl}/pagos`);
+    const data = response.data;
+
+    return dispatch({
+      type: GET_ALL_PAGOS,
+      payload: data,
     });
   };
 };

@@ -2,10 +2,9 @@ const mercadopago = require('mercadopago');
 require("dotenv").config();
 const { MERCADOPAGO_KEY} = process.env;
 
-
 const pagosHandler = async (req, res) => {
-  const  serv  = req.body
-    
+  const  serv = req.body
+
       let preference = {
         items: [{
           id: 1,
@@ -19,12 +18,12 @@ const pagosHandler = async (req, res) => {
 
       }],
       back_urls: {
-        success:'http://localhost:3000',
+        success:'https://medicalconnectapi.onrender.com/',
         failure: '',
         pending:'',
       },
       auto_return:'approved',
-      binary_mode: true, // no pagos pendientes solo con tarjeta, en el momento
+      binary_mode: true,
      
       }
 
@@ -36,12 +35,6 @@ const pagosHandler = async (req, res) => {
       .create(preference)
       .then((response) => res.status(200).send(response.body))
       .catch((err) =>res.status(400).send(console.log(err)))
-
-
-
-      
-    
-
   };
 
 

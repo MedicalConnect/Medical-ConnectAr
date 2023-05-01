@@ -1,23 +1,16 @@
 import React from "react";
 import "./Planes.css"
-import axios from "axios";
 import PlanesDisplayer from "./PlanesDisplayer";
 
 
 const Planes = () => {
   const servicios = [
     {
-      nombre:'Plan Invididual',
-      detalle: "Acceso a 10 consultas por mes",
+      nombre:'Pago de servicio',
+      detalle: "Acceso al servicio con todos sus beneficios",
       imagen: "https://media.discordapp.net/attachments/1094314281123717203/1099844324830748764/Untitled-design-15-1024x569.png?width=1292&height=718",
       precio: 1
     },
-    {
-      nombre:'Plan Familiar',
-      detalle: 'Acceso a 30 consultas por mes',
-      imagen: 'https://media.discordapp.net/attachments/1094314281123717203/1099844819867680768/41135920_xxl.jpeg?width=1674&height=718',
-      precio: 3
-    }
   ]
 
   return (
