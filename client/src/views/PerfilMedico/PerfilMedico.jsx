@@ -119,7 +119,7 @@ const PerfilMedico = () => {
                     ?.map((atencion) => {
                       return (
                         <div className="col-4 p-1">
-                          <div className="card">
+                          <div className="card" style={{ height: "16rem" }}>
                             <div className="card-header text-start">
                               <p className="row justify-content-between p-0 m-0">
                                 <span
@@ -219,7 +219,7 @@ const PerfilMedico = () => {
                     ?.map((atencion) => {
                       return (
                         <div className="col-4 p-1">
-                          <div className="card">
+                          <div className="card" style={{ height: "16rem" }}>
                             <div className="card-header text-start">
                               <p className="row justify-content-between p-0 m-0">
                                 <span
