@@ -18,7 +18,7 @@ const NavBar2 = () => {
     <div>
       <nav class="navbar  navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="" onClick={() => navigate("/")}>
             <img
               className="logonav2"
               src="https://cdn.discordapp.com/attachments/1094314281123717203/1099525596247232512/medical-connect.PNG.png"
