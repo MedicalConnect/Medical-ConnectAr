@@ -8,6 +8,13 @@ import { Link } from "react-router-dom";
 import FiltrosComponent from "../../components/filtros";
 import apiUrl from "../../helpers/apiUrl";
 
+const statusText = {
+  encurso: "En Curso",
+  enespera: "En Espera",
+  finalizada: "Finalizada",
+  cancelada: "Cancelada",
+};
+
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const atencionEnEspera = useSelector((state) => state.allAtentions);
@@ -114,15 +121,18 @@ const PerfilMedico = () => {
                         <div className="col-4 p-1">
                           <div className="card">
                             <div className="card-header text-start">
-                              <p>
+                              <p className="row justify-content-between p-0 m-0">
                                 <span
                                   className={`text-${
                                     atencion.status === "enespera"
                                       ? "danger"
                                       : "success"
-                                  }`}
+                                  } col-auto`}
                                 >
-                                  {atencion.status}
+                                  {statusText[atencion.status]}
+                                </span>
+                                <span className="col-auto text-end fw-lighter">
+                                  <small>{atencion.id}</small>
                                 </span>
                               </p>
                             </div>
@@ -211,15 +221,18 @@ const PerfilMedico = () => {
                         <div className="col-4 p-1">
                           <div className="card">
                             <div className="card-header text-start">
-                              <p>
+                              <p className="row justify-content-between p-0 m-0">
                                 <span
                                   className={`text-${
                                     atencion.status === "cancelada"
                                       ? "danger"
                                       : "info"
-                                  }`}
+                                  } col-auto`}
                                 >
-                                  {atencion.status}
+                                  {statusText[atencion.status]}
+                                </span>
+                                <span className="col-auto text-end fw-lighter">
+                                  <small>{atencion.id}</small>
                                 </span>
                               </p>
                             </div>
