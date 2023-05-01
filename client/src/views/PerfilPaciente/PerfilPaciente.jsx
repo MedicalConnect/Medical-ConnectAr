@@ -8,7 +8,7 @@ import moment from "moment";
 import FiltrosComponent from "../../components/filtros";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import swal from 'sweetalert2';
+import swal from "sweetalert2";
 
 const statusText = {
   encurso: "En Curso",
@@ -27,15 +27,16 @@ const PerfilPaciente = () => {
   const navigate = useNavigate();
 
   const pagos = useSelector((state) => state.totalPagos);
-  console.log(pagos)
 
   const btn_atender = () => {
-    new swal('Debes contratar nuestro servicio para poder atenderte con los medicos disponibles')
-  }
+    new swal(
+      "Debes contratar nuestro servicio para poder atenderte con los medicos disponibles"
+    );
+  };
 
   useEffect(() => {
-   dispatch(getAllPagos())
-  }, [])
+    dispatch(getAllPagos());
+  }, []);
 
   useEffect(() => {
     if (userLogin) {
@@ -51,13 +52,19 @@ const PerfilPaciente = () => {
           Si es la primera vez que ingresas, no olvides llenar tu historia
           clinica antes de solicitar una videoconsulta, gracias por utilizar
           Medical Connect!!
-        </h2> 
-        {
-          pagos.find((e) => e.dni_paciente === userLogin.numero_de_documento && e.status === 'aprobado') 
-          ? <ModalMedicos />
-          : <button onClick={btn_atender}> Atenderme </button>
-        }
-       <Link to={"/pago"}><button>Pagar</button></Link>
+        </h2>
+        {pagos?.find(
+          (e) =>
+            e.dni_paciente === userLogin.numero_de_documento &&
+            e.status === "aprobado"
+        ) ? (
+          <ModalMedicos />
+        ) : (
+          <button onClick={btn_atender}> Atenderme </button>
+        )}
+        <Link to={"/pago"}>
+          <button>Pagar</button>
+        </Link>
       </div>
       <div className={styles.acordeon}>
         <div className="accordion" id="accordionPanelsStayOpenExample">
