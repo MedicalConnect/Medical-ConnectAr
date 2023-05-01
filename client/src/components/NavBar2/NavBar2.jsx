@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
 import { useDispatch, useSelector } from "react-redux";
-import { loginLogOut,setLogOutAdmin } from "../../redux/actions/actions";
+import { loginLogOut, setLogOutAdmin } from "../../redux/actions/actions";
 
 const NavBar2 = () => {
   const navigate = useNavigate();
@@ -13,10 +13,10 @@ const NavBar2 = () => {
 
   const logOut = () => {
     localStorage.removeItem("reduce-state");
-        if(userLogin){
+    if (userLogin) {
       dispatch(loginLogOut());
       navigate("/");
-    } else{
+    } else {
       dispatch(setLogOutAdmin());
       navigate("/");
     }
