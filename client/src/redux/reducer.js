@@ -20,7 +20,7 @@ import {
   ADMIN_LOGOUT,
   PACIENT_ACTIVATE_DESACTIVATE,
   DOCTOR_ACTIVATE_DESACTIVATE,
-  GET_ALL_PAGOS
+  GET_ALL_PAGOS,
 } from "./actions/actions-types";
 
 const defaultState = {
@@ -34,7 +34,7 @@ const defaultState = {
   atencionEnCurso: null,
   totalUsers: [],
   statusUpdate: false,
-  totalPagos:[],
+  totalPagos: [],
 };
 
 const initialState = localStorage.getItem("reduce-state")
@@ -86,11 +86,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         allAtentions: action.payload,
       };
-      case GET_ALL_PAGOS:
-        return {
-          ...state,
-          totalPagos: action.payload,
-        };
+    case GET_ALL_PAGOS:
+      return {
+        ...state,
+        totalPagos: action.payload,
+      };
 
     case ADD_PACIENT:
       const newPacient = state.allPacients.slice();
@@ -185,16 +185,26 @@ const reducer = (state = initialState, action) => {
       localStorage.removeItem("reduce-state");
       return defaultState;
 
-      case ADMIN_LOGIN:
-        return {
-          ...state,
-          adminLogin: action.payload,
-        };
-      case ADMIN_LOGOUT:
-        return {
-          ...state,
-          adminLogin: null,
-        };
+    case ADMIN_LOGIN:
+      saveReduceState({
+        ...state,
+        adminLogin: action.payload,
+        userLogin: { rol: "admin" },
+      });
+      return {
+        ...state,
+        adminLogin: action.payload,
+        userLogin: { rol: "admin" },
+      };
+    case ADMIN_LOGOUT:
+      saveReduceState({
+        ...state,
+        adminLogin: null,
+      });
+      return {
+        ...state,
+        adminLogin: null,
+      };
 
     case GET_AVAILABLE_DOCTOR:
       saveReduceState({
@@ -249,19 +259,19 @@ const reducer = (state = initialState, action) => {
           ],
         },
       };
-  case PACIENT_ACTIVATE_DESACTIVATE:
-    return {
-      ...state,
-    };
+    case PACIENT_ACTIVATE_DESACTIVATE:
+      return {
+        ...state,
+      };
     case DOCTOR_ACTIVATE_DESACTIVATE:
       return {
         ...state,
       };
-      case "SET_STATUS_UPDATE":
-        return {
-          ...state,
-          statusUpdate: action.payload,
-        };
+    case "SET_STATUS_UPDATE":
+      return {
+        ...state,
+        statusUpdate: action.payload,
+      };
     default:
       return {
         ...state,
