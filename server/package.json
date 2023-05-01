@@ -19,6 +19,7 @@
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-sse": "^0.5.1",
     "mercadopago": "^1.5.15",
     "morgan": "^1.10.0",
     "pg": "^8.10.0",

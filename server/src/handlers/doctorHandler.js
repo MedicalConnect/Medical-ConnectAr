@@ -3,6 +3,7 @@ const {
   getDoctor,
   getDoctors,
   updateDoctor,
+  getDoctorByNDocumento,
 } = require("../controllers/doctorController");
 
 const getDoctorHandler = async (req, res) => {
@@ -15,10 +16,10 @@ const getDoctorHandler = async (req, res) => {
   }
 };
 const getDoctorsHandler = async (req, res) => {
-  const { name } = req.query;
+  const { numero_de_documento } = req.query;
 
   try {
-    const response = await getDoctors(name);
+    const response = numero_de_documento ? await getDoctorByNDocumento(numero_de_documento) : await getDoctors();
     res.status(200).json(response);
   } catch (error) {
     res.status(400).json({ error: error.message });
