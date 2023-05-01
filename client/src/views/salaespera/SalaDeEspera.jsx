@@ -22,6 +22,9 @@ const SalaDeEspera = () => {
       if (data.PacienteId !== userlogin?.id) {
         navigate("/");
       }
+      if (data.status === "finalizada" || data.status === "cancelada") {
+        navigate(`/atencionfinalizada/${atencionId}`);
+      }
       setAtencion(data);
     } catch (error) {
       navigate("/");
@@ -38,12 +41,15 @@ const SalaDeEspera = () => {
     const eventSource = new EventSource(`${apiUrl}/atenciones/tracker`);
     eventSource.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      if (
-        data.atencionId === atencionId &&
-        (data.action === "CREATE_VIDEOCALL" ||
-          data.action === "UPDATE_VIDEOCALL")
-      ) {
-        location.reload();
+
+      if (data.atencionId === atencionId) {
+        if (
+          data.action === "CREATE_VIDEOCALL" ||
+          data.action === "UPDATE_VIDEOCALL" ||
+          data.action === "CHANGE_STATUS_ATENCION"
+        ) {
+          location.reload();
+        }
       }
     };
 
@@ -57,20 +63,38 @@ const SalaDeEspera = () => {
       <div className="container text-center">
         <div className="row">
           <div className="col-12">
-            {atencion?.videocall_is_active ? (
-              <h2>El medico acaba de iniciar la llamada!</h2>
-            ) : (
-              <h2>
-                Hola .. en breve iniciara la videoconsulta con <br /> uno de
-                nuestros profesionales
-              </h2>
-            )}
+            {atencion?.status === "encurso" &&
+              !atencion?.videocall_is_active && (
+                <h2>El medico esta revisando su historial clinico</h2>
+              )}
+
+            {atencion?.status === "encurso" &&
+              atencion?.videocall_is_active && (
+                <h2>El medico acaba de iniciar la llamada!</h2>
+              )}
+
+            {atencion?.status !== "encurso" &&
+              !atencion?.videocall_is_active && (
+                <h2>
+                  {" "}
+                  Hola .. en breve iniciara la videoconsulta con <br /> uno de
+                  nuestros profesionales
+                </h2>
+              )}
           </div>
           <div className="col-12">
             <p>
-              {atencion?.videocall_is_active
-                ? "activa tu camara y  microfono"
-                : "Mientras esperas, mira todo lo que tiene Medical Connect para ofrecerte!..."}
+              {atencion?.status === "encurso" &&
+                !atencion?.videocall_is_active &&
+                "En breve se iniciara la comunicación"}
+
+              {atencion?.status === "encurso" &&
+                atencion?.videocall_is_active &&
+                "Activa tu camara y  microfono"}
+
+              {atencion?.status !== "encurso" &&
+                !atencion?.videocall_is_active &&
+                "Mientras esperas, mira todo lo que tiene Medical Connect para ofrecerte!..."}
             </p>
           </div>
         </div>

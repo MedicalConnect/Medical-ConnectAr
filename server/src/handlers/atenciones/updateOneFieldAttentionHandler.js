@@ -20,6 +20,14 @@ const updateOneFieldAttentionHandler = async (req, res) => {
         action: "UPDATE_VIDEOCALL",
       });
     }
+    if (field === "status") {
+      sse.send({
+        pacienteId: null,
+        doctorId: null,
+        atencionId: atencionId,
+        action: "CHANGE_STATUS_ATENCION",
+      });
+    }
 
     res.status(200).json(response);
   } catch (error) {
