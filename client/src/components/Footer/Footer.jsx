@@ -18,8 +18,6 @@ const Footer = () => {
         <section className="desarrolladores asd seccion-clara hero align-items-stretch">
           <div className="container ase text-center ">
             <div className="colorfondo row ">
-              
-              
               {/*user1*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
@@ -30,7 +28,10 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Jon Nahuel Pereyra</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://www.linkedin.com/in/jon-nahuel-pereyra-832191257/"
+                    >
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -40,7 +41,7 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a className="text-white" href="https://github.com/jon0010">
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -61,7 +62,10 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Gabriel Romero</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://www.linkedin.com/in/gabriel-francisco-romero-rocha/"
+                    >
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -71,7 +75,10 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://github.com/GabRom98"
+                    >
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -92,7 +99,10 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Alan Abel Pereyra</p>
                 <div className="badges-contenedor">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://www.linkedin.com/in/alan-abel-pereyra-0a8324257/"
+                    >
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -102,7 +112,10 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://github.com/ALANABEL322"
+                    >
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -154,7 +167,10 @@ const Footer = () => {
                 <p className="perfil-titulo fw-medium">Julieta Perez Apiwan</p>
                 <div className="badges-contenedor etiqueta-badge">
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
+                    <a
+                      className="text-white"
+                      href="https://www.linkedin.com/in/julietaperezapiwan/"
+                    >
                       <img
                         className="imagen-linkedin"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
@@ -164,7 +180,10 @@ const Footer = () => {
                     </a>
                   </span>
                   <span class="badge text-bg-primary1">
-                    <a className="text-white" href="">
+                    <a
+                      className="text-white"
+                      href="https://github.com/JuliPerezApiwan"
+                    >
                       <img
                         className="imagen-gato"
                         src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
@@ -196,9 +215,7 @@ const Footer = () => {
           <div className="derechos-de-autor">Medical Connect (2023) &#169;</div>
         </div>
       </div>
-      
     </footer>
-    
   );
 };
 
