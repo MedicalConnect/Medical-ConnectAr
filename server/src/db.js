@@ -55,11 +55,12 @@ const { Doctor, Paciente, HistoriaClinica, Atenciones } = sequelize.models;
 
 Doctor.hasMany(Atenciones);
 Atenciones.belongsTo(Doctor);
+
 Paciente.hasMany(Atenciones);
 Atenciones.belongsTo(Paciente);
-//Paciente.hasOne(HistoriaClinica)
-HistoriaClinica.Paciente = HistoriaClinica.belongsTo(Paciente);
-// Paciente.HistoriaClinica =Paciente.belongsTo(HistoriaClinica)
+
+Paciente.hasMany(HistoriaClinica);
+HistoriaClinica.belongsTo(Paciente);
 
 // console.log(Object.getOwnPropertyNames(sequelize.models.Activity.prototype)) Con esto puedo ver los metodos generados por sequelize para ver por ej, addCountries()
 module.exports = {

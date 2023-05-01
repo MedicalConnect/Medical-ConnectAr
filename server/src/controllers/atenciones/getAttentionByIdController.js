@@ -1,11 +1,17 @@
-const { Atenciones, Doctor, Paciente } = require("../../db");
+const { Atenciones, Doctor, Paciente, HistoriaClinica } = require("../../db");
 const { Op } = require("sequelize");
 
 const getAttentionByIdController = async ({ atencionId }) => {
   try {
     const atencion = await Atenciones.findOne({
       where: { id: atencionId },
-      include: [Doctor, Paciente],
+      include: [
+        Doctor,
+        {
+          model: Paciente,
+          include: [HistoriaClinica],
+        },
+      ],
     });
     if (!atencion) {
       throw new Error("No existe la atencion");

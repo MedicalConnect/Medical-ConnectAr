@@ -16,6 +16,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADD_ANTECEDENTE,
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -122,7 +123,12 @@ export const setUserLogin = (payload) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, payload);
       const data = response.data;
-
+      if (data.status_cuenta === "ban") {
+        return dispatch({
+          type: USER_LOGIN,
+          payload: { status_cuenta: data.status_cuenta },
+        });
+      }
       return dispatch({
         type: USER_LOGIN,
         payload: data,
@@ -228,6 +234,15 @@ export const totalUsers = () => {
     return dispatch({
       type: GET_TOTAL_USERS,
       payload: totalUsers,
+    });
+  };
+};
+
+export const addAntecedente = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: ADD_ANTECEDENTE,
+      payload: payload,
     });
   };
 };

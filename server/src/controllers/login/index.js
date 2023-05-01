@@ -1,6 +1,6 @@
-const { Paciente, Doctor } = require("../../db");
+const { Paciente, Doctor, HistoriaClinica } = require("../../db");
 const { Op } = require("sequelize");
-const { hash } = require('../hashContraseñas')
+const { hash } = require("../hashContraseñas");
 // codeValidUntil: {
 //     [Op.or]: [{[Op.gte]: new Date()}, {[Op.is]: null}],
 //   },
@@ -8,13 +8,13 @@ const { hash } = require('../hashContraseñas')
 const loginController = async ({ usuario, contraseña }) => {
   let user = null;
   let rol = "paciente";
-  contraseña = hash(contraseña)
-  console.log(contraseña)
+  contraseña = hash(contraseña);
   user = await Paciente.findOne({
     where: {
       contraseña,
       [Op.or]: [{ email: usuario }, { numero_de_documento: usuario }],
     },
+    include: [HistoriaClinica],
   });
   if (!user) {
     // contraseña = hash(contraseña)

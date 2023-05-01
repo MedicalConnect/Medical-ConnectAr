@@ -8,29 +8,16 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    antecedentes_medicos: {
-      type: DataTypes.STRING,
+    tipo: {
+      type: DataTypes.ENUM(
+        "antecendes medicos",
+        "medicamentos",
+        "alergia",
+        "habitos"
+      ),
       allowNull: false,
-      defaultValue: "no tengo antecedentes medicos",
     },
-    antecedentes_quirurgicos: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "no tengo antecedentes quirurgicos",
-    },
-    alergias: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "no tengo alergias",
-    },
-
-    medicamentos: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      defaultValue: "no estoy tomando medicamentos",
-    },
-
-    habitos: {
+    descripcion: {
       type: DataTypes.STRING,
       allowNull: false,
     },

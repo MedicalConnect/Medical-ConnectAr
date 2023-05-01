@@ -15,6 +15,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADD_ANTECEDENTE,
 } from "./actions/actions-types";
 
 const defaultState = {
@@ -199,6 +200,29 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         totalUsers: action.payload,
+      };
+
+    case ADD_ANTECEDENTE:
+      saveReduceState({
+        ...state,
+        userLogin: {
+          ...state.userLogin,
+          HistoriaClinicas: [
+            ...state.userLogin.HistoriaClinicas,
+            action.payload,
+          ],
+        },
+      });
+
+      return {
+        ...state,
+        userLogin: {
+          ...state.userLogin,
+          HistoriaClinicas: [
+            ...state.userLogin.HistoriaClinicas,
+            action.payload,
+          ],
+        },
       };
     default:
       return {

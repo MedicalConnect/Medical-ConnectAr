@@ -3,7 +3,7 @@ import styles from "./perfilPaciente.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getAttention } from "../../redux/actions/actions";
 import ModalMedicos from "./modalMedicos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import moment from "moment";
 import FiltrosComponent from "../../components/filtros";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +22,7 @@ const PerfilPaciente = () => {
   const dispatch = useDispatch();
   const [date, setDate] = useState(null);
   const [statusAttention, setStatusAttention] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (userLogin) {
@@ -84,11 +85,45 @@ const PerfilPaciente = () => {
               className="accordion-collapse collapse"
             >
               <div className="accordion-body">
-                <Link to="/historialclinico">
-                  <button className={styles.boton2}>
-                    Ir a historia clínica
+                {userLogin?.HistoriaClinicas?.length ? (
+                  <div className="row justify-content-end">
+                    {userLogin.HistoriaClinicas.map((historia) => {
+                      return (
+                        <div className="col-11 card px-0 my-2">
+                          <div className="card-header">
+                            <span className="text-start">
+                              {historia.tipo.toUpperCase()}
+                            </span>
+                          </div>
+                          <div className="card-body text-start px-5">
+                            <p class="card-text">{historia.descripcion}</p>
+                          </div>
+                          <div className="card-footer">
+                            <span className="text-start">
+                              {moment(historia.createdAt).format(
+                                "DD/MM/YYYY hh:mm a"
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <p>
+                    No hay antecedentes medicos, cargue su historial medico para
+                    una mejor atención.
+                  </p>
+                )}
+                <div className="row justify-content-end">
+                  <button
+                    className="btn col-11 text-white mx-0 my-3"
+                    style={{ backgroundColor: "#b61d69" }}
+                    onClick={() => navigate("/historialclinico")}
+                  >
+                    Agregar historia clínica
                   </button>
-                </Link>
+                </div>
               </div>
             </div>
           </div>
