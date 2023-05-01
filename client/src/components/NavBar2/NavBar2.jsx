@@ -1,19 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
 import { useDispatch, useSelector } from "react-redux";
-import { loginLogOut } from "../../redux/actions/actions";
+import { loginLogOut,setLogOutAdmin } from "../../redux/actions/actions";
 
 const NavBar2 = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allAttentions = useSelector((state) => state.allAtentions);
   const userLogin = useSelector((state) => state.userLogin);
+  const userAdmin = useSelector((state) => state.adminLogin);
 
   const logOut = () => {
     localStorage.removeItem("reduce-state");
-    dispatch(loginLogOut());
-    navigate("/");
+        if(userLogin){
+      dispatch(loginLogOut());
+      navigate("/");
+    } else{
+      dispatch(setLogOutAdmin());
+      navigate("/");
+    }
   };
 
   useEffect(() => {
