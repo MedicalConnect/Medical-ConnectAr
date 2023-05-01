@@ -4,30 +4,41 @@ import "./NavBar2.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginLogOut,setLogOutAdmin } from "../../redux/actions/actions";
 
-
 const NavBar2 = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userlogin = useSelector((state) => state.userLogin);
+  const allAttentions = useSelector((state) => state.allAtentions);
+  const userLogin = useSelector((state) => state.userLogin);
   const userAdmin = useSelector((state) => state.adminLogin);
-  
 
   const logOut = () => {
-    if(userlogin){
+    localStorage.removeItem("reduce-state");
+        if(userLogin){
       dispatch(loginLogOut());
       navigate("/");
     } else{
       dispatch(setLogOutAdmin());
       navigate("/");
     }
-
   };
+
+  useEffect(() => {
+    if (userLogin.rol === "paciente") {
+      const atencionEnCurso = allAttentions?.find(
+        (atencion) =>
+          atencion.status !== "finalizada" && atencion.status !== "cancelada"
+      );
+      if (atencionEnCurso) {
+        navigate(`/saladeespera/${atencionEnCurso.id}`);
+      }
+    }
+  }, [allAttentions, userLogin]);
 
   return (
     <div>
       <nav class="navbar  navbar-expand-lg navbar-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="" onClick={() => navigate("/")}>
             <img
               className="logonav2"
               src="https://cdn.discordapp.com/attachments/1094314281123717203/1099525596247232512/medical-connect.PNG.png"

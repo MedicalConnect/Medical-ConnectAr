@@ -16,6 +16,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADD_ANTECEDENTE,
   ADMIN_LOGIN,
   ADMIN_LOGOUT,
   PACIENT_ACTIVATE_DESACTIVATE,
@@ -127,7 +128,7 @@ export const setUserLogin = (payload) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, payload);
       const data = response.data;
-
+      
       if(data.status_cuenta === "desactivada"){
         //return alert("Tu usuario ha sido desactivado, esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente")
         return dispatch({
@@ -135,7 +136,6 @@ export const setUserLogin = (payload) => {
           payload: {status_cuenta:data.status_cuenta}
         })
       }
-
       return dispatch({
         type: USER_LOGIN,
         payload: data,
@@ -148,7 +148,6 @@ export const setUserLogin = (payload) => {
 
 export const loginLogOut = () => {
   return function (dispatch) {
-    localStorage.removeItem("userInfo");
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };
@@ -242,6 +241,16 @@ export const totalUsers = () => {
     return dispatch({
       type: GET_TOTAL_USERS,
       payload: totalUsers,
+    });
+  };
+};
+
+
+export const addAntecedente = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: ADD_ANTECEDENTE,
+      payload: payload,
     });
   };
 };

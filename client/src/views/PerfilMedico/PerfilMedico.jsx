@@ -6,7 +6,14 @@ import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import FiltrosComponent from "../../components/filtros";
+import apiUrl from "../../helpers/apiUrl";
 
+const statusText = {
+  encurso: "En Curso",
+  enespera: "En Espera",
+  finalizada: "Finalizada",
+  cancelada: "Cancelada",
+};
 
 const PerfilMedico = () => {
   const userLogin = useSelector((state) => state.userLogin);
@@ -15,11 +22,31 @@ const PerfilMedico = () => {
   const navigation = useNavigate();
   const [date, setDate] = useState(null);
   const [statusAttention, setStatusAttention] = useState(null);
+  const [refreshAttentions, setRefreshAttentions] = useState(false);
 
   useEffect(() => {
     if (userLogin) {
       dispatch(getAttention({ doctorId: userLogin?.id, pacienteId: null }));
     }
+  }, [refreshAttentions]);
+
+  useEffect(() => {
+    const eventSource = new EventSource(`${apiUrl}/atenciones/tracker`);
+    eventSource.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      if (
+        data &&
+        userLogin &&
+        data.doctorId === userLogin.id &&
+        data.action === "CREATE_ATTENTION"
+      ) {
+        setRefreshAttentions(!refreshAttentions);
+      }
+    };
+
+    return () => {
+      eventSource.close();
+    };
   }, []);
 
   return (
@@ -94,15 +121,18 @@ const PerfilMedico = () => {
                         <div className="col-4 p-1">
                           <div className="card">
                             <div className="card-header text-start">
-                              <p>
+                              <p className="row justify-content-between p-0 m-0">
                                 <span
                                   className={`text-${
                                     atencion.status === "enespera"
                                       ? "danger"
                                       : "success"
-                                  }`}
+                                  } col-auto`}
                                 >
-                                  {atencion.status}
+                                  {statusText[atencion.status]}
+                                </span>
+                                <span className="col-auto text-end fw-lighter">
+                                  <small>{atencion.id}</small>
                                 </span>
                               </p>
                             </div>
@@ -191,15 +221,18 @@ const PerfilMedico = () => {
                         <div className="col-4 p-1">
                           <div className="card">
                             <div className="card-header text-start">
-                              <p>
+                              <p className="row justify-content-between p-0 m-0">
                                 <span
                                   className={`text-${
                                     atencion.status === "cancelada"
                                       ? "danger"
                                       : "info"
-                                  }`}
+                                  } col-auto`}
                                 >
-                                  {atencion.status}
+                                  {statusText[atencion.status]}
+                                </span>
+                                <span className="col-auto text-end fw-lighter">
+                                  <small>{atencion.id}</small>
                                 </span>
                               </p>
                             </div>

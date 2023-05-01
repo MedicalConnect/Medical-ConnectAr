@@ -39,6 +39,12 @@
   bottom: 60px;
 }
 
+.botonVideocall {
+  top: 8em;
+  position: sticky;
+  margin-left: 5em;
+}
+
 .medicamento {
   border-radius: 3em;
   width: 36em;

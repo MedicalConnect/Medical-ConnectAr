@@ -1,4 +1,4 @@
-const mercadopago = require('mercadopago');
+const mercadopago = require("mercadopago");
 require("dotenv").config();
 const { MERCADOPAGO_KEY} = process.env;
 
@@ -37,7 +37,16 @@ const pagosHandler = async (req, res) => {
       .catch((err) =>res.status(400).send(console.log(err)))
   };
 
+  mercadopago.configure({
+    access_token: `${MERCADOPAGO_KEY}`,
+  });
+  console.log(preference);
+  mercadopago.preferences
+    .create(preference)
+    .then((response) => res.status(200).send(response.body))
+    .catch((err) => res.status(400).send(console.log(err)));
+};
 
 module.exports = {
-    pagosHandler
-}
+  pagosHandler,
+};

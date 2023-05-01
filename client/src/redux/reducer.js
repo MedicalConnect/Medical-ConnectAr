@@ -15,6 +15,7 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADD_ANTECEDENTE,
   ADMIN_LOGIN,
   ADMIN_LOGOUT,
   PACIENT_ACTIVATE_DESACTIVATE,
@@ -22,7 +23,7 @@ import {
   GET_ALL_PAGOS
 } from "./actions/actions-types";
 
-const initialState = {
+const defaultState = {
   allPacients: [],
   allDoctors: [],
   allHistoryClinical: [],
@@ -36,27 +37,51 @@ const initialState = {
   totalPagos:[],
 };
 
+const initialState = localStorage.getItem("reduce-state")
+  ? JSON.parse(localStorage.getItem("reduce-state"))
+  : defaultState;
+
+const saveReduceState = (states) => {
+  localStorage.setItem("reduce-state", JSON.stringify(states));
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_PACIENTS:
+      saveReduceState({
+        ...state,
+        allPacients: action.payload,
+      });
       return {
         ...state,
         allPacients: action.payload,
       };
 
     case GET_ALL_DOCTORS:
+      saveReduceState({
+        ...state,
+        allDoctors: action.payload,
+      });
       return {
         ...state,
         allDoctors: action.payload,
       };
 
     case GET_CLINICAL_HISTORY:
+      saveReduceState({
+        ...state,
+        allHistoryClinical: action.payload,
+      });
       return {
         ...state,
         allHistoryClinical: action.payload,
       };
 
     case GET_ALL_ATENTIONS:
+      saveReduceState({
+        ...state,
+        allAtentions: action.payload,
+      });
       return {
         ...state,
         allAtentions: action.payload,
@@ -70,6 +95,10 @@ const reducer = (state = initialState, action) => {
     case ADD_PACIENT:
       const newPacient = state.allPacients.slice();
       newPacient.push(action.payload);
+      saveReduceState({
+        ...state,
+        allPacients: newPacient,
+      });
       return {
         ...state,
         allPacients: newPacient,
@@ -78,6 +107,12 @@ const reducer = (state = initialState, action) => {
     case ADD_DOCTOR:
       const newDoctor = state.allDoctors.slice();
       newDoctor.push(action.payload);
+
+      saveReduceState({
+        ...state,
+        allDoctors: newDoctor,
+      });
+
       return {
         ...state,
         allDoctors: newDoctor,
@@ -86,6 +121,12 @@ const reducer = (state = initialState, action) => {
     case ADD_CLINICAL_HISTORY:
       const newClinicalHistory = state.allHistoryClinical.slice();
       newClinicalHistory.push(action.payload);
+
+      saveReduceState({
+        ...state,
+        allHistoryClinical: newClinicalHistory,
+      });
+
       return {
         ...state,
         allHistoryClinical: newClinicalHistory,
@@ -94,39 +135,55 @@ const reducer = (state = initialState, action) => {
     case ADD_ATENTIONS:
       const newAtention = state.allAtentions.slice();
       newAtention.push(action.payload);
+      saveReduceState({
+        ...state,
+        allAtentions: newAtention,
+      });
       return {
         ...state,
         allAtentions: newAtention,
       };
     case PUT_PACIENT:
+      saveReduceState({
+        ...state,
+        allPacients: action.payload,
+      });
       return {
         ...state,
         allPacients: action.payload,
       };
     case PUT_DOCTOR:
+      saveReduceState({
+        ...state,
+        allDoctors: action.payload,
+      });
       return {
         ...state,
         allDoctors: action.payload,
       };
     case PUT_CLINICAL_HISTORY:
+      saveReduceState({
+        ...state,
+        allHistoryClinical: action.payload,
+      });
+
       return {
         ...state,
         allHistoryClinical: action.payload,
       };
 
     case USER_LOGIN:
-      const { numero_de_documento, contraseña } = action.payload;
-      const user1 = { usuario: numero_de_documento, contraseña };
-      localStorage.setItem("userInfo", JSON.stringify(user1));
+      saveReduceState({
+        ...state,
+        userLogin: action.payload,
+      });
       return {
         ...state,
         userLogin: action.payload,
       };
     case USER_LOGOUT:
-      return {
-        ...state,
-        userLogin: null,
-      };
+      localStorage.removeItem("reduce-state");
+      return defaultState;
 
       case ADMIN_LOGIN:
         return {
@@ -140,19 +197,57 @@ const reducer = (state = initialState, action) => {
         };
 
     case GET_AVAILABLE_DOCTOR:
+      saveReduceState({
+        ...state,
+        availableDoctors: action.payload,
+      });
+
       return {
         ...state,
         availableDoctors: action.payload,
       };
     case GET_ATTENTION:
+      saveReduceState({
+        ...state,
+        allAtentions: action.payload,
+      });
+
       return {
         ...state,
         allAtentions: action.payload,
       };
     case GET_TOTAL_USERS:
+      saveReduceState({
+        ...state,
+        totalUsers: action.payload,
+      });
+
       return {
         ...state,
         totalUsers: action.payload,
+      };
+
+    case ADD_ANTECEDENTE:
+      saveReduceState({
+        ...state,
+        userLogin: {
+          ...state.userLogin,
+          HistoriaClinicas: [
+            ...state.userLogin.HistoriaClinicas,
+            action.payload,
+          ],
+        },
+      });
+
+      return {
+        ...state,
+        userLogin: {
+          ...state.userLogin,
+          HistoriaClinicas: [
+            ...state.userLogin.HistoriaClinicas,
+            action.payload,
+          ],
+        },
       };
   case PACIENT_ACTIVATE_DESACTIVATE:
     return {

@@ -1,4 +1,3 @@
-import SubiendoImagenes from "./views/SubiendoImagenes";
 import {
   Landing,
   QuienesSomos,
@@ -63,7 +62,10 @@ function App() {
         <Route path="/actualizarmedico" element={<ActualizarMedico />} />
         <Route path="/saladeespera/:atencionId" element={<SalaDeEspera />} />
         <Route path="/videoconsulta/:atencionId" element={<Videoconsulta />} />
-        <Route path="/atencionfinalizada" element={<AtencionFinalizada />} />
+        <Route
+          path="/atencionfinalizada/:atencionId"
+          element={<AtencionFinalizada />}
+        />
         <Route path="/iniciarsesion" element={<IniciarSesion />} />
         <Route path="/ingresoadmin" element={<IngresoAdmin />} />
         <Route path="/perfiladmin" element={<PerfilAdmin />} />
@@ -72,7 +74,6 @@ function App() {
         <Route path="/pago" element={<Planes />} />
       </Routes>
       <Footer />
-    
     </div>
   );
 }

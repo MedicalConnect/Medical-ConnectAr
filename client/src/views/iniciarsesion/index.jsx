@@ -17,6 +17,7 @@ const IniciarSesion = () => {
   } = useForm({});
 
   const handleLogin = (e) => {
+    localStorage.removeItem("reduce-state");
     dispatch(setUserLogin(e));
   };
 
