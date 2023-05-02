@@ -10,7 +10,7 @@ const Planes = () => {
       nombre:'Pago de servicio',
       detalle: "Acceso mensual al servicio de videoconsultas medicas con todos sus beneficios incluidos",
       imagen: "https://media.discordapp.net/attachments/1094314281123717200/1102746280511422534/pago.jpeg?width=718&height=718",
-      precio: 5000
+      precio: 1
     },
   ]
 

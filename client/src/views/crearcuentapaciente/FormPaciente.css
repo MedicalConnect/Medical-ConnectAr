@@ -25,3 +25,14 @@
   .pimg{
     margin-right: 60px;
   }
+
+.acomodarparrafo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.presagado{
+  margin-left: 13.5px;
+}

@@ -63,6 +63,12 @@ const pago = () => {
           <p className="precio">${serv.precio}</p>
           <input type="hidden" value={userlogin.numero_de_documento} />
           {/* {alert('Por favor, permita las ventanas emergentes para este sitio web.')} */}
+          <div className="textoadvertencia"> 
+            <div>
+          <img src="https://media.discordapp.net/attachments/1094314281123717203/1099843982449709236/alerta.png?width=718&height=718" />
+            </div>
+          <p> Si tu pago lo gestionaste con un nombre o email diferente al de tu cuenta en medicalConnect, porfavor una vez abonado enviarnos el comprobante con el DNI del usuario asociado</p>
+          </div>
           <button
             onClick={() => {
               // intentarConectar()
