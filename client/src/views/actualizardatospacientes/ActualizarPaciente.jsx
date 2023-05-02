@@ -2,7 +2,7 @@ import {React,useEffect} from 'react'
 import "./ActualizarPaciente.css"
 import {useForm} from "react-hook-form"
 import { useSelector } from 'react-redux'
-import {putPacients,totalUsers} from "../../redux/actions/actions"
+import {putPacients,totalUsers,setUserLogin} from "../../redux/actions/actions"
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 
@@ -22,6 +22,8 @@ const ActualizarPaciente = () => {
 
   const submit1 = (data) =>{
     dispatch(putPacients(data))
+    localStorage.removeItem("reduce-state");
+    dispatch(setUserLogin({usuario:data.numero_de_documento,contraseña:data.contraseña}))
     alert("tus datos han sido actualizados")
     navigate("/perfilpaciente")
   }
@@ -93,8 +95,8 @@ const ActualizarPaciente = () => {
                     required:true,
                     maxLength:25
                   })}
-                /> {errors.nombre?.type === "required" && <p>El campo nombre es requerido</p>}
-                {errors.nombre?.type === "maxLength" && <p>El campo nombre debe tener maximo 25 caracteres</p>}
+                /> {errors.nombre?.type === "required" && <p className='errorp'>El campo nombre es requerido</p>}
+                {errors.nombre?.type === "maxLength" && <p className='errorp'>El campo nombre debe tener maximo 25 caracteres</p>}
                 <label htmlFor="floatingInput">Nombre</label>
               </div>
               <div className="form-floating mb-3">
@@ -109,8 +111,8 @@ const ActualizarPaciente = () => {
                     maxLength:25
                   })}
                 />
-                {errors.apellido?.type === "required" && <p>El campo apellido es requerido</p>}
-                {errors.apellido?.type === "maxLength" && <p>El campo apellido debe tener maximo 25 caracteres</p>}
+                {errors.apellido?.type === "required" && <p className='errorp'>El campo apellido es requerido</p>}
+                {errors.apellido?.type === "maxLength" && <p className='errorp'>El campo apellido debe tener maximo 25 caracteres</p>}
                 <label htmlFor="floatingInput">Apellido</label>
               </div>
               <div className="form-floating select1">
@@ -128,7 +130,7 @@ const ActualizarPaciente = () => {
                   <option value="DNI">DNI</option>
                   <option value="CUIL">CUIL</option>
                 </select>
-                {errors.tipo_de_documento?.type === "required" && <p>El campo Tipo de Documento es requerido</p>}
+                {errors.tipo_de_documento?.type === "required" && <p className='errorp'>El campo Tipo de Documento es requerido</p>}
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>
 
@@ -151,11 +153,11 @@ const ActualizarPaciente = () => {
                     } 
                   })}
                 />
-                 {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
-                {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
-                {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
-                {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
-                {errors.numero_de_documento && <p>{errors.numero_de_documento.message}</p>}
+                 {errors.numero_de_documento?.type === "required" && <p className='errorp'>El campo numero de documento es requerido</p>}
+                {errors.numero_de_documento?.type === "maxLength" && <p className='errorp'>El campo numero de documento debe tener maximo 11 caracteres</p>}
+                {errors.numero_de_documento?.type === "CUIL" && <p className='errorp'>Si es cuil debe contener 11 numeros</p>}
+                {errors.numero_de_documento?.type === "DNI" && <p className='errorp'>Si es dni debe contener 8 numeros</p>}
+                {errors.numero_de_documento && <p className='errorp'>{errors.numero_de_documento.message}</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
                 <p>Si quiere actualizar su tipo o numero de documento, Porfavor comuniquese con atencion al cliente!</p>
               </div>
@@ -170,7 +172,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.fecha_de_nacimiento?.type === "required" && <p>El campo fecha de nacimiento es requerido</p>}
+                {errors.fecha_de_nacimiento?.type === "required" && <p className='errorp'>El campo fecha de nacimiento es requerido</p>}
                 <label htmlFor="floatingInput">Fecha de nacimiento</label>
               </div>
               <div className="form-floating select1">
@@ -196,7 +198,7 @@ const ActualizarPaciente = () => {
                     Otro
                   </option>
                 </select>
-                {errors.sexo?.type === "required" && <p>El campo sexo es requerido</p>}
+                {errors.sexo?.type === "required" && <p className='errorp'>El campo sexo es requerido</p>}
                 <label htmlFor="floatingSelect">Sexo</label>
               </div>
               <div className="form-floating select1">
@@ -218,7 +220,7 @@ const ActualizarPaciente = () => {
                     </option>
                   ))}
                 </select>
-                {errors.pais_de_origen?.type === "required" && <p>El campo pais de origen es requerido</p>}
+                {errors.pais_de_origen?.type === "required" && <p className='errorp'>El campo pais de origen es requerido</p>}
                 <label htmlFor="floatingSelect">Pais de origen</label>
               </div>
               
@@ -240,8 +242,8 @@ const ActualizarPaciente = () => {
                   })}
                 
                 </select>
-                {errors.provincia?.type === "required" && <p>El campo provincia es requerido</p>}
-                <label htmlFor="floatingSelect">Provincia</label>
+                {errors.provincia?.type === "required" && <p className='errorp'>El campo provincia es requerido</p>}
+                <label htmlFor="floatingSelect">Provincia de Residencia</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -254,7 +256,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.ciudad?.type === "required" && <p>El campo ciudad es requerido</p>}
+                {errors.ciudad?.type === "required" && <p className='errorp'>El campo ciudad es requerido</p>}
                 <label htmlFor="floatingInput">Ciudad</label>
               </div>
               <div className="form-floating mb-3">
@@ -268,7 +270,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                 {errors.nacionalidad?.type === "required" && <p>El campo nacionalidad es requerido</p>}
+                 {errors.nacionalidad?.type === "required" && <p className='errorp'>El campo nacionalidad es requerido</p>}
                 <label htmlFor="floatingInput">Nacionalidad</label>
               </div>
               <div className="form-floating mb-3">
@@ -282,7 +284,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                {errors.domicilio?.type === "required" && <p>El campo domicilio es requerido</p>}
+                {errors.domicilio?.type === "required" && <p className='errorp'>El campo domicilio es requerido</p>}
                 <label htmlFor="floatingInput">Domicilio</label>
               </div>
               <div className="form-floating mb-3">
@@ -296,7 +298,7 @@ const ActualizarPaciente = () => {
                     required:true,
                   })}
                 />
-                  {errors.telefono?.type === "required" && <p>El campo telefono es requerido</p>}
+                  {errors.telefono?.type === "required" && <p className='errorp'>El campo telefono es requerido</p>}
                 <label htmlFor="floatingInput">
                   Telefono
                 </label>
@@ -314,9 +316,9 @@ const ActualizarPaciente = () => {
                     validate:validarUserDataEmail
                   })}
                 />
-                 {errors.email?.type === "required" && <p>El campo email es requerido</p>}
-                 {errors.email?.type === "pattern" && <p>El formato del email es incorrecto</p>}
-                 {errors.email && <p>{errors.email.message}</p>}
+                 {errors.email?.type === "required" && <p className='errorp'>El campo email es requerido</p>}
+                 {errors.email?.type === "pattern" && <p className='errorp'>El formato del email es incorrecto</p>}
+                 {errors.email && <p className='errorp'>{errors.email.message}</p>}
                 <label htmlFor="floatingInput">Email</label>
               </div>
               <div className="form-floating">
@@ -330,8 +332,8 @@ const ActualizarPaciente = () => {
                     pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
                   })}
                 />
-                 {errors.contraseña?.type === "required" && <p>El campo contraseña es requerido</p>}
-                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
+                 {errors.contraseña?.type === "required" && <p className='errorp'>El campo contraseña es requerido</p>}
+                 {errors.contraseña?.type === "pattern" && <p className='errorp'>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="form-floating ">
@@ -346,8 +348,8 @@ const ActualizarPaciente = () => {
                     { shouldUnregister: true }
                   )}
                 />
-                 {errors.contrasenacheck?.type === "required" && <p>El campo confirmar contraseña es requerido</p>}
-                 {errors.contrasenacheck?.message && <p>{errors.contrasenacheck.message}</p>}
+                 {errors.contrasenacheck?.type === "required" && <p className='errorp'>El campo confirmar contraseña es requerido</p>}
+                 {errors.contrasenacheck?.message && <p className='errorp'>{errors.contrasenacheck.message}</p>}
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
               </div>
               <br />

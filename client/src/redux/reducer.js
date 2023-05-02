@@ -21,7 +21,8 @@ import {
   PACIENT_ACTIVATE_DESACTIVATE,
   DOCTOR_ACTIVATE_DESACTIVATE,
   GET_ALL_PAGOS,
-  GET_USER_BY_NUM_DOCUMENT
+  GET_USER_BY_NUM_DOCUMENT,
+  PUT_PAGO_STATUS,
 } from "./actions/actions-types";
 
 const defaultState = {
@@ -280,6 +281,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         statusUpdate: action.payload,
       };
+    case PUT_PAGO_STATUS:
+      return {
+        ...state,
+      }
     default:
       return {
         ...state,

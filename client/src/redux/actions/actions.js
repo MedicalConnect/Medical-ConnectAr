@@ -22,7 +22,8 @@ import {
   PACIENT_ACTIVATE_DESACTIVATE,
   DOCTOR_ACTIVATE_DESACTIVATE,
   GET_ALL_PAGOS,
-  GET_USER_BY_NUM_DOCUMENT
+  GET_USER_BY_NUM_DOCUMENT,
+  PUT_PAGO_STATUS
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -382,3 +383,18 @@ export const getAllPagos = () => {
   };
 };
 
+export const putPago = (payload) => {
+  return async (dispatch) => {
+    try{
+      const response = await axios.put(`${apiUrl}/pagos`, payload);
+      const data = response.data;
+  
+      return dispatch({
+        type: PUT_PAGO_STATUS,
+        payload: data,
+      });
+    } catch(error){
+      console.error(error);
+    }
+  };
+}

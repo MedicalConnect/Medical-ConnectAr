@@ -1,10 +1,11 @@
 import {React,useEffect} from 'react'
 import { useSelector } from 'react-redux'
-import style from "./FormMedico.module.css";
 import {useForm} from "react-hook-form"
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import { addDoctor,totalUsers } from '../../redux/actions/actions'
+import moment from "moment";
+import "./FormMedico.css"
 
 const FormMedico = () => {
   const InfoUser= useSelector(state=>state.userLogin)
@@ -42,6 +43,19 @@ const FormMedico = () => {
     return true;
   };
 
+  const today = moment();
+const eighteenYearsAgo = moment().subtract(18, "years");
+
+const isValidDate = (inputDate) => {
+  const date = moment(inputDate, "YYYY-MM-DD", true); // Parse date string with format YYYY-MM-DD
+  return (
+    date.isValid() &&
+    eighteenYearsAgo.isSameOrAfter(date) &&
+    today.isAfter(date)
+  );
+};
+  
+
   return (
     <div>
       <div className="container text-center">
@@ -73,7 +87,7 @@ const FormMedico = () => {
                     maxLength:{value:25,message:"El campo nombre debe tener maximo 25 caracteres"}
                   })}
                 /> 
-                {errors.nombre && <p>{errors.nombre.message}</p>}
+                {errors.nombre && <p className='errorp'>{errors.nombre.message}</p>}
                 <label htmlFor="floatingInput">Nombre</label>
               </div>
               <div className="form-floating mb-3">
@@ -87,8 +101,8 @@ const FormMedico = () => {
                     maxLength:25
                   })}
                 />
-                {errors.apellido?.type === "required" && <p>El campo apellido es requerido</p>}
-                {errors.apellido?.type === "maxLength" && <p>El campo apellido debe tener maximo 25 caracteres</p>}
+                {errors.apellido?.type === "required" && <p  className='errorp'>El campo apellido es requerido</p>}
+                {errors.apellido?.type === "maxLength" && <p  className='errorp'>El campo apellido debe tener maximo 25 caracteres</p>}
                 <label htmlFor="floatingInput">Apellido</label>
               </div>
               <div className="form-floating select1">
@@ -103,7 +117,7 @@ const FormMedico = () => {
                   <option  value="" defaultValue>---</option>
                   <option value="DNI">DNI</option>
                   <option value="CUIL">CUIL</option>
-                </select>{errors.tipo_de_documento?.type === "required" && <p>El campo Tipo de documento es requerido</p>}
+                </select>{errors.tipo_de_documento?.type === "required" && <p  className='errorp'>El campo Tipo de documento es requerido</p>}
                 <label htmlFor="floatingSelect">Tipo de documento</label>
               </div>
 
@@ -122,11 +136,11 @@ const FormMedico = () => {
                       DNI: value => watch("tipo_de_documento") === "DNI" ? value.length === 8 : true,} 
                   })}
                 />
-                 {errors.numero_de_documento?.type === "required" && <p>El campo numero de documento es requerido</p>}
-                {errors.numero_de_documento?.type === "maxLength" && <p>El campo numero de documento debe tener maximo 11 caracteres</p>}
-                {errors.numero_de_documento?.type === "CUIL" && <p>Si es cuil debe contener 11 numeros</p>}
-                {errors.numero_de_documento?.type === "DNI" && <p>Si es dni debe contener 8 numeros</p>}
-                {errors.numero_de_documento && <p>{errors.numero_de_documento.message}</p>}
+                 {errors.numero_de_documento?.type === "required" && <p  className='errorp'>El campo numero de documento es requerido</p>}
+                {errors.numero_de_documento?.type === "maxLength" && <p  className='errorp'>El campo numero de documento debe tener maximo 11 caracteres</p>}
+                {errors.numero_de_documento?.type === "CUIL" && <p className='errorp'>Si es cuil debe contener 11 numeros</p>}
+                {errors.numero_de_documento?.type === "DNI" && <p className='errorp'>Si es dni debe contener 8 numeros</p>}
+                {errors.numero_de_documento && <p className='errorp'>{errors.numero_de_documento.message}</p>}
                 <label htmlFor="floatingInput">Numero de documento</label>
               </div>
               <div className="form-floating mb-3">
@@ -137,9 +151,11 @@ const FormMedico = () => {
                   placeholder="name@example.com"
                   {...register("fecha_de_nacimiento",{
                     required:true,
+                    validate: isValidDate
                   })}
                 />
-                {errors.fecha_de_nacimiento?.type === "required" && <p>El campo fecha de nacimiento es requerido</p>}
+                {errors.fecha_de_nacimiento?.type === "required" && <p className='errorp'>El campo fecha de nacimiento es requerido</p>}
+                {errors.fecha_de_nacimiento?.type === "validate" && <p className='errorp'>La persona debe tener al menos 18 años</p>}
                 <label htmlFor="floatingInput">Fecha de nacimiento</label>
               </div>
               <div className="form-floating select1">
@@ -164,7 +180,7 @@ const FormMedico = () => {
                     Otro
                   </option>
                 </select>
-                {errors.sexo?.type === "required" && <p>El campo sexo es requerido</p>}
+                {errors.sexo?.type === "required" && <p className='errorp'>El campo sexo es requerido</p>}
                 <label htmlFor="floatingSelect">Sexo</label>
               </div>
               <div className="form-floating select1">
@@ -185,7 +201,7 @@ const FormMedico = () => {
                     </option>
                   ))}
                 </select>
-                {errors.pais_de_origen?.type === "required" && <p>El campo pais de origen es requerido</p>}
+                {errors.pais_de_origen?.type === "required" && <p className='errorp'>El campo pais de origen es requerido</p>}
                 <label htmlFor="floatingSelect">Pais de origen</label>
               </div>
               
@@ -206,8 +222,8 @@ const FormMedico = () => {
                   })}
                 
                 </select>
-                {errors.provincia?.type === "required" && <p>El campo provincia es requerido</p>}
-                <label htmlFor="floatingSelect">Provincia</label>
+                {errors.provincia?.type === "required" && <p className='errorp'>El campo provincia es requerido</p>}
+                <label htmlFor="floatingSelect">Provincia de Residencia</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -219,7 +235,7 @@ const FormMedico = () => {
                     required:true,
                   })}
                 />
-                {errors.ciudad?.type === "required" && <p>El campo ciudad es requerido</p>}
+                {errors.ciudad?.type === "required" && <p className='errorp'>El campo ciudad es requerido</p>}
                 <label htmlFor="floatingInput">Ciudad</label>
               </div>
               <div className="form-floating mb-3">
@@ -232,7 +248,7 @@ const FormMedico = () => {
                     required:true,
                   })}
                 />
-                 {errors.nacionalidad?.type === "required" && <p>El campo nacionalidad es requerido</p>}
+                 {errors.nacionalidad?.type === "required" && <p className='errorp'>El campo nacionalidad es requerido</p>}
                 <label htmlFor="floatingInput">Nacionalidad</label>
               </div>
               <div className="form-floating mb-3">
@@ -245,7 +261,7 @@ const FormMedico = () => {
                     required:true,
                   })}
                 />
-                {errors.domicilio?.type === "required" && <p>El campo domicilio es requerido</p>}
+                {errors.domicilio?.type === "required" && <p className='errorp'>El campo domicilio es requerido</p>}
                 <label htmlFor="floatingInput">Domicilio</label>
               </div>
               <div className="form-floating mb-3">
@@ -259,7 +275,7 @@ const FormMedico = () => {
                   })}
                 />
                 <label htmlFor="floatingInput">Titulo</label>
-                {errors.titulo?.type === "required" && <p>El campo titulo es requerido</p>}
+                {errors.titulo?.type === "required" && <p className='errorp'>El campo titulo es requerido</p>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -272,7 +288,7 @@ const FormMedico = () => {
                   })}
                 />
                 <label htmlFor="floatingInput">Institucion de Titulacion</label>
-                {errors.institucion_de_titulacion?.type === "required" && <p>El campo Institucion de Titulacion es requerido</p>}
+                {errors.institucion_de_titulacion?.type === "required" && <p className='errorp'>El campo Institucion de Titulacion es requerido</p>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -282,10 +298,14 @@ const FormMedico = () => {
                   placeholder="name@example.com"
                   {...register("fecha_de_titulacion",{
                     required:true,
+                    validate: {
+                      notFuture: (value) => moment(value).isSameOrBefore(moment(), 'day')
+                    }
                   })}
                 />
                 <label htmlFor="floatingInput">Fecha de titulacion</label>
-                {errors.fecha_de_titulacion?.type === "required" && <p>El campo Fecha de Titulacion es requerido</p>}
+                {errors.fecha_de_titulacion?.type === "required" && <p className='errorp'>El campo Fecha de Titulacion es requerido</p>}
+                {errors.fecha_de_titulacion?.type === "notFuture" && <p className='errorp'>La fecha de Titulacion no puede ser posterior a la fecha actual</p>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -298,7 +318,7 @@ const FormMedico = () => {
                   })}
                 />
                 <label htmlFor="floatingInput">Especialidad.</label>
-                {errors.especilidad?.type === "required" && <p>El campo especialidad es requerido</p>}
+                {errors.especilidad?.type === "required" && <p className='errorp'>El campo especialidad es requerido</p>}
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -311,7 +331,7 @@ const FormMedico = () => {
                   })}
                 />
                 <label htmlFor="floatingInput">Numero de matricula.</label>
-                {errors.numero_de_matricula?.type === "required" && <p>El campo Numero De Matricula es requerido</p>}
+                {errors.numero_de_matricula?.type === "required" && <p className='errorp'>El campo Numero De Matricula es requerido</p>}
               </div>
              <div className="form-floating mb-3">
                 <input
@@ -323,7 +343,7 @@ const FormMedico = () => {
                     required:true,
                   })}
                 />
-                  {errors.telefono?.type === "required" && <p>El campo telefono es requerido</p>}
+                  {errors.telefono?.type === "required" && <p className='errorp'>El campo telefono es requerido</p>}
                 <label htmlFor="floatingInput">
                   Telefono
                 </label>
@@ -340,9 +360,9 @@ const FormMedico = () => {
                     validate:validarEmail
                   })}
                 />
-                 {errors.email?.type === "required" && <p>El campo email es requerido</p>}
-                 {errors.email?.type === "pattern" && <p>El formato del email es incorrecto</p>}
-                 {errors.email && <p>{errors.email.message}</p>}
+                 {errors.email?.type === "required" && <p className='errorp'>El campo email es requerido</p>}
+                 {errors.email?.type === "pattern" && <p className='errorp'>El formato del email es incorrecto</p>}
+                 {errors.email && <p className='errorp'>{errors.email.message}</p>}
                 <label htmlFor="floatingInput">Email</label>
               </div>
               <div className="form-floating">
@@ -356,8 +376,8 @@ const FormMedico = () => {
                     pattern:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
                   })}
                 />
-                 {errors.contraseña?.type === "required" && <p>El campo contraseña es requerido</p>}
-                 {errors.contraseña?.type === "pattern" && <p>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
+                 {errors.contraseña?.type === "required" && <p className='errorp'>El campo contraseña es requerido</p>}
+                 {errors.contraseña?.type === "pattern" && <p className='errorp'>El formato de la contraseña es incorrecto(ingrese al menos 8 caracteres en total, con numero, una letra minuscula y otra mayus al menos 1 vez)</p>}
                 <label htmlFor="floatingPassword">Contraseña</label>
               </div>
               <div className="form-floating ">
@@ -372,8 +392,8 @@ const FormMedico = () => {
                     { shouldUnregister: true }
                   )}
                 />
-                 {errors.contrasenacheck?.type === "required" && <p>El campo confirmar contraseña es requerido</p>}
-                 {errors.contrasenacheck?.message && <p>{errors.contrasenacheck.message}</p>}
+                 {errors.contrasenacheck?.type === "required" && <p className='errorp'>El campo confirmar contraseña es requerido</p>}
+                 {errors.contrasenacheck?.message && <p className='errorp'>{errors.contrasenacheck.message}</p>}
                 <label htmlFor="floatingPassword">Confirmar Contraseña</label>
               </div>
               <br />
@@ -388,25 +408,27 @@ const FormMedico = () => {
             <br />
             <br />
             <br />
-
+            <br />
+            <div className='acomodarparrafo1'>
+            <div>
             <p className="text-center fw-medium">
-              <img
-                className='pimg'
-                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341181751_556498566471662_5081762602676827150_n.jpg?stp=dst-jpg_p75x225&_nc_cat=111&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeFJiUraNiHy43q9nZVEdDenIiY-C9Kc51kiJj4L0pznWSnLLdONKS77MQm9_9jecwMawbPnntQFr-iGVrwygjJh&_nc_ohc=pQQcABMtMnYAX8VPQpQ&_nc_oc=AQl4vMdIgvZaYp9DaR6vD7K1Jt0RNmBl9A2XaZ6pSMudyawjzfjCsv39480h7_WhnB8&_nc_ht=scontent.faep23-1.fna&oh=00_AfBkpyPbBDcZej2kcJOqd149I5nCSsJeoxtH6gEj-K7HaA&oe=643D27C6"
-                alt="icono"
-              />
-              Deje que los pacientes le encuentren 1,5 millones de pacientes
+              ✔  Deje que los pacientes le encuentren 1,5 millones de pacientes
               visitan Medical Connect cada mes.
             </p>
+            </div>
+            <div className='presagado2'>
             <p className='text-center fw-medium'>
-              <img className='pimg' src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341157176_173370802305756_8738341263779863854_n.jpg?stp=dst-jpg_p75x225&_nc_cat=107&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeGvhXmDiD38LBp2nNjud7ISHnEsyPAKcucecSzI8Apy58m_9GWSW4vg4q7X2FM34R5FAvVF51Ed2ZHRgPowrGX0&_nc_ohc=xKhWcfeQ6CQAX-rD9YR&_nc_ht=scontent.faep23-1.fna&oh=00_AfCxDXXnlYvtCz-VwvlmlIQ9rspUqqXhxciTYlJBZiCphA&oe=643D7453" alt="" />
-              Hagase cargo de la cantidad maxima de pacientes que usted pueda atender!
+            ✔
+            Hagase cargo de la cantidad maxima de pacientes que usted pueda atender!
             </p>
+            </div>
+            <div className='presagado1'>
             <p className='text-center fw-medium'>
-              <img className='pimg' src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341169834_1045351673004491_2151599842251033685_n.jpg?stp=dst-jpg_p75x225&_nc_cat=107&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeFYVNvQSnOJohKb6ZyMlRhp5AsbIBD9J_DkCxsgEP0n8CmECHWVuLiUDqMymwIBCJvAy6pxXCFbj0xLCKsnJNbV&_nc_ohc=JC3MhOvr69AAX9USilB&_nc_ht=scontent.faep23-1.fna&oh=00_AfCycabIXrm5n3S8A3-tC-itYcLI8UmMZtSaRmjO90z3mQ&oe=643D9B26" alt="" />
-              9 de cada 10 especialistas recomendarían  Medical Connect a otro
+            ✔   9 de cada 10 especialistas recomendarían  Medical Connect a otro
               profesional de la salud. <br /> 
-            </p> 
+            </p>
+            </div>
+           </div>
           </div>
         </div>
       </div>
