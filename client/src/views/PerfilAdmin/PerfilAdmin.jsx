@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import "./PerfilAdmin.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllPacients, getAllDoctors, putStatePacient, putStateDoctor } from "../../redux/actions/actions";
+import { getAllPacients, getAllDoctors, putStatePacient, putStateDoctor,getUserByNDocument } from "../../redux/actions/actions";
 import Swal from "sweetalert2"
+import SearchBar from "../../components/searchBar/SearchBar"
 
 function PerfilAdmin() {
   const dispatch = useDispatch();
@@ -11,7 +12,6 @@ function PerfilAdmin() {
   const allPacients = useSelector((state) => state.allPacients);
   const allMedics = useSelector((state) => state.allDoctors);
   const statusUpdate = useSelector((state) => state.statusUpdate);
-
 
   const activateStatePacient = (numero_de_documento) => {
     dispatch(putStatePacient({numero_de_documento,status_cuenta:"activa"}))
@@ -103,6 +103,7 @@ function PerfilAdmin() {
           puede poner en juego la reputacion de la empresa
         </h2>
       </div>
+      <SearchBar activateStatePacient={activateStatePacient} desactivateStatePacient={desactivateStatePacient} activateStateDoctor={activateStateDoctor} desactivateStateDoctor={desactivateStateDoctor} />
       <div className="accordion" id="accordionPanelsStayOpenExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
@@ -111,7 +112,7 @@ function PerfilAdmin() {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#panelsStayOpen-collapseOne"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="panelsStayOpen-collapseOne"
             >
               Todos los pacientes (Cantidad : {allPacients.length})
@@ -223,6 +224,35 @@ function PerfilAdmin() {
                       </div>
                     );
                   })}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="accordion-item">
+          <h2 className="accordion-header">
+            <button
+              className="accordion-button bg-light-subtle"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#panelsStayOpen-collapseThree"
+              aria-expanded="false"
+              aria-controls="panelsStayOpen-collapseThree"
+            >
+              Todos los Pagos (Cantidad : )
+            </button>
+          </h2>
+          <div
+            id="panelsStayOpen-collapseThree"
+            className="accordion-collapse collapse show"
+          >
+            <div className="accordion-body">
+              <div className="row">
+                
+
+                ACA VAN PAGOS
+
+
+
               </div>
             </div>
           </div>
