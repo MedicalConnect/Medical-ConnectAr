@@ -172,11 +172,6 @@ const SalaDeEspera = () => {
                     concreto en nuestro apartado de 'Atencion Al Cliente'
                   </p>
                   <div className="testimonio-info">
-                    <Link to="/" target="_blank">
-                      <button className="cliente correcion">
-                        Nuestros planes!
-                      </button>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -188,17 +183,11 @@ const SalaDeEspera = () => {
                     alt="Foto de Leonardo"
                   />
                   <p className="testimonio-texto">
-                    Tenemos diferentes planes acorde a tus necesidades!
-                    <br />
-                    Podes acceder a ellos entrando a nuestra seccion de planes
-                    que tenemos disponibles para vos.
+                   Contamos con una cobertura, con amplios beneficios, 
+                   <br /> para entregarte una mejor experiencia del servicio
+                   a un precio accesible.
                   </p>
                   <div className="testimonio-info">
-                    <Link to="/planes" target="_blank">
-                      <button className="cliente botonsito">
-                        Nuestros planes!
-                      </button>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -216,11 +205,6 @@ const SalaDeEspera = () => {
                     problema que deseen que les informemos o solucionemos
                   </p>
                   <div className="testimonio-info">
-                    <Link to="/" target="_blank">
-                      <button className="cliente botonsoporte">
-                        Nuestro equipo de soporte tecnico!
-                      </button>
-                    </Link>
                   </div>
                 </div>
               </div>
