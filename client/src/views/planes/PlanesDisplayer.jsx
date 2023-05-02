@@ -57,10 +57,10 @@ const pago = () => {
     <div className="col">
       <div className="padretarjetaplan1">
         <div className="hijotarjetaplan1">
-          <h3 className="nombre">{serv.nombre}</h3>
+          {/* <h3 className="nombre">{serv.nombre}</h3> */}
           <img className="imagen" src={serv.imagen}></img>
           <p className="detalle">{serv.detalle}</p>
-          <p className="precio">$ {serv.precio}</p>
+          <p className="precio">${serv.precio}</p>
           <input type="hidden" value={userlogin.numero_de_documento} />
           {/* {alert('Por favor, permita las ventanas emergentes para este sitio web.')} */}
           <button

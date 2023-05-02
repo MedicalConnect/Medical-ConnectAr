@@ -74,7 +74,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/planes">
-                Planes
+                Pago
               </Link>
             </li>
             {/* <li className="nav-item">

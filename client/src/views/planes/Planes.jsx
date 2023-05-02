@@ -1,15 +1,16 @@
 import React from "react";
 import "./Planes.css"
 import PlanesDisplayer from "./PlanesDisplayer";
+// import hcImg from '../../helpers/pagos.jpeg'
 
 
 const Planes = () => {
   const servicios = [
     {
       nombre:'Pago de servicio',
-      detalle: "Acceso al servicio con todos sus beneficios",
-      imagen: "https://media.discordapp.net/attachments/1094314281123717203/1099844324830748764/Untitled-design-15-1024x569.png?width=1292&height=718",
-      precio: 1
+      detalle: "Acceso mensual al servicio de videoconsultas medicas con todos sus beneficios incluidos",
+      imagen: "https://media.discordapp.net/attachments/1094314281123717200/1102746280511422534/pago.jpeg?width=718&height=718",
+      precio: 5000
     },
   ]
 
@@ -19,12 +20,12 @@ const Planes = () => {
         <div className="container text-center">
           <div className="row row-cols-2">
             <div className="col-12">
-              <h1 className="subtitulos">Nuestros Planes</h1>
+              <h1 className="subtitulos">Nuestro Servicio</h1>
             </div>
             <div className="col-12">
               <p className="fst-italic fw-medium fs-5">
-                Contamos con planes diseñados para entregarte una mejor experiencia de servicio
-                <br /> a precios accesibles y convenientes.
+                Contamos con una cobertura, con amplios beneficios, para entregarte una mejor experiencia del servicio
+                <br /> a un precio accesible.
               </p>
               <div className="warning">
                 <img src="https://media.discordapp.net/attachments/1094314281123717203/1099843982449709236/alerta.png?width=718&height=718" /><p className="fs-5">Para gestionar correctamente el pago es necesario que tenga habilitado en su navegador la posibilidad de abrir pestañas emergentes,
