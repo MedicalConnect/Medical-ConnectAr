@@ -1,28 +1,31 @@
 import React, { useEffect } from "react";
-import "./Landing.css"
-import {Link} from "react-router-dom"
+import "./Landing.css";
+import { Link } from "react-router-dom";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 
 function Landing() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userlogin = useSelector((state) => state.userLogin);
-  
+
   useEffect(() => {
-  const userLogin1 = localStorage.getItem('userInfo');
-  if (userLogin1) {
-    dispatch(setUserLogin(JSON.parse(userLogin1)));
-  }
-console.log(userLogin1);
-if (userlogin?.rol) {
-  navigate(
-    userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
-  );
-}
-}, [userlogin]);
+    const userLogin1 = localStorage.getItem("userInfo");
+    if (userLogin1) {
+      dispatch(setUserLogin(JSON.parse(userLogin1)));
+    }
+    console.log(userLogin1);
+    if (userlogin?.rol) {
+      navigate(
+        userlogin.rol === "paciente"
+          ? "/perfilpaciente"
+          : userlogin.rol === "admin"
+          ? "/perfiladmin"
+          : "/perfilmedico"
+      );
+    }
+  }, [userlogin]);
 
   return (
     <div>
@@ -46,7 +49,10 @@ if (userlogin?.rol) {
       </div>
 
       <div className="contenedorflex">
-        <img src="https://media.discordapp.net/attachments/1094314281123717203/1099831535491891310/56989.jpeg?width=956&height=718" alt="" />
+        <img
+          src="https://media.discordapp.net/attachments/1094314281123717203/1099831535491891310/56989.jpeg?width=956&height=718"
+          alt=""
+        />
         <div className="divaviso fw-semibold">
           <p>Registrate y accede a diferentes funciones!</p>
           <Link to="/creacionpaciente" target="_blank">
@@ -210,11 +216,11 @@ if (userlogin?.rol) {
           <p>
             Una nueva forma de hacer salud, mas cercana, resolutiva y accesible
           </p>
-     <Link to={"/quienessomos"} target="_blank">
-          <button type="button" className="btn btn-outline-light">
-            Conocenos mas !
-          </button>
-           </Link>
+          <Link to={"/quienessomos"} target="_blank">
+            <button type="button" className="btn btn-outline-light">
+              Conocenos mas !
+            </button>
+          </Link>
         </div>
       </div>
 

@@ -22,6 +22,7 @@
     "express-sse": "^0.5.1",
     "mercadopago": "^1.5.15",
     "morgan": "^1.10.0",
+    "pdfkit": "^0.13.0",
     "pg": "^8.10.0",
     "react-hook-form": "^7.43.9",
     "sequelize": "^6.31.0"
