@@ -23,7 +23,7 @@ const NavBar2 = () => {
   };
 
   useEffect(() => {
-    if (userLogin.rol === "paciente") {
+    if (userLogin?.rol === "paciente") {
       const atencionEnCurso = allAttentions?.find(
         (atencion) =>
           atencion.status !== "finalizada" && atencion.status !== "cancelada"
