@@ -19,7 +19,7 @@ const IngresoPacientes = () => {
     }
     if (userlogin?.rol) {
       navigate(
-        userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
+        userlogin.rol === "paciente" ? "/perfilpaciente" : userlogin.rol === "admin" ? "/perfiladmin" : "/perfilmedico"
       );
     }
   }, [userlogin]);

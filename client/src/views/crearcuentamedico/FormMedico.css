@@ -1,0 +1,19 @@
+.errorp{
+  color: rgb(255, 0, 0);
+  padding: 5px;
+}
+
+.acomodarparrafo1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 14px;
+}
+
+.presagado1{
+  margin-left: 1em;
+}
+.presagado2{
+  margin-right: 0.7em;
+}

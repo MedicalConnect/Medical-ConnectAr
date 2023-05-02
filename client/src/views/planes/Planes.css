@@ -64,15 +64,16 @@ border: solid;
 
  .imagen {
   width: 20rem;
-  height: 10rem;
-  border-radius: 9999rem;
-  border: 1px black solid;
+  height: 20rem;
+  border-radius: 9999999999rem;
+  border: 20px white solid;
   margin-bottom: 15px;
+  margin-top: 2em;
 }
 
 .nombre {
   padding: 15px;
-  font-size: 35px;
+  font-size: 45px;
 } 
 
 .detalle {
@@ -80,9 +81,11 @@ border: solid;
   background-color: white;
   color: black;
   border-radius: 15px;
-  padding: 5px;
-   margin-top: 20px;
-   margin-bottom: 25px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .precio {
@@ -90,8 +93,8 @@ border: solid;
   background-color: white;
   color: black;
   border-radius: 15px;
-  padding: 5px;
-  margin-left: 84px;
+  padding: 18px;
+  margin-left: 150px;
   width: 50%;
 } 
 
@@ -135,14 +138,14 @@ border: solid;
 
 .padretarjetaplan1{
   
-  margin-top: 14em;
+  margin-top: 12em;
   display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
- height: 40em;
- width: 30em;
- margin-left: 5em;
+ height: auto;
+ width: 35em;
+ margin-left: 3em;
  background-image: linear-gradient(140deg, #ef3939 0%, #e6c7b7 60%);
  border-radius: 24px;
  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -158,13 +161,14 @@ border: solid;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin-left: 2em;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   width: 200px;
+  margin-bottom: 2em;
 }
 .hijotarjetaplan1 button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
@@ -177,7 +181,26 @@ border: solid;
   justify-content: center;
 }
 
-.aclaracion {
-  font-style: italic;
-  padding-top: 20px;
+.textoadvertencia{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 4px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.textoadvertencia img{
+  width: 3.5em;
+  height: 4em;
+  margin-right: 10px;
+  margin-bottom: 1em;
+}
+
+.textoadvertencia p{
+  text-align: left;
+  margin-right: 0.5em;
 }

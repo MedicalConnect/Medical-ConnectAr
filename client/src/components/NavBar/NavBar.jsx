@@ -13,6 +13,7 @@ const privateRouter = [
   "/saladeespera",
   "/videoconsulta",
   "/atencionfinalizada",
+  "/perfiladmin"
 ];
 
 const NavBar = () => {
@@ -20,16 +21,17 @@ const NavBar = () => {
   const location = useLocation();
 
   const userlogin = useSelector((state) => state.userLogin);
+  const userAdmin = useSelector((state) => state.adminLogin);
 
   useEffect(() => {
-    if (!userlogin) {
+    if (!userlogin || !userAdmin ) {
       if (privateRouter.includes(location.pathname)) {
         navigate("/");
       }
     }
-  }, [userlogin]);
+  }, [userlogin,userAdmin]);
 
-  if (userlogin) {
+  if (userlogin?.status_cuenta === "activa" || userAdmin) {
     return <NavBar2 />;
   }
 
@@ -72,7 +74,7 @@ const NavBar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/planes">
-                Planes
+                Pago
               </Link>
             </li>
             {/* <li className="nav-item">

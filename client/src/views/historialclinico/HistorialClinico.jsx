@@ -1,150 +1,138 @@
 import React from "react";
 import "./HistorialClinico.css";
 import { useForm } from "react-hook-form";
-import { addClinicalHistory } from "../../redux/actions/actions";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import hcImg from "../../helpers/img/historialClinico.png";
+import apiUrl from "../../helpers/apiUrl";
+import axios from "axios";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { addAntecedente } from "../../redux/actions/actions";
 
+const tipos = ["antecendes medicos", "medicamentos", "alergia", "habitos"];
 
 const HistorialClinico = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const submit1=(data)=>{
-    dispatch(addClinicalHistory(data));
-    alert("Historia Clinica creada");
-    navigate("/perfilpaciente");
-  }
-  return (
-    <div>
-      <div>
-        <section className="pl-5 bg-gradiente-white-sky-blue">
-          <h2>Hola "nombre"</h2>
-        </section>
+  const userlogin = useSelector((state) => state.userLogin);
 
-        <div className="h5subtitulo">
-          <h5>
-            Completa la información de tu historia clinica, esto es de mucha
-            utilidad para que tengas una mejor atención
-          </h5>
-        </div>
-        <div>
-          <img
-            src="https://img.freepik.com/vector-gratis/grupo-personal-medico-que-lleva-iconos-relacionados-salud_53876-43071.jpg"
-            alt="imagen medical connect"
-            className="imageform justify-content-center
-            align-items-center"
-          />
-        </div>
-        <form className="formulario " onSubmit={handleSubmit(submit1)}>
-          <div className="row mb-3">
-            <h4 className="h4">Historia Clinica</h4>
-            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
-              Antecedentes Medicos:{" "}
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="colFormLabel"
-                placeholder="antecedentes medicos"
-                {...register("antecedentes_medicos", {
-                  required: true,
-                  minLength: { value: 5, message: "no puede estar vacio" },
-                  maxLength: { value: 250, message: "maximo 450 caracteres" },
-                })}
-              />
-              {errors.antecedentes_quirurgicos && (
-                <p>{errors.antecedentes_quirurgicos.message}</p>
-              )}
-            </div>
+  const onSubmit = async (data) => {
+    Swal.fire({
+      title: "Cargando nuevo antecedente",
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+    const { tipo, descripcion } = data;
+    try {
+      const response = await axios.post(`${apiUrl}/historiaClinica`, {
+        tipo,
+        descripcion,
+        pacienteId: userlogin.id,
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Antecedente cargado correctamente",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then((result) => {
+        dispatch(addAntecedente(response.data));
+        reset();
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Antecedente no cargado",
+        timerProgressBar: false,
+        text: "Vuelva a intentarlo",
+        confirmButtonText: "Ok",
+      });
+    }
+  };
+  return (
+    <div className="row justify-content-evenly">
+      <div className="col-10">
+        <h2 className="mb-5 p-0">{`Hola ${userlogin?.nombre} ${userlogin?.apellido}`}</h2>
+
+        <h5 className="text-center">
+          Completa la información de tu historia clinica, esto es de mucha
+          utilidad para que tengas una mejor atención.
+          <hr />
+        </h5>
+      </div>
+      <div className="col-5 row justify-content-center mt-5">
+        <img src={hcImg} alt="medico" />
+      </div>
+      <div className="col-7 row justify-content-center p-5 m-0">
+        <form
+          className="row justify-content-center rounded bg-success-subtle"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="col-10">
+            <h4 className="text-end pt-4">Agregar Historia Clinica</h4>
+            <hr />
           </div>
-          <div className="row mb-3">
-            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
-              Antecedentes Quirurgicos:{" "}
+          <div className="col-10">
+            <label htmlFor="diagnostico" className="mb-2">
+              Tipo:
             </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="colFormLabel"
-                placeholder="antecedentes quirurgicos..."
-                {...register("antecedentes_quirurgicos", {
-                  required: true,
-                  minLength: { value: 5, message: "no puede estar vacio" },
-                  maxLength: { value: 250, message: "maximo 450 caracteres" },
-                })}
-              />
-              {errors.antecedentes_quirurgicos && (
-                <p>{errors.antecedentes_quirurgicos.message}</p>
-              )}
-            </div>
+            <select
+              className="form-control"
+              {...register("tipo", {
+                required: "El tipo es requerido",
+              })}
+            >
+              <option value={""}>Seleccionar antecedente clinico</option>
+              {tipos.map((tipo) => (
+                <option key={tipo} value={tipo}>
+                  {tipo.toUpperCase()}
+                </option>
+              ))}
+            </select>
+            {errors.tipo && (
+              <p className="text-danger">{errors.tipo.message}</p>
+            )}
           </div>
-          <div className="row mb-3">
-            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
-              Alergias:{" "}
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="colFormLabel"
-                placeholder="alergias..."
-                {...register("alergias", {
-                  required: true,
-                  minLength: { value: 5, message: "no puede estar vacio" },
-                  maxLength: { value: 250, message: "maximo 450 caracteres" },
-                })}
-              />
-              {errors.alergias && <p>{errors.alergias.message}</p>}
-            </div>
+
+          <div className="col-10 mb-2">
+            <label htmlFor="colFormLabel">Descripción:</label>
+            <textarea
+              type="text"
+              rows="3"
+              className="form-control"
+              id="floatingInput"
+              placeholder="Ingrese descripción del antecedente"
+              {...register("descripcion", {
+                required: "El campo descripción es requerido",
+              })}
+            />{" "}
+            {errors.descripcion && (
+              <p className="text-danger">{errors.descripcion.message}</p>
+            )}
           </div>
-          <div className="row mb-3">
-            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
-              Medicamentos:{" "}
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="colFormLabel"
-                placeholder="medicamentos..."
-                {...register("medicamentos", {
-                  required: true,
-                  minLength: { value: 5, message: "no puede estar vacio" },
-                  maxLength: { value: 250, message: "maximo 450 caracteres" },
-                })}
-              />
-              {errors.medicamentos && <p>{errors.medicamentos.message}</p>}
-            </div>
+          <div className="col-5 mb-2 text-start">
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={() => navigate("/")}
+            >
+              Volver
+            </button>
           </div>
-          <div className="row mb-3">
-            <label htmlFor="colFormLabel" className="col-sm-3 col-form-label">
-              Hábitos:{" "}
-            </label>
-            <div className="col-sm-9">
-              <input
-                type="text"
-                className="form-control"
-                id="colFormLabel"
-                placeholder="habitos..."
-                {...register("habitos", {
-                  required: true,
-                  minLength: { value: 5, message: "no puede estar vacio" },
-                  maxLength: { value: 250, message: "maximo 450 caracteres" },
-                })}
-              />
-              {errors.habitos && <p>{errors.habitos.message}</p>}
-            </div>
+          <div className="col-5 mb-2 text-end">
+            <button type="submit" className="btn btn-primary btn-sm">
+              Agregar Antecedente
+            </button>
           </div>
-          <button className="boton" type="submit">
-            Enviar
-          </button>
+          <hr />
         </form>
       </div>
     </div>

@@ -16,6 +16,14 @@ import {
   PUT_DOCTOR,
   PUT_CLINICAL_HISTORY,
   GET_TOTAL_USERS,
+  ADD_ANTECEDENTE,
+  ADMIN_LOGIN,
+  ADMIN_LOGOUT,
+  PACIENT_ACTIVATE_DESACTIVATE,
+  DOCTOR_ACTIVATE_DESACTIVATE,
+  GET_ALL_PAGOS,
+  GET_USER_BY_NUM_DOCUMENT,
+  PUT_PAGO_STATUS
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -35,7 +43,7 @@ export const getAllPacients = () => {
 
 export const getAllDoctors = () => {
   return async (dispatch) => {
-    const response = await axios.get(`${apiUrl}doctor`);
+    const response = await axios.get(`${apiUrl}/doctor`);
     const data = response.data;
 
     return dispatch({
@@ -93,6 +101,65 @@ export const addDoctor = (payload) => {
   };
 };
 
+export const getUserByNDocument = (numero_de_documento) => {
+  return async function (dispatch) {
+   const responseDoctor = await axios.get(`${apiUrl}/doctor?numero_de_documento=${numero_de_documento}`);
+   const dataDoctor = responseDoctor.data;
+   const responsePacient = await axios.get(`${apiUrl}/pacientes?numero_de_documento=${numero_de_documento}`);
+   const dataPacient = responsePacient.data;
+
+   if(dataDoctor){
+    const doctor= {
+      user: "doctor",
+      numero_de_documento: dataDoctor.numero_de_documento,
+      tipo_de_documento: dataDoctor.tipo_de_documento,
+      nombre: dataDoctor.nombre,
+      apellido: dataDoctor.apellido,
+      email: dataDoctor.email,
+      status_cuenta: dataDoctor.status_cuenta,
+      especilidad: dataDoctor.especilidad
+    }
+    return dispatch({
+      type: GET_USER_BY_NUM_DOCUMENT,
+      payload: doctor,
+    });
+   }
+
+   if(dataPacient){
+    const pacient= {
+      user: "paciente",
+      numero_de_documento: dataPacient.numero_de_documento,
+      tipo_de_documento: dataPacient.tipo_de_documento,
+      nombre: dataPacient.nombre,
+      apellido: dataPacient.apellido,
+      email: dataPacient.email,
+      status_cuenta: dataPacient.status_cuenta,
+    }
+    return dispatch({
+      type: GET_USER_BY_NUM_DOCUMENT,
+      payload: pacient,
+    });
+   }
+
+  //  const arr1 = dataDoctor.concat(dataPacient).flat();
+  //  const totalUsers = arr1.map((user) => {
+  //    return {
+  //      tipo_de_documento: user.tipo_de_documento,
+  //      numero_de_documento: user.numero_de_documento,
+  //      nombre: user.nombre,
+  //      apellido: user.apellido,
+  //      email: user.email,
+  //      status_cuenta: user.status_cuenta
+  //     };
+  //   });
+
+  //   return dispatch({
+  //     type: GET_USER_BY_NUM_DOCUMENT,
+  //     payload: totalUsers,
+  //   });
+  };
+};
+
 export const addClinicalHistory = (payload) => {
   return async (dispatch) => {
     const response = axios.post(`${apiUrl}/historiaClinica`, payload);
@@ -122,7 +189,14 @@ export const setUserLogin = (payload) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, payload);
       const data = response.data;
-
+      
+      if(data.status_cuenta === "desactivada"){
+        //return alert("Tu usuario ha sido desactivado, esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente")
+        return dispatch({
+          type: USER_LOGIN,
+          payload: {status_cuenta:data.status_cuenta}
+        })
+      }
       return dispatch({
         type: USER_LOGIN,
         payload: data,
@@ -135,7 +209,6 @@ export const setUserLogin = (payload) => {
 
 export const loginLogOut = () => {
   return function (dispatch) {
-    localStorage.removeItem("userInfo");
     return dispatch({ type: USER_LOGOUT, payload: null });
   };
 };
@@ -232,3 +305,96 @@ export const totalUsers = () => {
     });
   };
 };
+
+
+export const addAntecedente = (payload) => {
+  return function (dispatch) {
+    return dispatch({
+      type: ADD_ANTECEDENTE,
+      payload: payload,
+    });
+  };
+};
+
+export const setAdminLogin = (payload) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.post(`${apiUrl}/admin/login`, payload);
+      const data = response.data;
+
+      return dispatch({
+        type: ADMIN_LOGIN,
+        payload: data,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const setLogOutAdmin = () => {
+  return function (dispatch) {
+    return dispatch({ type: ADMIN_LOGOUT, payload: null });
+  };
+};
+
+
+export const putStatePacient = (payload) => {
+  return async (dispatch) => {
+    try{
+      const response = await axios.put(`${apiUrl}/pacientes/userstatus`, payload);
+      const data = response.data;
+  
+      return dispatch({
+        type: PACIENT_ACTIVATE_DESACTIVATE,
+        payload: data,
+      });
+    } catch(error){
+      console.error(error);
+    }
+  };
+};
+
+export const putStateDoctor = (payload) => {
+  return async (dispatch) => {
+    try{
+      const response = await axios.put(`${apiUrl}/doctor/userstatus`, payload);
+      const data = response.data;
+  
+      return dispatch({
+        type: DOCTOR_ACTIVATE_DESACTIVATE,
+        payload: data,
+      });
+    } catch(error){
+      console.error(error);
+    }
+  };
+};
+
+export const getAllPagos = () => {
+  return async (dispatch) => {
+    const response = await axios.get(`${apiUrl}/pagos`);
+    const data = response.data;
+
+    return dispatch({
+      type: GET_ALL_PAGOS,
+      payload: data,
+    });
+  };
+};
+
+export const putPago = (payload) => {
+  return async (dispatch) => {
+    try{
+      const response = await axios.put(`${apiUrl}/pagos`, payload);
+      const data = response.data;
+  
+      return dispatch({
+        type: PUT_PAGO_STATUS,
+        payload: data,
+      });
+    } catch(error){
+      console.error(error);
+    }
+  };
+}
