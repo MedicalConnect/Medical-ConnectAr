@@ -94,14 +94,6 @@ const IngresoPacientes = () => {
       {/* <div className="googlebot"> */}
       <div className="googlebot">
         {/* <GoogleLogin clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={"none"}/> */}
-        <button
-          className="googlebot1"
-          onClick={() =>
-            logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })
-          }
-        >
-          Log Out
-        </button>
         <button className="botonsitogoogle" onClick={LoginButton}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
