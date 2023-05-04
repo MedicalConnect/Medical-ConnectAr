@@ -18,6 +18,17 @@ const privateRouter = [
 ];
 
 const NavBar = () => {
+  const privateRouter = [
+    "/perfilpaciente",
+    "/perfilmedico",
+    "/historialclinico",
+    "/actualizarpaciente",
+    "/actualizarmedico",
+    "/saladeespera",
+    "/videoconsulta",
+    "/atencionfinalizada",
+    "/perfiladmin"
+  ];
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const location = useLocation();
@@ -36,6 +47,7 @@ const NavBar = () => {
   if (userlogin?.status_cuenta === "activa" || userAdmin || isAuthenticated && userlogin?.status_cuenta === "activa") {
     return <NavBar2 />;
   }
+
 
   return (
     <nav className="navbar  navbar-expand-md navbar-light">

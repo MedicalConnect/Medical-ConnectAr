@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     domain="dev-13esexcy6inoyg47.us.auth0.com"
     clientId="R5gntSyLJZT0HTyoxf8bUU569oteNZYf"
     authorizationParams={{
-      redirect_uri: "http://127.0.0.1:5173/ingresopaciente"
+      redirect_uri: "https://medical-connect.vercel.app/ingresopaciente"
     }}
     cacheLocation="localstorage">
     <BrowserRouter>
