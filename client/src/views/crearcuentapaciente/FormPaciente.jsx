@@ -378,7 +378,7 @@ const isValidDate = (inputDate) => {
             </div>
             { isAuthenticated && (
       <div>
-          <button className="botongoogleform" onClick={() => logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })}>
+          <button className="botongoogleform" onClick={() => logout({ logoutParams: { returnTo: "https://medical-connect.vercel.app" } })}>
      Cancelar creacion de cuenta por google
     </button>
       </div>

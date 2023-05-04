@@ -16,7 +16,7 @@ const NavBar2 = () => {
   const logOut = () => {
     localStorage.removeItem("reduce-state");
     if (userLogin || isAuthenticated) {
-      logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })
+      logout({ logoutParams: { returnTo: "https://medical-connect.vercel.app" } })
       dispatch(loginLogOut());
       navigate("/");
     } else {
