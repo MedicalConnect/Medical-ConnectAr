@@ -7,7 +7,6 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import apiUrl from "../../helpers/apiUrl";
-import SubiendoImagenes from "../SubiendoImagenes";
 import { Videocall } from "../salaespera/videocall";
 import logoMC from "../../helpers/img/MClogo.png";
 import moment from "moment";

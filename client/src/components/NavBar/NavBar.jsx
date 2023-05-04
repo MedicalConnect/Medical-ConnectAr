@@ -13,7 +13,7 @@ const privateRouter = [
   "/saladeespera",
   "/videoconsulta",
   "/atencionfinalizada",
-  "/perfiladmin"
+  "/perfiladmin",
 ];
 
 const NavBar = () => {
@@ -24,12 +24,12 @@ const NavBar = () => {
   const userAdmin = useSelector((state) => state.adminLogin);
 
   useEffect(() => {
-    if (!userlogin || !userAdmin ) {
+    if (!userlogin || !userAdmin) {
       if (privateRouter.includes(location.pathname)) {
         navigate("/");
       }
     }
-  }, [userlogin,userAdmin]);
+  }, [userlogin, userAdmin]);
 
   if (userlogin?.status_cuenta === "activa" || userAdmin) {
     return <NavBar2 />;
@@ -100,9 +100,12 @@ const NavBar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <button type="button" className="btn btn-outline-info botton-ingreseaqui">
+              <button
+                type="button"
+                className="btn btn-outline-info botton-ingreseaqui"
+              >
                 Ingrese Aquí
-                </button>
+              </button>
             </a>
             <ul className="dropdown-menu ">
               <li>

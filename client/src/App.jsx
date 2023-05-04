@@ -22,7 +22,7 @@ import {
   IniciarSesion,
   PerfilAdmin,
   PagoPublico,
-  Planes
+  Planes,
 } from "./views/index"; //views de index
 import { Route, Routes } from "react-router-dom"; //para rutear en app y trabajar directo en los componentes.
 //import NavBar from "./components/NavBar/NavBar" ////por si existe navbar.
