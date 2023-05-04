@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Landing() {
   const { user, isAuthenticated } = useAuth0();
@@ -22,7 +22,6 @@ function Landing() {
           : "/perfilmedico"
       );
     }
-  
   }, [userlogin]);
 
   // useEffect(() => {
@@ -30,7 +29,6 @@ function Landing() {
   //     navigate("/perfilpaciente")
   //   }
   // }, [])
-  
 
   return (
     <div>
@@ -182,7 +180,7 @@ function Landing() {
             <h4>
               <img
                 className="iconobebe"
-                src="https://images-ext-1.discordapp.net/external/O_nNelCtX28DvKrG9YIp0rjdj2wKRR6nDm8WZ8t86wQ/%3F_nc_cat%3D111%26ccb%3D1-7%26_nc_sid%3D730e14%26_nc_ohc%3D4pLi-5Mrk4UAX_XZFGF%26_nc_ht%3Dscontent.faep23-1.fna%26oh%3D00_AfDMegPrsx7rFVY0cYAf1hN88zCjS_Q8REjR6o4bqTmaqQ%26oe%3D644AC009/https/scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341079499_2685572111584632_2413391326035001052_n.jpg?width=792&height=792"
+                src="https://w7.pngwing.com/pngs/553/526/png-transparent-notepad-computer-icons-others-angle-text-rectangle-thumbnail.png"
                 alt=""
               />{" "}
               Accede a mas beneficios!
