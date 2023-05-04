@@ -5,6 +5,8 @@ const cors = require("cors");
 const mercadopago = require('mercadopago');
 require("dotenv").config();
 const { MERCADOPAGO_KEY} = process.env;
+const multer = require('multer');
+const {Storage} = require('@google-cloud/storage');
 
 require("./db");
 

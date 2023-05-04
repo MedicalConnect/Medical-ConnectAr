@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import NavBar2 from "../NavBar2/NavBar2";
 import { useSelector } from "react-redux";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const privateRouter = [
   "/perfilpaciente",
@@ -13,10 +14,11 @@ const privateRouter = [
   "/saladeespera",
   "/videoconsulta",
   "/atencionfinalizada",
-  "/perfiladmin"
+  "/perfiladmin",
 ];
 
 const NavBar = () => {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,14 +26,14 @@ const NavBar = () => {
   const userAdmin = useSelector((state) => state.adminLogin);
 
   useEffect(() => {
-    if (!userlogin || !userAdmin ) {
+      if (!userlogin || !userAdmin || !isAuthenticated ) {
+
       if (privateRouter.includes(location.pathname)) {
         navigate("/");
       }
     }
-  }, [userlogin,userAdmin]);
-
-  if (userlogin?.status_cuenta === "activa" || userAdmin) {
+  }, [userlogin,userAdmin,isAuthenticated]);
+  if (userlogin?.status_cuenta === "activa" || userAdmin || isAuthenticated && userlogin?.status_cuenta === "activa") {
     return <NavBar2 />;
   }
 
@@ -100,9 +102,12 @@ const NavBar = () => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <button type="button" className="btn btn-outline-info botton-ingreseaqui">
+              <button
+                type="button"
+                className="btn btn-outline-info botton-ingreseaqui"
+              >
                 Ingrese Aquí
-                </button>
+              </button>
             </a>
             <ul className="dropdown-menu ">
               <li>

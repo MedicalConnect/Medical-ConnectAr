@@ -1,41 +1,47 @@
 import React, { useEffect } from "react";
 import "./IngresoPacientes.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import GoogleLogin from "react-google-login"
+import { useSelector,useDispatch } from "react-redux";
+import { useAuth0 } from '@auth0/auth0-react';
+import { getAllPacients,setUserLoginGmail } from "../../redux/actions/actions";
 
 const IngresoPacientes = () => {
-  const clientID = "691357648320-rvrumr8g8c70jn8v7om0esi5htelacc6.apps.googleusercontent.com"
+  const { user, isAuthenticated, isLoading,loginWithRedirect,logout } = useAuth0();
+  const pacients= useSelector(state=>state.allPacients)
 
   const navigate = useNavigate();
-  const userlogin = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch()
+
+  const LoginButton = () => {
+    loginWithRedirect()
+  };
 
   useEffect(() => {
-    const start = () => {
-      gapi.auth2.init({
-        clientId:clientID
-      })
-      gapi.load("client:auth2",start)
+    dispatch(getAllPacients())
+   
+    if (isAuthenticated && user) {
+      const res = pacients.find((e) => e.email === user.email);
+      if (res) {
+        dispatch(setUserLoginGmail(user.email, isAuthenticated));
+        navigate("/perfilpaciente");
+      } else{
+        navigate("/creacionpaciente")
+      }
+      // return
     }
-    if (userlogin?.rol) {
-      navigate(
-        userlogin.rol === "paciente" ? "/perfilpaciente" : userlogin.rol === "admin" ? "/perfiladmin" : "/perfilmedico"
-      );
-    }
-  }, [userlogin]);
-
-  const onSuccess= (response)=>{
-    console.log(response);
-  }
-  const onFailure= (response)=>{
-    console.log("Algo malo sucedio");
-  }
+    // if(isAuthenticated){
+    //   navigate("/creacionpaciente")
+    // }
+  }, [isAuthenticated])
+  
 
   return (
     <div>
       <section className="pl-5 bg-gradiente-white-sky-blue">
         <h1>Ingreso de Pacientes</h1>
       </section>
+{/* 
+      <button onClick={funcionGoogle}>Boton</button> */}
 
       <div className="h5subtitulo">
         <h4>
@@ -85,9 +91,23 @@ const IngresoPacientes = () => {
           </div>
         </section>
       </div>
+        {/* <div className="googlebot"> */}
         <div className="googlebot">
-          <GoogleLogin clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={"none"}/>
+          {/* <GoogleLogin clientId={clientID} onSuccess={onSuccess} onFailure={onFailure} cookiePolicy={"none"}/> */}
+          <button onClick={() => logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })}>
+      Log Out
+    </button>
+          <button className="botonsitogoogle" onClick={LoginButton}>
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" viewBox="0 0 256 262">
+  <path fill="#4285F4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"></path>
+  <path fill="#34A853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"></path>
+  <path fill="#FBBC05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"></path>
+  <path fill="#EB4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"></path>
+</svg>
+  Continue with Google
+</button>
         </div>
+        
       {/* <div className="row">
         <section className="d-grid1 gap-2 col-12 col-md-4 ">
           <button className="buttonG">

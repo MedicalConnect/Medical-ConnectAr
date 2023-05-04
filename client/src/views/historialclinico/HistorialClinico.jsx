@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./HistorialClinico.css";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,14 +14,16 @@ const tipos = ["antecendes medicos", "medicamentos", "alergia", "habitos"];
 const HistorialClinico = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [selectedFile, setSelectedFile] = useState(null);
+  // const { atencionId } = useParams();
+  const userlogin = useSelector((state) => state.userLogin);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
-
-  const userlogin = useSelector((state) => state.userLogin);
 
   const onSubmit = async (data) => {
     Swal.fire({
@@ -38,6 +40,7 @@ const HistorialClinico = () => {
         descripcion,
         pacienteId: userlogin.id,
       });
+      console.log(userlogin, "prueba info userlogin aca------>>>");
       Swal.fire({
         icon: "success",
         title: "Antecedente cargado correctamente",
@@ -57,6 +60,25 @@ const HistorialClinico = () => {
       });
     }
   };
+
+  const handleFileInputChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleFileUpload = async () => {
+    const formData = new FormData();
+    formData.append("image", selectedFile);
+
+    await axios
+      .post(`${apiUrl}/storage/${userlogin?.id}`, formData)
+      .then((response) => {
+        console.log("El archivo se subió con éxito");
+      })
+      .catch((error) => {
+        console.log("Hubo un error al subir el archivo", error);
+      });
+  };
+
   return (
     <div className="row justify-content-evenly">
       <div className="col-10">
@@ -133,6 +155,13 @@ const HistorialClinico = () => {
             </button>
           </div>
           <hr />
+          <div>
+            <label htmlFor="estudios">Subir estudios médicos:</label>
+            <input type="file" id="estudios" onChange={handleFileInputChange} />
+          </div>
+          <button type="button" onClick={handleFileUpload}>
+            Subir
+          </button>
         </form>
       </div>
     </div>

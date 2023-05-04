@@ -23,7 +23,8 @@ import {
   DOCTOR_ACTIVATE_DESACTIVATE,
   GET_ALL_PAGOS,
   GET_USER_BY_NUM_DOCUMENT,
-  PUT_PAGO_STATUS
+  PUT_PAGO_STATUS,
+  GMAIL_PACIENT,
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -103,60 +104,64 @@ export const addDoctor = (payload) => {
 
 export const getUserByNDocument = (numero_de_documento) => {
   return async function (dispatch) {
-   const responseDoctor = await axios.get(`${apiUrl}/doctor?numero_de_documento=${numero_de_documento}`);
-   const dataDoctor = responseDoctor.data;
-   const responsePacient = await axios.get(`${apiUrl}/pacientes?numero_de_documento=${numero_de_documento}`);
-   const dataPacient = responsePacient.data;
+    const responseDoctor = await axios.get(
+      `${apiUrl}/doctor?numero_de_documento=${numero_de_documento}`
+    );
+    const dataDoctor = responseDoctor.data;
+    const responsePacient = await axios.get(
+      `${apiUrl}/pacientes?numero_de_documento=${numero_de_documento}`
+    );
+    const dataPacient = responsePacient.data;
 
-   if(dataDoctor){
-    const doctor= {
-      user: "doctor",
-      numero_de_documento: dataDoctor.numero_de_documento,
-      tipo_de_documento: dataDoctor.tipo_de_documento,
-      nombre: dataDoctor.nombre,
-      apellido: dataDoctor.apellido,
-      email: dataDoctor.email,
-      status_cuenta: dataDoctor.status_cuenta,
-      especilidad: dataDoctor.especilidad
+    if (dataDoctor) {
+      const doctor = {
+        user: "doctor",
+        numero_de_documento: dataDoctor.numero_de_documento,
+        tipo_de_documento: dataDoctor.tipo_de_documento,
+        nombre: dataDoctor.nombre,
+        apellido: dataDoctor.apellido,
+        email: dataDoctor.email,
+        status_cuenta: dataDoctor.status_cuenta,
+        especilidad: dataDoctor.especilidad,
+      };
+      return dispatch({
+        type: GET_USER_BY_NUM_DOCUMENT,
+        payload: doctor,
+      });
     }
-    return dispatch({
-      type: GET_USER_BY_NUM_DOCUMENT,
-      payload: doctor,
-    });
-   }
 
-   if(dataPacient){
-    const pacient= {
-      user: "paciente",
-      numero_de_documento: dataPacient.numero_de_documento,
-      tipo_de_documento: dataPacient.tipo_de_documento,
-      nombre: dataPacient.nombre,
-      apellido: dataPacient.apellido,
-      email: dataPacient.email,
-      status_cuenta: dataPacient.status_cuenta,
+    if (dataPacient) {
+      const pacient = {
+        user: "paciente",
+        numero_de_documento: dataPacient.numero_de_documento,
+        tipo_de_documento: dataPacient.tipo_de_documento,
+        nombre: dataPacient.nombre,
+        apellido: dataPacient.apellido,
+        email: dataPacient.email,
+        status_cuenta: dataPacient.status_cuenta,
+      };
+      return dispatch({
+        type: GET_USER_BY_NUM_DOCUMENT,
+        payload: pacient,
+      });
     }
-    return dispatch({
-      type: GET_USER_BY_NUM_DOCUMENT,
-      payload: pacient,
-    });
-   }
 
-  //  const arr1 = dataDoctor.concat(dataPacient).flat();
-  //  const totalUsers = arr1.map((user) => {
-  //    return {
-  //      tipo_de_documento: user.tipo_de_documento,
-  //      numero_de_documento: user.numero_de_documento,
-  //      nombre: user.nombre,
-  //      apellido: user.apellido,
-  //      email: user.email,
-  //      status_cuenta: user.status_cuenta
-  //     };
-  //   });
+    //  const arr1 = dataDoctor.concat(dataPacient).flat();
+    //  const totalUsers = arr1.map((user) => {
+    //    return {
+    //      tipo_de_documento: user.tipo_de_documento,
+    //      numero_de_documento: user.numero_de_documento,
+    //      nombre: user.nombre,
+    //      apellido: user.apellido,
+    //      email: user.email,
+    //      status_cuenta: user.status_cuenta
+    //     };
+    //   });
 
-  //   return dispatch({
-  //     type: GET_USER_BY_NUM_DOCUMENT,
-  //     payload: totalUsers,
-  //   });
+    //   return dispatch({
+    //     type: GET_USER_BY_NUM_DOCUMENT,
+    //     payload: totalUsers,
+    //   });
   };
 };
 
@@ -188,14 +193,15 @@ export const setUserLogin = (payload) => {
   return async (dispatch) => {
     try {
       const response = await axios.post(`${apiUrl}/login`, payload);
+      console.log({ response });
       const data = response.data;
-      
-      if(data.status_cuenta === "desactivada"){
+
+      if (data.status_cuenta === "desactivada") {
         //return alert("Tu usuario ha sido desactivado, esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente")
         return dispatch({
           type: USER_LOGIN,
-          payload: {status_cuenta:data.status_cuenta}
-        })
+          payload: { status_cuenta: data.status_cuenta },
+        });
       }
       return dispatch({
         type: USER_LOGIN,
@@ -306,7 +312,6 @@ export const totalUsers = () => {
   };
 };
 
-
 export const addAntecedente = (payload) => {
   return function (dispatch) {
     return dispatch({
@@ -338,18 +343,20 @@ export const setLogOutAdmin = () => {
   };
 };
 
-
 export const putStatePacient = (payload) => {
   return async (dispatch) => {
-    try{
-      const response = await axios.put(`${apiUrl}/pacientes/userstatus`, payload);
+    try {
+      const response = await axios.put(
+        `${apiUrl}/pacientes/userstatus`,
+        payload
+      );
       const data = response.data;
-  
+
       return dispatch({
         type: PACIENT_ACTIVATE_DESACTIVATE,
         payload: data,
       });
-    } catch(error){
+    } catch (error) {
       console.error(error);
     }
   };
@@ -357,15 +364,15 @@ export const putStatePacient = (payload) => {
 
 export const putStateDoctor = (payload) => {
   return async (dispatch) => {
-    try{
+    try {
       const response = await axios.put(`${apiUrl}/doctor/userstatus`, payload);
       const data = response.data;
-  
+
       return dispatch({
         type: DOCTOR_ACTIVATE_DESACTIVATE,
         payload: data,
       });
-    } catch(error){
+    } catch (error) {
       console.error(error);
     }
   };
@@ -385,16 +392,43 @@ export const getAllPagos = () => {
 
 export const putPago = (payload) => {
   return async (dispatch) => {
-    try{
+    try {
       const response = await axios.put(`${apiUrl}/pagos`, payload);
       const data = response.data;
-  
+
       return dispatch({
         type: PUT_PAGO_STATUS,
         payload: data,
       });
-    } catch(error){
+    } catch (error) {
       console.error(error);
     }
   };
 }
+
+
+
+export const setUserLoginGmail = (email) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${apiUrl}/pacientes`);
+      const data = response.data;
+      const paciente = data.find((p) => p.email === email);
+      
+      if(data.status_cuenta === "desactivada"){
+        //return alert("Tu usuario ha sido desactivado, esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente")
+        return dispatch({
+          type: GMAIL_PACIENT,
+          payload: {status_cuenta:data.status_cuenta}
+        })
+      }
+      return dispatch({
+        type: GMAIL_PACIENT,
+        payload: paciente,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+

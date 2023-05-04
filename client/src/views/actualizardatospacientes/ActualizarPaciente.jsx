@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import {putPacients,totalUsers,setUserLogin} from "../../redux/actions/actions"
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
+import Swal from 'sweetalert2';
 
 const ActualizarPaciente = () => {
   const InfoUser= useSelector(state=>state.userLogin)
@@ -21,11 +22,21 @@ const ActualizarPaciente = () => {
   }, [])
 
   const submit1 = (data) =>{
-    dispatch(putPacients(data))
-    localStorage.removeItem("reduce-state");
-    dispatch(setUserLogin({usuario:data.numero_de_documento,contraseña:data.contraseña}))
-    alert("tus datos han sido actualizados")
-    navigate("/perfilpaciente")
+   
+    Swal.fire({
+      title: 'Estas seguro que quieres guardar los cambios?',
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar!',
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        dispatch(putPacients(data))
+        localStorage.removeItem("reduce-state");
+        dispatch(setUserLogin({usuario:data.numero_de_documento,contraseña:data.contraseña}))
+        navigate("/perfilpaciente")
+      } 
+    })
   }
 
   const validarEmail = (value) => {
