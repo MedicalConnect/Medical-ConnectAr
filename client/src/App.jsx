@@ -41,7 +41,7 @@ function App() {
   // ];
 
   return (
-    <div>
+    <>
       {/* {!excludedRoutes.includes(location.pathname) && <NavBar />}
       {includeRoutes.includes(location.pathname) && <NavBar2 />} */}
       <NavBar />
@@ -74,7 +74,7 @@ function App() {
         <Route path="/pago" element={<Planes />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

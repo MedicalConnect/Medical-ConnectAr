@@ -24,6 +24,7 @@ import {
   GET_ALL_PAGOS,
   GET_USER_BY_NUM_DOCUMENT,
   PUT_PAGO_STATUS,
+  GMAIL_PACIENT,
 } from "./actions-types";
 
 import apiUrl from "../../helpers/apiUrl";
@@ -403,4 +404,31 @@ export const putPago = (payload) => {
       console.error(error);
     }
   };
+}
+
+
+
+export const setUserLoginGmail = (email) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`${apiUrl}/pacientes`);
+      const data = response.data;
+      const paciente = data.find((p) => p.email === email);
+      
+      if(data.status_cuenta === "desactivada"){
+        //return alert("Tu usuario ha sido desactivado, esto puede deberse por muchos motivos! , si cree que hubo un error porfavor comunicarse con atencion al cliente")
+        return dispatch({
+          type: GMAIL_PACIENT,
+          payload: {status_cuenta:data.status_cuenta}
+        })
+      }
+      return dispatch({
+        type: GMAIL_PACIENT,
+        payload: paciente,
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
+

@@ -126,9 +126,9 @@ const PerfilPaciente = () => {
               <div className="accordion-body">
                 {userLogin?.HistoriaClinicas?.length ? (
                   <div className="row justify-content-end">
-                    {userLogin.HistoriaClinicas.map((historia) => {
+                    {userLogin.HistoriaClinicas.map((historia,index) => {
                       return (
-                        <div className="col-11 card px-0 my-2">
+                        <div className="col-11 card px-0 my-2" key={index}>
                           <div className="card-header">
                             <span className="text-start">
                               {historia.tipo.toUpperCase()}
@@ -208,9 +208,9 @@ const PerfilPaciente = () => {
                             ).isSame(date)
                           : true
                       )
-                      ?.map((atencion) => {
+                      ?.map((atencion,index) => {
                         return (
-                          <div className="col-4 p-1">
+                          <div className="col-4 p-1" key={index}>
                             <div className="card" style={{ height: "14rem" }}>
                               <div className="card-header text-start">
                                 <p className="row justify-content-between p-0 m-0">
@@ -256,9 +256,9 @@ const PerfilPaciente = () => {
                                   {Array.from(
                                     { length: atencion.rating },
                                     (v, i) => i
-                                  ).map((value) => {
+                                  ).map((value ,index) => {
                                     return (
-                                      <div className="col-2 px-0">
+                                      <div className="col-2 px-0" key={index}>
                                         <FontAwesomeIcon icon={faStarSolid} />
                                       </div>
                                     );
