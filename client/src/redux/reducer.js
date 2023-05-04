@@ -23,6 +23,7 @@ import {
   GET_ALL_PAGOS,
   GET_USER_BY_NUM_DOCUMENT,
   PUT_PAGO_STATUS,
+  GMAIL_PACIENT
 } from "./actions/actions-types";
 
 const defaultState = {
@@ -214,6 +215,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         adminLogin: null,
       };
+
+      case GMAIL_PACIENT:
+        saveReduceState({
+          ...state,
+          userLogin: action.payload,
+        });
+        return {
+          ...state,
+          userLogin: action.payload,
+        };
 
     case GET_AVAILABLE_DOCTOR:
       saveReduceState({

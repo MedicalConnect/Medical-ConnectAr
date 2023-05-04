@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
 import { useDispatch, useSelector } from "react-redux";
 import { loginLogOut, setLogOutAdmin } from "../../redux/actions/actions";
+import { useAuth0 } from '@auth0/auth0-react';
 
 const NavBar2 = () => {
+  const { logout, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const allAttentions = useSelector((state) => state.allAtentions);
@@ -13,7 +15,8 @@ const NavBar2 = () => {
 
   const logOut = () => {
     localStorage.removeItem("reduce-state");
-    if (userLogin) {
+    if (userLogin || isAuthenticated) {
+      logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })
       dispatch(loginLogOut());
       navigate("/");
     } else {
