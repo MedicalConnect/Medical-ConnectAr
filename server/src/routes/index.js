@@ -5,7 +5,8 @@ const doctorRouter = require("./doctorRoute");
 const historiaClinicaRouter = require("./historiaClinicaRoute");
 const atencionesRouter = require("./atencionesRoutes");
 const loginRouter = require("./loginRoutes");
-const adminRouter = require ("./adminRoutes")
+const adminRouter = require("./adminRoutes");
+const googleStorageRouter = require("./googleStorageRouter");
 
 // Importar todos los routers;
 
@@ -20,5 +21,6 @@ mainRouter.use("/atenciones", atencionesRouter);
 mainRouter.use("/login", loginRouter);
 mainRouter.use("/pagos", pagosRouter);
 mainRouter.use("/admin", adminRouter);
+mainRouter.use("/storage/:pacienteId", googleStorageRouter);
 
 module.exports = mainRouter;

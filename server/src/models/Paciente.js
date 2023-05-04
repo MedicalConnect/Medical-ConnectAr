@@ -67,13 +67,15 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(),
       allowNull: false,
     },
-      status_cuenta: {
-      type: DataTypes.ENUM( "activa", "desactivada" ),
+    status_cuenta: {
+      type: DataTypes.ENUM("activa", "desactivada"),
       defaultValue: "activa",
     },
+
     rol:{
       type: DataTypes.STRING(),
       defaultValue: "paciente",
     }
+
   });
 };
