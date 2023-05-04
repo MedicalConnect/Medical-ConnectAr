@@ -5,6 +5,7 @@ import { setUserLogin } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import persona from "../../helpers/img/business-people.png"
 
 function Landing() {
   const { user, isAuthenticated } = useAuth0();
@@ -156,7 +157,7 @@ function Landing() {
             <h4>
               <img
                 className="iconobebe"
-                src="https://images-ext-2.discordapp.net/external/J-xSmKeMrW59zoEHkw_OEBkmFAUN_HqgrOYUzUGdVTQ/%3F_nc_cat%3D103%26ccb%3D1-7%26_nc_sid%3D730e14%26_nc_ohc%3DamoR9j7i_2oAX_dagH9%26_nc_ht%3Dscontent.faep23-1.fna%26oh%3D00_AfBb1fgvNAc6lDgRclinGNZsjOK3hy4NLUH3T8dGHnhr3A%26oe%3D644B8E57/https/scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341327392_1218583425480978_1915852341125186839_n.jpg?width=792&height=792"
+                src={persona}
                 alt=""
               />{" "}
               Crea tu cuenta
@@ -202,13 +203,13 @@ function Landing() {
 
       <div className="padretarjeta">
         <div className="hijotarjeta">
-          <h3>Planes de suscripción</h3>
+          <h3>Servicio de suscripcion</h3>
           <p>
             Podrás contar con asistencia médica oportuna a un valor accesible,
             para ti y tu familia.
           </p>
           <Link to={"/planes"} target="_blank">
-            <button>Nuestros Planes!</button>
+            <button>Contratanos!</button>
           </Link>
         </div>
       </div>

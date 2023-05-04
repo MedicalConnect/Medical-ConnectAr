@@ -381,3 +381,14 @@
 .botonsitogoogle:hover {
   transform: scale(1.02);
 }
+
+.logintexto1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logintexto1 p{
+  margin-left: 2em;
+}
