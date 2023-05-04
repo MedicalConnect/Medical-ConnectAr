@@ -127,36 +127,7 @@ const Footer = () => {
                 </div>
               </div>
               {/*user4*/}
-              <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
-                <img
-                  className="hero-imagen-desarrollador rounded-circle"
-                  src="https://cdn.discordapp.com/attachments/1094314281123717204/1097356046965686322/Edison.jpg"
-                  alt="foto"
-                />
-                <p className="perfil-titulo fw-medium">Edinson Cespedes</p>
-                <div className="badges-contenedor">
-                  <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
-                      <img
-                        className="imagen-linkedin"
-                        src="https://cdn.discordapp.com/attachments/1094314281123717204/1097325514659729438/linkedin.png"
-                        alt=""
-                      />
-                      LinkedIn
-                    </a>
-                  </span>
-                  <span class="badge text-bg-primary1">
-                    <a className="text-white" href="#">
-                      <img
-                        className="imagen-gato"
-                        src="https://cdn.discordapp.com/attachments/1094314281123717204/1097074472525242439/github.png"
-                        alt="github"
-                      />
-                      Github
-                    </a>
-                  </span>
-                </div>
-              </div>
+
               {/*user5*/}
               <div className="columna col-12 col-md-2 hero-principal d-flex flex-column justify-content-center align-items-center">
                 <img
