@@ -4,18 +4,15 @@ import { Link } from "react-router-dom";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Landing() {
+  const { user, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userlogin = useSelector((state) => state.userLogin);
 
   useEffect(() => {
-    const userLogin1 = localStorage.getItem("userInfo");
-    if (userLogin1) {
-      dispatch(setUserLogin(JSON.parse(userLogin1)));
-    }
-    console.log(userLogin1);
     if (userlogin?.rol) {
       navigate(
         userlogin.rol === "paciente"
@@ -25,7 +22,15 @@ function Landing() {
           : "/perfilmedico"
       );
     }
+  
   }, [userlogin]);
+
+  // useEffect(() => {
+  //    if(userlogin){
+  //     navigate("/perfilpaciente")
+  //   }
+  // }, [])
+  
 
   return (
     <div>

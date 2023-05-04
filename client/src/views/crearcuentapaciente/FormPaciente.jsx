@@ -6,21 +6,35 @@ import {useForm} from "react-hook-form"
 import {useNavigate} from "react-router-dom"
 import { useDispatch } from 'react-redux'
 import moment from "moment";
+import { useAuth0 } from "@auth0/auth0-react";
+import Swal from 'sweetalert2';
 
 const Formpaciente = () => {
+  const { user, isAuthenticated, isLoading,loginWithRedirect,logout } = useAuth0();
   const InfoUser= useSelector(state=>state.userLogin)
   const totalUser= useSelector(state=>state.totalUsers)
   const paises=["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"];
   // const barrios=['Agronomía','Almagro','Balvanera','Barracas','Belgrano','Boedo','Caballito','Chacarita','Coghlan','Colegiales','Constitución','Flores','Floresta','La Boca','La Paternal','Liniers','Mataderos','Monte Castro','Montserrat','Nueva Pompeya','Nuñez','Palermo','Parque Avellaneda','Parque Chacabuco','Parque Chas','Parque Patricios','Puerto Madero','Recoleta','Retiro','Saavedra','San Cristóbal','San Nicolás','San Telmo','Versalles','Villa Crespo','Villa Devoto','Villa General Mitre','Villa Lugano','Villa Luro','Villa Ortúzar','Villa Pueyrredón','Villa Real','Villa Riachuelo','Villa Santa Rita','Villa Soldati','Villa Urquiza','Villa del Parque','Vélez Sarsfield']
   const arrProvincias = ["Buenos Aires", "Catamarca", "Chaco", "Chubut", "Córdoba", "Corrientes", "Entre Ríos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquén", "Río Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucumán"];
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { register, watch, formState: {errors} , handleSubmit, } = useForm();
 
   useEffect(() => {
     dispatch(totalUsers())
-  }, [])
+    if(isAuthenticated){
+      Swal.fire({
+        title: 'Si tu verificacion de identidad la realizaste con Google, te solicitamos que completes los siguientes datos que son imprescindibles para la creación de tu cuenta',
+        icon: 'warning',
+        showClass: {
+          popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+          popup: 'animate__animated animate__fadeOutUp'
+        }
+      })
+    }
+  }, [isAuthenticated])
 
   const submit1 = (data) =>{
    dispatch(addPacient(data))
@@ -80,6 +94,7 @@ const isValidDate = (inputDate) => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={isAuthenticated ? user.name : ""}
                   {...register("nombre",{
                     required:true,
                     maxLength:25
@@ -94,6 +109,7 @@ const isValidDate = (inputDate) => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="name@example.com"
+                  defaultValue={isAuthenticated ? user.name : ""}
                   {...register("apellido",{
                     required:true,
                     maxLength:25
@@ -284,10 +300,12 @@ const isValidDate = (inputDate) => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="Ingresa tu email"
+                  value={isAuthenticated ? user.email : ""}
                   {...register("email",{
                     required:true,
                     pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                    validate:validarEmail
+                    validate:validarEmail,
+                    
                   })}
                 />
                  {errors.email?.type === "required" && <p className='errorp'>El campo email es requerido</p>}
@@ -358,6 +376,13 @@ const isValidDate = (inputDate) => {
               profesional de la salud. <br /> 
             </p>
             </div>
+            { isAuthenticated && (
+      <div>
+          <button className="botongoogleform" onClick={() => logout({ logoutParams: { returnTo: "http://127.0.0.1:5173" } })}>
+     Cancelar creacion de cuenta por google
+    </button>
+      </div>
+    )}
            </div>
           </div>
         </div>

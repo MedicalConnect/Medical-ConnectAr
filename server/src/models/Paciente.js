@@ -71,5 +71,9 @@ module.exports = (sequelize) => {
       type: DataTypes.ENUM( "activa", "desactivada" ),
       defaultValue: "activa",
     },
+    rol:{
+      type: DataTypes.STRING(),
+      defaultValue: "paciente",
+    }
   });
 };

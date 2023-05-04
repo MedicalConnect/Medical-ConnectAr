@@ -20,8 +20,8 @@ const FiltrosComponent = ({
           <option value="" defaultValue>
             todos los estados
           </option>
-          {estados.map((estado) => (
-            <option value={estado}>{estado}</option>
+          {estados.map((estado,index) => (
+            <option value={estado} key={index}>{estado}</option>
           ))}
         </select>
       </div>
