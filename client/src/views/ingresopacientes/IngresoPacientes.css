@@ -354,7 +354,7 @@
 
 .botonsitogoogle {
   margin-bottom: 50px;
-  margin-left: 914px;
+  margin-left: 60em;
   max-width: 20em;
   display: flex;
   padding: 0.5rem 1.4rem;
@@ -380,4 +380,15 @@
 
 .botonsitogoogle:hover {
   transform: scale(1.02);
+}
+
+.logintexto1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logintexto1 p{
+  margin-left: 2em;
 }

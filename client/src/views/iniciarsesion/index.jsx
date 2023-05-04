@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import compu from "../../helpers/img/monitor.png"
 
 const IniciarSesion = () => {
   const navigate = useNavigate();
@@ -111,36 +112,28 @@ const IniciarSesion = () => {
             </form>
           </div>
           <div className="col-6">
-            <br />
-            <br />
-            <br />
-            <p className="text-center fw-medium">
-              <img
-                className="pimg"
-                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341181751_556498566471662_5081762602676827150_n.jpg?stp=dst-jpg_p75x225&_nc_cat=111&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeFJiUraNiHy43q9nZVEdDenIiY-C9Kc51kiJj4L0pznWSnLLdONKS77MQm9_9jecwMawbPnntQFr-iGVrwygjJh&_nc_ohc=pQQcABMtMnYAX8VPQpQ&_nc_oc=AQl4vMdIgvZaYp9DaR6vD7K1Jt0RNmBl9A2XaZ6pSMudyawjzfjCsv39480h7_WhnB8&_nc_ht=scontent.faep23-1.fna&oh=00_AfBkpyPbBDcZej2kcJOqd149I5nCSsJeoxtH6gEj-K7HaA&oe=643D27C6"
-                alt="icono"
-              />
+            <div className="logintexto1">
+              <br />
+              <br />
+              <br />
+            <p className="text-start fw-medium lh-1">
+
               Atiendase con los mas profesionales medicos que se encuentren
               disponibles la momento de su consulta!
             </p>
-            <p className="text-center fw-medium">
-              <img
-                className="pimg"
-                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341157176_173370802305756_8738341263779863854_n.jpg?stp=dst-jpg_p75x225&_nc_cat=107&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeGvhXmDiD38LBp2nNjud7ISHnEsyPAKcucecSzI8Apy58m_9GWSW4vg4q7X2FM34R5FAvVF51Ed2ZHRgPowrGX0&_nc_ohc=xKhWcfeQ6CQAX-rD9YR&_nc_ht=scontent.faep23-1.fna&oh=00_AfCxDXXnlYvtCz-VwvlmlIQ9rspUqqXhxciTYlJBZiCphA&oe=643D7453"
-                alt=""
-              />
+            <hr />
+            <p className="text-start fw-medium lh-1">
+             
               87% de los profesionales asegura haber mejorado el rendimiento de
               su consulta médica gracias a Medical Connect
             </p>
-            <p className="text-center fw-medium">
-              <img
-                className="pimg"
-                src="https://scontent.faep23-1.fna.fbcdn.net/v/t39.30808-6/341169834_1045351673004491_2151599842251033685_n.jpg?stp=dst-jpg_p75x225&_nc_cat=107&ccb=1-7&_nc_sid=dbeb18&_nc_eui2=AeFYVNvQSnOJohKb6ZyMlRhp5AsbIBD9J_DkCxsgEP0n8CmECHWVuLiUDqMymwIBCJvAy6pxXCFbj0xLCKsnJNbV&_nc_ohc=JC3MhOvr69AAX9USilB&_nc_ht=scontent.faep23-1.fna&oh=00_AfCycabIXrm5n3S8A3-tC-itYcLI8UmMZtSaRmjO90z3mQ&oe=643D9B26"
-                alt=""
-              />
+            <hr />
+            <p className="text-start fw-medium lh-1">
+            
               9 de cada 10 especialistas recomendarían Medical Connect a otro
               profesional de la salud. <br />
             </p>
+            </div>
           </div>
         </div>
       </div>
