@@ -9,4 +9,5 @@ const historiaClinicaRouter = Router();
 historiaClinicaRouter.get("/:pacienteId", getAllHistoriaClinicaHandler);
 historiaClinicaRouter.post("/", createHistoriaClinicaHandler);
 
+
 module.exports = historiaClinicaRouter;
