@@ -60,14 +60,24 @@ const PerfilPaciente = () => {
         ) ? (
           <ModalMedicos />
         ) : (
-          <button onClick={btn_atender} className="btn btn-primary mx-4"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop"> Atenderme </button>
+          <button
+            onClick={btn_atender}
+            className="btn btn-primary mx-4"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            {" "}
+            Atenderme{" "}
+          </button>
         )}
         <Link to={"/pago"}>
-          <button className="btn btn-primary mx-4"
-          data-bs-toggle="modal"
-          data-bs-target="#staticBackdrop">Pagar</button>
+          <button
+            className="btn btn-primary mx-4"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+          >
+            Pagar
+          </button>
         </Link>
       </div>
       <div className={styles.acordeon}>
