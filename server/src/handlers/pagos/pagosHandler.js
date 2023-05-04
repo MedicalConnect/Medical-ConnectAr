@@ -31,7 +31,7 @@ const pagosHandler = async (req, res) => {
     access_token: `${MERCADOPAGO_KEY}`,
   });
   console.log(preference);
-  mercadopago.preferences
+  await mercadopago.preferences
     .create(preference)
     .then((response) => res.status(200).send(response.body))
     .catch((err) => res.status(400).send(console.log(err)));

@@ -300,7 +300,7 @@ const isValidDate = (inputDate) => {
                   className="form-control"
                   id="floatingInput"
                   placeholder="Ingresa tu email"
-                  value={isAuthenticated ? user.email : ""}
+                  value={isAuthenticated ? user.email : null}
                   {...register("email",{
                     required:true,
                     pattern:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
