@@ -40,9 +40,9 @@ function Landing() {
             <br />
             <p className="fw-semibold subtitulo1 fs-5">
               {" "}
-              Te invitamos a formar parte de este servicio en el cual podras
-              recibi las mejores atenciones desde cualquier parte de capital
-              federal que te encuentres!
+              Te invitamos a formar parte de esta plataforma, en la cual podras
+              recibir atenciones medicas en tiempo real y de alta calidad, desde
+              cualquier parte del pais donde te encuentres!
             </p>
             <br />
             <br />

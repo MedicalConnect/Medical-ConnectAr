@@ -21,13 +21,16 @@ const IngresoPacientes = () => {
     dispatch(getAllPacients());
 
     if (isAuthenticated && user) {
-      const res = pacients.find((e) => e.email === user.email);
-      if (res) {
-        dispatch(setUserLoginGmail(user.email, isAuthenticated));
-        navigate("/perfilpaciente");
-      } else {
-        navigate("/creacionpaciente");
-      }
+      setTimeout(function() {
+        const res = pacients.find((e) => e.email === user.email);
+        if (res) {
+          dispatch(setUserLoginGmail(user.email, isAuthenticated));
+          navigate("/perfilpaciente");
+        } else {
+          navigate("/creacionpaciente");
+        }
+      }, 2000);
+ 
       // return
     }
     // if(isAuthenticated){
