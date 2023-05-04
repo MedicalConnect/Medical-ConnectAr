@@ -36,3 +36,51 @@
 .presagado{
   margin-left: 13.5px;
 }
+
+.botongoogleform{
+  height: 3em;
+  width: auto;
+  border: none;
+  border-radius: 10em;
+  background: #dee442;
+  font-size: 17px;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+.botongoogleform {
+  animation: shake3856 2s linear infinite both;
+ }
+ 
+ @keyframes shake3856 {
+  0% {
+   -webkit-transform: translate(0);
+   transform: translate(0);
+  }
+ 
+  20% {
+   -webkit-transform: translate(-2px, 2px);
+   transform: translate(-2px, 2px);
+  }
+ 
+  40% {
+   -webkit-transform: translate(-2px, -2px);
+   transform: translate(-2px, -2px);
+  }
+ 
+  60% {
+   -webkit-transform: translate(2px, 2px);
+   transform: translate(2px, 2px);
+  }
+ 
+  80% {
+   -webkit-transform: translate(2px, -2px);
+   transform: translate(2px, -2px);
+  }
+ 
+  100% {
+   -webkit-transform: translate(0);
+   transform: translate(0);
+  }
+ }
