@@ -5,19 +5,30 @@ import NavBar2 from "../NavBar2/NavBar2";
 import { useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const privateRouter = [
-  "/perfilpaciente",
-  "/perfilmedico",
-  "/historialclinico",
-  "/actualizarpaciente",
-  "/actualizarmedico",
-  "/saladeespera",
-  "/videoconsulta",
-  "/atencionfinalizada",
-  "/perfiladmin"
-];
+// const privateRouter = [
+//   "/perfilpaciente",
+//   "/perfilmedico",
+//   "/historialclinico",
+//   "/actualizarpaciente",
+//   "/actualizarmedico",
+//   "/saladeespera",
+//   "/videoconsulta",
+//   "/atencionfinalizada",
+//   "/perfiladmin"
+// ];
 
 const NavBar = () => {
+  const privateRouter = [
+    "/perfilpaciente",
+    "/perfilmedico",
+    "/historialclinico",
+    "/actualizarpaciente",
+    "/actualizarmedico",
+    "/saladeespera",
+    "/videoconsulta",
+    "/atencionfinalizada",
+    "/perfiladmin"
+  ];
   const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,17 +36,17 @@ const NavBar = () => {
   const userlogin = useSelector((state) => state.userLogin);
   const userAdmin = useSelector((state) => state.adminLogin);
 
-  useEffect(() => {
-    if (!userlogin || !userAdmin || !isAuthenticated ) {
-      if (privateRouter.includes(location.pathname)) {
-        navigate("/");
-      }
-    }
-  }, [userlogin,userAdmin,isAuthenticated]);
+  // useEffect(() => {
+  //   if (!userlogin || !userAdmin || !isAuthenticated ) {
+  //     if (privateRouter.includes(location.pathname)) {
+  //       navigate("/");
+  //     }
+  //   }
+  // }, [userlogin,userAdmin,isAuthenticated]);
 
-  if (userlogin?.status_cuenta === "activa" || userAdmin || isAuthenticated && userlogin?.status_cuenta === "activa") {
-    return <NavBar2 />;
-  }
+  // if (userlogin?.status_cuenta === "activa" || userAdmin || isAuthenticated && userlogin?.status_cuenta === "activa") {
+  //   return <NavBar2 />;
+  // }
 
   return (
     <nav className="navbar  navbar-expand-md navbar-light">
