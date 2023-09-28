@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import persona from "../../helpers/img/business-people.png";
 
 function Landing() {
-  const { user, isAuthenticated } = useAuth0();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userlogin = useSelector((state) => state.userLogin);
