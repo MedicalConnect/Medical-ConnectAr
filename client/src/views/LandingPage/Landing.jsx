@@ -222,11 +222,6 @@ function Landing() {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <div className="container">
-              <img
-                className="testimonio-imagen rounded-circle"
-                src="https://media.discordapp.net/attachments/1094314281123717203/1099836761192009828/pexels-photo-6248821.webp?width=478&height=718"
-                alt="Foto de Gino"
-              />
               <p className="testimonio-texto">
                 "Estoy muy agradecido por el servicio que recibí de Medical
                 Connect. La plataforma de videollamadas es muy fácil de usar y
@@ -244,11 +239,6 @@ function Landing() {
           </div>
           <div className="carousel-item">
             <div className="container">
-              <img
-                className="testimonio-imagen rounded-circle"
-                src="https://media.discordapp.net/attachments/1094314281123717203/1099837191259177020/pexels-photo-3846049.jpeg?width=478&height=718"
-                alt="Foto de Leonardo"
-              />
               <p className="testimonio-texto">
                 "Tuve una experiencia maravillosa con Medical Connect. Mi médico
                 me atendió enseguida y fue muy detallado en su explicación de mi
