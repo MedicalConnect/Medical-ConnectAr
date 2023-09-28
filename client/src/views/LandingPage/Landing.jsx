@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { setUserLogin } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
-import persona from "../../helpers/img/business-people.png"
+import persona from "../../helpers/img/business-people.png";
 
 function Landing() {
   const { user, isAuthenticated } = useAuth0();
@@ -14,22 +13,17 @@ function Landing() {
   const userlogin = useSelector((state) => state.userLogin);
 
   useEffect(() => {
+    const userLogin1 = localStorage.getItem("userInfo");
+    if (userLogin1) {
+      dispatch(setUserLogin(JSON.parse(userLogin1)));
+    }
+    console.log(userLogin1);
     if (userlogin?.rol) {
       navigate(
-        userlogin.rol === "paciente"
-          ? "/perfilpaciente"
-          : userlogin.rol === "admin"
-          ? "/perfiladmin"
-          : "/perfilmedico"
+        userlogin.rol === "paciente" ? "/perfilpaciente" : "/perfilmedico"
       );
     }
   }, [userlogin]);
-
-  // useEffect(() => {
-  //    if(userlogin){
-  //     navigate("/perfilpaciente")
-  //   }
-  // }, [])
 
   return (
     <div>
@@ -39,11 +33,11 @@ function Landing() {
           <div className="col-9 text-center">
             <h1 className="fw-bold ">Medical Connect te da la Bienvenida!</h1>
             <br />
-            <p className="fw-semibold subtitulo1 fs-5">
+            <p className="fw-semibold subtitulo1">
               {" "}
-              Te invitamos a formar parte de esta plataforma, en la cual podras
-              recibir atenciones medicas en tiempo real y de alta calidad, desde
-              cualquier parte del pais donde te encuentres!
+              Te invitamos a formar parte de este servicio en el cual podras
+              recibi las mejores atenciones desde cualquier parte de capital
+              federal que te encuentres!
             </p>
             <br />
             <br />
@@ -53,10 +47,7 @@ function Landing() {
       </div>
 
       <div className="contenedorflex">
-        <img
-          src="https://media.discordapp.net/attachments/1094314281123717203/1099831535491891310/56989.jpeg?width=956&height=718"
-          alt=""
-        />
+        <img src="https://fondosmil.com/fondo/56989.jpg" alt="" />
         <div className="divaviso fw-semibold">
           <p>Registrate y accede a diferentes funciones!</p>
           <Link to="/creacionpaciente" target="_blank">
@@ -155,12 +146,7 @@ function Landing() {
               forma efectiva y segura.
             </p>
             <h4>
-              <img
-                className="iconobebe"
-                src={persona}
-                alt=""
-              />{" "}
-              Crea tu cuenta
+              <img className="iconobebe" src={persona} alt="" /> Crea tu cuenta
             </h4>
             <p>
               Llena los datos solicitados para brindarte la mejor atención. Si
@@ -194,7 +180,7 @@ function Landing() {
           <div className="col-8">
             <img
               className="padreimagen"
-              src="https://media.discordapp.net/attachments/1094314281123717203/1099836414654431252/enfermera-medica-tomando-sangre-de-ilustracion-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpeg?width=812&height=718"
+              src="https://thumbs.dreamstime.com/b/enfermera-m%C3%A9dica-tomando-sangre-de-ilustraci%C3%B3n-vectorial-dibujos-animados-voluntarios-aislados-la-caricatura-plana-voluntaria-205975051.jpg"
               alt=""
             />
           </div>
@@ -209,7 +195,7 @@ function Landing() {
             para ti y tu familia.
           </p>
           <Link to={"/planes"} target="_blank">
-            <button>Contratanos!</button>
+            <button>Nuestros Planes!</button>
           </Link>
         </div>
       </div>
@@ -278,11 +264,6 @@ function Landing() {
           </div>
           <div className="carousel-item">
             <div className="container">
-              <img
-                className="testimonio-imagen rounded-circle"
-                src="https://media.discordapp.net/attachments/1094314281123717203/1099837656906612847/maxi_2_crop1628279776764.jpg_315917931.webp?width=956&height=718"
-                alt="Foto de Nora"
-              />
               <p className="testimonio-texto">
                 "Medical Connect me sorprendió con su eficiencia y facilidad de
                 uso. Nunca había tenido una consulta médica en línea, pero el
